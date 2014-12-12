@@ -12,7 +12,7 @@
     "argparse": "0.1.15",
     "ejs": "1.0.0",
     "escope": "1.0.1",
-    "execSync": "1.0.1-pre",
+    "execSync": "1.0.2",
     "express": "3.4.8",
     "fast-stats": "0.0.2",
     "finalhandler": "0.0.3",
