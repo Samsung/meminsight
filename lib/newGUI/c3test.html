@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="c3-0.3.0/c3.css" rel="stylesheet" type="text/css">
+    <script src="lib/jquery-2.1.0.min.js"></script>
+    <script src="lib/d3.v3.min.js" charset="utf-8"></script>
+    <script src="c3-0.3.0/c3.js"></script>
+    <title>Test</title>
+</head>
+<body>
+<div id="chart"></div>
+<script>
+    var chart = c3.generate({
+        data: {
+            // iris data from R
+            columns: [
+                ['data1', 1432],
+                ['data2', 280],
+                ['data3', 213],
+                    ['data4', 197],
+                    ['data5', 144],
+                    ['data6', 1501]
+            ],
+            type : 'pie'
+        }
+    });
+    setTimeout(function () {
+        chart.load({
+            columns: [
+                ['data1', 1501],
+                ['data2', 144],
+                ['data3', 197],
+                ['data7', 213],
+                ['data8', 280],
+                ['data9', 1432]
+            ],
+            unload: ['data4', 'data5', 'data6']
+        });
+    }, 2000)
+</script>
+</body>
+</html>

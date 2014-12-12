@@ -1,0 +1,11 @@
+Id: 2     Alloc: testRefCount39.js:16:2:34:2              Time: 29         Loc: testRefCount39.js:16:1:34:5
+Id: 3     Alloc: testRefCount39.js:16:2:34:2              Time: 29         Loc: testRefCount39.js:16:1:34:5
+Id: 4     Alloc: testRefCount39.js:17:18:33:10            Time: 27         Loc: testRefCount39.js:17:18:33:12
+Id: 5     Alloc: testRefCount39.js:17:18:33:10            Time: 27         Loc: testRefCount39.js:17:18:33:12
+Id: 6     Alloc: testRefCount39.js:18:26:19:14            Time: 26         Loc: testRefCount39.js:17:18:33:10
+Id: 7     Alloc: testRefCount39.js:18:26:19:14            Time: 26         Loc: testRefCount39.js:17:18:33:10
+Id: 8     Alloc: testRefCount39.js:20:29:27:14            Time: 26         Loc: testRefCount39.js:17:18:33:10
+Id: 9     Alloc: testRefCount39.js:20:29:27:14            Time: 26         Loc: testRefCount39.js:17:18:33:10
+Id: 10    Alloc: testRefCount39.js:29:29:30:18            Time: 34         Loc: end of program
+Id: 11    Alloc: testRefCount39.js:29:29:30:18            Time: 34         Loc: end of program
+Id: 12    Alloc: testRefCount39.js:28:27:32:14            Time: 34         Loc: end of program

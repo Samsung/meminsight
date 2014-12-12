@@ -1,0 +1,4846 @@
+{
+  "functionTrace": [
+    [
+      0,
+      4,
+      185
+    ],
+    [
+      1,
+      15,
+      289
+    ],
+    [
+      0,
+      106,
+      145
+    ],
+    [
+      1,
+      111,
+      273
+    ],
+    [
+      0,
+      116,
+      57
+    ],
+    [
+      1,
+      820,
+      257
+    ]
+  ],
+  "objectInfo": {
+    "checknode_orig_.js:18:1:33:3": [
+      {
+        "objectId": 2,
+        "creationTime": 3,
+        "creationCallStack": [],
+        "unreachableTime": 16,
+        "unreachableSite": "checknode_orig_.js:18:1:33:5",
+        "staleness": 1,
+        "lastUseTime": 15,
+        "lastUseSite": 225,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 3,
+        "creationTime": 3,
+        "creationCallStack": [],
+        "unreachableTime": 16,
+        "unreachableSite": "checknode_orig_.js:18:1:33:5",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "checknode_orig_.js:19:15:24:6": [
+      {
+        "objectId": 4,
+        "creationTime": 7,
+        "creationCallStack": [
+          225
+        ],
+        "unreachableTime": 821,
+        "unreachableSite": "checknode_orig_.js:19:15:24:6",
+        "staleness": 705,
+        "lastUseTime": 116,
+        "lastUseSite": 57,
+        "shallowSize": 3,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 5,
+        "creationTime": 7,
+        "creationCallStack": [
+          225
+        ],
+        "unreachableTime": 821,
+        "unreachableSite": "checknode_orig_.js:19:15:24:6",
+        "staleness": 814,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "checknode_orig_.js:22:21:22:37": [
+      {
+        "objectId": 53,
+        "creationTime": 122,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 133,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 56,
+        "creationTime": 129,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 140,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 59,
+        "creationTime": 136,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 147,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 62,
+        "creationTime": 143,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 154,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 65,
+        "creationTime": 150,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 161,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 68,
+        "creationTime": 157,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 168,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 71,
+        "creationTime": 164,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 175,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 74,
+        "creationTime": 171,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 182,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 77,
+        "creationTime": 178,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 189,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 80,
+        "creationTime": 185,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 196,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 83,
+        "creationTime": 192,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 203,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 86,
+        "creationTime": 199,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 210,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 89,
+        "creationTime": 206,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 217,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 92,
+        "creationTime": 213,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 224,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 95,
+        "creationTime": 220,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 231,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 98,
+        "creationTime": 227,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 238,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 101,
+        "creationTime": 234,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 245,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 104,
+        "creationTime": 241,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 252,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 107,
+        "creationTime": 248,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 259,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 110,
+        "creationTime": 255,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 266,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 113,
+        "creationTime": 262,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 273,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 116,
+        "creationTime": 269,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 280,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 119,
+        "creationTime": 276,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 287,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 122,
+        "creationTime": 283,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 294,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 125,
+        "creationTime": 290,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 301,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 128,
+        "creationTime": 297,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 308,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 131,
+        "creationTime": 304,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 315,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 134,
+        "creationTime": 311,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 322,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 137,
+        "creationTime": 318,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 329,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 140,
+        "creationTime": 325,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 336,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 143,
+        "creationTime": 332,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 343,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 146,
+        "creationTime": 339,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 350,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 149,
+        "creationTime": 346,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 357,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 152,
+        "creationTime": 353,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 364,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 155,
+        "creationTime": 360,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 371,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 158,
+        "creationTime": 367,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 378,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 161,
+        "creationTime": 374,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 385,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 164,
+        "creationTime": 381,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 392,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 167,
+        "creationTime": 388,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 399,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 170,
+        "creationTime": 395,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 406,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 173,
+        "creationTime": 402,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 413,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 176,
+        "creationTime": 409,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 420,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 179,
+        "creationTime": 416,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 427,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 182,
+        "creationTime": 423,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 434,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 185,
+        "creationTime": 430,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 441,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 188,
+        "creationTime": 437,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 448,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 191,
+        "creationTime": 444,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 455,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 194,
+        "creationTime": 451,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 462,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 197,
+        "creationTime": 458,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 469,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 200,
+        "creationTime": 465,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 476,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 203,
+        "creationTime": 472,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 483,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 206,
+        "creationTime": 479,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 490,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 209,
+        "creationTime": 486,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 497,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 212,
+        "creationTime": 493,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 504,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 215,
+        "creationTime": 500,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 511,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 218,
+        "creationTime": 507,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 518,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 221,
+        "creationTime": 514,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 525,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 224,
+        "creationTime": 521,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 532,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 227,
+        "creationTime": 528,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 539,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 230,
+        "creationTime": 535,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 546,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 233,
+        "creationTime": 542,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 553,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 236,
+        "creationTime": 549,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 560,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 239,
+        "creationTime": 556,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 567,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 242,
+        "creationTime": 563,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 574,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 245,
+        "creationTime": 570,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 581,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 248,
+        "creationTime": 577,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 588,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 251,
+        "creationTime": 584,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 595,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 254,
+        "creationTime": 591,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 602,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 257,
+        "creationTime": 598,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 609,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 260,
+        "creationTime": 605,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 616,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 263,
+        "creationTime": 612,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 623,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 266,
+        "creationTime": 619,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 630,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 269,
+        "creationTime": 626,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 637,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 272,
+        "creationTime": 633,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 644,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 275,
+        "creationTime": 640,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 651,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 278,
+        "creationTime": 647,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 658,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 281,
+        "creationTime": 654,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 665,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 284,
+        "creationTime": 661,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 672,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 287,
+        "creationTime": 668,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 679,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 290,
+        "creationTime": 675,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 686,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 293,
+        "creationTime": 682,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 693,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 296,
+        "creationTime": 689,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 700,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 299,
+        "creationTime": 696,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 707,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 302,
+        "creationTime": 703,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 714,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 305,
+        "creationTime": 710,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 721,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 308,
+        "creationTime": 717,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 728,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 311,
+        "creationTime": 724,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 735,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 314,
+        "creationTime": 731,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 742,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 317,
+        "creationTime": 738,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 749,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 320,
+        "creationTime": 745,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 756,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 323,
+        "creationTime": 752,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 763,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 326,
+        "creationTime": 759,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 770,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 329,
+        "creationTime": 766,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 777,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 332,
+        "creationTime": 773,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 784,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 335,
+        "creationTime": 780,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 791,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 338,
+        "creationTime": 787,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 798,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 341,
+        "creationTime": 794,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 805,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 344,
+        "creationTime": 801,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 812,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 347,
+        "creationTime": 808,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 819,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 11,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 350,
+        "creationTime": 815,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 820,
+        "unreachableSite": "checknode_orig_.js:19:15:24:6",
+        "staleness": 5,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "OBJECT"
+      }
+    ],
+    "checknode_orig_.js:22:26:22:28": [
+      {
+        "objectId": 51,
+        "creationTime": 120,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 133,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 54,
+        "creationTime": 127,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 140,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 57,
+        "creationTime": 134,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 147,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 60,
+        "creationTime": 141,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 154,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 63,
+        "creationTime": 148,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 161,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 66,
+        "creationTime": 155,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 168,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 69,
+        "creationTime": 162,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 175,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 72,
+        "creationTime": 169,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 182,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 75,
+        "creationTime": 176,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 189,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 78,
+        "creationTime": 183,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 196,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 81,
+        "creationTime": 190,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 203,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 84,
+        "creationTime": 197,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 210,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 87,
+        "creationTime": 204,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 217,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 90,
+        "creationTime": 211,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 224,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 93,
+        "creationTime": 218,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 231,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 96,
+        "creationTime": 225,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 238,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 99,
+        "creationTime": 232,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 245,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 102,
+        "creationTime": 239,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 252,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 105,
+        "creationTime": 246,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 259,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 108,
+        "creationTime": 253,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 266,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 111,
+        "creationTime": 260,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 273,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 114,
+        "creationTime": 267,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 280,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 117,
+        "creationTime": 274,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 287,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 120,
+        "creationTime": 281,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 294,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 123,
+        "creationTime": 288,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 301,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 126,
+        "creationTime": 295,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 308,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 129,
+        "creationTime": 302,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 315,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 132,
+        "creationTime": 309,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 322,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 135,
+        "creationTime": 316,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 329,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 138,
+        "creationTime": 323,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 336,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 141,
+        "creationTime": 330,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 343,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 144,
+        "creationTime": 337,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 350,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 147,
+        "creationTime": 344,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 357,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 150,
+        "creationTime": 351,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 364,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 153,
+        "creationTime": 358,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 371,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 156,
+        "creationTime": 365,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 378,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 159,
+        "creationTime": 372,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 385,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 162,
+        "creationTime": 379,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 392,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 165,
+        "creationTime": 386,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 399,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 168,
+        "creationTime": 393,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 406,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 171,
+        "creationTime": 400,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 413,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 174,
+        "creationTime": 407,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 420,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 177,
+        "creationTime": 414,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 427,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 180,
+        "creationTime": 421,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 434,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 183,
+        "creationTime": 428,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 441,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 186,
+        "creationTime": 435,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 448,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 189,
+        "creationTime": 442,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 455,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 192,
+        "creationTime": 449,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 462,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 195,
+        "creationTime": 456,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 469,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 198,
+        "creationTime": 463,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 476,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 201,
+        "creationTime": 470,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 483,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 204,
+        "creationTime": 477,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 490,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 207,
+        "creationTime": 484,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 497,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 210,
+        "creationTime": 491,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 504,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 213,
+        "creationTime": 498,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 511,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 216,
+        "creationTime": 505,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 518,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 219,
+        "creationTime": 512,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 525,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 222,
+        "creationTime": 519,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 532,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 225,
+        "creationTime": 526,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 539,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 228,
+        "creationTime": 533,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 546,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 231,
+        "creationTime": 540,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 553,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 234,
+        "creationTime": 547,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 560,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 237,
+        "creationTime": 554,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 567,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 240,
+        "creationTime": 561,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 574,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 243,
+        "creationTime": 568,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 581,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 246,
+        "creationTime": 575,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 588,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 249,
+        "creationTime": 582,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 595,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 252,
+        "creationTime": 589,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 602,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 255,
+        "creationTime": 596,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 609,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 258,
+        "creationTime": 603,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 616,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 261,
+        "creationTime": 610,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 623,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 264,
+        "creationTime": 617,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 630,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 267,
+        "creationTime": 624,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 637,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 270,
+        "creationTime": 631,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 644,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 273,
+        "creationTime": 638,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 651,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 276,
+        "creationTime": 645,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 658,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 279,
+        "creationTime": 652,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 665,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 282,
+        "creationTime": 659,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 672,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 285,
+        "creationTime": 666,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 679,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 288,
+        "creationTime": 673,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 686,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 291,
+        "creationTime": 680,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 693,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 294,
+        "creationTime": 687,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 700,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 297,
+        "creationTime": 694,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 707,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 300,
+        "creationTime": 701,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 714,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 303,
+        "creationTime": 708,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 721,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 306,
+        "creationTime": 715,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 728,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 309,
+        "creationTime": 722,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 735,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 312,
+        "creationTime": 729,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 742,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 315,
+        "creationTime": 736,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 749,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 318,
+        "creationTime": 743,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 756,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 321,
+        "creationTime": 750,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 763,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 324,
+        "creationTime": 757,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 770,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 327,
+        "creationTime": 764,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 777,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 330,
+        "creationTime": 771,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 784,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 333,
+        "creationTime": 778,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 791,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 336,
+        "creationTime": 785,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 798,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 339,
+        "creationTime": 792,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 805,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 342,
+        "creationTime": 799,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 812,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 345,
+        "creationTime": 806,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 819,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 13,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 348,
+        "creationTime": 813,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 820,
+        "unreachableSite": "checknode_orig_.js:19:15:24:6",
+        "staleness": 7,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ],
+    "checknode_orig_.js:22:33:22:35": [
+      {
+        "objectId": 52,
+        "creationTime": 121,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 133,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 55,
+        "creationTime": 128,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 140,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 58,
+        "creationTime": 135,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 147,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 61,
+        "creationTime": 142,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 154,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 64,
+        "creationTime": 149,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 161,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 67,
+        "creationTime": 156,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 168,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 70,
+        "creationTime": 163,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 175,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 73,
+        "creationTime": 170,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 182,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 76,
+        "creationTime": 177,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 189,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 79,
+        "creationTime": 184,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 196,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 82,
+        "creationTime": 191,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 203,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 85,
+        "creationTime": 198,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 210,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 88,
+        "creationTime": 205,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 217,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 91,
+        "creationTime": 212,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 224,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 94,
+        "creationTime": 219,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 231,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 97,
+        "creationTime": 226,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 238,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 100,
+        "creationTime": 233,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 245,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 103,
+        "creationTime": 240,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 252,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 106,
+        "creationTime": 247,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 259,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 109,
+        "creationTime": 254,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 266,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 112,
+        "creationTime": 261,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 273,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 115,
+        "creationTime": 268,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 280,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 118,
+        "creationTime": 275,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 287,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 121,
+        "creationTime": 282,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 294,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 124,
+        "creationTime": 289,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 301,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 127,
+        "creationTime": 296,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 308,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 130,
+        "creationTime": 303,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 315,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 133,
+        "creationTime": 310,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 322,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 136,
+        "creationTime": 317,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 329,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 139,
+        "creationTime": 324,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 336,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 142,
+        "creationTime": 331,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 343,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 145,
+        "creationTime": 338,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 350,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 148,
+        "creationTime": 345,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 357,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 151,
+        "creationTime": 352,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 364,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 154,
+        "creationTime": 359,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 371,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 157,
+        "creationTime": 366,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 378,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 160,
+        "creationTime": 373,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 385,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 163,
+        "creationTime": 380,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 392,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 166,
+        "creationTime": 387,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 399,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 169,
+        "creationTime": 394,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 406,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 172,
+        "creationTime": 401,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 413,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 175,
+        "creationTime": 408,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 420,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 178,
+        "creationTime": 415,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 427,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 181,
+        "creationTime": 422,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 434,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 184,
+        "creationTime": 429,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 441,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 187,
+        "creationTime": 436,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 448,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 190,
+        "creationTime": 443,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 455,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 193,
+        "creationTime": 450,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 462,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 196,
+        "creationTime": 457,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 469,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 199,
+        "creationTime": 464,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 476,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 202,
+        "creationTime": 471,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 483,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 205,
+        "creationTime": 478,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 490,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 208,
+        "creationTime": 485,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 497,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 211,
+        "creationTime": 492,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 504,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 214,
+        "creationTime": 499,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 511,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 217,
+        "creationTime": 506,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 518,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 220,
+        "creationTime": 513,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 525,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 223,
+        "creationTime": 520,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 532,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 226,
+        "creationTime": 527,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 539,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 229,
+        "creationTime": 534,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 546,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 232,
+        "creationTime": 541,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 553,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 235,
+        "creationTime": 548,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 560,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 238,
+        "creationTime": 555,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 567,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 241,
+        "creationTime": 562,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 574,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 244,
+        "creationTime": 569,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 581,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 247,
+        "creationTime": 576,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 588,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 250,
+        "creationTime": 583,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 595,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 253,
+        "creationTime": 590,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 602,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 256,
+        "creationTime": 597,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 609,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 259,
+        "creationTime": 604,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 616,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 262,
+        "creationTime": 611,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 623,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 265,
+        "creationTime": 618,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 630,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 268,
+        "creationTime": 625,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 637,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 271,
+        "creationTime": 632,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 644,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 274,
+        "creationTime": 639,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 651,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 277,
+        "creationTime": 646,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 658,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 280,
+        "creationTime": 653,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 665,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 283,
+        "creationTime": 660,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 672,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 286,
+        "creationTime": 667,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 679,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 289,
+        "creationTime": 674,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 686,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 292,
+        "creationTime": 681,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 693,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 295,
+        "creationTime": 688,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 700,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 298,
+        "creationTime": 695,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 707,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 301,
+        "creationTime": 702,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 714,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 304,
+        "creationTime": 709,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 721,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 307,
+        "creationTime": 716,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 728,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 310,
+        "creationTime": 723,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 735,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 313,
+        "creationTime": 730,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 742,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 316,
+        "creationTime": 737,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 749,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 319,
+        "creationTime": 744,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 756,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 322,
+        "creationTime": 751,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 763,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 325,
+        "creationTime": 758,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 770,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 328,
+        "creationTime": 765,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 777,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 331,
+        "creationTime": 772,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 784,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 334,
+        "creationTime": 779,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 791,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 337,
+        "creationTime": 786,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 798,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 340,
+        "creationTime": 793,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 805,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 343,
+        "creationTime": 800,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 812,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 346,
+        "creationTime": 807,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 819,
+        "unreachableSite": "checknode_orig_.js:22:21:22:37",
+        "staleness": 12,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      },
+      {
+        "objectId": 349,
+        "creationTime": 814,
+        "creationCallStack": [
+          -1
+        ],
+        "unreachableTime": 820,
+        "unreachableSite": "checknode_orig_.js:19:15:24:6",
+        "staleness": 6,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ],
+    "checknode_orig_.js:26:15:30:6": [
+      {
+        "objectId": 6,
+        "creationTime": 10,
+        "creationCallStack": [
+          225
+        ],
+        "unreachableTime": 113,
+        "unreachableSite": "checknode_orig_.js:26:15:30:6",
+        "staleness": 7,
+        "lastUseTime": 106,
+        "lastUseSite": 145,
+        "shallowSize": 3,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 7,
+        "creationTime": 10,
+        "creationCallStack": [
+          225
+        ],
+        "unreachableTime": 113,
+        "unreachableSite": "checknode_orig_.js:26:15:30:6",
+        "staleness": 103,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "initial DOM": [
+      {
+        "objectId": 8,
+        "creationTime": 18,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 722,
+        "lastUseTime": 106,
+        "lastUseSite": 107,
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 9,
+        "creationTime": 20,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 4,
+        "type": "DOM"
+      },
+      {
+        "objectId": 10,
+        "creationTime": 23,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 20,
+        "type": "DOM"
+      },
+      {
+        "objectId": 11,
+        "creationTime": 25,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 12,
+        "creationTime": 27,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 13,
+        "creationTime": 29,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 14,
+        "creationTime": 31,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 15,
+        "creationTime": 33,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 16,
+        "creationTime": 35,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 17,
+        "creationTime": 37,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 18,
+        "creationTime": 39,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 19,
+        "creationTime": 41,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 20,
+        "creationTime": 43,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 21,
+        "creationTime": 45,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 22,
+        "creationTime": 47,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 23,
+        "creationTime": 49,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 24,
+        "creationTime": 51,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 25,
+        "creationTime": 53,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 26,
+        "creationTime": 55,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 27,
+        "creationTime": 57,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 28,
+        "creationTime": 59,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 29,
+        "creationTime": 61,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 30,
+        "creationTime": 63,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 31,
+        "creationTime": 65,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 32,
+        "creationTime": 67,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 33,
+        "creationTime": 69,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 34,
+        "creationTime": 71,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 35,
+        "creationTime": 73,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 5,
+        "type": "DOM"
+      },
+      {
+        "objectId": 36,
+        "creationTime": 75,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 37,
+        "creationTime": 77,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 8,
+        "type": "DOM"
+      },
+      {
+        "objectId": 38,
+        "creationTime": 79,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 39,
+        "creationTime": 81,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 40,
+        "creationTime": 83,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 41,
+        "creationTime": 85,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 42,
+        "creationTime": 87,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 43,
+        "creationTime": 89,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 44,
+        "creationTime": 91,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 45,
+        "creationTime": 93,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 46,
+        "creationTime": 95,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 47,
+        "creationTime": 97,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 714,
+        "lastUseTime": 114,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 48,
+        "creationTime": 99,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 49,
+        "creationTime": 101,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 50,
+        "creationTime": 103,
+        "creationCallStack": [],
+        "unreachableTime": 828,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 828,
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "DOM"
+      }
+    ]
+  }
+}

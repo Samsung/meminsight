@@ -1,0 +1,13 @@
+#!/bin/sh
+FILE=$1
+BASE_FILE=`basename  ${FILE}`
+INST_NAME=`basename -s ".js" ${FILE}`_inst
+OUT=`mktemp -d /tmp/jal.XXX`
+echo "Work dir is ${OUT}/${INST_NAME}/mem-trace"
+cp $FILE $OUT
+
+pushd ../memory-trace >> /dev/null
+node --harmony drivers/memTraceDriver.js --debugFun jalangiRC --outputDir $OUT $OUT/$BASE_FILE
+popd >> /dev/null
+
+time java -ea -Dtesting=yes  -jar build/libs/memory-analysis-v2-all.jar --ref --trace ${OUT}/$INST_NAME/mem-trace

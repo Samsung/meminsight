@@ -1,0 +1,210 @@
+richards
+LOC 300
+uninstrumented mean running time 51.80
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 294
+just instrumented mean running time 162.40
+just instrumented overhead 3.14X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 538.00
+logging analysis overhead 10.39X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 3.31X
+trace size 3.72MB
+enhanced trace NaN
+====================================
+deltablue
+LOC 476
+uninstrumented mean running time 56.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 281
+just instrumented mean running time 218.40
+just instrumented overhead 3.90X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 841.00
+logging analysis overhead 15.02X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 3.85X
+trace size 7.03MB
+enhanced trace NaN
+====================================
+crypto
+LOC 1306
+uninstrumented mean running time 61.80
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 609
+just instrumented mean running time 394.40
+just instrumented overhead 6.38X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 2913.00
+logging analysis overhead 47.14X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 7.39X
+trace size 24.75MB
+enhanced trace NaN
+====================================
+raytrace
+LOC 682
+uninstrumented mean running time 63.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 256
+just instrumented mean running time 359.80
+just instrumented overhead 5.71X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 2604.00
+logging analysis overhead 41.33X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 7.24X
+trace size 27.59MB
+enhanced trace NaN
+====================================
+earley-boyer
+LOC 3483
+uninstrumented mean running time 82.20
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 1414
+just instrumented mean running time 733.40
+just instrumented overhead 8.92X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 8201.00
+logging analysis overhead 99.77X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 11.18X
+trace size 145.10MB
+enhanced trace NaN
+====================================
+regexp
+LOC 1755
+uninstrumented mean running time 131.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 875
+just instrumented mean running time 651.00
+just instrumented overhead 4.97X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 3494.60
+logging analysis overhead 26.68X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 5.37X
+trace size 32.86MB
+enhanced trace NaN
+====================================
+splay
+LOC 250
+uninstrumented mean running time 254.20
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 97
+just instrumented mean running time 858.00
+just instrumented overhead 3.38X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 11029.00
+logging analysis overhead 43.39X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 12.85X
+trace size 101.95MB
+enhanced trace NaN
+====================================
+navier-stokes
+LOC 360
+uninstrumented mean running time 61.40
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 167
+just instrumented mean running time 379.80
+just instrumented overhead 6.19X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 2790.20
+logging analysis overhead 45.44X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 7.35X
+trace size 6.10MB
+enhanced trace NaN
+====================================
+pdfjs
+LOC 29843
+uninstrumented mean running time 332.80
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 9127
+just instrumented mean running time 1787.60
+just instrumented overhead 5.37X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 10577.60
+logging analysis overhead 31.78X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 5.92X
+trace size 166.07MB
+enhanced trace NaN
+====================================
+gbemu
+LOC 9482
+uninstrumented mean running time 262.20
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 3035
+just instrumented mean running time 2542.00
+just instrumented overhead 9.69X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 23404.40
+logging analysis overhead 89.26X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 9.21X
+trace size 122.36MB
+enhanced trace NaN
+====================================
+code-load
+LOC 1422
+uninstrumented mean running time 61.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 103
+just instrumented mean running time 2276.40
+just instrumented overhead 37.32X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 2378.80
+logging analysis overhead 39.00X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 1.04X
+trace size 0.13MB
+enhanced trace NaN
+====================================
+box2d
+LOC 517
+uninstrumented mean running time 221.20
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 3770
+just instrumented mean running time 1178.80
+just instrumented overhead 5.33X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 7868.20
+logging analysis overhead 35.57X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 6.67X
+trace size 57.74MB
+enhanced trace NaN
+====================================
+zlib
+LOC 2496
+uninstrumented mean running time 1436.80
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 110
+just instrumented mean running time 103788.60
+just instrumented overhead 72.24X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 150510.80
+logging analysis overhead 104.75X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 1.45X
+trace size 234.66MB
+enhanced trace NaN
+====================================
+typescript
+LOC 23854
+uninstrumented mean running time 1621.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 8523
+just instrumented mean running time 15789.60
+just instrumented overhead 9.74X
+just instrumented heap usage 0.0MB--0.0MB
+logging analysis mean running time 125125.60
+logging analysis overhead 77.19X
+logging analysis heap usage 0.0MB--0.0MB
+logging analysis overhead vs just instrumented 7.92X
+trace size 1456.72MB
+enhanced trace NaN
+====================================

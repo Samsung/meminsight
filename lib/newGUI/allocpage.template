@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/starter-template.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/codemirror.css">
+    <link rel="stylesheet" href="/jstree/themes/default/style.min.css" />
+
+    <link href="/css/c3.css" rel="stylesheet" type="text/css">
+    <script src="/lib/jquery-2.1.0.min.js"></script>
+    <script src="/lib/d3.v3.min.js" charset="utf-8"></script>
+    <script src="/lib/c3.js"></script>
+    <script src="/lib/codemirror/codemirror.js"></script>
+    <script src="/lib/codemirror/javascript.js"></script>
+    <script src="/jstree/jstree.min.js"></script>
+    <title></title>
+</head>
+<body>
+<style>
+    .CodeMirror { height: auto; border: 2px solid #ddd; }
+    .CodeMirror-scroll { max-height: 360px; }
+    .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+    .CodeMirror-selected { background: #d7d4f0; }
+</style>
+<div class="starter-template" id="allocheader">
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8" id="sourceviewcontainer"></div>
+        <div id="calltreecontainer" class="col-sm-4"></div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="col-sm-8" id="sitetimelinecontainer"></div>
+        <div id="accesspathcontainer" class="col-sm-4"></div>
+    </div>
+</div><!-- /.container -->
+<script src="/guiUtil.js"></script>
+<script src="/renderAllocPage.js"></script>
+<script>
+    renderAllocPage("<%= site -%>");
+</script>
+
+</body>
+</html>

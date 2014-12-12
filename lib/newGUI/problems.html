@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/starter-template.css" rel="stylesheet">
+
+    <script src="/lib/jquery-2.1.0.min.js"></script>
+    <title></title>
+</head>
+<body>
+<div class="container">
+    <div class="starter-template">
+        <h2>Problems view</h2>
+    </div>
+    <div class="row">
+        <h3>Leaks</h3>
+        <p>An increasing number of stale objects were observed from these allocation sites.</p>
+        <div id="leakissuelist">
+            <img src="/images/ajax-loader.gif" style="display: block; margin: 0 auto">
+        </div>
+    </div>
+    <div class="row">
+        <h3>Inlinable Objects</h3>
+        <p>Objects from these allocation sites could be inlined into another site.</p>
+        <div id="inlineissuelist">
+            <img src="/images/ajax-loader.gif" style="display: block; margin: 0 auto">
+        </div>
+    </div>
+    <div class="row">
+        <h3>Stack-allocatable objects</h3>
+        <p>Objects from these allocation sites do not escape their allocating function, and hence they could be
+            (manually) stack allocated.</p>
+        <div id="stackallocissuelist">
+            <img src="/images/ajax-loader.gif" style="display: block; margin: 0 auto">
+        </div>
+    </div>
+</div>
+
+<script src="/guiUtil.js"></script>
+<script src="/renderProblems.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,336 @@
+{
+  "functionTrace": [
+    [
+      0,
+      21,
+      33
+    ],
+    [
+      0,
+      23,
+      57
+    ],
+    [
+      1,
+      27,
+      497
+    ],
+    [
+      0,
+      32,
+      97
+    ],
+    [
+      0,
+      34,
+      305
+    ],
+    [
+      1,
+      41,
+      577
+    ],
+    [
+      0,
+      44,
+      145
+    ],
+    [
+      0,
+      48,
+      217
+    ],
+    [
+      0,
+      52,
+      273
+    ],
+    [
+      1,
+      59,
+      561
+    ],
+    [
+      1,
+      64,
+      545
+    ],
+    [
+      1,
+      66,
+      529
+    ],
+    [
+      1,
+      68,
+      513
+    ],
+    [
+      1,
+      70,
+      481
+    ]
+  ],
+  "objectInfo": {
+    "testStaleness1.js:16:1:19:2": [
+      {
+        "objectId": 2,
+        "creationTime": 2,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 16,
+        "lastUseTime": 70,
+        "lastUseSite": 377,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 3,
+        "creationTime": 2,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 84,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness1.js:17:21:17:36": [
+      {
+        "objectId": 18,
+        "creationTime": 24,
+        "creationCallStack": [
+          377
+        ],
+        "unreachableTime": 70,
+        "unreachableSite": "testStaleness1.js:16:1:19:2",
+        "staleness": 8,
+        "lastUseTime": 62,
+        "lastUseSite": 209,
+        "shallowSize": 2,
+        "type": "OBJECT"
+      }
+    ],
+    "testStaleness1.js:20:1:21:2": [
+      {
+        "objectId": 4,
+        "creationTime": 4,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 57,
+        "lastUseTime": 29,
+        "lastUseSite": 9,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 5,
+        "creationTime": 4,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 67,
+        "lastUseTime": 19,
+        "lastUseSite": 257,
+        "shallowSize": 4,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness1.js:22:35:24:2": [
+      {
+        "objectId": 12,
+        "creationTime": 12,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 18,
+        "lastUseTime": 68,
+        "lastUseSite": 25,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 13,
+        "creationTime": 12,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 74,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness1.js:23:29:23:47": [
+      {
+        "objectId": 19,
+        "creationTime": 35,
+        "creationCallStack": [
+          25,
+          377
+        ],
+        "unreachableTime": 70,
+        "unreachableSite": "testStaleness1.js:16:1:19:2",
+        "staleness": 32,
+        "lastUseTime": 38,
+        "lastUseSite": 297,
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ],
+    "testStaleness1.js:25:38:27:2": [
+      {
+        "objectId": 14,
+        "creationTime": 15,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 20,
+        "lastUseTime": 66,
+        "lastUseSite": 89,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 15,
+        "creationTime": 15,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 71,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness1.js:28:31:30:2": [
+      {
+        "objectId": 16,
+        "creationTime": 18,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 22,
+        "lastUseTime": 64,
+        "lastUseSite": 137,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 17,
+        "creationTime": 18,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 68,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness1.js:29:23:29:53": [
+      {
+        "objectId": 20,
+        "creationTime": 53,
+        "creationCallStack": [
+          137,
+          89,
+          25,
+          377
+        ],
+        "unreachableTime": 70,
+        "unreachableSite": "testStaleness1.js:16:1:19:2",
+        "staleness": 14,
+        "lastUseTime": 56,
+        "lastUseSite": 265,
+        "shallowSize": 2,
+        "type": "OBJECT"
+      }
+    ],
+    "testStaleness1.js:31:1:33:2": [
+      {
+        "objectId": 6,
+        "creationTime": 6,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 25,
+        "lastUseTime": 61,
+        "lastUseSite": 201,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 7,
+        "creationTime": 6,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 80,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness1.js:34:1:36:2": [
+      {
+        "objectId": 8,
+        "creationTime": 8,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 43,
+        "lastUseTime": 43,
+        "lastUseSite": 81,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 9,
+        "creationTime": 8,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 67,
+        "lastUseTime": 19,
+        "lastUseSite": 337,
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness1.js:38:1:39:2": [
+      {
+        "objectId": 10,
+        "creationTime": 10,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 67,
+        "lastUseTime": 19,
+        "lastUseSite": 361,
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 11,
+        "creationTime": 10,
+        "creationCallStack": [],
+        "unreachableTime": 86,
+        "unreachableSite": "end of program",
+        "staleness": 67,
+        "lastUseTime": 19,
+        "lastUseSite": 369,
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ]
+  }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="css/starter-template.css" rel="stylesheet">
+    <link href="css/c3.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/codemirror.css">
+    <link rel="stylesheet" href="jstree/themes/default/style.min.css" />
+
+
+    <script src="lib/jquery-2.1.0.min.js"></script>
+    <script src="lib/d3.v3.min.js" charset="utf-8"></script>
+    <script src="lib/c3.js"></script>
+    <script src="lib/jquery.dataTables.min.js"></script>
+    <script src="lib/dataTables.bootstrap.js"></script>
+    <script src="lib/codemirror/codemirror.js"></script>
+    <script src="lib/codemirror/javascript.js"></script>
+    <script src="jstree/jstree.min.js"></script>
+    <title>Table view</title>
+</head>
+<body>
+<style>
+    .CodeMirror { height: auto; border: 2px solid #ddd; }
+    .CodeMirror-scroll { max-height: 300px; }
+    .CodeMirror pre { padding-left: 7px; line-height: 1.25; }
+</style>
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">MemInsight</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Issue Table</a></li>
+                <li><a href="/timeline.html">All-Sites Timeline</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<style>
+table.legend th, table.legend td {
+font-size : 90%;
+font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+</style>
+
+<div class="container">
+
+    <div class="starter-template">
+        <h2>Table view</h2>
+    </div>
+
+
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered legend">
+                <thead>
+                <tr>
+                    <th>Column Heading</th>
+                    <th>Explanation</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Site</td>
+                    <td>Source location where the allocation took place. Click for more details about the allocations from this site.</td>
+                </tr>
+                <tr>
+                    <td>Count</td>
+                    <td>Count is the number of objects allocated from a particular site during this execution.</td>
+                </tr>
+                <tr>
+                    <td>Occupancy</td>
+                    <td>Occupancy is a measure of the cumulative time during which instances allocated at this site are stale, summed over all instances.</td>
+                </tr>
+                <tr>
+                    <td>Kind</td>
+                    <td>A site allocates a DOM object, a FUNCTION, or a regular OBJECT.</td>
+                </tr>
+                <tr>
+                    <td>Leak</td>
+                    <td>Leak means that the count of stale instances is increasing over the life of the execution.</td>
+                </tr>
+                <tr>
+                    <td>Staleness</td>
+                    <td>Staleness is a measure of the occupancy of a site relative to the overall occupancy across all sites.</td>
+                </tr>
+                <tr>
+                    <td>Inline-able</td>
+                    <td>Inline-ability is the fraction
+                        of instances created at this site that are pointed uniquely by another object and
+                        could be folded in (inlined) into that other object. The identity of that other object is revealed by clicking the number.</td>
+                </tr>
+                <tr>
+                    <td>Non-escaping</td>
+                    <td>Non escaping is the fraction of instances created at a
+                    site that do not escape to the caller of the function in which they were allocated.</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <p></p>
+
+    <div class="row">
+        <div id="restable"></div>
+    </div>
+
+    <p></p>
+
+</div><!-- /.container -->
+<script src="guiUtil.js"></script>
+<script src="issuetable.js"></script>
+
+</body>
+</html>

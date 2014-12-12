@@ -1,0 +1,434 @@
+richards
+LOC 300
+uninstrumented mean running time 46.50
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 208
+just instrumented mean running time 158.00
+just instrumented overhead 3.40X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 524.00
+asciiFS logging analysis overhead 11.27X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 3.32X
+hiddenProp logging analysis mean running time 480.00
+hiddenProp logging analysis overhead 10.32X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 3.04X
+allUses logging analysis mean running time 638.50
+allUses logging analysis overhead 13.73X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 4.04X
+allPutfields logging analysis mean running time 560.00
+allPutfields logging analysis overhead 12.04X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 3.54X
+best logging analysis mean running time 531.50
+best logging analysis overhead 11.43X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 3.36X
+trace size 3.72MB
+enhanced trace NaN
+====================================
+deltablue
+LOC 476
+uninstrumented mean running time 55.50
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 284
+just instrumented mean running time 215.00
+just instrumented overhead 3.87X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 851.50
+asciiFS logging analysis overhead 15.34X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 3.96X
+hiddenProp logging analysis mean running time 938.00
+hiddenProp logging analysis overhead 16.90X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 4.36X
+allUses logging analysis mean running time 967.00
+allUses logging analysis overhead 17.42X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 4.50X
+allPutfields logging analysis mean running time 841.00
+allPutfields logging analysis overhead 15.15X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 3.91X
+best logging analysis mean running time 838.50
+best logging analysis overhead 15.11X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 3.90X
+trace size 7.03MB
+enhanced trace NaN
+====================================
+crypto
+LOC 1306
+uninstrumented mean running time 56.50
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 617
+just instrumented mean running time 388.50
+just instrumented overhead 6.88X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 2835.00
+asciiFS logging analysis overhead 50.18X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 7.30X
+hiddenProp logging analysis mean running time 2425.00
+hiddenProp logging analysis overhead 42.92X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 6.24X
+allUses logging analysis mean running time 5252.50
+allUses logging analysis overhead 92.96X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 13.52X
+allPutfields logging analysis mean running time 3925.00
+allPutfields logging analysis overhead 69.47X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 10.10X
+best logging analysis mean running time 3026.00
+best logging analysis overhead 53.56X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 7.79X
+trace size 24.75MB
+enhanced trace NaN
+====================================
+raytrace
+LOC 682
+uninstrumented mean running time 82.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 271
+just instrumented mean running time 375.00
+just instrumented overhead 4.57X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 2916.00
+asciiFS logging analysis overhead 35.56X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 7.78X
+hiddenProp logging analysis mean running time 2636.50
+hiddenProp logging analysis overhead 32.15X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 7.03X
+allUses logging analysis mean running time 3080.50
+allUses logging analysis overhead 37.57X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 8.21X
+allPutfields logging analysis mean running time 2709.50
+allPutfields logging analysis overhead 33.04X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 7.23X
+best logging analysis mean running time 2714.50
+best logging analysis overhead 33.10X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 7.24X
+trace size 27.59MB
+enhanced trace NaN
+====================================
+earley-boyer
+LOC 3483
+uninstrumented mean running time 80.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 1424
+just instrumented mean running time 758.00
+just instrumented overhead 9.47X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 8370.00
+asciiFS logging analysis overhead 104.63X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 11.04X
+hiddenProp logging analysis mean running time 8976.00
+hiddenProp logging analysis overhead 112.20X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 11.84X
+allUses logging analysis mean running time 9203.50
+allUses logging analysis overhead 115.04X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 12.14X
+allPutfields logging analysis mean running time 8024.00
+allPutfields logging analysis overhead 100.30X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 10.59X
+best logging analysis mean running time 8287.50
+best logging analysis overhead 103.59X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 10.93X
+trace size 145.10MB
+enhanced trace NaN
+====================================
+regexp
+LOC 1755
+uninstrumented mean running time 135.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 863
+just instrumented mean running time 692.50
+just instrumented overhead 5.13X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 3610.00
+asciiFS logging analysis overhead 26.74X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 5.21X
+hiddenProp logging analysis mean running time 3662.00
+hiddenProp logging analysis overhead 27.13X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 5.29X
+allUses logging analysis mean running time 4329.00
+allUses logging analysis overhead 32.07X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 6.25X
+allPutfields logging analysis mean running time 3718.00
+allPutfields logging analysis overhead 27.54X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 5.37X
+best logging analysis mean running time 3703.00
+best logging analysis overhead 27.43X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 5.35X
+trace size 32.86MB
+enhanced trace NaN
+====================================
+splay
+LOC 250
+uninstrumented mean running time 253.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 110
+just instrumented mean running time 856.50
+just instrumented overhead 3.39X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 11210.00
+asciiFS logging analysis overhead 44.31X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 13.09X
+hiddenProp logging analysis mean running time 12617.50
+hiddenProp logging analysis overhead 49.87X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 14.73X
+allUses logging analysis mean running time 11723.50
+allUses logging analysis overhead 46.34X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 13.69X
+allPutfields logging analysis mean running time 10977.00
+allPutfields logging analysis overhead 43.39X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 12.82X
+best logging analysis mean running time 11366.00
+best logging analysis overhead 44.92X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 13.27X
+trace size 101.95MB
+enhanced trace NaN
+====================================
+navier-stokes
+LOC 360
+uninstrumented mean running time 63.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 172
+just instrumented mean running time 382.50
+just instrumented overhead 6.07X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 2699.50
+asciiFS logging analysis overhead 42.85X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 7.06X
+hiddenProp logging analysis mean running time 2356.00
+hiddenProp logging analysis overhead 37.40X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 6.16X
+allUses logging analysis mean running time 5398.00
+allUses logging analysis overhead 85.68X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 14.11X
+allPutfields logging analysis mean running time 4251.00
+allPutfields logging analysis overhead 67.48X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 11.11X
+best logging analysis mean running time 2736.50
+best logging analysis overhead 43.44X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 7.15X
+trace size 6.10MB
+enhanced trace NaN
+====================================
+pdfjs
+LOC 29843
+uninstrumented mean running time 370.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 9124
+just instrumented mean running time 1866.50
+just instrumented overhead 5.04X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 10996.00
+asciiFS logging analysis overhead 29.72X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 5.89X
+hiddenProp logging analysis mean running time 11329.50
+hiddenProp logging analysis overhead 30.62X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 6.07X
+allUses logging analysis mean running time 14004.00
+allUses logging analysis overhead 37.85X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 7.50X
+allPutfields logging analysis mean running time 12248.00
+allPutfields logging analysis overhead 33.10X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 6.56X
+best logging analysis mean running time 11007.50
+best logging analysis overhead 29.75X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 5.90X
+trace size 166.07MB
+enhanced trace NaN
+====================================
+gbemu
+LOC 9482
+uninstrumented mean running time 293.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 3208
+just instrumented mean running time 2749.50
+just instrumented overhead 9.38X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 23957.00
+asciiFS logging analysis overhead 81.76X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 8.71X
+hiddenProp logging analysis mean running time 19825.00
+hiddenProp logging analysis overhead 67.66X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 7.21X
+allUses logging analysis mean running time 37711.00
+allUses logging analysis overhead 128.71X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 13.72X
+allPutfields logging analysis mean running time 32176.50
+allPutfields logging analysis overhead 109.82X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 11.70X
+best logging analysis mean running time 25054.50
+best logging analysis overhead 85.51X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 9.11X
+trace size 122.36MB
+enhanced trace NaN
+====================================
+code-load
+LOC 1422
+uninstrumented mean running time 66.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 122
+just instrumented mean running time 2401.00
+just instrumented overhead 36.38X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 2391.00
+asciiFS logging analysis overhead 36.23X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 1.00X
+hiddenProp logging analysis mean running time 2380.00
+hiddenProp logging analysis overhead 36.06X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 0.99X
+allUses logging analysis mean running time 2395.50
+allUses logging analysis overhead 36.30X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 1.00X
+allPutfields logging analysis mean running time 2424.00
+allPutfields logging analysis overhead 36.73X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 1.01X
+best logging analysis mean running time 2392.00
+best logging analysis overhead 36.24X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 1.00X
+trace size 0.13MB
+enhanced trace NaN
+====================================
+box2d
+LOC 517
+uninstrumented mean running time 233.50
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 3919
+just instrumented mean running time 1226.50
+just instrumented overhead 5.25X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 8522.00
+asciiFS logging analysis overhead 36.50X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 6.95X
+hiddenProp logging analysis mean running time 6638.00
+hiddenProp logging analysis overhead 28.43X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 5.41X
+allUses logging analysis mean running time 11619.50
+allUses logging analysis overhead 49.76X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 9.47X
+allPutfields logging analysis mean running time 9026.00
+allPutfields logging analysis overhead 38.66X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 7.36X
+best logging analysis mean running time 7626.00
+best logging analysis overhead 32.66X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 6.22X
+trace size 57.74MB
+enhanced trace NaN
+====================================
+zlib
+LOC 2496
+uninstrumented mean running time 1472.50
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 110
+just instrumented mean running time 105673.50
+just instrumented overhead 71.76X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 165771.50
+asciiFS logging analysis overhead 112.58X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 1.57X
+hiddenProp logging analysis mean running time 140304.00
+hiddenProp logging analysis overhead 95.28X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 1.33X
+allUses logging analysis mean running time 333982.00
+allUses logging analysis overhead 226.81X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 3.16X
+allPutfields logging analysis mean running time 264150.50
+allPutfields logging analysis overhead 179.39X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 2.50X
+best logging analysis mean running time 162847.00
+best logging analysis overhead 110.59X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 1.54X
+trace size 234.66MB
+enhanced trace NaN
+====================================
+typescript
+LOC 23854
+uninstrumented mean running time 1747.00
+uninstrumented heap usage 0.0MB--0.0MB
+instrumentation time 9284
+just instrumented mean running time 16510.00
+just instrumented overhead 9.45X
+just instrumented heap usage 0.0MB--0.0MB
+asciiFS logging analysis mean running time 133812.50
+asciiFS logging analysis overhead 76.60X
+asciiFS logging analysis heap usage 0.0MB--0.0MB
+asciiFS logging analysis overhead vs just instrumented 8.10X
+hiddenProp logging analysis mean running time 113802.00
+hiddenProp logging analysis overhead 65.14X
+hiddenProp logging analysis heap usage 0.0MB--0.0MB
+hiddenProp logging analysis overhead vs just instrumented 6.89X
+allUses logging analysis mean running time 164006.00
+allUses logging analysis overhead 93.88X
+allUses logging analysis heap usage 0.0MB--0.0MB
+allUses logging analysis overhead vs just instrumented 9.93X
+allPutfields logging analysis mean running time 135478.00
+allPutfields logging analysis overhead 77.55X
+allPutfields logging analysis heap usage 0.0MB--0.0MB
+allPutfields logging analysis overhead vs just instrumented 8.21X
+best logging analysis mean running time 126814.50
+best logging analysis overhead 72.59X
+best logging analysis heap usage 0.0MB--0.0MB
+best logging analysis overhead vs just instrumented 7.68X
+trace size 1456.72MB
+enhanced trace NaN
+====================================

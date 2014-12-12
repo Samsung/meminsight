@@ -1,0 +1,63 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: "jacoco"
+
+sourceCompatibility = '1.6'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+mainClassName = 'com.samsung.memoryanalysis.driver.CommandLineDriver'
+
+task fatJar(type: Jar) {
+    description = "Make self-contained jar file"
+    baseName = project.name + '-all'
+    manifest.attributes("Main-Class": mainClassName)
+    from {
+        configurations.compile.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+        configurations.runtime.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    with jar
+}
+
+jar {
+    manifest.attributes("Main-Class": mainClassName)
+}
+
+repositories {
+    mavenCentral()
+    maven {
+      url "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+    mavenLocal()
+}
+
+test {
+//    testLogging.showStandardStreams = true
+    enableAssertions = true
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/coverage"
+    }
+}
+jacocoTestReport.dependsOn.add(test)
+task coverage(dependsOn: jacocoTestReport)
+tasks.withType(JavaCompile) {
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile('org.jgrapht:jgrapht-dist:0.9.0')
+    compile('net.sf.jopt-simple:jopt-simple:4.6')
+    compile('com.google.code.gson:gson:2.2.4')
+    compile('com.ibm.wala:com.ibm.wala.util:1.3.7-SNAPSHOT')
+}
