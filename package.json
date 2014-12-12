@@ -1,7 +1,11 @@
 {
-  "name": "memory-trace",
+  "name": "meminsight",
   "version": "0.0.1",
   "description": "JavaScript memory analyses",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/Samsung/meminsight.git"
+  },
   "dependencies": {
     "jalangi": "https://github.com/SRA-SiliconValley/jalangi/tarball/master",
     "acorn": "0.9.0",
