@@ -226,6 +226,11 @@ module ___LoggingAnalysis___ {
             if (isBrowser) {
                 postMap.set(addEventListener, "addEventListener");
                 postMap.set(removeEventListener, "removeEventListener");
+                // in browsers other than Chrome, window.add(remove)EventListener
+                // is a different function than document.add(remove)EventListener,
+                // so put both in map
+                postMap.set(document.addEventListener, "addEventListener");
+                postMap.set(document.removeEventListener, "removeEventListener");
                 postMap.set(HTMLElement.prototype.insertAdjacentHTML, "HTMLElement.prototype.insertAdjacentHTML");
             }
         }
