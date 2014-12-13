@@ -154,7 +154,7 @@ module ___LoggingAnalysis___ {
         setMetadata(obj:any, metadata:number):void {
             if (!this.hasMetadata(obj)) {
                 try {
-                    Object.defineProperty(obj, HiddenPropMetadataManager.METADATA_PROP, {
+                    objDefineProperty(obj, HiddenPropMetadataManager.METADATA_PROP, {
                         enumerable: false,
                         writable: true
                     })
@@ -169,7 +169,7 @@ module ___LoggingAnalysis___ {
         }
 
         setIIDForNativeObj(obj:any, iid:number):void {
-            Object.defineProperty(obj, HiddenPropMetadataManager.NATIVE_IID_PROP, {
+            objDefineProperty(obj, HiddenPropMetadataManager.NATIVE_IID_PROP, {
                 enumerable: false,
                 writable: true
             });

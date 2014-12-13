@@ -18,6 +18,7 @@ declare var Symbol: any;
 module ___LoggingAnalysis___ {
 
     var _toString = Object.prototype.toString;
+    var _defineProperty = Object.defineProperty;
 
     var TypeIsObject = function (x) {
         /* jshint eqnull:true */
@@ -60,7 +61,7 @@ module ___LoggingAnalysis___ {
         if (!force && name in object) {
             return;
         }
-        Object.defineProperty(object, name, {
+        _defineProperty(object, name, {
             configurable: true,
             enumerable: false,
             writable: true,
@@ -231,7 +232,7 @@ module ___LoggingAnalysis___ {
             }
         });
 
-        Object.defineProperty(Map.prototype, 'size', {
+        _defineProperty(Map.prototype, 'size', {
             configurable: true,
             enumerable: false,
             get: function () {

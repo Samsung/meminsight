@@ -72,15 +72,20 @@ module ___LoggingAnalysis___ {
         return o && (typeof o === 'object' || typeof o === 'function');
     }
 
+    // some defense against monkey-patching
+    var objGetOwnPropDesc = Object.getOwnPropertyDescriptor;
+    var objGetPrototypeOf = Object.getPrototypeOf;
+    var objProtoHasOwnProperty = Object.prototype.hasOwnProperty;
+    var objDefProperty = Object.defineProperty;
 
     export function getPropertyDescriptor(o: Object, prop: string): PropertyDescriptor {
         var t = o;
         while (t != null) {
-            var desc = Object.getOwnPropertyDescriptor(t, prop);
+            var desc = objGetOwnPropDesc(t, prop);
             if (desc) {
                 return desc;
             }
-            t = Object.getPrototypeOf(t);
+            t = objGetPrototypeOf(t);
         }
         return null;
     }
@@ -91,7 +96,11 @@ module ___LoggingAnalysis___ {
     }
 
     export function HOP(o: any, prop: string): boolean {
-        return Object.prototype.hasOwnProperty.call(o, prop);
+        return objProtoHasOwnProperty.call(o, prop);
+    }
+
+    export function objDefineProperty(o: any, p: string, attributes: PropertyDescriptor): any {
+        return objDefProperty(o,p,attributes);
     }
 
     var funEnterRegExp = /J\$\.Fe\(([0-9]+)/;
@@ -122,7 +131,7 @@ module ___LoggingAnalysis___ {
             instFunction2EnterIID.set(f,enterIID);
         } else {
             // use a hidden property
-            Object.defineProperty(f, funEnterIIDHiddenProp, {
+            objDefineProperty(f, funEnterIIDHiddenProp, {
                 enumerable: false,
                 writable: true
             });
