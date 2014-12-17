@@ -28,7 +28,7 @@
         "creationTime": 2,
         "creationCallStack": [],
         "unreachableTime": 41,
-        "unreachableSite": "code_orig_.js:16:1:40:5",
+        "unreachableSite": "code_orig_.js:16:2:40:4",
         "staleness": 1,
         "lastUseTime": 40,
         "lastUseSite": 385,
@@ -40,7 +40,7 @@
         "creationTime": 2,
         "creationCallStack": [],
         "unreachableTime": 41,
-        "unreachableSite": "code_orig_.js:16:1:40:5",
+        "unreachableSite": "code_orig_.js:16:2:40:4",
         "staleness": 39,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -351,7 +351,7 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:35:13:36:15": [
+    "code_orig_.js:35:14:36:14": [
       {
         "objectId": 25,
         "creationTime": 36,
@@ -360,7 +360,7 @@
           385
         ],
         "unreachableTime": 37,
-        "unreachableSite": "code_orig_.js:35:13:36:15",
+        "unreachableSite": "code_orig_.js:35:14:36:14",
         "staleness": 1,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -375,7 +375,7 @@
           385
         ],
         "unreachableTime": 37,
-        "unreachableSite": "code_orig_.js:35:13:36:15",
+        "unreachableSite": "code_orig_.js:35:14:36:14",
         "staleness": 1,
         "lastUseTime": "never used",
         "lastUseSite": "never used",

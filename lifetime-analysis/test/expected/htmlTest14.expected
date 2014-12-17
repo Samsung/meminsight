@@ -1,12 +1,12 @@
-Id: 2     Alloc: testinnerhtml_orig_.js:16:1:19:3         Time: 14         Loc: testinnerhtml_orig_.js:16:1:19:5
-Id: 3     Alloc: testinnerhtml_orig_.js:16:1:19:3         Time: 14         Loc: testinnerhtml_orig_.js:16:1:19:5
+Id: 2     Alloc: testinnerhtml_orig_.js:16:2:19:2         Time: 14         Loc: testinnerhtml_orig_.js:16:1:19:5
+Id: 3     Alloc: testinnerhtml_orig_.js:16:2:19:2         Time: 14         Loc: testinnerhtml_orig_.js:16:1:19:5
 Id: 4     Alloc: testinnerhtml_orig_.js:17:15:17:45       Time: 116        Loc: end of program
 Id: 5     Alloc: testinnerhtml_orig_.js:18:5:18:53        Time: 116        Loc: end of program
 Id: 6     Alloc: testinnerhtml_orig_.js:18:5:18:53        Time: 116        Loc: end of program
 Id: 7     Alloc: testinnerhtml_orig_.js:18:5:18:53        Time: 116        Loc: end of program
 Id: 8     Alloc: testinnerhtml_orig_.js:18:5:18:53        Time: 116        Loc: end of program
-Id: 9     Alloc: testinnerhtml2_orig_.js:16:1:19:3        Time: 29         Loc: testinnerhtml2_orig_.js:16:1:19:5
-Id: 10    Alloc: testinnerhtml2_orig_.js:16:1:19:3        Time: 29         Loc: testinnerhtml2_orig_.js:16:1:19:5
+Id: 9     Alloc: testinnerhtml2_orig_.js:16:2:19:2        Time: 29         Loc: testinnerhtml2_orig_.js:16:1:19:5
+Id: 10    Alloc: testinnerhtml2_orig_.js:16:2:19:2        Time: 29         Loc: testinnerhtml2_orig_.js:16:1:19:5
 Id: 11    Alloc: testinnerhtml2_orig_.js:17:15:17:46      Time: 116        Loc: end of program
 Id: 12    Alloc: testinnerhtml2_orig_.js:18:5:18:53       Time: 116        Loc: end of program
 Id: 13    Alloc: testinnerhtml2_orig_.js:18:5:18:53       Time: 116        Loc: end of program

@@ -396,7 +396,7 @@
         "type": "DOM"
       }
     ],
-    "testcleartimeout_orig_.js:16:1:25:3": [
+    "testcleartimeout_orig_.js:16:2:25:2": [
       {
         "objectId": 2,
         "creationTime": 2,
@@ -430,7 +430,7 @@
           161
         ],
         "unreachableTime": 20,
-        "unreachableSite": "testcleartimeout_orig_.js:16:1:25:3",
+        "unreachableSite": "testcleartimeout_orig_.js:16:2:25:2",
         "staleness": 9,
         "lastUseTime": 11,
         "lastUseSite": 57,
@@ -444,7 +444,7 @@
           161
         ],
         "unreachableTime": 20,
-        "unreachableSite": "testcleartimeout_orig_.js:16:1:25:3",
+        "unreachableSite": "testcleartimeout_orig_.js:16:2:25:2",
         "staleness": 16,
         "lastUseTime": "never used",
         "lastUseSite": "never used",

@@ -2,8 +2,8 @@ code_orig_.js:19:9:19:28 : RC(code_orig_.js:18:20:22:6) = 2
 code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
 Id: 2     Alloc: code_orig_.js:16:1:16:24                 Time: 94         Loc: end of program
 Id: 3     Alloc: code_orig_.js:16:1:16:24                 Time: 94         Loc: end of program
-Id: 4     Alloc: code_orig_.js:17:1:24:3                  Time: 13         Loc: code_orig_.js:17:1:24:5
-Id: 5     Alloc: code_orig_.js:17:1:24:3                  Time: 13         Loc: code_orig_.js:17:1:24:5
+Id: 4     Alloc: code_orig_.js:17:2:24:2                  Time: 13         Loc: code_orig_.js:17:1:24:5
+Id: 5     Alloc: code_orig_.js:17:2:24:2                  Time: 13         Loc: code_orig_.js:17:1:24:5
 Id: 6     Alloc: code_orig_.js:18:20:22:6                 Time: 90         Loc: code_orig_.js:18:20:22:6
 Id: 7     Alloc: code_orig_.js:18:20:22:6                 Time: 90         Loc: code_orig_.js:18:20:22:6
 Id: 8     Alloc: initial DOM                              Time: 94         Loc: end of program

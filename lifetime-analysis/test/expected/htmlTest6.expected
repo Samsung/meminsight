@@ -1,8 +1,8 @@
 checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
 Id: 2     Alloc: checknode_orig_.js:16:1:16:24            Time: 117        Loc: end of program
 Id: 3     Alloc: checknode_orig_.js:16:1:16:24            Time: 117        Loc: end of program
-Id: 4     Alloc: checknode_orig_.js:18:1:25:3             Time: 13         Loc: checknode_orig_.js:18:1:25:5
-Id: 5     Alloc: checknode_orig_.js:18:1:25:3             Time: 13         Loc: checknode_orig_.js:18:1:25:5
+Id: 4     Alloc: checknode_orig_.js:18:2:25:2             Time: 13         Loc: checknode_orig_.js:18:1:25:5
+Id: 5     Alloc: checknode_orig_.js:18:2:25:2             Time: 13         Loc: checknode_orig_.js:18:1:25:5
 Id: 6     Alloc: checknode_orig_.js:19:15:22:6            Time: 113        Loc: checknode_orig_.js:19:15:22:6
 Id: 7     Alloc: checknode_orig_.js:19:15:22:6            Time: 113        Loc: checknode_orig_.js:19:15:22:6
 Id: 8     Alloc: initial DOM                              Time: 117        Loc: end of program

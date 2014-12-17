@@ -59,7 +59,7 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "type": "PROTOTYPE"
       }
     ],
-    "checknode_orig_.js:18:1:25:3": [
+    "checknode_orig_.js:18:2:25:2": [
       {
         "objectId": 4,
         "creationTime": 4,

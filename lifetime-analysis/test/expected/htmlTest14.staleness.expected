@@ -444,7 +444,7 @@
         "type": "DOM"
       }
     ],
-    "testinnerhtml2_orig_.js:16:1:19:3": [
+    "testinnerhtml2_orig_.js:16:2:19:2": [
       {
         "objectId": 9,
         "creationTime": 17,
@@ -544,7 +544,7 @@
         "type": "DOM"
       }
     ],
-    "testinnerhtml_orig_.js:16:1:19:3": [
+    "testinnerhtml_orig_.js:16:2:19:2": [
       {
         "objectId": 2,
         "creationTime": 2,
