@@ -24,77 +24,7 @@ import path = require('path');
 import fs = require('fs');
 var argparse = require('argparse');
 
-/**
- * manipulates the global argParser variable to configure command-line arguments
- */
-//function parseCLIArgs(): any {
-//    argParser.command('instrument')
-//        .options({
-//            outputDir: {
-//                default: '/tmp',
-//                help: "directory in which to place instrumented files and traces.  " +
-//                    "We create a new sub-directory for our output."
-//            },
-//            path: {
-//                position: 1,
-//                help: "directory of app to instrument",
-//                required: true
-//            }
-//        })
-//        .callback((opts) => {
-//            if (opts._.length > 2) {
-//                throw new Error("too many arguments");
-//            }
-//        })
-//        .help("instrument a local application");
-//
-//    argParser.command('run')
-//        .options({
-//            path: {
-//                position: 1,
-//                help: "directory containing instrumented application",
-//                required: true
-//            }
-//        })
-//        .callback((opts) => {
-//            if (opts._.length > 2) {
-//                throw new Error("too many arguments");
-//            }
-//        })
-//        .help("run an instrumented app and collect profiling results");
-//
-//    argParser.command('noderun')
-//        .options({
-//            path: {
-//                position: 1,
-//                help: "directory containing instrumented node app"
-//            },
-//            instScript: {
-//                position: 1,
-//                help: "script to execute, relative to instrumented app directory",
-//                required: true
-//            }
-//        })
-//        .help("execute an instrumented node.js script and collecting profiling results.  pass command-line arguments for the script after this one");
-//
-//    argParser.command('inspect')
-//        .options({
-//            path: {
-//                position: 1,
-//                help: "directory containing instrumented application",
-//                required: true
-//            }
-//        })
-//        .callback((opts) => {
-//            if (opts._.length > 2) {
-//                throw new Error("too many arguments");
-//            }
-//        })
-//        .help("show the MemInsight GUI to inspect profiling results for an app");
-//
-//    var opts = argParser.parse();
-//    return opts;
-//}
+
 
 function runNodeProg(args: Array<string>, progName: string): void {
     // always run in harmony mode
