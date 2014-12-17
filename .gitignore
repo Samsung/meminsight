@@ -4,8 +4,6 @@ node_modules
 bin/LoggingAnalysis.js*
 lib/*/*.js
 lib/*/*.js.map
-lib/*/*/*.js
-lib/*/*/*.js.map
 test/*.js
 test/*.js.map
 drivers/*.js
