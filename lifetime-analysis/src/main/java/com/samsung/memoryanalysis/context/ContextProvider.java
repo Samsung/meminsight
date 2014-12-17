@@ -138,12 +138,19 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
     @Override
 	public void functionEnter(int iid, int functionId, int callSiteIID) {
         WeakReference<Context> contextWeakRef = contexts.get(functionId);
-        assert contextWeakRef != null : "no context ever discovered!!! iid " + iid + " functionId " + functionId + " callSiteIID " + callSiteIID;
-        Context context = contextWeakRef.get();
-        if (context == null) {
-//            System.err.println("missing context!!! iid " + iid + " function id " + functionId + " call site IID " + callSiteIID);
-            // TODO this could cause imprecision.  eventually, need a way to revive contexts for revived functions
+        Context context = null;
+        if (contextWeakRef == null) {
+            // TODO this is due to a bug in jalangi's handling of eval
+            // should be fixed when we move to jalangi2; work around it for now
+//            assert contextWeakRef != null : "no context ever discovered!!! iid " + iid + " functionId " + functionId + " callSiteIID " + callSiteIID;
             context = GLOBAL;
+        } else {
+            context = contextWeakRef.get();
+            if (context == null) {
+//                System.err.println("missing context!!! iid " + iid + " function id " + functionId + " call site IID " + callSiteIID);
+                // TODO this could cause imprecision.  eventually, need a way to revive contexts for revived functions
+                context = GLOBAL;
+            }
         }
         Context ctx = new Context(context, iidMap.get(iid).toString());
         contextStack.push(ctx);
