@@ -34,6 +34,7 @@ import path = require('path');
 import jalangi = require('jalangi/src/js/jalangi');
 import mkdirp = require('mkdirp');
 import memTracer = require('../lib/analysis/memTraceAPI');
+import wrench = require('wrench');
 import assert = require('assert');
 
 import fs = require('fs');
@@ -84,6 +85,33 @@ var multiFileBench: {[benchname:string]: Array<string>} = {
     "zlib": ["zlib.js", "zlib-data.js"]
 };
 
+var CS_CODE_ROOT = "/Users/m.sridharan/git-repos/benchmarks";
+
+var CS_INPUT = "/Users/m.sridharan/git-repos/benchmarks/escodegen/test/3rdparty/jslex.js";
+
+class CaseStudyBenchInfo {
+    constructor(public inputFiles: string, public nodeArgs: Array<string>) {
+
+    }
+}
+
+var cs_benchmarks: {[bench:string]: CaseStudyBenchInfo} = {
+    "escodegen": new CaseStudyBenchInfo("escodegen.js", ["bin/escodegen.js", CS_INPUT]),
+    "esprima": new CaseStudyBenchInfo("esprima.js", ["bin/esparse.js", "--loc", "--range", CS_INPUT]),
+    "eslint": new CaseStudyBenchInfo("lib:bin/eslint.js", ["bin/eslint.js", CS_INPUT])
+};
+
+function getCSInputFiles(bench: string) {
+    var benchDir = path.join(CS_CODE_ROOT, bench);
+    var prefixes = cs_benchmarks[bench].inputFiles.split(':');
+    var files: Array<string> = wrench.readdirSyncRecursive(benchDir)
+        .filter((file) => {
+            return file.search(new RegExp(".js$")) !== -1 &&
+                prefixes.some((prefix) => { return file.indexOf(prefix) === 0; });
+        })
+        .map((file) => { return path.join(benchDir, file)});
+    return files;
+}
 var NUM_TIMING_RUNS = args.timingRuns;
 var NUM_ENHANCED_RUNS = args.enhancedRuns;
 
@@ -94,26 +122,42 @@ function runOnNode(nodeArgs: Array<string>) {
     //console.log("done");
 }
 
-function getLOC(bench: string): number {
+function getLOC(bench: string, caseStudy: boolean): number {
     var result = 0;
-    var inputFiles: Array<string> = multiFileBench[bench];
-    if (!inputFiles) {
-        inputFiles = [bench + ".js"];
+    var inputFiles: Array<string> = null;
+    if (caseStudy) {
+        inputFiles = getCSInputFiles(bench);
+    } else {
+        inputFiles = multiFileBench[bench];
+        if (!inputFiles) {
+            inputFiles = [bench + ".js"];
+        }
     }
     inputFiles.forEach((file) => {
-        var filePath = path.join(benchDir, file);
+        var filePath = caseStudy ? file : path.join(benchDir,file);
         var contents = String(fs.readFileSync(filePath));
         result += sloc(contents, "js").source;
     });
     return result;
 }
-function runBenchNormal(bench:string) {
+function runBenchNormal(bench:string, caseStudy: boolean) {
     var result = new fastStats.Stats();
+    var nodeArgs: Array<string> = null, curDir: string = process.cwd();
+    if (caseStudy) {
+        nodeArgs = cs_benchmarks[bench].nodeArgs;
+        var caseStudyDir = path.join(CS_CODE_ROOT,bench);
+        process.chdir(caseStudyDir);
+    } else {
+        var benchPath = path.join(benchDir, bench + ".js");
+        nodeArgs = [benchPath];
+    }
     for (var i = 0; i < NUM_TIMING_RUNS; i++) {
         var time = Date.now();
-        var benchPath = path.join(benchDir, bench + ".js");
-        runOnNode([benchPath]);
+        runOnNode(nodeArgs);
         result.push(Date.now() - time);
+    }
+    if (caseStudy) {
+        process.chdir(curDir);
     }
     return result;
 }
@@ -148,14 +192,25 @@ function getNodeMemUsage(nodeArgs: Array<string>): MemUsage {
     if (args.noMemUsage) {
         return { minHeap: 0, maxHeap: 0 };
     }
-    var cliStr = ['node', '--harmony', '--gc-global', '--expose-gc', '--trace-gc', memHarnessScript].concat(nodeArgs).join(' ');
-//    var cliStr = ['node', '--harmony', '--gc-global', '--trace-gc'].concat(nodeArgs).join(' ');
+//    var cliStr = ['node', '--harmony', '--trace-gc', memHarnessScript].concat(nodeArgs).join(' ');
+    var cliStr = ['node', '--harmony', /*'--gc-global', */'--expose-gc', '--trace-gc'].concat(nodeArgs).join(' ');
+//    console.log(cliStr);
     var result = sh.exec(cliStr);
+//    console.log(result);
     return computeMinAndMaxHeap(result.stdout);
 }
 
-function getMemUsageNormal(bench: string): MemUsage {
-    return getNodeMemUsage([path.join(benchDir, bench + ".js")]);
+function getMemUsageNormal(bench: string, caseStudy: boolean): MemUsage {
+    if (caseStudy) {
+        var csBenchDir = path.join(CS_CODE_ROOT, bench);
+        var curDir = process.cwd();
+        process.chdir(csBenchDir);
+        var result = getNodeMemUsage(cs_benchmarks[bench].nodeArgs);
+        process.chdir(curDir);
+        return result;
+    } else {
+        return getNodeMemUsage([path.join(benchDir, bench + ".js")]);
+    }
 }
 
 function dummyResolvedPromise(): Q.Promise<any> {
@@ -164,9 +219,9 @@ function dummyResolvedPromise(): Q.Promise<any> {
     return d.promise;
 }
 
-var analysisConfigNames = ["asciiFS","hiddenProp","allUses","allPutfields","best"];
+var analysisConfigNames = ["allUses","allPutfields","best"];
 
-function runWithDirectAndAnalysis(bench: string, outputDir: string) {
+function runWithDirectAndAnalysis(bench: string, outputDir: string, caseStudy: boolean) {
     var directResults = new fastStats.Stats();
     var analysisResults: Array<fastStats.Stats> = [];
     var numConfigs = analysisConfigNames.length;
@@ -174,9 +229,15 @@ function runWithDirectAndAnalysis(bench: string, outputDir: string) {
         analysisResults[i] = new fastStats.Stats();
     }
     var curDir = process.cwd();
-    var script = multiFileBench[bench] ? multiFileBench[bench][0] : bench + ".js";
-    script = path.join(outputDir, script);
-    var justDirectArgs = [directDriver, script];
+    var justDirectArgs: Array<string>, baseLoggingAnalysisArgs: Array<string>;
+    if (caseStudy) {
+        var csBenchInfo = cs_benchmarks[bench];
+        var justDirectArgs = [directDriver].concat(csBenchInfo.nodeArgs);
+    } else {
+        var script = multiFileBench[bench] ? multiFileBench[bench][0] : bench + ".js";
+        script = path.join(outputDir, script);
+        justDirectArgs = [directDriver, script];
+    }
     var baseLoggingAnalysisArgs = [
         directDriver,
         '--analysis', loggingAnalysis
@@ -188,15 +249,15 @@ function runWithDirectAndAnalysis(bench: string, outputDir: string) {
     }
     var loggingConfigs: Array<Array<string>> = [];
 
-    // ascii FS
-    var asciiFSArgs = baseLoggingAnalysisArgs.slice(0);
-    asciiFSArgs.push('--initParam', 'asciiFS:true');
-    loggingConfigs.push(asciiFSArgs);
-
-    // hidden prop
-    var hiddenPropArgs = baseLoggingAnalysisArgs.slice(0);
-    hiddenPropArgs.push('--initParam', 'useHiddenProp:true');
-    loggingConfigs.push(hiddenPropArgs);
+    //// ascii FS
+    //var asciiFSArgs = baseLoggingAnalysisArgs.slice(0);
+    //asciiFSArgs.push('--initParam', 'asciiFS:true');
+    //loggingConfigs.push(asciiFSArgs);
+    //
+    //// hidden prop
+    //var hiddenPropArgs = baseLoggingAnalysisArgs.slice(0);
+    //hiddenPropArgs.push('--initParam', 'useHiddenProp:true');
+    //loggingConfigs.push(hiddenPropArgs);
 
     // log all uses
     var allUsesArgs = baseLoggingAnalysisArgs.slice(0);
@@ -213,7 +274,11 @@ function runWithDirectAndAnalysis(bench: string, outputDir: string) {
     loggingConfigs.push(baseLoggingAnalysisArgs);
     // add the script argument to all configs at the end
     loggingConfigs.forEach((config: Array<string>) => {
-        config.push(script);
+        if (caseStudy) {
+            Array.prototype.push.apply(config, csBenchInfo.nodeArgs);
+        } else {
+            config.push(script);
+        }
     });
     assert(loggingConfigs.length === numConfigs);
     for (var i = 0; i < NUM_TIMING_RUNS; i++) {
@@ -229,6 +294,7 @@ function runWithDirectAndAnalysis(bench: string, outputDir: string) {
         process.chdir(curDir);
     }
     var directMemUsage = getNodeMemUsage(justDirectArgs);
+    console.log(outputDir);
     process.chdir(outputDir);
     var analysisMemUsage: Array<MemUsage> = [];
     for (var i = 0; i < numConfigs; i++) {
@@ -244,30 +310,40 @@ function runWithDirectAndAnalysis(bench: string, outputDir: string) {
 }
 
 
-function instrument(bench: string) {
-    var start = Date.now();
-    var trueOutputDir = path.join(outputDir,bench+"_inst");
-    mkdirp.sync(trueOutputDir);
+function instrument(bench: string, caseStudy: boolean) {
+    var start = Date.now(), promise: Q.Promise<jalangi.InstDirResult> = null,
+        trueOutputDir: string;
+    if (caseStudy) {
+        var csBenchDir = path.join(CS_CODE_ROOT, bench);
+        trueOutputDir = path.join(outputDir, bench);
+        promise = memTracer.instrumentHTMLDir(csBenchDir, {
+            outputDir: outputDir,
+            only_include: cs_benchmarks[bench].inputFiles,
+            verbose: args.verbose
+        });
+    } else {
+        trueOutputDir = path.join(outputDir,bench+"_inst");
+        mkdirp.sync(trueOutputDir);
 //    var instScript = path.join(trueOutputDir, path.basename(script, '.js') + "_jalangi_.js");
-    var inputFiles: Array<string> = multiFileBench[bench];
-    if (!inputFiles) {
-        inputFiles = [bench + ".js"];
+        var inputFiles: Array<string> = multiFileBench[bench];
+        if (!inputFiles) {
+            inputFiles = [bench + ".js"];
+        }
+        inputFiles = inputFiles.map((file) => { return path.join(benchDir, file)});
+        var instOptions = {
+            outputDir: trueOutputDir,
+            inputFiles: inputFiles,
+            verbose: args.verbose
+        };
+        promise = memTracer.instrumentScriptsMem(inputFiles, instOptions);
     }
-    inputFiles = inputFiles.map((file) => { return path.join(benchDir, file)});
-    var instOptions = {
-        outputDir: trueOutputDir,
-        inputFiles: inputFiles,
-        verbose: args.verbose
-    };
-    var promise = memTracer.instrumentScriptsMem(inputFiles, instOptions);
     return promise.then((): any => {
         var instTime = Date.now() - start;
         return { instTime: instTime, outputDir: trueOutputDir };
     });
-
 }
 
-function genEnhancedTrace(bench: string, benchOutputDir: string): fastStats.Stats {
+function genEnhancedTrace(benchOutputDir: string): fastStats.Stats {
     var traceFile = path.join(benchOutputDir, 'mem-trace');
     var cliArgs = [
         lifetimeAnalysisScript,
@@ -279,7 +355,7 @@ function genEnhancedTrace(bench: string, benchOutputDir: string): fastStats.Stat
         ">",
         path.join(benchOutputDir, 'enhanced-trace')
     ];
-    var cliStr = "export LIFETIME_ANALYSIS_OPTS=\"-ea -Xmx2G -Dtesting=no\" && " + cliArgs.join(' ');
+    var cliStr = "export LIFETIME_ANALYSIS_OPTS=\" -Xmx2G -Dtesting=no\" && " + cliArgs.join(' ');
     var result = new fastStats.Stats();
     for (var i = 0; i < NUM_ENHANCED_RUNS; i++) {
         var time = Date.now();
@@ -312,25 +388,28 @@ interface BenchStats {
 }
 
 var bench2Stats: {[benchname:string]: BenchStats} = {};
-benchmarks.forEach((bench: string) => {
+var csBenchNames = Object.keys(cs_benchmarks);
+var allBenchmarks = benchmarks.concat(csBenchNames);
+allBenchmarks.forEach((bench: string) => {
     if (runBench && runBench.indexOf(bench) === -1) return;
+    var caseStudyBench = csBenchNames.indexOf(bench) !== -1;
     benchPromise = benchPromise.then(() => {
-        var normalStats: fastStats.Stats = runBenchNormal(bench);
-        var loc = getLOC(bench);
-        var heapUsage = getMemUsageNormal(bench);
+        var normalStats: fastStats.Stats = runBenchNormal(bench, caseStudyBench);
+        var loc = getLOC(bench, caseStudyBench);
+        var heapUsage = getMemUsageNormal(bench, caseStudyBench);
         var instTime: number;
         var analysis2Stats: { stats: fastStats.Stats; memUsg: MemUsage };
         var benchOutputDir: string;
-        var instPromise = instrument(bench);
+        var instPromise = instrument(bench, caseStudyBench);
         var directStatsPromise = instPromise.then((result) => {
             instTime = result.instTime;
             benchOutputDir = result.outputDir;
-            return runWithDirectAndAnalysis(bench, benchOutputDir);
+            return runWithDirectAndAnalysis(bench, benchOutputDir, caseStudyBench);
         });
         return directStatsPromise.then((s) => {
             var memTraceFile = path.join(benchOutputDir, 'mem-trace');
             var traceSize = fs.existsSync(memTraceFile) ? fs.statSync(memTraceFile).size : -1;
-            var enhancedStats = genEnhancedTrace(bench, benchOutputDir);
+            var enhancedStats = genEnhancedTrace(benchOutputDir);
             var analysisConfigStats = [];
             s.analysisStats.forEach((stats: fastStats.Stats, index: number) => {
                 analysisConfigStats.push(new ConfigStats(stats, s.analysisMemUsage[index]));
