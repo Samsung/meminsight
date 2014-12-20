@@ -3,6 +3,13 @@ MemInsight
 
 MemInsight is a memory profiler for web applications.
 
+Prerequisites
+-------------
+
+* [node.js](http://nodejs.org) v0.10
+* [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) version 6 or higher
+* [Gradle](https://www.gradle.org/)
+
 Installation
 ------------
 
