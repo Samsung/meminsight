@@ -7,6 +7,7 @@ Prerequisites
 -------------
 
 * [node.js](http://nodejs.org) v0.10
+* [Python 2.7](https://www.python.org/download/releases/2.7/) (dependence to be removed soon)
 * [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) version 6 or higher
 * [Gradle](https://www.gradle.org/)
 
