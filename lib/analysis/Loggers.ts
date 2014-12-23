@@ -154,7 +154,7 @@ module ___LoggingAnalysis___ {
         /**
          * time stamp of *previous* log entry
          */
-        time:number = -1;
+        protected time:number = -1;
 
         /**
          * either the IID of the most recent top-level expression, or -1 if
@@ -186,7 +186,7 @@ module ___LoggingAnalysis___ {
          * actions before logging an entry
          * @return true if logging should continue, false otherwise
          */
-        beforeLog():boolean {
+        protected beforeLog():boolean {
             if (this.tracingStopped) {
                 return false;
             }
@@ -203,7 +203,7 @@ module ___LoggingAnalysis___ {
             return true;
         }
 
-        logTopLevelFlush(iid: number): void {
+        protected logTopLevelFlush(iid: number): void {
             throw new Error("should be overridden by subclass!");
         }
     }
@@ -219,23 +219,23 @@ module ___LoggingAnalysis___ {
         // fluent interface for writing out data
         ///////////////
 
-        flushIfNeeded(nextRecordLength: number): AbstractFluentLogger {
+        protected flushIfNeeded(nextRecordLength: number): AbstractFluentLogger {
             throw new Error("override in subclass!");
         }
 
-        writeByte(val: number): AbstractFluentLogger {
+        protected writeByte(val: number): AbstractFluentLogger {
             throw new Error("override in subclass!");
         }
 
-        writeInt(val: number): AbstractFluentLogger {
+        protected writeInt(val: number): AbstractFluentLogger {
             throw new Error("override in subclass!");
         }
 
-        strLength(val: string): number {
+        protected strLength(val: string): number {
             throw new Error("override in subclass!");
         }
 
-        writeString(val: string): AbstractFluentLogger {
+        protected writeString(val: string): AbstractFluentLogger {
             throw new Error("override in subclass!");
         }
 
@@ -385,7 +385,7 @@ module ___LoggingAnalysis___ {
             this.time--;
         }
 
-        logTopLevelFlush(iid: number): void {
+        protected logTopLevelFlush(iid: number): void {
             this.flushIfNeeded(5).writeTypeAndIID(LogEntryType.TOP_LEVEL_FLUSH,iid);
         }
 
@@ -434,7 +434,7 @@ module ___LoggingAnalysis___ {
             return this;
         }
 
-        flush():void {
+        protected flush():void {
             throw new Error("override in subclass!");
         }
     }
@@ -450,7 +450,7 @@ module ___LoggingAnalysis___ {
         }
 
 
-        flush(): void {
+        protected flush(): void {
 //            var time = process.hrtime();
             var bufMan = this.bufManager;
             this.fs.writeSync(this.traceFh, bufMan.buffer, 0, bufMan.offset);
@@ -609,7 +609,7 @@ module ___LoggingAnalysis___ {
 
         private byteView = new Uint8Array(this.buffer);
 
-        offset = 0;
+        protected offset = 0;
 
         private socket:WebSocket;
 
