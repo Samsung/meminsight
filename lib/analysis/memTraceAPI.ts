@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/// <reference path="../ts-declarations/jalangi.d.ts" />
+/// <reference path="../ts-declarations/jalangi2.d.ts" />
 /// <reference path="../ts-declarations/node.d.ts" />
 /// <reference path="../ts-declarations/Q.d.ts" />
 
@@ -22,14 +22,14 @@
  * Created by m.sridharan on 6/21/14.
  */
 
-import jalangi = require('jalangi/src/js/jalangi');
+import jalangi = require('jalangi2')
 import path = require('path');
 import Q = require('q');
 import child_process = require('child_process');
 import fs = require('fs');
 
 var loggingAnalysis = path.join(__dirname,'..','..','bin','LoggingAnalysis.js');
-import astUtil = require('jalangi/src/js/utils/astUtil');
+require('jalangi2/src/js/instrument/astUtil');
 
 // initializes J$.memAnalysisUtils
 require('./memAnalysisUtils');
@@ -50,17 +50,8 @@ export interface MemTraceResult {
 }
 
 
-function injectTopLevelExprInfo(instResult: jalangi.InstStringResult): string {
-    var instCode = instResult.code;
-    var topLevelExprs: Array<number> = astUtil.computeTopLevelExpressions(instResult.instAST);
-    var topLevelExprCode =
-        "(function (sandbox) {\n" +
-        "  sandbox.topLevelExprs = " + JSON.stringify(topLevelExprs) + "\n" +
-        "})(typeof J$ === 'undefined'? J$ = {}:J$);"
-    return topLevelExprCode + "\n" + instCode;
-}
-
-function getFreeVars(ast: any, freeVarsTable: any): any {
+function getFreeVars(ast: any): any {
+    var freeVarsTable = {};
     var na = J$.memAnalysisUtils;
     var curVarNames:any = null;
     var freeVarsHandler = (node: any, context: any) => {
@@ -80,34 +71,25 @@ function getFreeVars(ast: any, freeVarsTable: any): any {
         'FunctionExpression': freeVarsHandler,
         'FunctionDeclaration': freeVarsHandler
     };
-    astUtil.transformAst(ast, visitorPost, visitorPre);
+    J$.astUtil.transformAst(ast, visitorPost, visitorPre);
     return freeVarsTable;
 }
 
-function writeFreeVarsJSON(outputDir: string, freeVarsTable: any): void {
-    var tableFile = path.join(outputDir, "freevars.json");
-    fs.writeFileSync(tableFile, JSON.stringify(freeVarsTable,undefined,2));
-}
 
 export function instScriptAndGetMetadata(script: string, instOptions: jalangi.InstrumentOptions) {
     instOptions.instHandler = J$.memAnalysisUtils.instHandler;
+    instOptions.astHandler = getFreeVars;
     var instResult = jalangi.instrumentString(script, instOptions);
-    var code = injectTopLevelExprInfo(instResult);
-    var freeVars = getFreeVars(instResult.instAST, {});
-    return { instCode: code, iidSourceInfo: instResult.iidSourceInfo, freeVars: freeVars };
+    var code = instResult.code;
+    return { instCode: code, iidSourceInfo: instResult.sourceMapObject };
 }
-/**
- * instrument a script for the purpose of the memory analysis.
- * this injects top-level expression information to the top of the
- * instrumented script, so it gets loaded for the trace generation
- *
- * @param script
- */
+
 export function instrumentScriptMem(script: string, instOptions: jalangi.InstrumentOptions): void {
+    // let's assume we want to embed source maps for now
+    instOptions.inlineSourceMap = true;
     var instResult = instScriptAndGetMetadata(script, instOptions);
     var outputFileName = instOptions.outputFile;
     fs.writeFileSync(outputFileName, instResult.instCode);
-    writeFreeVarsJSON(path.dirname(outputFileName), instResult.freeVars);
 }
 
 export function getTraceForJS(script: string, instOptions: jalangi.InstrumentOptions, debugFun?: string) {

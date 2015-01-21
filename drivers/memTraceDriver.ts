@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 ///<reference path='../lib/ts-declarations/node.d.ts' />
-///<reference path='../lib/ts-declarations/jalangi.d.ts' />
+///<reference path='../lib/ts-declarations/jalangi2.d.ts' />
 ///<reference path='../lib/ts-declarations/mkdirp.d.ts' />
 ///<reference path='../lib/ts-declarations/wrench.d.ts' />
 
@@ -25,8 +25,6 @@
 import mkdirp = require('mkdirp');
 import path = require('path');
 import fs = require('fs');
-import jalangi = require('jalangi/src/js/jalangi');
-import astUtil = require('jalangi/src/js/utils/astUtil');
 import memTracer = require('../lib/analysis/memTraceAPI');
 import Q = require('q');
 var argparse = require('argparse');
@@ -54,16 +52,11 @@ if (jsFile) {
     var instScript = path.join(trueOutputDir, path.basename(script, '.js') + "_jalangi_.js");
     var instOptions = {
         outputFile: instScript,
-        dirIIDFile: trueOutputDir,
-        iidMap : true,
         inputFileName: path.resolve(script)
     };
     if (args.justGenerate) {
         memTracer.instrumentScriptMem(String(fs.readFileSync(script)), instOptions);
-        // TODO is there a cleaner way to do this?
-        var def = Q.defer();
-        promise = def.promise;
-        def.resolve(null);
+        promise = Q(null);
     } else {
         promise = memTracer.getTraceForJS(script, instOptions, args.debugFun);
     }

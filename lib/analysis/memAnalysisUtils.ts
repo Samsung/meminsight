@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 ///<reference path='../ts-declarations/node.d.ts' />
-///<reference path='../ts-declarations/jalangi.d.ts' />
+///<reference path='../ts-declarations/jalangi2.d.ts' />
 
 
 // Author: Manu Sridharan
@@ -22,7 +22,9 @@
 declare var J$: any;
 declare var escope: any;
 
-import jalangi = require('jalangi/src/js/jalangi');
+// this will not generate an actual require() call,
+// since jalangi is only used in a type position
+import jalangi = require('jalangi2');
 
 (function (sandbox: any) {
     var myEscope: any;
