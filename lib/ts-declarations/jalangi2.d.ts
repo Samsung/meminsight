@@ -15,12 +15,7 @@ declare module "jalangi/src/js/ConcolicValue" {
 export = ConcolicValue;
 }
 
-declare module "jalangi/src/js/utils/astUtil" {
-    export function computeTopLevelExpressions(ast: any): Array<number>
-    export function transformAst(ast: any, visitorPost: any, visitorPre: any): void
-}
-
-declare module "jalangi/src/js/instrument/instUtil" {
+declare module "jalangi2/src/js/instrument/instUtil" {
     export function setHeaders(analysis2: boolean): void
     export var headerSources: Array<string>
     export function createFilenameForScript(url: string): string

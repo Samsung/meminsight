@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 ///<reference path='../ts-declarations/node.d.ts' />
-///<reference path='../ts-declarations/jalangi.d.ts' />
+///<reference path='../ts-declarations/jalangi2.d.ts' />
 ///<reference path='../ts-declarations/express.d.ts' />
 
 
 // Author: Simon Jensen
 
-import jalangi = require('jalangi/src/js/jalangi');
+import jalangi = require('jalangi2');
 import path = require('path');
 import express = require('express');
 import types = require('./dataAnalysisTypes');

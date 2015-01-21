@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 ///<reference path='../ts-declarations/node.d.ts' />
-///<reference path='../ts-declarations/jalangi.d.ts' />
+///<reference path='../ts-declarations/jalangi2.d.ts' />
 ///<reference path='../ts-declarations/websocket.d.ts' />
 ///<reference path='../ts-declarations/rewriting-proxy.d.ts' />
 ///<reference path='../ts-declarations/mkdirp.d.ts' />
@@ -30,7 +30,7 @@ import path = require('path');
 import cp = require('child_process');
 import proxy = require('rewriting-proxy');
 import urlparser = require('url');
-import instUtil = require('jalangi/src/js/instrument/instUtil');
+import instUtil = require('jalangi2/src/js/instrument/instUtil');
 import memTracer = require('./../analysis/memTraceAPI');
 import bufUtil = require('./../analysis/bufferUtil');
 import mkdirp = require('mkdirp');

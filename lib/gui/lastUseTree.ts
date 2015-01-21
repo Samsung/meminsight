@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 ///<reference path='../ts-declarations/node.d.ts' />
-///<reference path='../ts-declarations/jalangi.d.ts' />
-/*				     
+/*
  * Copyright 2013 Samsung Information Systems America, Inc.
  *				     
  * Licensed under the Apache License, Version 2.0 (the "License");

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 ///<reference path='../lib/ts-declarations/node.d.ts' />
-///<reference path='../lib/ts-declarations/jalangi.d.ts' />
+///<reference path='../lib/ts-declarations/jalangi2.d.ts' />
 ///<reference path='../lib/ts-declarations/fast-stats.d.ts' />
 ///<reference path='../lib/ts-declarations/mkdirp.d.ts' />
 ///<reference path='../lib/ts-declarations/wrench.d.ts' />
@@ -31,7 +31,7 @@ import fastStats = require('fast-stats');
 import sloc = require('sloc');
 var sh = require('execSync');
 import path = require('path');
-import jalangi = require('jalangi/src/js/jalangi');
+import jalangi = require('jalangi2');
 import mkdirp = require('mkdirp');
 import memTracer = require('../lib/analysis/memTraceAPI');
 import wrench = require('wrench');

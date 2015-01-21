@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 ///<reference path='../ts-declarations/node.d.ts' />
-/// <reference path="../ts-declarations/jalangi.d.ts" />
+/// <reference path="../ts-declarations/jalangi2.d.ts" />
 
 //import fs = require ("fs");
 import types = require('./dataAnalysisTypes');
-import jalangi = require('jalangi/src/js/jalangi');
+import jalangi = require('jalangi2');
 import path = require('path');
 
 import tree = require('./tree');

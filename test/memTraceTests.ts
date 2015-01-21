@@ -15,13 +15,13 @@
  */
 /// <reference path="../lib/ts-declarations/node.d.ts" />
 /// <reference path="../lib/ts-declarations/mocha.d.ts" />
-/// <reference path="../lib/ts-declarations/jalangi.d.ts" />
+/// <reference path="../lib/ts-declarations/jalangi2.d.ts" />
 
 /**
  * Created by m.sridharan on 6/6/14.
  */
 
-import jalangi = require('jalangi/src/js/jalangi');
+import jalangi = require('jalangi2');
 import fs = require('fs');
 import path = require('path');
 import assert = require('assert');
