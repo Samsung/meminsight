@@ -56,63 +56,29 @@ declare module "jalangi2" {
         sourceMapObject: any;
     }
 
-    export interface RecordResult {
-        exitCode: number
-        stdout: string;
-        stderr : string;
-        traceFile : string
-    }
 
-    export interface ReplayResult<T> {
+    export interface AnalysisResult<T> {
         exitCode: number
         stdout: string
         stderr: string
         result: T
     }
 
+    export interface InstDirOptions {
+        outputDir?: string;
+        instHandler?: CustomInstHandler;
+        astHandler?: (ast: any) => any;
+        inlineIID?: boolean;
+    }
     export interface InstDirResult {
         outputDir: string
     }
 
-    export function instrument(script: string, options: InstrumentOptions) : InstResult
     export function instrumentString(code: string, options: InstrumentOptions): InstStringResult
-    export function instrumentDir(options: any): Q.Promise<InstDirResult>
-    export function record (file: string, traceFile? : string) :Q.Promise<RecordResult>
-    export function replay <T> (trace : string, analysis : any, options? : Object) : Q.Promise<ReplayResult<T>>
-    export function direct <T> (script : string, analysis : Array<string>, options? : Object) : Q.Promise<ReplayResult<T>>
-    export function direct2 <T> (script : string, analysis : Array<string>, options? : Object) : Q.Promise<ReplayResult<T>>
+    export function instrumentDir(options: InstDirOptions): Q.Promise<InstDirResult>
+    export function direct<T> (script : string, analysis : Array<string>, options? : Object) : Q.Promise<AnalysisResult<T>>
+    export function direct2<T> (script : string, analysis : Array<string>, options? : Object) : Q.Promise<AnalysisResult<T>>
 
-    export interface Analysis {
-        installAxiom (c: any): any
-        makeConcolic  (idx: any, val: any, getNextSymbol: any): any
-        makeConcolicPost(): any
-        declare(iid: number, name: string, val: any, isArgument: boolean): any
-        literalPre(iid: number, val: any, hasGetterSetter: boolean): void
-        literal (iid: number, val: any, hasGetterSetter: boolean): any
-        invokeFunPre (iid: number, f: any, base: any, args: any, isConstructor: boolean): void
-        invokeFun (iid: number, f: any, base: any, args: any, val: any, isConstructor: boolean): any
-        getFieldPre(iid: number, base: any, offset: any): void
-        getField (iid: number, base: any, offset: any, val: any): any
-        putFieldPre (iid: number, base: any, offset: any, val: any): any
-        putField (iid: number, base: any, offset: any, val: any): any
-        readPre (iid: number, name: any, val: any, isGlobal: boolean): void
-        read (iid: number, name: any, val: any, isGlobal: boolean): any
-        writePre (iid: number, name: any, val: any, oldValue: any): void
-        write (iid: number, name: any, val: any, oldValue: any): any
-        binaryPre(iid: number, op: string, left: any, right: any): void
-        binary (iid: number, op: string, left: any, right: any, result_c: any): any
-        unaryPre (iid: number, op: string, left: any): void
-        unary  (iid: number, op: string, left: any, result_c: any): any
-        conditionalPre  (iid: number, left: any): void
-        conditional(iid: number, left: any, result_c: any): any
-        beginExecution  (data: any): void
-        endExecution (): any
-        functionEnter(iid: number, fun: any, dis: any /* this */, args: any): void
-        functionExit  (iid: number): boolean
-        return_(val: any): any
-        scriptEnter  (iid: number, fileName: string): void
-        scriptExit  (iid: number): void
-    }
 }
 
 //declare var J$ : any

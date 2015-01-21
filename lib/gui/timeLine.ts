@@ -44,8 +44,8 @@ console.log ("Input file is: " + inputFile);
 
 //printSiteSummaryData(ssd);
 
-var refCountAnalysis = path.resolve("lib/SizeAndStalenessEngine.js");
-var replayPromise = jalangi.replay(inputFile, refCountAnalysis, {});
+// TODO figure out what is going on with this old code
+var replayPromise = null;// jalangi.replay(inputFile, refCountAnalysis, {});
 
 var objectSetPromise = replayPromise.then(function (r : any) {
         return populateObjectsFromJSON(r.result);
