@@ -19,7 +19,6 @@
 
 // Author: Manu Sridharan
 
-declare var J$: any;
 declare var escope: any;
 
 // this will not generate an actual require() call,
@@ -119,4 +118,4 @@ import jalangi = require('jalangi2');
     exportObj.ANY = ANY;
     exportObj.freeVars = freeVars;
     exportObj.instHandler = instHandler;
-})((typeof J$ === 'undefined') ? J$ = {} : J$);
+})((typeof J$ === 'undefined') ? J$ = <any>{} : J$);

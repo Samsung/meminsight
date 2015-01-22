@@ -95,6 +95,8 @@ interface JalangiAnalysis {
     instrumentCode?(iid:number, newCode:string, newAst:AST): Result
 
     endExecution?: EndExecutionFunction
+
+    endExpression?(): void
 }
 interface AstUtil {
     // TODO improve
@@ -112,6 +114,9 @@ interface Sandbox {
     instrumentEvalCode?: InstrumentEvalCodeFunction
     iids?: any
     astUtil?: AstUtil
+    Constants: any
+    Config: any
+    initParams: any
 }
 interface EndExecutionFunction {
     (): void

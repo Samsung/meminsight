@@ -17,9 +17,9 @@
 ///<reference path='./ObjIdManager.ts' />
 ///<reference path='./MapShim.ts' />
 ///<reference path='./MutationObserverShim.ts' />
+///<reference path='../ts-declarations/jalangi.d.ts' />
 
 
-declare var J$: any;
 
 /**
  * Created by m.sridharan on 11/6/14.

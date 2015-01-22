@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 ///<reference path='../ts-declarations/node.d.ts' />
+///<reference path='../ts-declarations/jalangi.d.ts' />
 ///<reference path='./Loggers.ts' />
 ///<reference path='./InstUtils.ts' />
 ///<reference path='./ObjIdManager.ts' />
@@ -24,18 +25,15 @@
  */
 
 
-declare var J$: any;
-declare var astUtil: any;
 
 module ___LoggingAnalysis___ {
 
-    var myAstUtil = isBrowser ? astUtil : require('jalangi/src/js/utils/astUtil');
-
     if (!isBrowser) {
+        require('jalangi2/src/js/instrument/astUtil');
         require('../lib/analysis/memAnalysisUtils');
     }
 
-    class LoggingAnalysis {
+    class LoggingAnalysis implements JalangiAnalysis {
         /***************************************/
         /* ANALYSIS STATE AND INTERNAL METHODS */
         /***************************************/
@@ -45,21 +43,15 @@ module ___LoggingAnalysis___ {
         }
 
 
-        /**
-         * indicates top-level expressions, which necessitate a flush
-         */
-        private topLevelExprs: { [iid:string]: boolean } = {};
-
-
-        private handleTopLevel(iid: number): void {
-            if (this.logger.getFlushIID() === FlushIIDSpecial.ALREADY_FLUSHED && this.topLevelExprs[iid]) {
-                this.logger.setFlushIID(iid);
-                // at this point, we can empty the map from native objects to iids,
-                // since after a flush we won't be storing them anywhere
-                this.idManager.flushNativeObj2IIDInfo();
-
-            }
-        }
+        //private handleTopLevel(iid: number): void {
+        //    if (this.logger.getFlushIID() === FlushIIDSpecial.ALREADY_FLUSHED && this.topLevelExprs[iid]) {
+        //        this.logger.setFlushIID(iid);
+        //        // at this point, we can empty the map from native objects to iids,
+        //        // since after a flush we won't be storing them anywhere
+        //        this.idManager.flushNativeObj2IIDInfo();
+        //
+        //    }
+        //}
 
 
         private logger: Logger;
@@ -78,7 +70,7 @@ module ___LoggingAnalysis___ {
 
         private initJalangiConfig(): void {
             var conf = J$.Config;
-            var instHandler = J$.memAnalysisUtils.instHandler;
+            var instHandler = (<any>J$).memAnalysisUtils.instHandler;
             conf.INSTR_READ = instHandler.instrRead;
             conf.INSTR_WRITE = instHandler.instrWrite;
             conf.INSTR_GETFIELD = instHandler.instrGetfield;
@@ -114,6 +106,7 @@ module ___LoggingAnalysis___ {
                         this.logger.logDebug(iid, objId);
                     }
                     origInvokeFunPre.call(this,iid,f,base,args,isConstructor,isMethod);
+                    return null;
                 }
             }
             if (isBrowser) {
@@ -178,7 +171,6 @@ module ___LoggingAnalysis___ {
                     this.handleLiteralProperties(iid, val, valId, hasGetterSetter);
                 }
             }
-            this.handleTopLevel(iid);
         }
 
         private handleLiteralProperties(iid: number, lit: any, litId: number, hasGetterSetter: boolean) {
@@ -217,7 +209,7 @@ module ___LoggingAnalysis___ {
 
         private emittedCall = false;
 
-        invokeFunPre(iid:number, f:any, base:any, args:any, isConstructor:boolean, isMethod: boolean): void {
+        invokeFunPre(iid:number, f:Function, base:any, args:any[], isConstructor:boolean, isMethod: boolean): InvokeFunPreResult {
             if (!this.nativeModels.modelInvokeFunPre(iid, f, base, args, isConstructor, isMethod)) {
                 if (f) {
                     var funEnterIID = lookupCachedFunEnterIID(f);
@@ -228,6 +220,7 @@ module ___LoggingAnalysis___ {
                     }
                 }
             }
+            return;
         }
 
 
@@ -236,12 +229,8 @@ module ___LoggingAnalysis___ {
          * @param evalIID
          * @param iidMetadata
          */
-        instrumentCode(evalIID: number, newAST: any): void {
-            var newTopLevel: Array<number> = myAstUtil.computeTopLevelExpressions(newAST);
-            newTopLevel.forEach((iid: number) => {
-                this.topLevelExprs[iid] = true;
-            });
-            var na = J$.memAnalysisUtils;
+        instrumentCode(evalIID: number, newAST: any): Result {
+            var na = (<any>J$).memAnalysisUtils;
             var curVarNames:any = null;
             var freeVarsHandler = (node: any, context: any) => {
                 var fv:any = na.freeVars(node);
@@ -260,7 +249,8 @@ module ___LoggingAnalysis___ {
                 'FunctionExpression': freeVarsHandler,
                 'FunctionDeclaration': freeVarsHandler
             };
-            myAstUtil.transformAst(newAST, visitorPost, visitorPre);
+            J$.astUtil.transformAst(newAST, visitorPost, visitorPre);
+            return;
 
         }
 
@@ -296,7 +286,6 @@ module ___LoggingAnalysis___ {
             if (funId !== -1) {
                 this.updateLastUse(funId,iid);
             }
-            this.handleTopLevel(iid);
         }
 
         /**
@@ -354,8 +343,7 @@ module ___LoggingAnalysis___ {
                 }
                 this.nativeModels.modelPutField(iid, base, offset, val);
             }
-            this.handleTopLevel(iid);
-        }
+                    }
 
         private logWrite(iid:number,name:string,valId:number) {
             if (!name) {
@@ -374,7 +362,6 @@ module ___LoggingAnalysis___ {
             } else {
                 // old and new values are primitives, so we don't need to log anything
             }
-            this.handleTopLevel(iid);
         }
 
         /**
@@ -429,10 +416,9 @@ module ___LoggingAnalysis___ {
                     this.updateLastUse(id,iid);
                 }
             }
-            this.handleTopLevel(iid);
         }
 
-        functionExit(iid:number, returnVal: any, exceptionVal: any):void {
+        functionExit(iid:number, returnVal: any, exceptionVal: any):FunctionExitResult {
             var loggedReturn = false;
             if (isObject(returnVal)) {
                 var idManager = this.idManager;
@@ -454,10 +440,7 @@ module ___LoggingAnalysis___ {
                 this.logger.logReturn(this.idManager.extractObjId(unannotatedThis));
             }
             this.logger.logFunctionExit(iid);
-        }
-
-        read(iid:number, name:any, val:any, isGlobal:boolean):any {
-            this.handleTopLevel(iid);
+            return;
         }
 
         binary(iid:number, op:string, left:any, right:any, result_c:any):any {
@@ -473,29 +456,18 @@ module ___LoggingAnalysis___ {
                     }
                 }
             }
-            this.handleTopLevel(iid);
         }
 
-        unary(iid:number, op:string, left:any, result_c:any):any {
-            this.handleTopLevel(iid);
-        }
 
-        conditional(iid:number, left:any, result_c:any):any {
-            this.handleTopLevel(iid);
-        }
 
         scriptEnter(iid:number, fileName:string):void {
             this.logger.logScriptEnter(iid, fileName);
-            // get the latest top level expressions
-            var topLevel = this.topLevelExprs;
-            J$.topLevelExprs.forEach((iid:number) => {
-                topLevel[iid] = true;
-            });
 
         }
 
-        scriptExit(iid:number):void {
+        scriptExit(iid:number):ScriptExitResult {
             this.logger.logScriptExit(iid);
+            return;
         }
 
         endExecution():any {
@@ -503,6 +475,16 @@ module ___LoggingAnalysis___ {
             return {};
         }
 
+        endExpression(): void {
+            if (this.logger.getFlushIID() === FlushIIDSpecial.ALREADY_FLUSHED) {
+                console.log("bogus flush ID; fix!!!");
+                this.logger.setFlushIID(3333);
+                // at this point, we can empty the map from native objects to iids,
+                // since after a flush we won't be storing them anywhere
+                this.idManager.flushNativeObj2IIDInfo();
+
+            }
+        }
 
     }
 

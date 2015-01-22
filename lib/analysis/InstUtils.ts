@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-declare var J$: any;
+///<reference path='../ts-declarations/jalangi.d.ts' />
 
 /**
  * Created by m.sridharan on 11/6/14.
