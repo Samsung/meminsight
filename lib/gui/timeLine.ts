@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 ///<reference path='../ts-declarations/node.d.ts' />
-/// <reference path="../ts-declarations/jalangi2.d.ts" />
+/// <reference path="../ts-declarations/jalangi.d.ts" />
 
 //import fs = require ("fs");
 import types = require('./dataAnalysisTypes');

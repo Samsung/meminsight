@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/// <reference path="../ts-declarations/jalangi2.d.ts" />
+/// <reference path="../ts-declarations/jalangi.d.ts" />
 /// <reference path="../ts-declarations/node.d.ts" />
 /// <reference path="../ts-declarations/Q.d.ts" />
 

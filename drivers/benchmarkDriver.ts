@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 ///<reference path='../lib/ts-declarations/node.d.ts' />
-///<reference path='../lib/ts-declarations/jalangi2.d.ts' />
+///<reference path='../lib/ts-declarations/jalangi.d.ts' />
 ///<reference path='../lib/ts-declarations/fast-stats.d.ts' />
 ///<reference path='../lib/ts-declarations/mkdirp.d.ts' />
 ///<reference path='../lib/ts-declarations/wrench.d.ts' />
