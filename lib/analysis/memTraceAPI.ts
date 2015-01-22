@@ -183,7 +183,7 @@ export function getTraceForHTMLDir(testDir:string, options:HTMLTraceOptions):Q.P
                     stdout: stdout.toString(),
                     stderr: stderr.toString(),
                     memTraceLoc: path.join(outputDir, "mem-trace")
-                }
+                };
                 deferred.resolve(memTraceResult);
             }
         });
@@ -195,11 +195,11 @@ export function getTraceForHTMLDir(testDir:string, options:HTMLTraceOptions):Q.P
 
 export function instrumentScriptsMem(scripts: Array<string>, options: HTMLTraceOptions): Q.Promise<jalangi.InstDirResult> {
     var instOptions: any = {
-        analysis2: true,
         copy_runtime: true,
         inbrowser: true,
         analysis: browserAnalysisFiles,
-        inputFiles: scripts
+        inputFiles: scripts,
+        inlineIID: true
     };
     if (options.outputDir) {
         instOptions.outputDir = options.outputDir;
@@ -220,14 +220,7 @@ export function instrumentScriptsMem(scripts: Array<string>, options: HTMLTraceO
         instOptions.only_include = options.only_include;
     }
     instOptions.instHandler = J$.memAnalysisUtils.instHandler;
-    var freeVarsTable: any = {};
-    instOptions.instCallback = (instResult: jalangi.InstStringResult) => {
-        getFreeVars(instResult.instAST, freeVarsTable);
-        return injectTopLevelExprInfo(instResult);
-    };
-    return jalangi.instrumentDir(instOptions).then((result) => {
-        writeFreeVarsJSON(options.outputDir, freeVarsTable);
-        return result;
-    });
+    instOptions.astHandler = getFreeVars;
+    return jalangi.instrumentDir(instOptions);
 
 }

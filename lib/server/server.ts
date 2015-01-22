@@ -35,6 +35,7 @@ import memTracer = require('./../analysis/memTraceAPI');
 import bufUtil = require('./../analysis/bufferUtil');
 import mkdirp = require('mkdirp');
 import lifetimeAnalysis = require('./../gui/lifetimeAnalysisAPI')
+import assert = require('assert');
 
 var serveStatic : any = require('serve-static');
 var finalhandler : any = require('finalhandler');
@@ -361,7 +362,8 @@ function startProxy(): void {
         };
         var instResult = memTracer.instScriptAndGetMetadata(src, options);
         fs.writeFileSync(path.join(outputDir, instFileName), instResult.instCode);
-        sendMetadata(instResult.iidSourceInfo, instResult.freeVars);
+        assert(false, "TODO: fix this code!");
+//        sendMetadata(instResult.iidSourceInfo, instResult.freeVars);
         return instResult.instCode;
     };
     var intercept = (url: string): string => {
