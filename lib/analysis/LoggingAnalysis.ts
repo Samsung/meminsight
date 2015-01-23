@@ -231,6 +231,7 @@ module ___LoggingAnalysis___ {
          */
         instrumentCode(evalIID: number, newAST: any): Result {
             var na = (<any>J$).memAnalysisUtils;
+            // TODO log source mapping???
             var curVarNames:any = null;
             var freeVarsHandler = (node: any, context: any) => {
                 var fv:any = na.freeVars(node);
@@ -462,7 +463,20 @@ module ___LoggingAnalysis___ {
 
         scriptEnter(iid:number, fileName:string):void {
             this.logger.logScriptEnter(iid, fileName);
-
+            var iidInfo = J$.iids;
+            // NOTE we should have already logged the file name due to a previous callback
+            Object.keys(iidInfo).forEach((key) => {
+                // check if it's a numeric property
+                var iid = parseInt(key);
+                if (!isNaN(iid)) {
+                    var mapping = iidInfo[iid];
+                    this.logger.logSourceMapping(iid, mapping[0], mapping[1], mapping[2], mapping[3]);
+                }
+            });
+            var freeVars = J$.ast_info;
+            Object.keys(freeVars).forEach((key) => {
+                this.logger.logFreeVars(parseInt(key), freeVars[key]);
+            });
         }
 
         scriptExit(iid:number):ScriptExitResult {

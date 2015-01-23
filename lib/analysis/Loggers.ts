@@ -46,7 +46,7 @@ module ___LoggingAnalysis___ {
         logScriptExit(iid: number): void
         // names is a string or an Array<string>
         logFreeVars(iid: number, names: any): void
-        logSourceMapping(iid: number, filename: string, startLine: number, startColumn: number): void
+        logSourceMapping(iid: number, startLine: number, startColumn: number, endLine: number, endColumn: number): void
 
         getTime(): number
         getFlushIID(): number
@@ -122,7 +122,7 @@ module ___LoggingAnalysis___ {
         logFreeVars(iid:number, names:any):void {
         }
 
-        logSourceMapping(iid:number, filename:string, startLine:number, startColumn:number):void {
+        logSourceMapping(iid:number, startLine:number, startColumn:number, endLine: number, endColumn: number):void {
         }
 
         getTime():number {
@@ -376,10 +376,10 @@ module ___LoggingAnalysis___ {
             this.time--;
         }
 
-        logSourceMapping(iid:number, filename:string, startLine:number, startColumn:number):void {
+        logSourceMapping(iid:number, startLine:number, startColumn:number, endLine: number, endColumn: number):void {
             if (!this.beforeLog()) return;
-            this.flushIfNeeded(1+4*4+this.strLength(filename)).writeTypeAndIID(LogEntryType.SOURCE_MAPPING,iid)
-                .writeString(filename).writeInt(startLine).writeInt(startColumn);
+            this.flushIfNeeded(5+4*4).writeTypeAndIID(LogEntryType.SOURCE_MAPPING,iid)
+                .writeInt(startLine).writeInt(startColumn).writeInt(endLine).writeInt(endColumn);
             // this shouldn't have incremented the time since it is metadata
             // so, subtract 1
             this.time--;

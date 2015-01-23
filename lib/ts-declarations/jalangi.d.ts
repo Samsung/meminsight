@@ -113,10 +113,11 @@ interface Sandbox {
     instrumentCode?: InstrumentCodeFunction
     instrumentEvalCode?: InstrumentEvalCodeFunction
     iids?: any
+    ast_info?: any
     astUtil?: AstUtil
     Constants: any
     Config: any
-    initParams: any
+    initParams?: any
 }
 interface EndExecutionFunction {
     (): void
