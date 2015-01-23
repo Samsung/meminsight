@@ -214,11 +214,10 @@ declare module "jalangi2" {
     }
 
 
-    export interface AnalysisResult<T> {
+    export interface AnalysisResult {
         exitCode: number
         stdout: string
         stderr: string
-        result: T
     }
 
     export interface InstDirOptions {
@@ -233,8 +232,7 @@ declare module "jalangi2" {
 
     export function instrumentString(code: string, options: InstrumentOptions): InstStringResult
     export function instrumentDir(options: InstDirOptions): Q.Promise<InstDirResult>
-    export function direct<T> (script : string, analysis : Array<string>, options? : Object) : Q.Promise<AnalysisResult<T>>
-    export function direct2<T> (script : string, analysis : Array<string>, options? : Object) : Q.Promise<AnalysisResult<T>>
+    export function analyze(script : string, analysis : Array<string>, options? : Object) : Q.Promise<AnalysisResult>
 
 }
 

@@ -102,9 +102,9 @@ export function getTraceForJS(script: string, instOptions: jalangi.InstrumentOpt
     var otherOpts:any = debugFun ? { debugFun: debugFun } : {};
     otherOpts.syncFS = true;
     process.chdir(outputDir);
-    var directPromise = jalangi.direct2(path.basename(instOptions.outputFile), [loggingAnalysis], otherOpts);
+    var directPromise = jalangi.analyze(path.basename(instOptions.outputFile), [loggingAnalysis], otherOpts);
     var deferred = <Q.Deferred<MemTraceResult>>Q.defer();
-    var handler = (result: jalangi.AnalysisResult<any>) => {
+    var handler = (result: jalangi.AnalysisResult) => {
         process.chdir(curDir);
         var memTraceResult = {
             stdout: result.stdout,
