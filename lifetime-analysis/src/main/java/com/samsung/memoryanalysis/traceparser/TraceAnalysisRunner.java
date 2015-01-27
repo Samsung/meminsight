@@ -327,8 +327,8 @@ public class TraceAnalysisRunner {
                 case UNREACHABLE:
                     break;
             }
-            // don't tick timer for metadata entries (SOURCE_MAPPING or FREE_VARS)
-            if (evtType != TraceEntry.SOURCE_MAPPING && evtType != TraceEntry.FREE_VARS) {
+            // don't tick timer for metadata entries (SOURCE_MAPPING or FREE_VARS or UPDATE_CURRENT_SCRIPT)
+            if (evtType != TraceEntry.SOURCE_MAPPING && evtType != TraceEntry.FREE_VARS && evtType != TraceEntry.UPDATE_CURRENT_SCRIPT) {
                 timer.tick();
             }
             if (this.progress != null)

@@ -1,7 +1,7 @@
 [23,0]
 [1,-1,1]
 [23,1]
-[19,73,1,"lifetime-analysis/test/traces/testMemTrace3_inst/testMemTrace3_jalangi_.js"]
+[19,73,1,"test/testdata/testMemTrace3.js"]
 [22,9,17,1,17,25]
 [22,17,17,1,17,25]
 [22,25,17,1,17,25]

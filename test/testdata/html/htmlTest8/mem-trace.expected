@@ -1,7 +1,7 @@
 [23,0]
 [1,-1,1]
 [23,1]
-[19,449,1,"lifetime-analysis/test/traces/htmlTest8/code.js"]
+[19,449,1,"lifetime-analysis/test/traces/htmlTest8/code_orig_.js"]
 [22,9,17,20,17,35]
 [22,17,17,49,17,65]
 [22,25,17,20,17,35]

@@ -1,7 +1,7 @@
 [23,0]
 [1,-1,1]
 [23,1]
-[19,489,1,"lifetime-analysis/test/traces/testStaleness1_inst/testStaleness1_jalangi_.js"]
+[19,489,1,"test/testdata/testStaleness1.js"]
 [22,9,17,21,17,36]
 [22,17,17,21,17,36]
 [22,25,17,21,17,36]

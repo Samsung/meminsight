@@ -1,7 +1,7 @@
 [23,0]
 [1,-1,1]
 [23,1]
-[19,265,1,"lifetime-analysis/test/traces/htmlTest7/checknode.js"]
+[19,265,1,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js"]
 [22,9,16,1,16,24]
 [22,17,16,1,16,24]
 [22,25,22,9,22,23]

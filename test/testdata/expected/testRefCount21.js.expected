@@ -1,7 +1,7 @@
 [23,0]
 [1,-1,1]
 [23,1]
-[19,153,1,"lifetime-analysis/test/traces/testRefCount21_inst/testRefCount21_jalangi_.js"]
+[19,153,1,"test/testdata/testRefCount21.js"]
 [22,9,16,1,16,24]
 [22,17,16,1,16,24]
 [22,25,18,9,18,29]

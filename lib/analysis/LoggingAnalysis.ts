@@ -462,8 +462,9 @@ module ___LoggingAnalysis___ {
 
 
         scriptEnter(iid:number, fileName:string):void {
-            this.logger.logScriptEnter(iid, J$.sid, fileName);
             var iidInfo = J$.iids;
+            var origFileName = iidInfo.originalCodeFileName;
+            this.logger.logScriptEnter(iid, J$.sid, origFileName);
             // NOTE we should have already logged the file name due to a previous callback
             Object.keys(iidInfo).forEach((key) => {
                 // check if it's a numeric property
