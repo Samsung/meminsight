@@ -75,25 +75,33 @@ public class IIDMap {
 	    return new IIDMap(HashMapFactory.<Integer,SourceLocation>make());
 	}
 
-	private final Map<Integer, SourceLocation> map;
+	private final Map<Integer, SourceLocation> iid2SourceLoc;
+
+	private final Map<Integer, String> sid2FileName = HashMapFactory.make();
+
 
 	private IIDMap(Map<Integer, SourceLocation> map) {
-		this.map = map;
+		this.iid2SourceLoc = map;
+	}
+
+	public void addScriptMapping(int sid, String filename) {
+	    sid2FileName.put(sid, filename);
 	}
 
 	public SourceLocation get(final int iid) {
-		SourceLocation result = map.get(iid);
-		if (result == null) {
-			// this can happen due to IIDs from eval'd code
-			return SourceLocation.UNKNOWN;
-		}
+		SourceLocation result = iid2SourceLoc.get(iid);
+		assert result != null;
 		return result;
 	}
 
-	public void addMapping(int iid, SourceLocation loc) {
-	    if (map.containsKey(iid)) {
+	public void addMapping(int iid, int sid, int startLine, int startColumn, int endLine, int endColumn) {
+	    if (iid2SourceLoc.containsKey(iid)) {
 	        throw new IllegalArgumentException("already have a mapping for IID " + iid);
 	    }
-	    map.put(iid, loc);
+	    if (!sid2FileName.containsKey(sid)) {
+	        throw new IllegalArgumentException("unknown script id " + sid);
+	    }
+	    SourceLocation loc = new SourceLocation(sid2FileName.get(sid), startLine, startColumn, endLine, endColumn);
+	    iid2SourceLoc.put(iid, loc);
 	}
 }

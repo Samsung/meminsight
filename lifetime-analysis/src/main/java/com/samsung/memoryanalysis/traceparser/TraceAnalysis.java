@@ -85,7 +85,7 @@ public interface TraceAnalysis<T> {
 
     public void domRoot(int nodeId);
 
-	public void scriptEnter(int iid, String filename);
+	public void scriptEnter(int iid, int sid, String filename);
 
 	public void scriptExit(int iid);
 

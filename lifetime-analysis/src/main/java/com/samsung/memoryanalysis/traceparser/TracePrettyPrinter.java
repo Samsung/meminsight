@@ -142,8 +142,8 @@ public class TracePrettyPrinter implements TraceAnalysis<Void> {
 	}
 
 	@Override
-	public void scriptEnter(int iid, String filename) {
-        System.out.println(format("scriptEnter(iid=%d, filename=%s, time=%d)", iid, filename, timer.currentTime()));
+	public void scriptEnter(int iid, int sid, String filename) {
+        System.out.println(format("scriptEnter(iid=%d, sid=%d, filename=%s, time=%d)", iid, sid, filename, timer.currentTime()));
 	}
 
 	@Override

@@ -114,7 +114,7 @@ public class DummyUnreachabilityAnalysis<T> implements UnreachabilityAwareAnalys
     }
 
 	@Override
-	public void scriptEnter(int iid, String filename) {
+	public void scriptEnter(int iid, int sid, String filename) {
 	}
 
 	@Override

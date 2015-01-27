@@ -131,9 +131,9 @@ public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalys
     }
 
     @Override
-    public void scriptEnter(int iid, String filename) {
-        first.scriptEnter(iid, filename);
-        second.scriptEnter(iid, filename);
+    public void scriptEnter(int iid, int sid, String filename) {
+        first.scriptEnter(iid, sid, filename);
+        second.scriptEnter(iid, sid, filename);
     }
 
     @Override

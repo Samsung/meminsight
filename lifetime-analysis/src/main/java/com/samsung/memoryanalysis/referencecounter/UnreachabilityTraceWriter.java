@@ -147,8 +147,8 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
     }
 
 	@Override
-	public void scriptEnter(int iid, String filename) {
-		trace(TraceAnalysisRunner.TraceEntry.SCRIPT_ENTER.ordinal(), iid, filename);
+	public void scriptEnter(int iid, int sid, String filename) {
+		trace(TraceAnalysisRunner.TraceEntry.SCRIPT_ENTER.ordinal(), iid, sid, filename);
 	}
 
 	@Override
@@ -170,9 +170,5 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
     public void removeFromChildSet(int iid, int parentId, String name, int childId) {
         trace(TraceAnalysisRunner.TraceEntry.REMOVE_FROM_CHILD_SET.ordinal(), iid, parentId, name, childId);
     }
-
-
-
-
 
 }

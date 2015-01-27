@@ -72,6 +72,8 @@ public class TraceAnalysisRunner {
 
     private int traceSize = 0;
 
+    private int currentScriptId = -1;
+
     public TraceAnalysisRunner(InputStream trace, ProgressMonitor progress, File dir) throws FileNotFoundException, IOException {
         this.trace = new DataInputStream(trace);
         fvMap = buildFVMap(dir);
@@ -282,9 +284,11 @@ public class TraceAnalysisRunner {
                     break;
                 }
                 case SCRIPT_ENTER: {
-                    int iid = readInt();//getInt(arr, 1);
-                    String filename = readString();//getString(arr, 2);
-                    a.scriptEnter(iid, filename);
+                    int iid = readInt();
+                    int sid = readInt();
+                    String filename = readString();
+                    iidMap.addScriptMapping(sid, filename);
+                    a.scriptEnter(iid, sid, filename);
                     break;
                 }
                 case SCRIPT_EXIT: {
@@ -310,12 +314,16 @@ public class TraceAnalysisRunner {
                 }
                 case SOURCE_MAPPING:
                     int iid = readInt();
-                    String filename = readString();
                     int startLine = readInt();
                     int startColumn = readInt();
-                    iidMap.addMapping(iid, new SourceLocation(filename, startLine, startColumn, -1, -1));
-                    throw new RuntimeException("fix this case");
-                    //break;
+                    int endLine = readInt();
+                    int endColumn = readInt();
+                    iidMap.addMapping(iid, currentScriptId, startLine, startColumn, endLine, endColumn);
+                    break;
+                case UPDATE_CURRENT_SCRIPT:
+                    int scriptId = readInt();
+                    this.currentScriptId = scriptId;
+                    break;
                 case UNREACHABLE:
                     break;
             }
@@ -480,10 +488,11 @@ public class TraceAnalysisRunner {
                     	break;
                     }
                     case SCRIPT_ENTER: {
-                    	int iid = getInt(arr, 1);
-                    	String filename = getString(arr, 2);
-                    	a.scriptEnter(iid, filename);
-                    	break;
+                        throw new Error("fix this code");
+//                    	int iid = getInt(arr, 1);
+//                    	String filename = getString(arr, 2);
+//                    	//a.scriptEnter(iid, filename);
+                    	//break;
                     }
                     case SCRIPT_EXIT: {
                     	int iid = getInt(arr, 1);
@@ -632,10 +641,11 @@ public class TraceAnalysisRunner {
         REMOVE_FROM_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
         DOM_ROOT, // fields: obj-id
         CALL, // fields: iid, function-obj-id, function-enter-iid.  NOTE: only emitted for calls to *instrumented* functions
-        SCRIPT_ENTER, // fields: iid, filename
+        SCRIPT_ENTER, // fields: iid, scriptId, filename
         SCRIPT_EXIT, // fields: iid
         FREE_VARS, // fields: iid, array-of-names or ANY
-        SOURCE_MAPPING, // fields: iid, filename, startLine, startColumn
+        SOURCE_MAPPING, // fields: iid, startLine, startColumn, endLine, endColumn
+        UPDATE_CURRENT_SCRIPT, // fields: scriptID
         UNREACHABLE // fields: iid, object-id, time
     }
 

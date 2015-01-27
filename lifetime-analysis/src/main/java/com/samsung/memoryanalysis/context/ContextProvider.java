@@ -235,12 +235,12 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
 	}
 
 	@Override
-	public void scriptEnter(int iid, String filename) {
+	public void scriptEnter(int iid, int sid, String filename) {
         if (options.isModuleScope()) {
             Context moduleContext = new Context(GLOBAL, "module " + filename);
             contextStack.push(moduleContext);
         }
-		callbacks.scriptEnter(iid, filename);
+		callbacks.scriptEnter(iid, sid, filename);
 	}
 
 	@Override
