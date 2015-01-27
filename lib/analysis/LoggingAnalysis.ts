@@ -462,7 +462,7 @@ module ___LoggingAnalysis___ {
 
 
         scriptEnter(iid:number, fileName:string):void {
-            this.logger.logScriptEnter(iid, fileName);
+            this.logger.logScriptEnter(iid, J$.sid, fileName);
             var iidInfo = J$.iids;
             // NOTE we should have already logged the file name due to a previous callback
             Object.keys(iidInfo).forEach((key) => {
@@ -489,10 +489,9 @@ module ___LoggingAnalysis___ {
             return {};
         }
 
-        endExpression(): void {
+        endExpression(iid: number): void {
             if (this.logger.getFlushIID() === FlushIIDSpecial.ALREADY_FLUSHED) {
-                console.log("bogus flush ID; fix!!!");
-                this.logger.setFlushIID(3333);
+                this.logger.setFlushIID(iid);
                 // at this point, we can empty the map from native objects to iids,
                 // since after a flush we won't be storing them anywhere
                 this.idManager.flushNativeObj2IIDInfo();

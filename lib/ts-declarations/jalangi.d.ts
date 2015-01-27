@@ -96,7 +96,7 @@ interface JalangiAnalysis {
 
     endExecution?: EndExecutionFunction
 
-    endExpression?(): void
+    endExpression?(iid: number): void
 }
 interface AstUtil {
     // TODO improve
@@ -118,6 +118,7 @@ interface Sandbox {
     Constants: any
     Config: any
     initParams?: any
+    sid: number
 }
 interface EndExecutionFunction {
     (): void

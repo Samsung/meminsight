@@ -42,7 +42,7 @@ module ___LoggingAnalysis___ {
         logRemoveFromChildSet(iid: number, parentObjId: number, name: string, childObjId: number): void
         logDOMRoot(objId: number): void
         logCall(iid: number, funObjId: number, funEnterIID: number): void
-        logScriptEnter(iid: number, filename: string): void
+        logScriptEnter(iid: number, scriptID: number, filename: string): void
         logScriptExit(iid: number): void
         // names is a string or an Array<string>
         logFreeVars(iid: number, names: any): void
@@ -113,7 +113,7 @@ module ___LoggingAnalysis___ {
         logCall(iid:number, funObjId:number, funEnterIID:number):void {
         }
 
-        logScriptEnter(iid:number, filename:string):void {
+        logScriptEnter(iid:number, scriptID: number, filename:string):void {
         }
 
         logScriptExit(iid:number):void {
@@ -164,6 +164,12 @@ module ___LoggingAnalysis___ {
         flushIID:number = FlushIIDSpecial.ALREADY_FLUSHED;
         tracingStopped:boolean = false;
 
+        /**
+         * the script ID for the currently-executing script
+         * @type {number}
+         */
+        currentScriptId: number = -1;
+
         getTime():number {
             return this.time;
         }
@@ -194,16 +200,27 @@ module ___LoggingAnalysis___ {
             // check if we should flush
             if (this.flushIID !== FlushIIDSpecial.ALREADY_FLUSHED) {
                 this.logTopLevelFlush(this.flushIID);
-                time += 2;
-                this.flushIID = FlushIIDSpecial.ALREADY_FLUSHED;
-            } else {
                 time += 1;
+                this.flushIID = FlushIIDSpecial.ALREADY_FLUSHED;
             }
+            // check if we need to update the current script
+            var sid = J$.sid;
+            if (sid !== this.currentScriptId) {
+                this.currentScriptId = sid;
+                this.logUpdateCurrentScript(sid);
+                // metadata, so don't update the time
+            }
+            // for the entry to be logged
+            time += 1;
             this.time = time;
             return true;
         }
 
         protected logTopLevelFlush(iid: number): void {
+            throw new Error("should be overridden by subclass!");
+        }
+
+        protected logUpdateCurrentScript(sid: number): void {
             throw new Error("should be overridden by subclass!");
         }
     }
@@ -342,10 +359,10 @@ module ___LoggingAnalysis___ {
             this.flushIfNeeded(13).writeTypeAndIID(LogEntryType.CALL,iid).writeInt(funObjId).writeInt(funEnterIID);
         }
 
-        logScriptEnter(iid:number, filename:string):void {
+        logScriptEnter(iid:number, scriptID: number, filename:string):void {
             if (!this.beforeLog()) return;
-            this.flushIfNeeded(1+2*4+this.strLength(filename)).writeTypeAndIID(LogEntryType.SCRIPT_ENTER,iid)
-                .writeString(filename);
+            this.flushIfNeeded(1+3*4+this.strLength(filename)).writeTypeAndIID(LogEntryType.SCRIPT_ENTER,iid)
+                .writeInt(scriptID).writeString(filename);
         }
 
         logScriptExit(iid:number):void {
@@ -383,6 +400,10 @@ module ___LoggingAnalysis___ {
             // this shouldn't have incremented the time since it is metadata
             // so, subtract 1
             this.time--;
+        }
+
+        protected logUpdateCurrentScript(scriptID: number): void {
+            this.flushIfNeeded(5).writeTypeAndIID(LogEntryType.UPDATE_CURRENT_SCRIPT,scriptID);
         }
 
         protected logTopLevelFlush(iid: number): void {

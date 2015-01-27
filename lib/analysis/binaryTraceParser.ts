@@ -83,7 +83,7 @@ export function parseTrace(filename: string): string {
             case LogEntryType.CALL:
                 readInt(); readInt(); readInt(true); break;
             case LogEntryType.SCRIPT_ENTER:
-                readInt(); readString(true); break;
+                readInt(); readInt(); readString(true); break;
             case LogEntryType.SCRIPT_EXIT:
                 readInt(true); break;
             case LogEntryType.FREE_VARS:
@@ -105,7 +105,9 @@ export function parseTrace(filename: string): string {
                 }
                 break;
             case LogEntryType.SOURCE_MAPPING:
-                readInt(); readString(); readInt(); readInt(true); break;
+                readInt(); readInt(); readInt(); readInt(); readInt(true); break;
+            case LogEntryType.UPDATE_CURRENT_SCRIPT:
+                readInt(true); break;
         }
         result += ']\n';
     }
@@ -134,11 +136,13 @@ enum LogEntryType {
     REMOVE_FROM_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
     DOM_ROOT, // fields: obj-id
     CALL, // fields: iid, function-obj-id, function-enter-iid.  NOTE: only emitted for calls to *instrumented* functions
-    SCRIPT_ENTER, // fields: iid, filename
+    SCRIPT_ENTER, // fields: iid, scriptId, filename
     SCRIPT_EXIT, // fields: iid
     FREE_VARS, // fields: iid, array-of-names or ANY
-    SOURCE_MAPPING // fields: iid, filename, startLine, startColumn
+    SOURCE_MAPPING, // fields: iid, startLine, startColumn, endLine, endColumn
+    UPDATE_CURRENT_SCRIPT // fields: scriptID
 }
+
 
 if (require.main === module) {
     parseTrace(process.argv[2]);

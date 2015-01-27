@@ -46,10 +46,11 @@ module ___LoggingAnalysis___ {
         REMOVE_FROM_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
         DOM_ROOT, // fields: obj-id
         CALL, // fields: iid, function-obj-id, function-enter-iid.  NOTE: only emitted for calls to *instrumented* functions
-        SCRIPT_ENTER, // fields: iid, filename
+        SCRIPT_ENTER, // fields: iid, scriptId, filename
         SCRIPT_EXIT, // fields: iid
         FREE_VARS, // fields: iid, array-of-names or ANY
-        SOURCE_MAPPING // fields: iid, filename, startLine, startColumn
+        SOURCE_MAPPING, // fields: iid, startLine, startColumn, endLine, endColumn
+        UPDATE_CURRENT_SCRIPT // fields: scriptID
     }
 
     /**
