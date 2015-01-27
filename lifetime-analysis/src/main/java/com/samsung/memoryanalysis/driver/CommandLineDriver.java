@@ -32,6 +32,7 @@ import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 
 import com.ibm.wala.util.collections.HashMapFactory;
+import com.ibm.wala.util.collections.Pair;
 import com.samsung.memoryanalysis.context.ContextProvider;
 import com.samsung.memoryanalysis.options.MemoryAnalysisOptions;
 import com.samsung.memoryanalysis.referencecounter.DummyUnreachabilityAnalysis;
@@ -44,7 +45,6 @@ import com.samsung.memoryanalysis.staleness.StalenessAnalysis;
 import com.samsung.memoryanalysis.traceparser.ProgressMonitor;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
 import com.samsung.memoryanalysis.traceparser.TracePrettyPrinter;
-import com.samsung.memoryanalysis.util.Pair;
 
 /**
  * Created by s.jensen on 6/12/14.
@@ -143,7 +143,7 @@ public class CommandLineDriver {
                         analysis, refOptions);
                 Pair<Staleness, Void> p = new TraceAnalysisRunner(traceStream, prog, dir)
                         .runAnalysis(new ContextProvider<Pair<Staleness, Void>>(f, refOptions));
-                p.first.toJSON(System.out, false);
+                p.fst.toJSON(System.out, false);
             } else {
                 ReferenceCounter<Staleness> f = new ReferenceCounter<Staleness>(new JGraphHeap(),
                         new StalenessAnalysis(), refOptions);

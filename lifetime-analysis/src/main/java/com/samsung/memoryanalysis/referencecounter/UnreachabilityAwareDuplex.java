@@ -17,10 +17,10 @@ package com.samsung.memoryanalysis.referencecounter;
 
 import java.util.Set;
 
+import com.ibm.wala.util.collections.Pair;
 import com.samsung.memoryanalysis.context.Context;
 import com.samsung.memoryanalysis.traceparser.IIDMap;
 import com.samsung.memoryanalysis.traceparser.Timer;
-import com.samsung.memoryanalysis.util.Pair;
 
 
 public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalysis<Pair<T,V>> {
@@ -73,7 +73,7 @@ public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalys
 
     @Override
     public Pair<T, V> endExecution(long time) {
-        return new Pair<T, V>(first.endExecution(time), second.endExecution(time));
+        return Pair.make(first.endExecution(time), second.endExecution(time));
     }
 
     @Override
