@@ -55,7 +55,7 @@ export function parseTrace(filename: string): string {
             case LogEntryType.WRITE:
                 readInt(); readString(); readInt(true); break;
             case LogEntryType.LAST_USE:
-                readInt(); readInt(); readInt(true); break;
+                readInt(); readInt(); readString(true); break;
             case LogEntryType.FUNCTION_ENTER:
                 readInt(); readInt(true); break;
             case LogEntryType.FUNCTION_EXIT:

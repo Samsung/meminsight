@@ -29,7 +29,7 @@ module ___LoggingAnalysis___ {
         logCreateFun(iid: number, funEnterIID: number, objId: number): void
         logPutfield(iid: number, baseObjId: number, propName: string, valObjId: number): void
         logWrite(iid: number, name: string, objId: number): void
-        logLastUse(objId: number, timestamp: number, iid: number): void
+        logLastUse(objId: number, timestamp: number, sourceId: string): void
         logFunctionEnter(iid: number, funObjId: number): void
         logFunctionExit(iid: number): void
         logUpdateIID(objId: number, newIID: number): void
@@ -74,7 +74,7 @@ module ___LoggingAnalysis___ {
         logWrite(iid:number, name:string, objId:number):void {
         }
 
-        logLastUse(objId:number, timestamp:number, iid:number):void {
+        logLastUse(objId:number, timestamp:number, sourceId: string):void {
         }
 
         logFunctionEnter(iid:number, funObjId:number):void {
@@ -291,10 +291,10 @@ module ___LoggingAnalysis___ {
                 .writeString(name).writeInt(objId);
         }
 
-        logLastUse(objId:number, timestamp:number, iid:number):void {
+        logLastUse(objId:number, timestamp:number, sourceId: string):void {
             if (!this.beforeLog()) return;
-            this.flushIfNeeded(1+3*4).writeByte(LogEntryType.LAST_USE).writeInt(objId)
-                .writeInt(timestamp).writeInt(iid);
+            this.flushIfNeeded(1+2*4+4+this.strLength(sourceId)).writeByte(LogEntryType.LAST_USE).writeInt(objId)
+                .writeInt(timestamp).writeString(sourceId);
         }
 
         logFunctionEnter(iid:number, funObjId:number):void {

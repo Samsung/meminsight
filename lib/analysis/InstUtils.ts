@@ -32,7 +32,7 @@ module ___LoggingAnalysis___ {
         CREATE_FUN, // fields: iid, function-enter-iid, obj-id.  NOTE: proto-obj-id is always obj-id + 1
         PUTFIELD, // fields: iid, base-obj-id, prop-name, val-obj-id
         WRITE, // fields: iid, name, obj-id
-        LAST_USE, // fields: obj-id, timestamp, iid
+        LAST_USE, // fields: obj-id, timestamp, sourceId (sid + ':' + iid)
         FUNCTION_ENTER, // fields: iid, function-object-id.  NOTE: only emitted when CALL is not emitted
         FUNCTION_EXIT, // fields: iid
         TOP_LEVEL_FLUSH, // fields: iid
