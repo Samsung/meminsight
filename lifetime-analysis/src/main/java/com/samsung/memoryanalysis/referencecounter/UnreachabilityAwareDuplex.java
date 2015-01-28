@@ -37,9 +37,9 @@ public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalys
     }
 
     @Override
-    public void functionEnter(int iid, int funId, SourceLocId callSiteIID, Context newContext, long time) {
-        first.functionEnter(iid,funId,callSiteIID,newContext,time);
-        second.functionEnter(iid,funId,callSiteIID,newContext,time);
+    public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteIID, Context newContext, long time) {
+        first.functionEnter(slId,funId,callSiteIID,newContext,time);
+        second.functionEnter(slId,funId,callSiteIID,newContext,time);
     }
 
     @Override
@@ -49,27 +49,27 @@ public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalys
     }
 
     @Override
-    public void create(int iid, int objectId, long time, boolean isDom) {
-        first.create(iid,objectId,time,isDom);
-        second.create(iid,objectId,time,isDom);
+    public void create(SourceLocId slId, int objectId, long time, boolean isDom) {
+        first.create(slId,objectId,time,isDom);
+        second.create(slId,objectId,time,isDom);
     }
 
     @Override
-    public void unreachableObject(int iid, int objectId, long time, int shallowSize) {
-        first.unreachableObject(iid,objectId,time,shallowSize);
-        second.unreachableObject(iid,objectId,time,shallowSize);
+    public void unreachableObject(SourceLocId slId, int objectId, long time, int shallowSize) {
+        first.unreachableObject(slId,objectId,time,shallowSize);
+        second.unreachableObject(slId,objectId,time,shallowSize);
     }
 
     @Override
-    public void unreachableContext(int iid, Context ctx, long time) {
-        first.unreachableContext(iid,ctx,time);
-        second.unreachableContext(iid,ctx,time);
+    public void unreachableContext(SourceLocId slId, Context ctx, long time) {
+        first.unreachableContext(slId,ctx,time);
+        second.unreachableContext(slId,ctx,time);
     }
 
     @Override
-    public void lastUse(int objectId, int iid, long time) {
-        first.lastUse(objectId, iid, time);
-        second.lastUse(objectId, iid, time);
+    public void lastUse(int objectId, SourceLocId slId, long time) {
+        first.lastUse(objectId, slId, time);
+        second.lastUse(objectId, slId, time);
     }
 
     @Override
@@ -96,25 +96,25 @@ public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalys
     }
 
     @Override
-    public void putField(int iid, int baseId, String offset, int objectId) {
-        first.putField(iid, baseId, offset, objectId);
-        second.putField(iid, baseId, offset ,objectId);
+    public void putField(SourceLocId slId, int baseId, String offset, int objectId) {
+        first.putField(slId, baseId, offset, objectId);
+        second.putField(slId, baseId, offset ,objectId);
     }
 
     @Override
-    public void write(int iid, String name, int objectId) {
-        first.write(iid, name, objectId);
-        second.write(iid, name, objectId);
+    public void write(SourceLocId slId, String name, int objectId) {
+        first.write(slId, name, objectId);
+        second.write(slId, name, objectId);
     }
 
     @Override
-    public void declare(int iid, String name, int objectId) {
-        first.declare(iid, name, objectId);
-        second.declare(iid, name, objectId);
+    public void declare(SourceLocId slId, String name, int objectId) {
+        first.declare(slId, name, objectId);
+        second.declare(slId, name, objectId);
     }
 
     @Override
-    public void updateIID(int objId, int newIID) {
+    public void updateIID(int objId, SourceLocId newIID) {
         first.updateIID(objId, newIID);
         second.updateIID(objId, newIID);
     }
@@ -126,51 +126,51 @@ public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalys
     }
 
     @Override
-    public void debug(int iid, int oid) {
-        first.debug(iid, oid);
-        second.debug(iid, oid);
+    public void debug(SourceLocId slId, int oid) {
+        first.debug(slId, oid);
+        second.debug(slId, oid);
     }
 
     @Override
-    public void scriptEnter(int iid, int sid, String filename) {
-        first.scriptEnter(iid, sid, filename);
-        second.scriptEnter(iid, sid, filename);
+    public void scriptEnter(SourceLocId slId, String filename) {
+        first.scriptEnter(slId, filename);
+        second.scriptEnter(slId, filename);
     }
 
     @Override
-    public void scriptExit(int iid) {
-        first.scriptExit(iid);
-        second.scriptExit(iid);
+    public void scriptExit(SourceLocId slId) {
+        first.scriptExit(slId);
+        second.scriptExit(slId);
     }
 
     @Override
-    public void createFun(int iid, int objectId, int prototypeId, int functionEnterIID, Set<String> namesReferencedByClosures, Context context, long time) {
-        first.createFun(iid, objectId, prototypeId, functionEnterIID, namesReferencedByClosures, context, time);
-        second.createFun(iid, objectId, prototypeId, functionEnterIID, namesReferencedByClosures, context, time);
+    public void createFun(SourceLocId slId, int objectId, int prototypeId, SourceLocId functionEnterIID, Set<String> namesReferencedByClosures, Context context, long time) {
+        first.createFun(slId, objectId, prototypeId, functionEnterIID, namesReferencedByClosures, context, time);
+        second.createFun(slId, objectId, prototypeId, functionEnterIID, namesReferencedByClosures, context, time);
     }
 
     @Override
-    public void functionExit(int iid, Context functionContext, Set<String> unReferenced, long time) {
-        first.functionExit(iid, functionContext, unReferenced, time);
-        second.functionExit(iid, functionContext, unReferenced, time);
+    public void functionExit(SourceLocId slId, Context functionContext, Set<String> unReferenced, long time) {
+        first.functionExit(slId, functionContext, unReferenced, time);
+        second.functionExit(slId, functionContext, unReferenced, time);
     }
 
     @Override
-    public void topLevelFlush(int iid) {
-        first.topLevelFlush(iid);
-        second.topLevelFlush(iid);
+    public void topLevelFlush(SourceLocId slId) {
+        first.topLevelFlush(slId);
+        second.topLevelFlush(slId);
     }
 
     @Override
-    public void addToChildSet(int iid, int parentId, String name, int childId) {
-        first.addToChildSet(iid, parentId, name, childId);
-        second.addToChildSet(iid, parentId, name, childId);
+    public void addToChildSet(SourceLocId slId, int parentId, String name, int childId) {
+        first.addToChildSet(slId, parentId, name, childId);
+        second.addToChildSet(slId, parentId, name, childId);
     }
 
     @Override
-    public void removeFromChildSet(int iid, int parentId, String name, int childId) {
-        first.removeFromChildSet(iid, parentId, name, childId);
-        second.removeFromChildSet(iid, parentId, name, childId);
+    public void removeFromChildSet(SourceLocId slId, int parentId, String name, int childId) {
+        first.removeFromChildSet(slId, parentId, name, childId);
+        second.removeFromChildSet(slId, parentId, name, childId);
     }
 
 }

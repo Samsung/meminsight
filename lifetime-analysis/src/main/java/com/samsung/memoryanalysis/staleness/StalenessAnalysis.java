@@ -49,41 +49,38 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
 
     private final Deque<SourceLocId> currentCallStack = new ArrayDeque<SourceLocId>();
 
-    private Timer timer;
-
     private static enum EntryOrExit {
         ENTRY,
         EXIT
     }
 
     @Override
-    public void functionEnter(int iid, int funId, SourceLocId callSiteIID, Context newContext, long time) {
-        functionTrace.add(new long[] {EntryOrExit.ENTRY.ordinal(), time, iid});
+    public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteIID, Context newContext, long time) {
+        functionTrace.add(new long[] {EntryOrExit.ENTRY.ordinal(), time, slId.getSourceFileId(), slId.getIid()});
         currentCallStack.push(callSiteIID);
     }
 
     @Override
-    public void functionExit(int iid, Context functionContext, Set<String> unReferenced, long time) {
-        functionTrace.add(new long[] {EntryOrExit.EXIT.ordinal(), time, iid});
+    public void functionExit(SourceLocId slId, Context functionContext, Set<String> unReferenced, long time) {
+        functionTrace.add(new long[] {EntryOrExit.EXIT.ordinal(), time, slId.getSourceFileId(), slId.getIid()});
         currentCallStack.pop();
     }
 
     @Override
     public void init(Timer t, SourceMap iidMap) {
         this.iidMap = iidMap;
-        this.timer = t;
     }
 
     @Override
-    public void create(int iid, int objectId, long time, boolean isDom) {
+    public void create(SourceLocId slId, int objectId, long time, boolean isDom) {
         if (objectId != ContextProvider.GLOBAL_OBJECT_ID) {
-            insert(iid, objectId, time, callStackAsList(), isDom ? ObjectStaleness.ObjectType.DOM : ObjectStaleness.ObjectType.OBJECT);
+            insert(slId, objectId, time, callStackAsList(), isDom ? ObjectStaleness.ObjectType.DOM : ObjectStaleness.ObjectType.OBJECT);
         }
     }
 
-    private void insert(int iid, int objectId, long time, List<SourceLocId> callStack, ObjectStaleness.ObjectType type) {
+    private void insert(SourceLocId slId, int objectId, long time, List<SourceLocId> callStack, ObjectStaleness.ObjectType type) {
         assert !staleness.containsKey(objectId);
-        staleness.put(objectId, new ObjectStaleness(new SourceLocId(timer.currentScriptID(), iid), objectId, time, callStack, type));
+        staleness.put(objectId, new ObjectStaleness(slId, objectId, time, callStack, type));
     }
 
     private List<SourceLocId> callStackAsList() {
@@ -91,10 +88,10 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
     }
 
     @Override
-    public void createFun(int iid, int objectId, int prototypeId, int functionEnterIID, Set<String> namesReferencedByClosures, Context context, long time) {
+    public void createFun(SourceLocId slId, int objectId, int prototypeId, SourceLocId functionEnterIID, Set<String> namesReferencedByClosures, Context context, long time) {
 
-        insert(iid, objectId, time, callStackAsList(), ObjectStaleness.ObjectType.FUNCTION);
-        insert(iid,prototypeId, time, callStackAsList(), ObjectStaleness.ObjectType.PROTOTYPE);
+        insert(slId, objectId, time, callStackAsList(), ObjectStaleness.ObjectType.FUNCTION);
+        insert(slId,prototypeId, time, callStackAsList(), ObjectStaleness.ObjectType.PROTOTYPE);
     }
 
     @Override
@@ -218,25 +215,25 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
 	}
 
     @Override
-    public void putField(int iid, int baseId, String offset, int objectId) {
+    public void putField(SourceLocId slId, int baseId, String offset, int objectId) {
 
     }
 
     @Override
-    public void write(int iid, String name, int objectId) {
+    public void write(SourceLocId slId, String name, int objectId) {
 
     }
 
     @Override
-    public void declare(int iid, String name, int objectId) {
+    public void declare(SourceLocId slId, String name, int objectId) {
 
     }
 
     @Override
-    public void updateIID(int objId, int newIID) {
+    public void updateIID(int objId, SourceLocId newIID) {
     	ObjectStaleness extantStaleness = staleness.get(objId);
     	assert extantStaleness != null;
-    	staleness.put(objId, extantStaleness.updateIID(new SourceLocId(timer.currentScriptID(), newIID), callStackAsList()));
+    	staleness.put(objId, extantStaleness.updateIID(newIID, callStackAsList()));
     }
 
     @Override
@@ -245,28 +242,28 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
     }
 
     @Override
-    public void debug(int iid, int oid) {
+    public void debug(SourceLocId slId, int oid) {
 
     }
 
 	@Override
-	public void scriptEnter(int iid, int sid, String filename) {
+	public void scriptEnter(SourceLocId slId, String filename) {
 	}
 
 	@Override
-	public void scriptExit(int iid) {
+	public void scriptExit(SourceLocId slId) {
 	}
 
     @Override
-    public void topLevelFlush(int iid) {
+    public void topLevelFlush(SourceLocId slId) {
     }
 
     @Override
-    public void addToChildSet(int iid, int parentId, String name, int childId) {
+    public void addToChildSet(SourceLocId slId, int parentId, String name, int childId) {
     }
 
     @Override
-    public void removeFromChildSet(int iid, int parentId, String name, int childId) {
+    public void removeFromChildSet(SourceLocId slId, int parentId, String name, int childId) {
     }
 
 }
