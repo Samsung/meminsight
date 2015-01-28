@@ -10,5 +10,5 @@ Id: 3     Alloc: testRefCount35.js:17:1:17:24             Time: 64         Loc: 
 Id: 4     Alloc: testRefCount35.js:18:9:18:11             Time: 64         Loc: end of program
 Id: 5     Alloc: testRefCount35.js:19:9:19:11             Time: 64         Loc: end of program
 Id: 6     Alloc: testRefCount35.js:20:9:20:12             Time: 64         Loc: end of program
-Id: 7     Alloc: testRefCount35.js:21:1:21:14             Time: 21         Loc: testRefCount35.js:21:1:21:14
-Id: 8     Alloc: testRefCount35.js:26:9:26:20             Time: 53         Loc: testRefCount35.js:29:5:29:9
+Id: 7     Alloc: testRefCount35.js:21:1:21:14             Time: 21         Loc: testRefCount35.js:21:1:21:15
+Id: 8     Alloc: testRefCount35.js:26:9:26:20             Time: 53         Loc: testRefCount35.js:29:1:29:10

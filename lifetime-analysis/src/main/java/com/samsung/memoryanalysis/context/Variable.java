@@ -15,6 +15,7 @@
  */
 package com.samsung.memoryanalysis.context;
 
+
 /**
  *
  * @author s.jensen
@@ -22,11 +23,8 @@ package com.samsung.memoryanalysis.context;
 public class Variable {
     private int value;
     private boolean referencedByClosure = false;
-    @SuppressWarnings("unused")
-	private final int iid;
 
-    public Variable(int iid, int valueId) {
-        this.iid = iid;
+    public Variable(int valueId) {
         this.value = valueId;
     }
 
@@ -42,11 +40,11 @@ public class Variable {
     public void setValue(int value) {
         this.value = value;
     }
-    
+
     public void makeReferenced() {
         this.referencedByClosure = true;
     }
-    
+
     public boolean isReferenced() {
         return this.referencedByClosure;
     }

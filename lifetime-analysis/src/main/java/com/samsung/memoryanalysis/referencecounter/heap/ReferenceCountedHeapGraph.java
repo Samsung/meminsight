@@ -34,6 +34,8 @@ import com.ibm.wala.util.collections.HashSetFactory;
 import com.ibm.wala.util.functions.VoidFunction;
 import com.samsung.memoryanalysis.context.Context;
 import com.samsung.memoryanalysis.context.ContextProvider;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
 /**
@@ -44,7 +46,7 @@ public abstract class ReferenceCountedHeapGraph {
     private static final String DOM_CHILD_EDGE_NAME = "~dom-child~";
     public static final String PARENT_CONTEXT_FIELD = "~PARENT-CONTEXT~";
     private final Deque<Set<ContextOrObjectId>> candidates = new ArrayDeque<Set<ContextOrObjectId>>();
-    private final Map<ContextOrObjectId, IIDAndTime> cycleQueue = HashMapFactory.make();
+    private final Map<ContextOrObjectId, SourceLocIdAndTime> cycleQueue = HashMapFactory.make();
     private final Set<ContextOrObjectId> markSet = HashSetFactory.make();
     protected VoidFunction<Unreachability> unreachableCallback;
     private int cycleQueueLimit = 50000;
@@ -172,7 +174,7 @@ public abstract class ReferenceCountedHeapGraph {
         }
     }
 
-    public void addObjectReference(int fromId, String name, int toId, int iid) {
+    public void addObjectReference(int fromId, String name, int toId, SourceLocId slId) {
         ContextOrObjectId from = ContextOrObjectId.make(fromId);
         if (!containsNode(from))
             newNode(from);
@@ -182,7 +184,7 @@ public abstract class ReferenceCountedHeapGraph {
         NamedEdge e = new NamedEdge(from, name);
         ContextOrObjectId old = getTarget(e);
         if (old != null) {
-            decrementReference(e, old, iid);//removeEdge(e, old);
+            decrementReference(e, old, slId);//removeEdge(e, old);
         }
         if (!isNull(toId))
             addEdge(e, to);
@@ -194,23 +196,23 @@ public abstract class ReferenceCountedHeapGraph {
      * @param e
      * @param recv
      */
-    private void decrementReference(HeapEdge e, ContextOrObjectId recv, int iid) {
+    private void decrementReference(HeapEdge e, ContextOrObjectId recv, SourceLocId slId) {
         removeEdge(e);
         if (referenceCount(recv) > 0) {
-            addToCycleQueue(recv, iid);
+            addToCycleQueue(recv, slId);
         } else if (referenceCount(recv) == 0) {
             addToFlushQueue(recv);//;candidates.add(to);
         }
     }
 
-    private void addToCycleQueue(ContextOrObjectId o, int iid) {
-        IIDAndTime r = cycleQueue.get(o);
+    private void addToCycleQueue(ContextOrObjectId o, SourceLocId slId) {
+        SourceLocIdAndTime r = cycleQueue.get(o);
         if (r == null) {
-            r = new IIDAndTime(iid, timer.currentTime());
+            r = new SourceLocIdAndTime(slId, timer.currentTime());
             cycleQueue.put(o, r);
         } else {
             r.time = timer.currentTime();
-            r.iid = iid;
+            r.slId = slId;
         }
     }
 
@@ -253,14 +255,14 @@ public abstract class ReferenceCountedHeapGraph {
         }
         if (cycleQueue.size() < cycleQueueLimit && flushType == FlushType.REGULAR)
             return;
-        List<Map.Entry<ContextOrObjectId, IIDAndTime>> realQueue = new ArrayList<Map.Entry<ContextOrObjectId, IIDAndTime>>(cycleQueue.entrySet());
+        List<Map.Entry<ContextOrObjectId, SourceLocIdAndTime>> realQueue = new ArrayList<Map.Entry<ContextOrObjectId, SourceLocIdAndTime>>(cycleQueue.entrySet());
 
         //2. Sort the remaining elements by insertion time in descending order
-        Collections.sort(realQueue, new Comparator<Map.Entry<ContextOrObjectId, IIDAndTime>>() {
+        Collections.sort(realQueue, new Comparator<Map.Entry<ContextOrObjectId, SourceLocIdAndTime>>() {
 
             @Override
-            public int compare(Entry<ContextOrObjectId, IIDAndTime> a,
-                    Entry<ContextOrObjectId, IIDAndTime> b) {
+            public int compare(Entry<ContextOrObjectId, SourceLocIdAndTime> a,
+                    Entry<ContextOrObjectId, SourceLocIdAndTime> b) {
                 return (int) (b.getValue().time - a.getValue().time);
             }
         });
@@ -271,9 +273,9 @@ public abstract class ReferenceCountedHeapGraph {
             }
             markReachable(roots);
         }
-        for (Map.Entry<ContextOrObjectId, IIDAndTime> root : realQueue) {
+        for (Map.Entry<ContextOrObjectId, SourceLocIdAndTime> root : realQueue) {
             ContextOrObjectId node = root.getKey();
-            IIDAndTime insertionInfo = root.getValue();
+            SourceLocIdAndTime insertionInfo = root.getValue();
             if (markSet.contains(node))
                 continue;
             collectUnmarked(node, insertionInfo);
@@ -283,20 +285,20 @@ public abstract class ReferenceCountedHeapGraph {
         cycleQueue.clear();
     }
 
-    private void collectUnmarked(ContextOrObjectId startNode, IIDAndTime startTime) {
+    private void collectUnmarked(ContextOrObjectId startNode, SourceLocIdAndTime startTime) {
         final Deque<ContextOrObjectId> wl = new ArrayDeque<ContextOrObjectId>();
         wl.push(startNode);
         while (!wl.isEmpty()) {
             ContextOrObjectId current = wl.pop();
-            IIDAndTime g = cycleQueue.get(current);
+            SourceLocIdAndTime g = cycleQueue.get(current);
             long time = startTime.time;
-            int iid = startTime.iid;
+            SourceLocId slId = startTime.slId;
             if (g != null) {
                 time = Math.max(startTime.time, g.time);
-                iid = time == g.time ? g.iid : startTime.iid;
+                slId = time == g.time ? g.slId : startTime.slId;
             }
             if (current.type == ContextOrObjectId.Type.ID) {
-                unreachableCallback.apply(new Unreachability(current.getId(), iid, time));
+                unreachableCallback.apply(new Unreachability(current.getId(), slId, time));
             }
             markSet.add(current);
             for (HeapEdge edge: getOutEdges(current)) {
@@ -324,7 +326,7 @@ public abstract class ReferenceCountedHeapGraph {
         return id == ContextProvider.GLOBAL_OBJECT_ID;
     }
 
-    public void addContextReference(Context ctx, String name, int toId, int iid) {
+    public void addContextReference(Context ctx, String name, int toId, SourceLocId slId) {
         ContextOrObjectId from = ContextOrObjectId.make(ctx);
         if (!containsNode(from))
             newNode(from);
@@ -334,7 +336,7 @@ public abstract class ReferenceCountedHeapGraph {
         NamedEdge e = new NamedEdge(from, name);
         ContextOrObjectId target = getTarget(e);
         if (target != null) {
-            decrementReference(e, target, iid);
+            decrementReference(e, target, slId);
         }
         if (!isNull(toId))
             addEdge(e, to);
@@ -348,7 +350,7 @@ public abstract class ReferenceCountedHeapGraph {
         return referenceCount(ContextOrObjectId.make(c));
     }
 
-    public void flush(final int iid, final Set<Integer> dontFlush, Collection<Context> live) {
+    public void flush(SourceLocId slId, final Set<Integer> dontFlush, Collection<Context> live) {
         Set<ContextOrObjectId> c = candidates.peek();
         Iterator<ContextOrObjectId> i = c.iterator();
         while (i.hasNext()) {
@@ -362,9 +364,9 @@ public abstract class ReferenceCountedHeapGraph {
                 continue;
             }
             if (referenceCount(e) == 0)
-                decrementReachable(iid, e);
+                decrementReachable(slId, e);
             else {
-                addToCycleQueue(e, iid);
+                addToCycleQueue(e, slId);
             }
         }
         if (cycleQueue.size() > cycleQueueLimit && !noCycleCollection) {
@@ -372,7 +374,7 @@ public abstract class ReferenceCountedHeapGraph {
         }
     }
 
-    private Set<ContextOrObjectId> decrementReachable(int iid, ContextOrObjectId o) {
+    private Set<ContextOrObjectId> decrementReachable(SourceLocId slId, ContextOrObjectId o) {
         assert referenceCount(o) == 0;
         final Set<ContextOrObjectId> res = HashSetFactory.make();
         final Deque<ContextOrObjectId> stack = new ArrayDeque<ContextOrObjectId>();
@@ -389,7 +391,7 @@ public abstract class ReferenceCountedHeapGraph {
             if (referenceCount(s) == 0) {
                 int id = s.getId();
                 if (id != -1) {
-                    unreachableCallback.apply(new Unreachability(id, iid, timer.currentTime()));
+                    unreachableCallback.apply(new Unreachability(id, slId, timer.currentTime()));
                 }
                 for (HeapEdge succ: getOutEdges(s)) {
                     ContextOrObjectId target = getTarget(succ);
@@ -399,7 +401,7 @@ public abstract class ReferenceCountedHeapGraph {
                 }
                 removeNode(s);
             } else {
-                addToCycleQueue(s, iid);
+                addToCycleQueue(s, slId);
             }
         }
         return res;
@@ -411,7 +413,7 @@ public abstract class ReferenceCountedHeapGraph {
         addEdge(new NamedEdge(func, "_CONTEXT_"), ctx);
     }
 
-    public void contextSealed(Context functionContext, final Set<String> unReferenced, int iid) {
+    public void contextSealed(Context functionContext, final Set<String> unReferenced, SourceLocId slId) {
         ContextOrObjectId c = ContextOrObjectId.make(functionContext);
         Set<NamedEdge> namedOut = getNamedOutEdges(c);
         Set<NamedEdge> toDelete = HashSetFactory.make();
@@ -423,14 +425,14 @@ public abstract class ReferenceCountedHeapGraph {
         for (NamedEdge e : toDelete) {
             ContextOrObjectId to = getTarget(e);
             if (to != null) {
-                decrementReference(e, to, iid);
+                decrementReference(e, to, slId);
                 removeEdge(e);
             }
         }
         if (referenceCount(c) == 0)
             addToFlushQueue(c);//candidates.add(c);
         else {
-            addToCycleQueue(c, iid);
+            addToCycleQueue(c, slId);
         }
 
     }
@@ -473,9 +475,9 @@ public abstract class ReferenceCountedHeapGraph {
 
     private boolean noCycleCollection = false;
 
-    public void endFlush(int iid, Set<Integer> returnValues, Collection<Context> liveContexts) {
+    public void endFlush(SourceLocId slId, Set<Integer> returnValues, Collection<Context> liveContexts) {
         noCycleCollection = true;
-        flush(iid, returnValues, liveContexts);
+        flush(slId, returnValues, liveContexts);
         flushCycleQueue(returnValues, FlushType.END_EXECUTION, liveContexts);
         //Remove the "null" element
         removeNode(ContextOrObjectId.make(0));
@@ -517,16 +519,16 @@ public abstract class ReferenceCountedHeapGraph {
         addNamedMultiEdge(e);
     }
 
-    public void removeFromChildSet(ContextOrObjectId parent, String name, ContextOrObjectId child, int iid) {
+    public void removeFromChildSet(ContextOrObjectId parent, String name, ContextOrObjectId child, SourceLocId slId) {
         assert containsNode(parent) && containsNode(child);
         NamedMultiEdge e = new NamedMultiEdge(parent, name, child);
-        decrementReference(e, child, iid);
+        decrementReference(e, child, slId);
     }
 
     public void removeDOMChildReference(int parentId, int childId) {
         assert !isNull(parentId);
         assert !isNull(childId);
-        removeFromChildSet(ContextOrObjectId.make(parentId), DOM_CHILD_EDGE_NAME, ContextOrObjectId.make(childId), -1);
+        removeFromChildSet(ContextOrObjectId.make(parentId), DOM_CHILD_EDGE_NAME, ContextOrObjectId.make(childId), SourceMap.UNKNOWN_ID);
     }
 
     public int getOutDegree(int objId) {
@@ -546,18 +548,18 @@ public abstract class ReferenceCountedHeapGraph {
         BLUE
     }
 
-    private class IIDAndTime {
-        public int iid;
+    private class SourceLocIdAndTime {
+        public SourceLocId slId;
         public long time;
 
-        public IIDAndTime(int iid, long time) {
-            this.iid = iid;
+        public SourceLocIdAndTime(SourceLocId slId, long time) {
+            this.slId = slId;
             this.time = time;
         }
 
         @Override
         public String toString() {
-            return String.format("(%d,%d)", iid, time);
+            return String.format("(%s,%d)", slId, time);
         }
     }
 

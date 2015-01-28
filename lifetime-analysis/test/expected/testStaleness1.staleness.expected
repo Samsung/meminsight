@@ -3,72 +3,72 @@
     [
       0,
       21,
-      33
+      49
     ],
     [
       0,
       23,
-      57
+      73
     ],
     [
       1,
       27,
-      497
+      601
     ],
     [
       0,
       32,
-      97
+      121
     ],
     [
       0,
       34,
-      305
+      385
     ],
     [
       1,
       41,
-      577
+      681
     ],
     [
       0,
       44,
-      145
+      185
     ],
     [
       0,
       48,
-      217
+      273
     ],
     [
       0,
       52,
-      273
+      345
     ],
     [
       1,
       59,
-      561
+      665
     ],
     [
       1,
       64,
-      545
+      649
     ],
     [
       1,
       66,
-      529
+      633
     ],
     [
       1,
       68,
-      513
+      617
     ],
     [
       1,
       70,
-      481
+      585
     ]
   ],
   "objectInfo": {
@@ -81,7 +81,7 @@
         "unreachableSite": "end of program",
         "staleness": 16,
         "lastUseTime": 70,
-        "lastUseSite": 377,
+        "lastUseSite": 473,
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -103,13 +103,13 @@
         "objectId": 18,
         "creationTime": 24,
         "creationCallStack": [
-          377
+          473
         ],
         "unreachableTime": 70,
         "unreachableSite": "testStaleness1.js:16:1:19:2",
         "staleness": 8,
         "lastUseTime": 62,
-        "lastUseSite": 209,
+        "lastUseSite": 257,
         "shallowSize": 2,
         "type": "OBJECT"
       }
@@ -135,7 +135,7 @@
         "unreachableSite": "end of program",
         "staleness": 67,
         "lastUseTime": 19,
-        "lastUseSite": 257,
+        "lastUseSite": 313,
         "shallowSize": 4,
         "type": "PROTOTYPE"
       }
@@ -149,7 +149,7 @@
         "unreachableSite": "end of program",
         "staleness": 18,
         "lastUseTime": 68,
-        "lastUseSite": 25,
+        "lastUseSite": 33,
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -171,14 +171,14 @@
         "objectId": 19,
         "creationTime": 35,
         "creationCallStack": [
-          25,
-          377
+          33,
+          473
         ],
         "unreachableTime": 70,
         "unreachableSite": "testStaleness1.js:16:1:19:2",
         "staleness": 32,
         "lastUseTime": 38,
-        "lastUseSite": 297,
+        "lastUseSite": 369,
         "shallowSize": 1,
         "type": "OBJECT"
       }
@@ -192,7 +192,7 @@
         "unreachableSite": "end of program",
         "staleness": 20,
         "lastUseTime": 66,
-        "lastUseSite": 89,
+        "lastUseSite": 105,
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -218,7 +218,7 @@
         "unreachableSite": "end of program",
         "staleness": 22,
         "lastUseTime": 64,
-        "lastUseSite": 137,
+        "lastUseSite": 169,
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -240,16 +240,16 @@
         "objectId": 20,
         "creationTime": 53,
         "creationCallStack": [
-          137,
-          89,
-          25,
-          377
+          169,
+          105,
+          33,
+          473
         ],
         "unreachableTime": 70,
         "unreachableSite": "testStaleness1.js:16:1:19:2",
         "staleness": 14,
         "lastUseTime": 56,
-        "lastUseSite": 265,
+        "lastUseSite": 329,
         "shallowSize": 2,
         "type": "OBJECT"
       }
@@ -263,7 +263,7 @@
         "unreachableSite": "end of program",
         "staleness": 25,
         "lastUseTime": 61,
-        "lastUseSite": 201,
+        "lastUseSite": 249,
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -289,7 +289,7 @@
         "unreachableSite": "end of program",
         "staleness": 43,
         "lastUseTime": 43,
-        "lastUseSite": 81,
+        "lastUseSite": 97,
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -301,7 +301,7 @@
         "unreachableSite": "end of program",
         "staleness": 67,
         "lastUseTime": 19,
-        "lastUseSite": 337,
+        "lastUseSite": 417,
         "shallowSize": 1,
         "type": "PROTOTYPE"
       }
@@ -315,7 +315,7 @@
         "unreachableSite": "end of program",
         "staleness": 67,
         "lastUseTime": 19,
-        "lastUseSite": 361,
+        "lastUseSite": 449,
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -327,7 +327,7 @@
         "unreachableSite": "end of program",
         "staleness": 67,
         "lastUseTime": 19,
-        "lastUseSite": 369,
+        "lastUseSite": 457,
         "shallowSize": 1,
         "type": "PROTOTYPE"
       }

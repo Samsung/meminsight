@@ -15,14 +15,16 @@
  */
 package com.samsung.memoryanalysis.referencecounter.heap;
 
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
+
 public class Unreachability {
     public final int objId;
-    public final int iid;
+    public final SourceLocId slId;
     public final long time;
 
-    public Unreachability(int objId, int iid, long time) {
+    public Unreachability(int objId, SourceLocId slId, long time) {
         this.objId = objId;
-        this.iid = iid;
+        this.slId = slId;
         this.time = time;
     }
 
@@ -30,7 +32,7 @@ public class Unreachability {
     public String toString() {
         return "Unreachability{" +
                 "obj=" + objId +
-                ", iid=" + iid +
+                ", slId=" + slId +
                 '}';
     }
 }

@@ -18,7 +18,8 @@ package com.samsung.memoryanalysis.context;
 import java.util.Set;
 
 import com.samsung.memoryanalysis.referencecounter.heap.ContextOrObjectId;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
 /**
@@ -29,52 +30,52 @@ public class DummyContextAwareAnalysis<T> implements ContextAwareAnalysis<T> {
 
 
     @Override
-    public void init(Timer timer, ContextListener list, IIDMap iidMap) {
+    public void init(Timer timer, ContextListener list, SourceMap iidMap) {
 
     }
 
     @Override
-    public void declare(int iid, String name, int objectId, Context context) {
+    public void declare(SourceLocId slId, String name, int objectId, Context context) {
 
     }
 
     @Override
-    public void create(int iid, int objectId) {
+    public void create(SourceLocId slId, int objectId) {
 
     }
 
     @Override
-    public void createFun(int iid, int objectId, int prototypeId, int functionEnterIID, Set<String> namesReferencedByClosures, Context context) {
+    public void createFun(SourceLocId slId, int objectId, int prototypeId, SourceLocId functionEnterIID, Set<String> namesReferencedByClosures, Context context) {
 
     }
 
     @Override
-    public void putField(int iid, int baseId, String offset, int objectId) {
+    public void putField(SourceLocId slId, int baseId, String offset, int objectId) {
 
     }
 
     @Override
-    public void write(int iid, String name, int objectId, Context context) {
+    public void write(SourceLocId slId, String name, int objectId, Context context) {
 
     }
 
     @Override
-    public void lastUse(int objectId, int iid, int time) {
+    public void lastUse(int objectId, SourceLocId slId, int time) {
 
     }
 
     @Override
-    public void functionEnter(int iid, int funId, int callSiteIID, Context newContext) {
+    public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteIID, Context newContext) {
 
     }
 
     @Override
-    public void functionExit(int iid, Context calleeContext, Context callerContext, Set<String> unReferenced) {
+    public void functionExit(SourceLocId slId, Context calleeContext, Context callerContext, Set<String> unReferenced) {
 
     }
 
     @Override
-    public void topLevelFlush(int iid, Context currentContext) {
+    public void topLevelFlush(SourceLocId slId, Context currentContext) {
 
     }
 
@@ -87,12 +88,12 @@ public class DummyContextAwareAnalysis<T> implements ContextAwareAnalysis<T> {
 
 
     @Override
-    public void updateIID(int objId, int newIID) {
+    public void updateIID(int objId, SourceLocId newIID) {
 
     }
 
     @Override
-    public void debug(int iid, int oid, Context currentContext) {
+    public void debug(SourceLocId slId, int oid, Context currentContext) {
 
     }
 
@@ -103,7 +104,7 @@ public class DummyContextAwareAnalysis<T> implements ContextAwareAnalysis<T> {
     }
 
     @Override
-    public void createDomNode(int iid, int objectId) {
+    public void createDomNode(SourceLocId slId, int objectId) {
 
     }
 
@@ -118,12 +119,12 @@ public class DummyContextAwareAnalysis<T> implements ContextAwareAnalysis<T> {
     }
 
 	@Override
-	public void addToChildSet(int iid, ContextOrObjectId parentNode,
+	public void addToChildSet(SourceLocId slId, ContextOrObjectId parentNode,
 			String name, ContextOrObjectId childNode) {
 	}
 
 	@Override
-	public void removeFromChildSet(int iid, ContextOrObjectId parentNode,
+	public void removeFromChildSet(SourceLocId slId, ContextOrObjectId parentNode,
 			String name, ContextOrObjectId childNode) {
 	}
 
@@ -132,11 +133,11 @@ public class DummyContextAwareAnalysis<T> implements ContextAwareAnalysis<T> {
 	}
 
 	@Override
-	public void scriptEnter(int iid, int sid, String filename) {
+	public void scriptEnter(SourceLocId slId, String filename) {
 	}
 
 	@Override
-	public void scriptExit(int iid) {
+	public void scriptExit(SourceLocId slId) {
 	}
 
 }

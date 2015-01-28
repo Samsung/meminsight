@@ -41,7 +41,7 @@ module ___LoggingAnalysis___ {
         logAddToChildSet(iid: number, parentObjId: number, name: string, childObjId: number): void
         logRemoveFromChildSet(iid: number, parentObjId: number, name: string, childObjId: number): void
         logDOMRoot(objId: number): void
-        logCall(iid: number, funObjId: number, funEnterIID: number): void
+        logCall(iid: number, funObjId: number, funEnterIID: number, funSID: number): void
         logScriptEnter(iid: number, scriptID: number, filename: string): void
         logScriptExit(iid: number): void
         // names is a string or an Array<string>
@@ -110,7 +110,7 @@ module ___LoggingAnalysis___ {
         logDOMRoot(objId:number):void {
         }
 
-        logCall(iid:number, funObjId:number, funEnterIID:number):void {
+        logCall(iid:number, funObjId:number, funEnterIID:number, funSID: number):void {
         }
 
         logScriptEnter(iid:number, scriptID: number, filename:string):void {
@@ -354,9 +354,10 @@ module ___LoggingAnalysis___ {
             this.flushIfNeeded(5).writeByte(LogEntryType.DOM_ROOT).writeInt(objId);
         }
 
-        logCall(iid:number, funObjId:number, funEnterIID:number):void {
+        logCall(iid:number, funObjId:number, funEnterIID:number, funSID: number):void {
             if (!this.beforeLog()) return;
-            this.flushIfNeeded(13).writeTypeAndIID(LogEntryType.CALL,iid).writeInt(funObjId).writeInt(funEnterIID);
+            this.flushIfNeeded(1+4*4).writeTypeAndIID(LogEntryType.CALL,iid).writeInt(funObjId).writeInt(funEnterIID)
+                .writeInt(funSID);
         }
 
         logScriptEnter(iid:number, scriptID: number, filename:string):void {

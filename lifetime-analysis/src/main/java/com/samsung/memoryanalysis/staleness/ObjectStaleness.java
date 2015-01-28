@@ -20,7 +20,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.ibm.wala.util.collections.HashMapFactory;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.util.Util;
 
 public class ObjectStaleness {
@@ -34,24 +35,24 @@ public class ObjectStaleness {
 	 * site to use to indicate last use of a DOM node
 	 * was its removal from the visible DOM
 	 */
-	public static final int REMOVE_FROM_DOM_SITE = -50;
+	public static final SourceLocId REMOVE_FROM_DOM_SITE = new SourceLocId(SourceMap.DUMMY_SID, -50);
 
-    public final int iid;
+    public final SourceLocId slID;
     public final int objectId;
     public final long creationTime;
-    public final List<Integer> creationCallStack;
+    public final List<SourceLocId> creationCallStack;
     public final ObjectType type;
 
     public long staleness = DEFAULT_VAL;
     public long lastUseTime = DEFAULT_VAL;
-    public long lastUseSite = DEFAULT_VAL;
+    public SourceLocId lastUseSite = null;
     public long unreachableTime = DEFAULT_VAL;
-    public int unreachableSite = DEFAULT_VAL;
+    public SourceLocId unreachableSite = null;
     public int shallowSize = DEFAULT_VAL;
 
 
-    protected ObjectStaleness(int iid, int objectId, long creationTime, List<Integer> creationCallStack, ObjectType type) {
-        this.iid = iid;
+    protected ObjectStaleness(SourceLocId slID, int objectId, long creationTime, List<SourceLocId> creationCallStack, ObjectType type) {
+        this.slID = slID;
         this.objectId = objectId;
         this.creationTime = creationTime;
         this.creationCallStack = creationCallStack;
@@ -65,17 +66,17 @@ public class ObjectStaleness {
     }*/
 
 
-    private List<String> callStackSourceLocs(final boolean relative, final IIDMap iidMap) {
+    private List<String> callStackSourceLocs(final boolean relative, final SourceMap iidMap) {
         List<String> result = new ArrayList<String>();
-        for (Integer iid : creationCallStack) {
-            String s = relative ? Util.makeRelative(iidMap.get(iid)) : iidMap.get(iid).toString();
+        for (SourceLocId slID : creationCallStack) {
+            String s = relative ? Util.makeRelative(iidMap.get(slID)) : iidMap.get(slID).toString();
             result.add(s);
         }
         return result;
     }
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    public Map toMap(final IIDMap iidMap, boolean relative, boolean callStackSourceLocs) {
+    public Map toMap(final SourceMap iidMap, boolean relative, boolean callStackSourceLocs) {
         final Map o = HashMapFactory.make();
         o.put("objectId", objectId);
         o.put("creationTime", creationTime);
@@ -86,11 +87,11 @@ public class ObjectStaleness {
         }
         o.put("unreachableTime", unreachableTime);
         String sourceLocation;
-        if (unreachableSite == DEFAULT_VAL)
+        if (unreachableSite == null)
             sourceLocation = "no information";
-        else if (unreachableSite == -1)
+        else if (unreachableSite == SourceMap.UNKNOWN_ID)
             sourceLocation = "unknown";
-        else if (unreachableSite == 0)
+        else if (unreachableSite == SourceMap.END_OF_PROGRAM_ID)
             sourceLocation = "end of program";
         else
             sourceLocation = relative ? Util.makeRelative(iidMap.get(unreachableSite))
@@ -98,7 +99,7 @@ public class ObjectStaleness {
         o.put("unreachableSite", sourceLocation);
         o.put("staleness", staleness == DEFAULT_VAL ? -1 : staleness);
         o.put("lastUseTime", lastUseTime == DEFAULT_VAL ? "never used" : lastUseTime);
-        o.put("lastUseSite", lastUseSite == DEFAULT_VAL ? "never used" :
+        o.put("lastUseSite", lastUseSite == null ? "never used" :
         	(lastUseSite == REMOVE_FROM_DOM_SITE ? "removed from DOM" : lastUseSite));
         o.put("shallowSize", shallowSize);
         o.put("type", this.type.toString());
@@ -112,8 +113,8 @@ public class ObjectStaleness {
         PROTOTYPE
     }
 
-	public ObjectStaleness updateIID(int newIID, List<Integer> newCallStack) {
-		ObjectStaleness result = new ObjectStaleness(newIID, this.objectId, this.creationTime, newCallStack, this.type);
+	public ObjectStaleness updateIID(SourceLocId newSourceLocID, List<SourceLocId> newCallStack) {
+		ObjectStaleness result = new ObjectStaleness(newSourceLocID, this.objectId, this.creationTime, newCallStack, this.type);
 		// copy everything
 		result.staleness = this.staleness;
 		result.lastUseTime = this.lastUseTime;

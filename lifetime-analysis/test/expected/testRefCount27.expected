@@ -1,11 +1,11 @@
 testRefCount27.js:32:1:32:13 : RC(testRefCount27.js:27:9:27:29) = 1
 testRefCount27.js:34:1:34:13 : RC(testRefCount27.js:28:9:28:29) = 1
-Id: 2     Alloc: testRefCount27.js:16:1:16:24             Time: 39         Loc: end of program
-Id: 3     Alloc: testRefCount27.js:16:1:16:24             Time: 39         Loc: end of program
-Id: 4     Alloc: testRefCount27.js:18:1:20:2              Time: 39         Loc: end of program
-Id: 5     Alloc: testRefCount27.js:18:1:20:2              Time: 39         Loc: end of program
-Id: 6     Alloc: testRefCount27.js:22:1:24:2              Time: 39         Loc: end of program
-Id: 7     Alloc: testRefCount27.js:22:1:24:2              Time: 39         Loc: end of program
-Id: 8     Alloc: testRefCount27.js:27:9:27:29             Time: 39         Loc: end of program
-Id: 9     Alloc: testRefCount27.js:28:9:28:29             Time: 39         Loc: end of program
-Id: 10    Alloc: testRefCount27.js:29:9:29:13             Time: 39         Loc: end of program
+Id: 2     Alloc: testRefCount27.js:16:1:16:24             Time: 41         Loc: end of program
+Id: 3     Alloc: testRefCount27.js:16:1:16:24             Time: 41         Loc: end of program
+Id: 4     Alloc: testRefCount27.js:18:1:20:2              Time: 41         Loc: end of program
+Id: 5     Alloc: testRefCount27.js:18:1:20:2              Time: 41         Loc: end of program
+Id: 6     Alloc: testRefCount27.js:22:1:24:2              Time: 41         Loc: end of program
+Id: 7     Alloc: testRefCount27.js:22:1:24:2              Time: 41         Loc: end of program
+Id: 8     Alloc: testRefCount27.js:27:9:27:29             Time: 41         Loc: end of program
+Id: 9     Alloc: testRefCount27.js:28:9:28:29             Time: 41         Loc: end of program
+Id: 10    Alloc: testRefCount27.js:29:9:29:13             Time: 41         Loc: end of program

@@ -3,13 +3,13 @@ Id: 3     Alloc: testRefCount40.js:16:2:53:2              Time: 51         Loc: 
 Id: 4     Alloc: testRefCount40.js:17:18:52:10            Time: 48         Loc: testRefCount40.js:16:2:53:2
 Id: 5     Alloc: testRefCount40.js:17:18:52:10            Time: 48         Loc: testRefCount40.js:16:2:53:2
 Id: 6     Alloc: testRefCount40.js:18:26:19:18            Time: 47         Loc: testRefCount40.js:17:18:52:10
-Id: 7     Alloc: testRefCount40.js:18:26:19:18            Time: 25         Loc: testRefCount40.js:20:13:27:14
+Id: 7     Alloc: testRefCount40.js:18:26:19:18            Time: 25         Loc: testRefCount40.js:20:13:27:15
 Id: 8     Alloc: testRefCount40.js:19:27:19:47            Time: 47         Loc: testRefCount40.js:17:18:52:10
 Id: 9     Alloc: testRefCount40.js:21:22:22:18            Time: 47         Loc: testRefCount40.js:17:18:52:10
 Id: 10    Alloc: testRefCount40.js:21:22:22:18            Time: 47         Loc: testRefCount40.js:17:18:52:10
 Id: 11    Alloc: testRefCount40.js:23:22:24:18            Time: 47         Loc: testRefCount40.js:17:18:52:10
 Id: 12    Alloc: testRefCount40.js:23:22:24:18            Time: 47         Loc: testRefCount40.js:17:18:52:10
-Id: 13    Alloc: testRefCount40.js:26:23:26:25            Time: 25         Loc: testRefCount40.js:20:13:27:14
+Id: 13    Alloc: testRefCount40.js:26:23:26:25            Time: 25         Loc: testRefCount40.js:20:13:27:15
 Id: 14    Alloc: testRefCount40.js:20:32:27:14            Time: 47         Loc: testRefCount40.js:17:18:52:10
 Id: 15    Alloc: testRefCount40.js:20:32:27:14            Time: 47         Loc: testRefCount40.js:17:18:52:10
 Id: 16    Alloc: testRefCount40.js:29:29:30:18            Time: 47         Loc: testRefCount40.js:17:18:52:10

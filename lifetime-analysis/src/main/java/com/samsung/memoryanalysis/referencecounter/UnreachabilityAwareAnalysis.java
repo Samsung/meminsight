@@ -18,7 +18,8 @@ package com.samsung.memoryanalysis.referencecounter;
 import java.util.Set;
 
 import com.samsung.memoryanalysis.context.Context;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
 /**
@@ -26,29 +27,29 @@ import com.samsung.memoryanalysis.traceparser.Timer;
  */
 public interface UnreachabilityAwareAnalysis <T> {
 
-    public void init(Timer timer, final IIDMap iidMap);
+    public void init(Timer timer, final SourceMap iidMap);
 
-    public void declare(int iid, String name, int objectId);
+    public void declare(SourceLocId slId, String name, int objectId);
 
-    public void create(int iid, int objectId, long time, boolean isDom);
+    public void create(SourceLocId slId, int objectId, long time, boolean isDom);
 
-    public void createFun(int iid, int objectId, int prototypeId, int functionEnterIID ,Set<String> namesReferencedByClosures, Context context, long time);
+    public void createFun(SourceLocId slId, int objectId, int prototypeId, SourceLocId functionEnterIID ,Set<String> namesReferencedByClosures, Context context, long time);
 
-    public void putField(int iid, int baseId, String offset, int objectId);
+    public void putField(SourceLocId slId, int baseId, String offset, int objectId);
 
-    public void write(int iid, String name, int objectId);
+    public void write(SourceLocId slId, String name, int objectId);
 
-    public void lastUse(int objectId, int iid, long time);
+    public void lastUse(int objectId, SourceLocId slId, long time);
 
-    public void functionEnter(int iid, int funId, int callSiteIID, Context newContext, long time);
+    public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteIID, Context newContext, long time);
 
-    public void functionExit(int iid, Context functionContext, Set<String> unReferenced, long time);
+    public void functionExit(SourceLocId slId, Context functionContext, Set<String> unReferenced, long time);
 
-    public void topLevelFlush(int iid);
+    public void topLevelFlush(SourceLocId slId);
 
-    public void updateIID(int objId, int newIID);
+    public void updateIID(int objId, SourceLocId newIID);
 
-    public void debug(int iid, int oid);
+    public void debug(SourceLocId slId, int oid);
 
     public void returnStmt(int objId);
 
@@ -56,19 +57,19 @@ public interface UnreachabilityAwareAnalysis <T> {
 
     public void removeDOMChild(int parentId, int childId, long time);
 
-    public void addToChildSet(int iid, int parentId, String name, int childId);
+    public void addToChildSet(SourceLocId slId, int parentId, String name, int childId);
 
-    public void removeFromChildSet(int iid, int parentId, String name, int childId);
+    public void removeFromChildSet(SourceLocId slId, int parentId, String name, int childId);
 
     public void domRoot(int nodeId);
 
-    public void scriptEnter(int iid, int sid, String filename);
+    public void scriptEnter(SourceLocId slId, String filename);
 
-    public void scriptExit(int iid);
+    public void scriptExit(SourceLocId slId);
 
-    public void unreachableObject(int iid, int objectId, long time, int shallowSize);
+    public void unreachableObject(SourceLocId slId, int objectId, long time, int shallowSize);
 
-    public void unreachableContext(int iid, Context ctx, long  time);
+    public void unreachableContext(SourceLocId slId, Context ctx, long  time);
 
     public T endExecution(long time);
 

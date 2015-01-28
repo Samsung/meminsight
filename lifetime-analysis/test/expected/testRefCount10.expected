@@ -1,5 +1,5 @@
-Id: 2     Alloc: testRefCount10.js:16:1:17:2              Time: 15         Loc: end of program
-Id: 3     Alloc: testRefCount10.js:16:1:17:2              Time: 15         Loc: end of program
-Id: 4     Alloc: testRefCount10.js:19:1:21:2              Time: 15         Loc: end of program
-Id: 5     Alloc: testRefCount10.js:19:1:21:2              Time: 15         Loc: end of program
-Id: 6     Alloc: testRefCount10.js:20:14:20:34            Time: 11         Loc: testRefCount10.js:19:1:21:2
+Id: 2     Alloc: testRefCount10.js:16:1:17:2              Time: 16         Loc: end of program
+Id: 3     Alloc: testRefCount10.js:16:1:17:2              Time: 16         Loc: end of program
+Id: 4     Alloc: testRefCount10.js:19:1:21:2              Time: 16         Loc: end of program
+Id: 5     Alloc: testRefCount10.js:19:1:21:2              Time: 16         Loc: end of program
+Id: 6     Alloc: testRefCount10.js:20:14:20:34            Time: 11         Loc: testRefCount10.js:20:5:20:36

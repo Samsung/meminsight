@@ -45,7 +45,7 @@ module ___LoggingAnalysis___ {
         ADD_TO_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
         REMOVE_FROM_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
         DOM_ROOT, // fields: obj-id
-        CALL, // fields: iid, function-obj-id, function-enter-iid.  NOTE: only emitted for calls to *instrumented* functions
+        CALL, // fields: iid, function-obj-id, function-enter-iid, fun-sid.  NOTE: only emitted for calls to *instrumented* functions
         SCRIPT_ENTER, // fields: iid, scriptId, filename
         SCRIPT_EXIT, // fields: iid
         FREE_VARS, // fields: iid, array-of-names or ANY

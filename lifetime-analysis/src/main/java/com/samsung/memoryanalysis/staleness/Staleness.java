@@ -26,20 +26,21 @@ import java.util.TreeMap;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ibm.wala.util.collections.HashMapFactory;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
 import com.samsung.memoryanalysis.traceparser.SourceLocation;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.util.Util;
 
 /**
  * Created by s.jensen on 6/24/14.
  */
 public class Staleness {
-    public final Map<Integer, List<ObjectStaleness>> staleness;
-    private final IIDMap iidMap;
+    public final Map<SourceLocId, List<ObjectStaleness>> staleness;
+    private final SourceMap iidMap;
     private final List<long[]> functionTrace;
     private final boolean callStackSourceLoc;
 
-    public Staleness(final Map<Integer, List<ObjectStaleness>> staleness, final List<long[]> functionTrace,final IIDMap iidMap, final boolean callStackSourceLoc) {
+    public Staleness(final Map<SourceLocId, List<ObjectStaleness>> staleness, final List<long[]> functionTrace,final SourceMap iidMap, final boolean callStackSourceLoc) {
         this.staleness = staleness;
         this.iidMap = iidMap;
         this.functionTrace = functionTrace;
@@ -55,7 +56,7 @@ public class Staleness {
     public void toJSON(OutputStream out, boolean relative) throws IOException {
         final Map<String, Object> res = HashMapFactory.make();
         final Map<String, Map[]> resStale = new TreeMap<String, Map[]>();
-        for (Map.Entry<Integer, List<ObjectStaleness>> entry : staleness.entrySet()) {
+        for (Map.Entry<SourceLocId, List<ObjectStaleness>> entry : staleness.entrySet()) {
             Map[] arr = new Map[entry.getValue().size()];
             for (int i = 0; i < arr.length; i++) {
                 ObjectStaleness stale = entry.getValue().get(i);
@@ -63,7 +64,7 @@ public class Staleness {
             }
             SourceLocation entr = iidMap.get(entry.getKey());
             String srcLoc = relative ? Util.makeRelative(entr) : entr == null ? null : entr.toString();
-            String key = entry.getKey() == -1 ? "unknown" : entry.getKey() == 0 ? "end of program" : srcLoc;
+            String key = entry.getKey() == SourceMap.UNKNOWN_ID ? "unknown" : entry.getKey() == SourceMap.END_OF_PROGRAM_ID ? "end of program" : srcLoc;
             if (resStale.containsKey(key)) {
                 Map[] old = resStale.get(key);
                 Map[] newArr = Arrays.copyOf(old, old.length + arr.length);

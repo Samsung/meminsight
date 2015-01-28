@@ -73,10 +73,10 @@ public class Context {
         return this.parent == null;
     }
 
-    public void newVariable(int iid, String name, int objectId) {
+    public void newVariable(String name, int objectId) {
 //        assert !variables.containsKey(name) : "already saw declaration of variable " + name;
         if (!variables.containsKey(name)) { // just ignore if we've already seen the variable
-            variables.put(name, new Variable(iid, objectId));
+            variables.put(name, new Variable(objectId));
         }
     }
 
@@ -137,7 +137,7 @@ public class Context {
         return "C(" + this.iidString + ")";
     }
 
-    public Context writeToVariable(int iid, String name, int objectId) {
+    public Context writeToVariable(String name, int objectId) {
         Context c = this;
         while (c != null) {
             if (c.hasVariable(name)) {
@@ -145,7 +145,7 @@ public class Context {
                 return c;
             }
             if (c.isGlobal()) {
-                c.newVariable(iid,name,objectId);
+                c.newVariable(name,objectId);
                 return c;
             }
             c = c.parent;

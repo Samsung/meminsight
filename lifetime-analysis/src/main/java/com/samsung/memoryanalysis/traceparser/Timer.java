@@ -19,9 +19,12 @@ import com.ibm.wala.util.functions.VoidFunction;
 
 /**
  *
+ * Holds a current time and other state related to the current point in the trace
+ *
  * @author s.jensen
  */
 public interface Timer {
     public long currentTime();
+
     public void registerAlarm(long atTime, VoidFunction<Long> callback);
 }

@@ -37,7 +37,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +52,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.ibm.wala.util.collections.HashSetFactory;
 import com.ibm.wala.util.functions.VoidFunction;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 
 /**
  *
@@ -66,40 +66,38 @@ public class TraceAnalysisRunner {
 
     private final FreeVariables fvMap;
 
-    private final IIDMap iidMap;
+    private final SourceMap iidMap;
 
     private final ProgressMonitor progress;
 
     private int traceSize = 0;
 
-    private int currentScriptId = -1;
-
     public TraceAnalysisRunner(InputStream trace, ProgressMonitor progress, File dir) throws FileNotFoundException, IOException {
         this.trace = new DataInputStream(trace);
         fvMap = buildFVMap(dir);
-        iidMap = IIDMap.parseIIDFile(dir);
+        iidMap = new SourceMap();//SourceMap.parseIIDFile(dir);
         this.progress = progress;
 
     }
 
-    /**
-     *
-     * @param arr
-     * @return arr[idx] as int
-     */
-    private int getInt(JsonArray arr, int idx) {
-        return arr.get(idx).getAsInt();
-    }
-
-    /**
-     *
-     * @param arr
-     * @param idx
-     * @return arr[idx] as String
-     */
-    private String getString(JsonArray arr, int idx) {
-        return arr.get(idx).getAsString();
-    }
+//    /**
+//     *
+//     * @param arr
+//     * @return arr[idx] as int
+//     */
+//    private int getInt(JsonArray arr, int idx) {
+//        return arr.get(idx).getAsInt();
+//    }
+//
+//    /**
+//     *
+//     * @param arr
+//     * @param idx
+//     * @return arr[idx] as String
+//     */
+//    private String getString(JsonArray arr, int idx) {
+//        return arr.get(idx).getAsString();
+//    }
 
     private FreeVariables buildFVMap(File dir) throws IOException {
         File fvFile = new File(dir, "freevars.json");
@@ -152,6 +150,7 @@ public class TraceAnalysisRunner {
         TraceTimer timer = new TraceTimer();
         a.init(timer, iidMap);
         int counter = 0;
+        int currentScriptId = -1;
         if (progress != null)
             progress.start(this.traceSize);
         int evtTypeInt = 0;
@@ -163,13 +162,13 @@ public class TraceAnalysisRunner {
                   int iid = readInt();
                   String name = readString();
                   int objId = readInt();
-                  a.declare(iid, name, objId);
+                  a.declare(new SourceLocId(currentScriptId, iid), name, objId);
                   break;
               }
               case CREATE_OBJ: {
                     int iid = readInt();
                     int objId = readInt();
-                    a.create(iid, objId);
+                    a.create(new SourceLocId(currentScriptId, iid), objId);
                     break;
               }
                 case CREATE_FUN: {
@@ -177,7 +176,7 @@ public class TraceAnalysisRunner {
                     int funcEnterIID = readInt();
                     int objId = readInt();
                     int protoId = objId + 1;
-                    a.createFun(iid, objId, protoId, funcEnterIID, fvMap.getFreeVariables(funcEnterIID));
+                    a.createFun(new SourceLocId(currentScriptId, iid), objId, protoId, new SourceLocId(currentScriptId, funcEnterIID), fvMap.getFreeVariables(funcEnterIID));
                     break;
                 }
                 case PUTFIELD: {
@@ -186,50 +185,51 @@ public class TraceAnalysisRunner {
                     String propName = null;
                     propName = readString();
                     int objId = readInt();
-                    a.putField(iid, baseid, propName, objId);
+                    a.putField(new SourceLocId(currentScriptId, iid), baseid, propName, objId);
                     break;
                 }
                 case WRITE: {
                     int iid = readInt();
                     String name = readString();
                     int objId = readInt();
-                    a.write(iid, name, objId);
+                    a.write(new SourceLocId(currentScriptId, iid), name, objId);
                     break;
                 }
                 case LAST_USE: {
                     int objId = readInt();
                     int time = readInt();
 //                        assert time == timer.currentTime();
-                    int iid = readInt();
-                    a.lastUse(objId, iid, time);
+                    String[] theSplit = readString().split(":");
+                    SourceLocId slId = new SourceLocId(Integer.parseInt(theSplit[0]), Integer.parseInt(theSplit[1]));
+                    a.lastUse(objId, slId, time);
                     break;
                 }
                 case FUNCTION_ENTER: {
                     int iid = readInt();//getInt(arr, 1);
                     int funId = readInt();//getInt(arr, 2);
-                    a.functionEnter(iid, funId, IIDMap.UNKNOWN_IID);
+                    a.functionEnter(new SourceLocId(currentScriptId, iid), funId, SourceMap.UNKNOWN_ID);
                     break;
                 }
                 case FUNCTION_EXIT: {
                     int iid = readInt();
-                    a.functionExit(iid);
+                    a.functionExit(new SourceLocId(currentScriptId, iid));
                     break;
                 }
                 case TOP_LEVEL_FLUSH: {
                     int iid = readInt();//getInt(arr, 1);
-                    a.topLevelFlush(iid);
+                    a.topLevelFlush(new SourceLocId(currentScriptId, iid));
                     break;
                 }
                 case UPDATE_IID: {
                     int objId = readInt();//getInt(arr, 1);
                     int newIID = readInt();//getInt(arr, 2);
-                    a.updateIID(objId, newIID);
+                    a.updateIID(objId, new SourceLocId(currentScriptId, newIID));
                     break;
                 }
                 case DEBUG: {
                     int iid = readInt();//getInt(arr, 1);
                     int o = readInt();//getInt(arr, 2);
-                    a.debug(iid, o);
+                    a.debug(new SourceLocId(currentScriptId, iid), o);
                     break;
                 }
                 case RETURN: {
@@ -240,7 +240,7 @@ public class TraceAnalysisRunner {
                 case CREATE_DOM_NODE: {
                     int iid = readInt();//getInt(arr, 1);
                     int o = readInt();//getInt(arr, 2);
-                    a.createDomNode(iid, o);
+                    a.createDomNode(new SourceLocId(currentScriptId, iid), o);
                     break;
                 }
                 case ADD_DOM_CHILD: {
@@ -260,7 +260,7 @@ public class TraceAnalysisRunner {
                     int parent = readInt();//getInt(arr,2);
                     String name = readString();//getString(arr,3);
                     int child = readInt();//getInt(arr,4);
-                    a.addToChildSet(iid, parent, name, child);
+                    a.addToChildSet(new SourceLocId(currentScriptId, iid), parent, name, child);
                     break;
                 }
                 case REMOVE_FROM_CHILD_SET: {
@@ -268,7 +268,7 @@ public class TraceAnalysisRunner {
                     int parent = readInt();//getInt(arr,2);
                     String name = readString();//getString(arr,3);
                     int child = readInt();//getInt(arr,4);
-                    a.removeFromChildSet(iid, parent, name, child);
+                    a.removeFromChildSet(new SourceLocId(currentScriptId, iid), parent, name, child);
                     break;
                 }
                 case DOM_ROOT: {
@@ -280,7 +280,8 @@ public class TraceAnalysisRunner {
                     int iid = readInt();//getInt(arr,1);
                     int funObjId = readInt();//getInt(arr,2);
                     int funEnterIID = readInt();//getInt(arr,3);
-                    a.functionEnter(funEnterIID, funObjId, iid);
+                    int funSID = readInt();
+                    a.functionEnter(new SourceLocId(funSID, funEnterIID), funObjId, new SourceMap.SourceLocId(currentScriptId, iid));
                     break;
                 }
                 case SCRIPT_ENTER: {
@@ -288,12 +289,12 @@ public class TraceAnalysisRunner {
                     int sid = readInt();
                     String filename = readString();
                     iidMap.addScriptMapping(sid, filename);
-                    a.scriptEnter(iid, sid, filename);
+                    a.scriptEnter(new SourceLocId(sid, iid), filename);
                     break;
                 }
                 case SCRIPT_EXIT: {
                     int iid = readInt();//getInt(arr, 1);
-                    a.scriptExit(iid);
+                    a.scriptExit(new SourceLocId(currentScriptId, iid));
                     break;
                 }
                 case FREE_VARS: {
@@ -318,11 +319,10 @@ public class TraceAnalysisRunner {
                     int startColumn = readInt();
                     int endLine = readInt();
                     int endColumn = readInt();
-                    iidMap.addMapping(iid, currentScriptId, startLine, startColumn, endLine, endColumn);
+                    iidMap.addMapping(new SourceMap.SourceLocId(currentScriptId, iid), startLine, startColumn, endLine, endColumn);
                     break;
                 case UPDATE_CURRENT_SCRIPT:
-                    int scriptId = readInt();
-                    this.currentScriptId = scriptId;
+                    currentScriptId = readInt();
                     break;
                 case UNREACHABLE:
                     break;
@@ -346,208 +346,212 @@ public class TraceAnalysisRunner {
     //TODO: Unify the binary and JSON parsers.
 
     public <T> T runAnalysisJSON(TraceAnalysis<T> a) throws FileNotFoundException, IOException {
-        BufferedReader in = new BufferedReader(new InputStreamReader(trace));
-        String line;
-        TraceTimer timer = new TraceTimer();
-        a.init(timer, iidMap);
-        int counter = 0;
-        if (progress != null)
-            progress.start(this.traceSize);
-        while ((line = in.readLine()) != null) {
-            try {
-                JsonArray arr = parser.parse(line).getAsJsonArray();
-                TraceEntry evt = TraceEntry.values()[arr.get(0).getAsInt()];
-                switch (evt) {
-                    case DECLARE: {
-                        int iid = getInt(arr, 1);
-                        String name = getString(arr, 2);
-                        int objId = getInt(arr, 3);
-                        a.declare(iid, name, objId);
-                        break;
-                    }
-                    case CREATE_OBJ: {
-                        int iid = getInt(arr, 1);
-                        int objId = getInt(arr, 2);
-                        a.create(iid, objId);
-                        break;
-                    }
-                    case CREATE_FUN: {
-                        int iid = getInt(arr, 1);
-                        int funcEnterIID = getInt(arr, 2);
-                        int objId = getInt(arr, 3);
-                        int protoId = objId + 1;
-                        a.createFun(iid, objId, protoId, funcEnterIID, fvMap.getFreeVariables(funcEnterIID));
-                        break;
-                    }
-                    case PUTFIELD: {
-                        int iid = getInt(arr, 1);
-                        int baseid = getInt(arr, 2);
-                        String propName = null;
-                        try {
-                            propName = getString(arr, 3);
-                        } catch (Exception e) {
-                            System.err.println("!!!" + line);
-                            throw new RuntimeException(e);
-                        }
-                        int objId = getInt(arr, 4);
-                        a.putField(iid, baseid, propName, objId);
-                        break;
-                    }
-                    case WRITE: {
-                        int iid = getInt(arr, 1);
-                        String name = getString(arr, 2);
-                        int objId = getInt(arr, 3);
-                        a.write(iid, name, objId);
-                        break;
-                    }
-                    case LAST_USE: {
-                        int objId = getInt(arr, 1);
-                        int time = getInt(arr, 2);
-//                        assert time == timer.currentTime();
-                        int iid = getInt(arr, 3);
-                        a.lastUse(objId, iid, time);
-                        break;
-                    }
-                    case FUNCTION_ENTER: {
-                        int iid = getInt(arr, 1);
-                        int funId = getInt(arr, 2);
-                        a.functionEnter(iid, funId, IIDMap.UNKNOWN_IID);
-                        break;
-                    }
-                    case FUNCTION_EXIT: {
-                        int iid = getInt(arr, 1);
-                        a.functionExit(iid);
-                        break;
-                    }
-                    case TOP_LEVEL_FLUSH: {
-                        int iid = getInt(arr, 1);
-                        a.topLevelFlush(iid);
-                        break;
-                    }
-                    case UPDATE_IID: {
-                        int objId = getInt(arr, 1);
-                        int newIID = getInt(arr, 2);
-                        a.updateIID(objId, newIID);
-                        break;
-                    }
-                    case DEBUG: {
-                        int iid = getInt(arr, 1);
-                        int o = getInt(arr, 2);
-                        a.debug(iid, o);
-                        break;
-                    }
-                    case RETURN: {
-                        int retVal = getInt(arr, 1);
-                        a.returnStmt(retVal);
-                        break;
-                    }
-                    case CREATE_DOM_NODE: {
-                        int iid = getInt(arr, 1);
-                        int o = getInt(arr, 2);
-                        a.createDomNode(iid, o);
-                        break;
-                    }
-                    case ADD_DOM_CHILD: {
-                        int parent = getInt(arr,1);
-                        int child = getInt(arr,2);
-                        a.addDOMChild(parent, child);
-                        break;
-                    }
-                    case REMOVE_DOM_CHILD: {
-                        int parent = getInt(arr,1);
-                        int child = getInt(arr,2);
-                        a.removeDOMChild(parent, child);
-                        break;
-                    }
-                    case ADD_TO_CHILD_SET: {
-                        int iid = getInt(arr,1);
-                        int parent = getInt(arr,2);
-                        String name = getString(arr, 3);
-                        int child = getInt(arr,4);
-                        a.addToChildSet(iid, parent, name, child);
-                        break;
-                    }
-                    case REMOVE_FROM_CHILD_SET: {
-                        int iid = getInt(arr,1);
-                        int parent = getInt(arr,2);
-                        String name = getString(arr,3);
-                        int child = getInt(arr,4);
-                        a.removeFromChildSet(iid, parent, name, child);
-                        break;
-                    }
-                    case DOM_ROOT: {
-                        int nodeId = getInt(arr, 1);
-                        a.domRoot(nodeId);
-                        break;
-                    }
-                    case CALL: {
-                    	int iid = getInt(arr,1);
-                    	int funObjId = getInt(arr,2);
-                    	int funEnterIID = getInt(arr,3);
-                    	a.functionEnter(funEnterIID, funObjId, iid);
-                    	break;
-                    }
-                    case SCRIPT_ENTER: {
-                        throw new Error("fix this code");
-//                    	int iid = getInt(arr, 1);
-//                    	String filename = getString(arr, 2);
-//                    	//a.scriptEnter(iid, filename);
-                    	//break;
-                    }
-                    case SCRIPT_EXIT: {
-                    	int iid = getInt(arr, 1);
-                    	a.scriptExit(iid);
-                    	break;
-                    }
-                    case FREE_VARS: {
-                    	int iid = getInt(arr, 1);
-                    	JsonElement names = arr.get(2);
-                        if (names.isJsonPrimitive())
-                            fvMap.put(iid, FreeVariables.ANY);
-                        else {
-                            JsonArray namesArray = names.getAsJsonArray();
-                            Set<String> fv = HashSetFactory.make();
-                            for (int i = 0; i < namesArray.size(); i++) {
-                                fv.add(namesArray.get(i).getAsString());
-                            }
-                            fvMap.put(iid, fv);
-                        }
-
-                    	break;
-                    }
-                    case SOURCE_MAPPING: { // fields: iid, filename, startLine, startColumn
-                        int iid = getInt(arr, 1);
-                        String filename = getString(arr, 2);
-                        int startLine = getInt(arr, 3);
-                        int startColumn = getInt(arr, 4);
-                        throw new RuntimeException("fix this case");
-//                        iidMap.addMapping(iid, new SourceLocation(filename, startLine, startColumn));
+        throw new Error("don't depend on this anymore");
+//        BufferedReader in = new BufferedReader(new InputStreamReader(trace));
+//        String line;
+//        TraceTimer timer = new TraceTimer();
+//        a.init(timer, iidMap);
+//        int counter = 0;
+//        if (progress != null)
+//            progress.start(this.traceSize);
+//        while ((line = in.readLine()) != null) {
+//            try {
+//                JsonArray arr = parser.parse(line).getAsJsonArray();
+//                TraceEntry evt = TraceEntry.values()[arr.get(0).getAsInt()];
+//                switch (evt) {
+//                    case DECLARE: {
+//                        int iid = getInt(arr, 1);
+//                        String name = getString(arr, 2);
+//                        int objId = getInt(arr, 3);
+//                        a.declare(iid, name, objId);
 //                        break;
-                    }
-                    case UNREACHABLE:
-                        break;
-                    default:
-                        throw new AssertionError("? : "  +evt);
-                }
-                // don't tick timer for metadata entries (SOURCE_MAPPING or FREE_VARS)
-                if (evt != TraceEntry.SOURCE_MAPPING && evt != TraceEntry.FREE_VARS) {
-                    timer.tick();
-                }
-                if (this.progress != null)
-                    progress.tick(counter);
-                counter++;
-            } catch (JsonParseException ex) {
-                in.close();
-                throw new IOException("Invalid JSON line: " + line);
-            }
-        }
-        if (this.progress != null)
-            progress.tick(this.traceSize);
-        in.close();
-        // we need to undo the last tick, as execution is now over
-        // and we want the current time to correspond to the final entry
-        timer.rewindOneTick();
-        return a.endExecution();
+//                    }
+//                    case CREATE_OBJ: {
+//                        int iid = getInt(arr, 1);
+//                        int objId = getInt(arr, 2);
+//                        a.create(iid, objId);
+//                        break;
+//                    }
+//                    case CREATE_FUN: {
+//                        int iid = getInt(arr, 1);
+//                        int funcEnterIID = getInt(arr, 2);
+//                        int objId = getInt(arr, 3);
+//                        int protoId = objId + 1;
+//                        a.createFun(iid, objId, protoId, funcEnterIID, fvMap.getFreeVariables(funcEnterIID));
+//                        break;
+//                    }
+//                    case PUTFIELD: {
+//                        int iid = getInt(arr, 1);
+//                        int baseid = getInt(arr, 2);
+//                        String propName = null;
+//                        try {
+//                            propName = getString(arr, 3);
+//                        } catch (Exception e) {
+//                            System.err.println("!!!" + line);
+//                            throw new RuntimeException(e);
+//                        }
+//                        int objId = getInt(arr, 4);
+//                        a.putField(iid, baseid, propName, objId);
+//                        break;
+//                    }
+//                    case WRITE: {
+//                        int iid = getInt(arr, 1);
+//                        String name = getString(arr, 2);
+//                        int objId = getInt(arr, 3);
+//                        a.write(iid, name, objId);
+//                        break;
+//                    }
+//                    case LAST_USE: {
+//                        throw new Error("kill this parser");
+////                        int objId = getInt(arr, 1);
+////                        int time = getInt(arr, 2);
+//////                        assert time == timer.currentTime();
+////                        int iid = getInt(arr, 3);
+////                        a.lastUse(objId, iid, time);
+////                        break;
+//                    }
+//                    case FUNCTION_ENTER: {
+//                        throw new Error("kill this parser");
+////                        int iid = getInt(arr, 1);
+////                        int funId = getInt(arr, 2);
+////                        a.functionEnter(iid, funId, SourceMap.UNKNOWN_IID);
+////                        break;
+//                    }
+//                    case FUNCTION_EXIT: {
+//                        int iid = getInt(arr, 1);
+//                        a.functionExit(iid);
+//                        break;
+//                    }
+//                    case TOP_LEVEL_FLUSH: {
+//                        int iid = getInt(arr, 1);
+//                        a.topLevelFlush(iid);
+//                        break;
+//                    }
+//                    case UPDATE_IID: {
+//                        int objId = getInt(arr, 1);
+//                        int newIID = getInt(arr, 2);
+//                        a.updateIID(objId, newIID);
+//                        break;
+//                    }
+//                    case DEBUG: {
+//                        int iid = getInt(arr, 1);
+//                        int o = getInt(arr, 2);
+//                        a.debug(iid, o);
+//                        break;
+//                    }
+//                    case RETURN: {
+//                        int retVal = getInt(arr, 1);
+//                        a.returnStmt(retVal);
+//                        break;
+//                    }
+//                    case CREATE_DOM_NODE: {
+//                        int iid = getInt(arr, 1);
+//                        int o = getInt(arr, 2);
+//                        a.createDomNode(iid, o);
+//                        break;
+//                    }
+//                    case ADD_DOM_CHILD: {
+//                        int parent = getInt(arr,1);
+//                        int child = getInt(arr,2);
+//                        a.addDOMChild(parent, child);
+//                        break;
+//                    }
+//                    case REMOVE_DOM_CHILD: {
+//                        int parent = getInt(arr,1);
+//                        int child = getInt(arr,2);
+//                        a.removeDOMChild(parent, child);
+//                        break;
+//                    }
+//                    case ADD_TO_CHILD_SET: {
+//                        int iid = getInt(arr,1);
+//                        int parent = getInt(arr,2);
+//                        String name = getString(arr, 3);
+//                        int child = getInt(arr,4);
+//                        a.addToChildSet(iid, parent, name, child);
+//                        break;
+//                    }
+//                    case REMOVE_FROM_CHILD_SET: {
+//                        int iid = getInt(arr,1);
+//                        int parent = getInt(arr,2);
+//                        String name = getString(arr,3);
+//                        int child = getInt(arr,4);
+//                        a.removeFromChildSet(iid, parent, name, child);
+//                        break;
+//                    }
+//                    case DOM_ROOT: {
+//                        int nodeId = getInt(arr, 1);
+//                        a.domRoot(nodeId);
+//                        break;
+//                    }
+//                    case CALL: {
+//                        throw new Error("fix this code");
+////                    	int iid = getInt(arr,1);
+////                    	int funObjId = getInt(arr,2);
+////                    	int funEnterIID = getInt(arr,3);
+////                    	a.functionEnter(funEnterIID, funObjId, iid);
+////                    	break;
+//                    }
+//                    case SCRIPT_ENTER: {
+//                        throw new Error("fix this code");
+////                    	int iid = getInt(arr, 1);
+////                    	String filename = getString(arr, 2);
+////                    	//a.scriptEnter(iid, filename);
+//                    	//break;
+//                    }
+//                    case SCRIPT_EXIT: {
+//                    	int iid = getInt(arr, 1);
+//                    	a.scriptExit(iid);
+//                    	break;
+//                    }
+//                    case FREE_VARS: {
+//                    	int iid = getInt(arr, 1);
+//                    	JsonElement names = arr.get(2);
+//                        if (names.isJsonPrimitive())
+//                            fvMap.put(iid, FreeVariables.ANY);
+//                        else {
+//                            JsonArray namesArray = names.getAsJsonArray();
+//                            Set<String> fv = HashSetFactory.make();
+//                            for (int i = 0; i < namesArray.size(); i++) {
+//                                fv.add(namesArray.get(i).getAsString());
+//                            }
+//                            fvMap.put(iid, fv);
+//                        }
+//
+//                    	break;
+//                    }
+//                    case SOURCE_MAPPING: { // fields: iid, filename, startLine, startColumn
+//                        throw new RuntimeException("fix this case");
+////                        int iid = getInt(arr, 1);
+////                        String filename = getString(arr, 2);
+////                        int startLine = getInt(arr, 3);
+////                        int startColumn = getInt(arr, 4);
+////                        iidMap.addMapping(iid, new SourceLocation(filename, startLine, startColumn));
+////                        break;
+//                    }
+//                    case UNREACHABLE:
+//                        break;
+//                    default:
+//                        throw new AssertionError("? : "  +evt);
+//                }
+//                // don't tick timer for metadata entries (SOURCE_MAPPING or FREE_VARS)
+//                if (evt != TraceEntry.SOURCE_MAPPING && evt != TraceEntry.FREE_VARS) {
+//                    timer.tick();
+//                }
+//                if (this.progress != null)
+//                    progress.tick(counter);
+//                counter++;
+//            } catch (JsonParseException ex) {
+//                in.close();
+//                throw new IOException("Invalid JSON line: " + line);
+//            }
+//        }
+//        if (this.progress != null)
+//            progress.tick(this.traceSize);
+//        in.close();
+//        // we need to undo the last tick, as execution is now over
+//        // and we want the current time to correspond to the final entry
+//        timer.rewindOneTick();
+//        return a.endExecution();
     }
 
 
@@ -614,6 +618,7 @@ public class TraceAnalysisRunner {
             }
             timeInternal++;
         }
+
     }
 
     /**
@@ -627,7 +632,7 @@ public class TraceAnalysisRunner {
         CREATE_FUN, // fields: iid, function-enter-iid, obj-id.  NOTE: proto-obj-id is always obj-id + 1
         PUTFIELD, // fields: iid, base-obj-id, prop-name, val-obj-id
         WRITE, // fields: iid, name, obj-id
-        LAST_USE, // fields: obj-id, timestamp, iid
+        LAST_USE, // fields: obj-id, timestamp, sourceId (sid + ':' + iid)
         FUNCTION_ENTER, // fields: iid, function-object-id.  NOTE: only emitted when CALL is not emitted
         FUNCTION_EXIT, // fields: iid
         TOP_LEVEL_FLUSH, // fields: iid
@@ -640,13 +645,13 @@ public class TraceAnalysisRunner {
         ADD_TO_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
         REMOVE_FROM_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
         DOM_ROOT, // fields: obj-id
-        CALL, // fields: iid, function-obj-id, function-enter-iid.  NOTE: only emitted for calls to *instrumented* functions
+        CALL, // fields: iid, function-obj-id, function-enter-iid, fun-sid.  NOTE: only emitted for calls to *instrumented* functions
         SCRIPT_ENTER, // fields: iid, scriptId, filename
         SCRIPT_EXIT, // fields: iid
         FREE_VARS, // fields: iid, array-of-names or ANY
         SOURCE_MAPPING, // fields: iid, startLine, startColumn, endLine, endColumn
         UPDATE_CURRENT_SCRIPT, // fields: scriptID
-        UNREACHABLE // fields: iid, object-id, time
+        UNREACHABLE // fields: sourceId (sid + ':' + iid), object-id, time
     }
 
 }

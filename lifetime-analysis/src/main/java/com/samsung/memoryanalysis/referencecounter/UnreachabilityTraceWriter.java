@@ -22,7 +22,8 @@ import java.util.Set;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.samsung.memoryanalysis.context.Context;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
 
@@ -45,7 +46,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
     }
 
     @Override
-    public void functionEnter(int iid, int funId, int callSiteIID, Context newContext, long time) {
+    public void functionEnter(int iid, int funId, SourceLocId callSiteIID, Context newContext, long time) {
         trace(TraceAnalysisRunner.TraceEntry.FUNCTION_ENTER.ordinal(), iid, funId, callSiteIID);
     }
 
@@ -63,7 +64,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
     }
 
     @Override
-    public void init(Timer t, IIDMap iidMap) {
+    public void init(Timer t, SourceMap iidMap) {
         this.timer = t;
     }
 

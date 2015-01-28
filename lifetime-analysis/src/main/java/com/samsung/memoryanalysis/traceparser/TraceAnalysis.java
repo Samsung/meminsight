@@ -33,6 +33,8 @@ package com.samsung.memoryanalysis.traceparser;
 
 import java.util.Set;
 
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
+
 /**
  * An interface for analyses that are run directly on traces.
  *
@@ -41,52 +43,52 @@ import java.util.Set;
  */
 public interface TraceAnalysis<T> {
 
-    public void init(Timer timer, IIDMap iidMap);
+    public void init(Timer timer, SourceMap iidMap);
 
-    public void declare(int iid, String name, int objectId);
+    public void declare(SourceLocId slId, String name, int objectId);
 
-    public void create(int iid, int objectId);
+    public void create(SourceLocId slId, int objectId);
 
-    public void createFun(int iid, int objectId, int prototypeId, int functionEnterIID, Set<String> namesReferencedByClosures);
+    public void createFun(SourceLocId slId, int objectId, int prototypeId, SourceLocId functionEnterIID, Set<String> namesReferencedByClosures);
 
-    public void putField(int iid,int baseId, String offset, int objectId);
+    public void putField(SourceLocId slId,int baseId, String offset, int objectId);
 
-    public void write(int iid, String name, int objectId);
+    public void write(SourceLocId slId, String name, int objectId);
 
-    public void lastUse(int objectId, int iid, int time);
+    public void lastUse(int objectId, SourceLocId slId, int time);
 
-    public void functionEnter(int iid, int funId, int callSiteIID);
+    public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteId);
 
     /**
      * Treat this is as toplevel flush.
      * @param iid
      */
-    public void functionExit(int iid);
+    public void functionExit(SourceLocId slId);
 
-    public void topLevelFlush(int iid);
+    public void topLevelFlush(SourceLocId slId);
 
     public T endExecution();
 
-    public void updateIID(int objId, int newIID);
+    public void updateIID(int objId, SourceLocId newSlID);
 
-    public void debug(int iid, int oid);
+    public void debug(SourceLocId slId, int oid);
 
     public void returnStmt(int retVal);
 
-    public void createDomNode(int iid, int o);
+    public void createDomNode(SourceLocId slId, int o);
 
     public void addDOMChild(int parent, int child);
 
     public void removeDOMChild(int parent, int child);
 
-    public void addToChildSet(int iid, int parent, String name, int child);
+    public void addToChildSet(SourceLocId slId, int parent, String name, int child);
 
-    public void removeFromChildSet(int iid, int parent, String name, int child);
+    public void removeFromChildSet(SourceLocId slId, int parent, String name, int child);
 
     public void domRoot(int nodeId);
 
-	public void scriptEnter(int iid, int sid, String filename);
+	public void scriptEnter(SourceLocId slId, String filename);
 
-	public void scriptExit(int iid);
+	public void scriptExit(SourceLocId slId);
 
 }

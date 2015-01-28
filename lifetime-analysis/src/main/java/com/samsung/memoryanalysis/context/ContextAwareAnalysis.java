@@ -18,7 +18,8 @@ package com.samsung.memoryanalysis.context;
 import java.util.Set;
 
 import com.samsung.memoryanalysis.referencecounter.heap.ContextOrObjectId;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
 /**
@@ -28,53 +29,53 @@ import com.samsung.memoryanalysis.traceparser.Timer;
  */
 public interface ContextAwareAnalysis<T> {
 
-    public void init(Timer timer, ContextListener list, IIDMap iidMap);
+    public void init(Timer timer, ContextListener list, SourceMap iidMap);
 
-    public void declare(int iid, String name, int objectId, Context context);
+    public void declare(SourceLocId slId, String name, int objectId, Context context);
 
-    public void create(int iid, int objectId);
+    public void create(SourceLocId slId, int objectId);
 
-    public void createFun(int iid, int objectId, int prototypeId, int functionEnterIID, Set<String> namesReferencedByClosures, Context context);
+    public void createFun(SourceLocId slId, int objectId, int prototypeId, SourceLocId functionEnterIID, Set<String> namesReferencedByClosures, Context context);
 
-    public void putField(int iid,int baseId, String offset, int objectId);
+    public void putField(SourceLocId slId,int baseId, String offset, int objectId);
 
-    public void write(int iid, String name, int objectId, Context context);
+    public void write(SourceLocId slId, String name, int objectId, Context context);
 
-    public void lastUse(int objectId, int iid, int time);
+    public void lastUse(int objectId, SourceLocId slId, int time);
 
-    public void functionEnter(int iid, int funId, int callSiteIID, Context newContext);
+    public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteIID, Context newContext);
 
     /**
      * Treat this is as toplevel flush.
      * @param iid
      * @param unReferenced The set of name no longer referenced by this context.
      */
-    public void functionExit(final int iid, final Context calleeContext, final Context callerContext, final Set<String> unReferenced);
+    public void functionExit(final SourceLocId slId, final Context calleeContext, final Context callerContext, final Set<String> unReferenced);
 
-    public void topLevelFlush(int iid, Context currentContext);
+    public void topLevelFlush(SourceLocId slId, Context currentContext);
 
     public T endExecution(Context global, Set<String> unreachableGlobals);
 
-    public void updateIID(int objId, int newIID);
+    public void updateIID(int objId, SourceLocId newIID);
 
-    public void debug(int iid, int oid, Context currentContext);
+    public void debug(SourceLocId slId, int oid, Context currentContext);
 
     public void returnStmt(int objId);
 
-    public void createDomNode(int iid, int objectId);
+    public void createDomNode(SourceLocId slId, int objectId);
 
     public void addDOMChild(int parentId, int childId);
 
     public void removeDOMChild(int parentId, int childId);
 
-	public void addToChildSet(int iid, ContextOrObjectId parentNode, String name, ContextOrObjectId childNode);
+	public void addToChildSet(SourceLocId slId, ContextOrObjectId parentNode, String name, ContextOrObjectId childNode);
 
-	public void removeFromChildSet(int iid, ContextOrObjectId parentNode, String name, ContextOrObjectId childNode);
+	public void removeFromChildSet(SourceLocId slId, ContextOrObjectId parentNode, String name, ContextOrObjectId childNode);
 
 	public void domRoot(int nodeId);
 
-	public void scriptEnter(int iid, int sid, String filename);
+	public void scriptEnter(SourceLocId slId, String filename);
 
-	public void scriptExit(int iid);
+	public void scriptExit(SourceLocId slId);
 
 }

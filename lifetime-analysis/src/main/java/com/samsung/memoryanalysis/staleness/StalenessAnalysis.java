@@ -32,7 +32,8 @@ import com.samsung.memoryanalysis.context.Context;
 import com.samsung.memoryanalysis.context.ContextProvider;
 import com.samsung.memoryanalysis.referencecounter.UnreachabilityAwareAnalysis;
 import com.samsung.memoryanalysis.staleness.ObjectStaleness.ObjectType;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
 /**
@@ -41,12 +42,14 @@ import com.samsung.memoryanalysis.traceparser.Timer;
 public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>  {
 
     private final Map<Integer, ObjectStaleness> staleness = HashMapFactory.make(256);
-    private IIDMap iidMap;
+    private SourceMap iidMap;
     private List<long[]> functionTrace = new ArrayList<long[]>(1024);
 
     private final List<Integer> lackingModels = new ArrayList<Integer>();
 
-    private final Deque<Integer> currentCallStack = new ArrayDeque<Integer>();
+    private final Deque<SourceLocId> currentCallStack = new ArrayDeque<SourceLocId>();
+
+    private Timer timer;
 
     private static enum EntryOrExit {
         ENTRY,
@@ -54,7 +57,7 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
     }
 
     @Override
-    public void functionEnter(int iid, int funId, int callSiteIID, Context newContext, long time) {
+    public void functionEnter(int iid, int funId, SourceLocId callSiteIID, Context newContext, long time) {
         functionTrace.add(new long[] {EntryOrExit.ENTRY.ordinal(), time, iid});
         currentCallStack.push(callSiteIID);
     }
@@ -66,8 +69,9 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
     }
 
     @Override
-    public void init(Timer t, IIDMap iidMap) {
+    public void init(Timer t, SourceMap iidMap) {
         this.iidMap = iidMap;
+        this.timer = t;
     }
 
     @Override
@@ -77,13 +81,13 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
         }
     }
 
-    private void insert(int iid, int objectId, long time, List<Integer> callStack, ObjectStaleness.ObjectType type) {
+    private void insert(int iid, int objectId, long time, List<SourceLocId> callStack, ObjectStaleness.ObjectType type) {
         assert !staleness.containsKey(objectId);
-        staleness.put(objectId, new ObjectStaleness(iid, objectId, time, callStack, type));
+        staleness.put(objectId, new ObjectStaleness(new SourceLocId(timer.currentScriptID(), iid), objectId, time, callStack, type));
     }
 
-    private List<Integer> callStackAsList() {
-    	return new ArrayList<Integer>(currentCallStack);
+    private List<SourceLocId> callStackAsList() {
+    	return new ArrayList<SourceLocId>(currentCallStack);
     }
 
     @Override
@@ -94,21 +98,21 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
     }
 
     @Override
-    public void unreachableObject(final int iid, final int objectId, final long time, final int shallowSize) {
+    public void unreachableObject(final SourceLocId slId, final int objectId, final long time, final int shallowSize) {
         ObjectStaleness i = staleness.get(objectId);
         assert i != null;
         i.unreachableTime = time;
-        i.unreachableSite = iid;
+        i.unreachableSite = slId;
 		if (domParent2Children.containsKey(objectId)) {
 			// still in the live DOM, so treat this point as its last use time
 			i.lastUseTime = time;
-			i.lastUseSite = ObjectStaleness.DEFAULT_VAL;
+			i.lastUseSite = ObjectStaleness.REMOVE_FROM_DOM_SITE;
 			domParent2Children.remove(objectId);
 		}
         long staleness = time - (i.lastUseTime == ObjectStaleness.DEFAULT_VAL ? i.creationTime : i.lastUseTime);
         if (staleness < 0) { // Use last use time/site as better approximation of unreachability.
             staleness = 0;
-            i.unreachableSite = -1;
+            i.unreachableSite = SourceMap.UNKNOWN_ID;
             i.unreachableTime = i.lastUseTime;
             if (System.getProperty("testing", "").equals("yes")) {
                 lackingModels.add(objectId);
@@ -120,21 +124,21 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
     }
 
     @Override
-    public void unreachableContext(int iid, Context ctx, long time) {
+    public void unreachableContext(SourceLocId slId, Context ctx, long time) {
         //Dont track contexts.
     }
 
     @Override
-    public void lastUse(int objectId, int iid, long time) {
+    public void lastUse(int objectId, SourceLocId slId, long time) {
         if (objectId == ContextProvider.GLOBAL_OBJECT_ID) return;
         ObjectStaleness i = staleness.get(objectId);
-        assert i != null : String.format("No create: iid : %s objectId : %d time : %d", iidMap.get(iid).toString(), objectId, time);
+        assert i != null : String.format("No create: sourceLoc : %s objectId : %d time : %d", iidMap.get(slId).toString(), objectId, time);
         // for DOM nodes, we may have already marked a last use at some later time point
         // when the node was removed from the visible DOM.  so, check here that we are
         // not making the last use time earlier before updating it
         if (i.type != ObjectType.DOM || time > i.lastUseTime) {
             i.lastUseTime = time;
-            i.lastUseSite = iid;
+            i.lastUseSite = slId;
             if (i.unreachableTime != ObjectStaleness.DEFAULT_VAL) {
                 //We already saw the unreachability time for this object so we recompute staleness
             	if (i.unreachableTime > i.lastUseTime) {
@@ -143,10 +147,10 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
             		// our unreachability time was bogus (e.g., due to uninstrumented code).
             		// just set staleness to 0
             		i.unreachableTime = i.lastUseTime;
-            		i.unreachableSite = ObjectStaleness.DEFAULT_VAL;
+            		i.unreachableSite = SourceMap.UNKNOWN_ID;
             		i.staleness = 0;
             	}
-                assert i.staleness >= 0 : i.toMap(iidMap, true, true).toString() + " IID " + i.iid;
+                assert i.staleness >= 0 : i.toMap(iidMap, true, true).toString() + " IID " + i.slID;
             }
         }
     }
@@ -161,9 +165,9 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
             }
         }
         Collection<ObjectStaleness> values = staleness.values();
-        Map<Integer,List<ObjectStaleness>> info = HashMapFactory.make();
+        Map<SourceLocId,List<ObjectStaleness>> info = HashMapFactory.make();
         for (ObjectStaleness o : values) {
-            List<ObjectStaleness> l = MapUtil.findOrCreateList(info, o.iid);
+            List<ObjectStaleness> l = MapUtil.findOrCreateList(info, o.slID);
             l.add(o);
         }
         return new Staleness(info, this.functionTrace, iidMap, System.getProperty("verbosecallstack","").equals("yes"));
@@ -232,7 +236,7 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
     public void updateIID(int objId, int newIID) {
     	ObjectStaleness extantStaleness = staleness.get(objId);
     	assert extantStaleness != null;
-    	staleness.put(objId, extantStaleness.updateIID(newIID, callStackAsList()));
+    	staleness.put(objId, extantStaleness.updateIID(new SourceLocId(timer.currentScriptID(), newIID), callStackAsList()));
     }
 
     @Override

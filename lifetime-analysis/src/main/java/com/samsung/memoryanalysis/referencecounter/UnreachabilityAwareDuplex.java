@@ -19,7 +19,8 @@ import java.util.Set;
 
 import com.ibm.wala.util.collections.Pair;
 import com.samsung.memoryanalysis.context.Context;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
 
@@ -36,13 +37,13 @@ public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalys
     }
 
     @Override
-    public void functionEnter(int iid, int funId, int callSiteIID, Context newContext, long time) {
+    public void functionEnter(int iid, int funId, SourceLocId callSiteIID, Context newContext, long time) {
         first.functionEnter(iid,funId,callSiteIID,newContext,time);
         second.functionEnter(iid,funId,callSiteIID,newContext,time);
     }
 
     @Override
-    public void init(Timer t, IIDMap iidMap) {
+    public void init(Timer t, SourceMap iidMap) {
         first.init(t, iidMap);
         second.init(t, iidMap);
     }

@@ -81,7 +81,7 @@ export function parseTrace(filename: string): string {
             case LogEntryType.DOM_ROOT:
                 readInt(true); break;
             case LogEntryType.CALL:
-                readInt(); readInt(); readInt(true); break;
+                readInt(); readInt(); readInt(); readInt(true); break;
             case LogEntryType.SCRIPT_ENTER:
                 readInt(); readInt(); readString(true); break;
             case LogEntryType.SCRIPT_EXIT:
@@ -122,7 +122,7 @@ enum LogEntryType {
     CREATE_FUN, // fields: iid, function-enter-iid, obj-id.  NOTE: proto-obj-id is always obj-id + 1
     PUTFIELD, // fields: iid, base-obj-id, prop-name, val-obj-id
     WRITE, // fields: iid, name, obj-id
-    LAST_USE, // fields: obj-id, timestamp, iid
+    LAST_USE, // fields: obj-id, timestamp, sourceId (sid + ':' + iid)
     FUNCTION_ENTER, // fields: iid, function-object-id.  NOTE: only emitted when CALL is not emitted
     FUNCTION_EXIT, // fields: iid
     TOP_LEVEL_FLUSH, // fields: iid
@@ -135,7 +135,7 @@ enum LogEntryType {
     ADD_TO_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
     REMOVE_FROM_CHILD_SET, // fields: iid, parent-obj-id, name, child-obj-id
     DOM_ROOT, // fields: obj-id
-    CALL, // fields: iid, function-obj-id, function-enter-iid.  NOTE: only emitted for calls to *instrumented* functions
+    CALL, // fields: iid, function-obj-id, function-enter-iid, fun-sid.  NOTE: only emitted for calls to *instrumented* functions
     SCRIPT_ENTER, // fields: iid, scriptId, filename
     SCRIPT_EXIT, // fields: iid
     FREE_VARS, // fields: iid, array-of-names or ANY

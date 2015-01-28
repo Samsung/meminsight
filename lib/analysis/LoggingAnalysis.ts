@@ -215,7 +215,8 @@ module ___LoggingAnalysis___ {
                     var funEnterIID = lookupCachedFunEnterIID(f);
                     if (funEnterIID !== undefined) {
                         var funObjId = this.idManager.findObjId(f);
-                        this.logger.logCall(iid, funObjId, funEnterIID);
+                        var funSID = f[J$.Constants.SPECIAL_PROP_SID];
+                        this.logger.logCall(iid, funObjId, funEnterIID, funSID);
                         this.emittedCall = true;
                     }
                 }

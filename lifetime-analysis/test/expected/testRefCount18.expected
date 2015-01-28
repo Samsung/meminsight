@@ -2,4 +2,4 @@ Id: 2     Alloc: testRefCount18.js:16:1:16:18             Time: 10         Loc: 
 Id: 3     Alloc: testRefCount18.js:16:1:16:18             Time: 10         Loc: end of program
 Id: 4     Alloc: testRefCount18.js:18:10:20:6             Time: 10         Loc: end of program
 Id: 5     Alloc: testRefCount18.js:18:10:20:6             Time: 10         Loc: end of program
-Id: 6     Alloc: testRefCount18.js:17:46:21:2             Time: 8          Loc: testRefCount18.js:17:1:21:3
+Id: 6     Alloc: testRefCount18.js:17:46:21:2             Time: 8          Loc: testRefCount18.js:17:1:21:4

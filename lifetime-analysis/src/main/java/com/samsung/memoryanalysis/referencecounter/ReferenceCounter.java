@@ -41,8 +41,9 @@ import com.samsung.memoryanalysis.referencecounter.heap.ContextOrObjectId;
 import com.samsung.memoryanalysis.referencecounter.heap.HeapEdge;
 import com.samsung.memoryanalysis.referencecounter.heap.ReferenceCountedHeapGraph;
 import com.samsung.memoryanalysis.referencecounter.heap.Unreachability;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
 import com.samsung.memoryanalysis.traceparser.SourceLocation;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
 /**
@@ -55,7 +56,7 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
     private final MemoryAnalysisOptions options;
     private Timer timer;
 
-    private  IIDMap iidMap;
+    private  SourceMap iidMap;
 
     private final Set<Integer> returnValues = HashSetFactory.make();
 
@@ -81,12 +82,12 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
             public void apply(Unreachability f) {
                 if (ignoredObjects.contains(f.objId))
                     return;
-                ReferenceCounter.this.client.unreachableObject(f.iid, f.objId, f.time, graph.getOutDegree(f.objId));
+                ReferenceCounter.this.client.unreachableObject(f.slId, f.objId, f.time, graph.getOutDegree(f.objId));
                 if (isRCVerbose()) {
                     SourceLocation allocSourceLoc = allocationSites.get(f.objId);
                     assert allocSourceLoc != null : "no allocation site map entry for " + f.objId;
                     endOutput.put(f.objId, String.format("Id: %-5d Alloc: %-40s Time: %-10d Loc: %s", f.objId, makeRelative(allocSourceLoc), f.time,
-                            makeRelative(iidMap.get(f.iid))));
+                            makeRelative(iidMap.get(f.slId))));
                 }
 
             }
@@ -103,7 +104,7 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
 
 
     @Override
-    public void init(final Timer timer, final ContextListener list, IIDMap iidMap) {
+    public void init(final Timer timer, final ContextListener list, SourceMap iidMap) {
         this.timer = timer;
         graph.setTimer(timer);
         this.iidMap = iidMap;
@@ -188,95 +189,95 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
     }
 
     @Override
-    public void declare(final int iid, final String name, final int objectId, final Context context) {
+    public void declare(final SourceLocId slId, final String name, final int objectId, final Context context) {
         if (options.isIgnoreArguments() && name.equals("arguments")) {
             ignoredObjects.add(objectId);
         }
 
-        graph.addContextReference(context, name, objectId, iid);
+        graph.addContextReference(context, name, objectId, slId);
         graph.handleValue(objectId);
-        client.declare(iid, name, objectId);
+        client.declare(slId, name, objectId);
     }
 
     @Override
-    public void create(final int iid, final int objectId) {
+    public void create(final SourceLocId slId, final int objectId) {
         if (objectId != ContextProvider.GLOBAL_OBJECT_ID) {
             graph.newObject(objectId);
-            saveAllocationSite(objectId, iid);
+            saveAllocationSite(objectId, slId);
             graph.handleValue(objectId);
         }
-        client.create(iid, objectId, timer.currentTime(), domNodes.contains(objectId));
+        client.create(slId, objectId, timer.currentTime(), domNodes.contains(objectId));
     }
 
     @Override
-    public void createFun(final int iid, final int objectId, final int prototypeId, final int functionEnterIID,
+    public void createFun(final SourceLocId slId, final int objectId, final int prototypeId, final SourceLocId functionEnterIID,
                           final Set<String> namesReferencedByClosures, final Context context) {
         graph.newObject(objectId);
         graph.newObject(prototypeId);
         if (!context.isGlobal())
             graph.addClosureReference(objectId, context);
-        graph.addObjectReference(objectId, "prototype", prototypeId, iid);
-        saveAllocationSite(objectId, iid);
-        saveAllocationSite(prototypeId, iid);
+        graph.addObjectReference(objectId, "prototype", prototypeId, slId);
+        saveAllocationSite(objectId, slId);
+        saveAllocationSite(prototypeId, slId);
         graph.handleValue(objectId);
         graph.handleValue(prototypeId);
-        client.createFun(iid, objectId, prototypeId, functionEnterIID, namesReferencedByClosures, context, timer.currentTime());
+        client.createFun(slId, objectId, prototypeId, functionEnterIID, namesReferencedByClosures, context, timer.currentTime());
     }
 
-    private void saveAllocationSite(final int objectId, final int iid) {
-        allocationSites.put(objectId, iidMap.get(iid));
+    private void saveAllocationSite(final int objectId, final SourceLocId slId) {
+        allocationSites.put(objectId, iidMap.get(slId));
      }
 
     @Override
-    public void putField(final int iid, final int baseId, final String offset, final int objectId) {
+    public void putField(final SourceLocId slId, final int baseId, final String offset, final int objectId) {
         if (ignoredObjects.contains(baseId)) {
             graph.handleValue(objectId);
             return;
         }
-        graph.addObjectReference(baseId, offset, objectId, iid);
+        graph.addObjectReference(baseId, offset, objectId, slId);
 
         // why do we need this call?  --MS
         graph.handleValue(objectId);
-        client.putField(iid, baseId, offset, objectId);
+        client.putField(slId, baseId, offset, objectId);
     }
 
     @Override
-    public void write(final int iid, final String name, final int objectId, final Context context) {
-        graph.addContextReference(context, name, objectId, iid);
+    public void write(final SourceLocId slId, final String name, final int objectId, final Context context) {
+        graph.addContextReference(context, name, objectId, slId);
 
         graph.handleValue(objectId);
-        client.write(iid, name, objectId);
+        client.write(slId, name, objectId);
     }
 
     @Override
-    public void lastUse(final int objectId, int iid, int time) {
-        client.lastUse(objectId, iid, time);
+    public void lastUse(final int objectId, SourceLocId slId, int time) {
+        client.lastUse(objectId, slId, time);
     }
 
     @Override
-    public void functionEnter(final int iid, final int funId, int callSiteIID, final Context newContext) {
+    public void functionEnter(final SourceLocId slId, final int funId, SourceLocId callSiteIID, final Context newContext) {
         graph.newContext(newContext, funId);
-        client.functionEnter(iid, funId, callSiteIID, newContext, timer.currentTime());
+        client.functionEnter(slId, funId, callSiteIID, newContext, timer.currentTime());
     }
 
     @Override
-    public void functionExit(final int iid, final Context calleeContext, final Context callerContext, final Set<String> unReferenced) {
-        graph.contextSealed(calleeContext, unReferenced, iid);
-        graph.flush(iid, returnValues, contextInfo.getLiveContexts());
+    public void functionExit(final SourceLocId slId, final Context calleeContext, final Context callerContext, final Set<String> unReferenced) {
+        graph.contextSealed(calleeContext, unReferenced, slId);
+        graph.flush(slId, returnValues, contextInfo.getLiveContexts());
         graph.functionExit(returnValues);
-        client.functionExit(iid, calleeContext, unReferenced, timer.currentTime());
+        client.functionExit(slId, calleeContext, unReferenced, timer.currentTime());
     }
 
     @Override
-    public void topLevelFlush(final int iid, final Context currentContext) {
-        graph.flush(iid, returnValues, contextInfo.getLiveContexts());
-        client.topLevelFlush(iid);
+    public void topLevelFlush(final SourceLocId slId, final Context currentContext) {
+        graph.flush(slId, returnValues, contextInfo.getLiveContexts());
+        client.topLevelFlush(slId);
     }
 
     @Override
     public T endExecution(final Context global, Set<String> globalNames) {
-        graph.contextSealed(global, globalNames, 0);
-        graph.endFlush(0, returnValues, contextInfo.getLiveContexts());
+        graph.contextSealed(global, globalNames, SourceMap.END_OF_PROGRAM_ID);
+        graph.endFlush(SourceMap.END_OF_PROGRAM_ID, returnValues, contextInfo.getLiveContexts());
         if (isTesting()) {
         	graph.checkEmpty();
         }
@@ -309,7 +310,7 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
 
 
     @Override
-    public void updateIID(final int objId, final int newIID) {
+    public void updateIID(final int objId, SourceLocId newIID) {
 
         saveAllocationSite(objId,newIID);
         client.updateIID(objId, newIID);
@@ -317,13 +318,13 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
 
 
     @Override
-    public void debug(final int iid, final int oid, Context currentContext) {
+    public void debug(final SourceLocId slId, final int oid, Context currentContext) {
     	graph.flushCycleQueue(returnValues, ReferenceCountedHeapGraph.FlushType.FORCE, contextInfo.getLiveContexts());
     	if (isTesting()) {
-            System.out.printf("%s : RC(%s) = %d\n", makeRelative(iidMap.get(iid)),
+            System.out.printf("%s : RC(%s) = %d\n", makeRelative(iidMap.get(slId)),
                     makeRelative(allocationSites.get(oid)), graph.referenceCount(oid));
     	}
-        client.debug(iid, oid);
+        client.debug(slId, oid);
     }
 
     private boolean isTesting() {
@@ -342,9 +343,9 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
     }
 
     @Override
-    public void createDomNode(int iid, int objectId) {
+    public void createDomNode(SourceLocId slId, int objectId) {
         domNodes.add(objectId);
-    	this.create(iid, objectId);
+    	this.create(slId, objectId);
     }
 
     @Override
@@ -360,17 +361,17 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
     }
 
 	@Override
-	public void addToChildSet(int iid, ContextOrObjectId parentNode,
+	public void addToChildSet(SourceLocId slId, ContextOrObjectId parentNode,
 			String name, ContextOrObjectId childNode) {
 		graph.addToChildSet(parentNode, name, childNode);
-		client.addToChildSet(iid, parentNode.getId(), name, childNode.getId());
+		client.addToChildSet(slId, parentNode.getId(), name, childNode.getId());
 	}
 
 	@Override
-	public void removeFromChildSet(int iid, ContextOrObjectId parentNode,
+	public void removeFromChildSet(SourceLocId slId, ContextOrObjectId parentNode,
 			String name, ContextOrObjectId childNode) {
-		graph.removeFromChildSet(parentNode, name, childNode, iid);
-		client.removeFromChildSet(iid, parentNode.getId(), name, childNode.getId());
+		graph.removeFromChildSet(parentNode, name, childNode, slId);
+		client.removeFromChildSet(slId, parentNode.getId(), name, childNode.getId());
 	}
 
 	@Override
@@ -379,14 +380,14 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
 	}
 
 	@Override
-	public void scriptEnter(int iid, int sid, String filename) {
+	public void scriptEnter(SourceLocId slId, String filename) {
 
-		this.client.scriptEnter(iid, sid, filename);
+		this.client.scriptEnter(slId, filename);
 	}
 
 	@Override
-	public void scriptExit(int iid) {
-		this.client.scriptExit(iid);
+	public void scriptExit(SourceLocId slId) {
+		this.client.scriptExit(slId);
 	}
 
 }

@@ -25,7 +25,8 @@ import java.util.Set;
 import com.ibm.wala.util.collections.HashMapFactory;
 import com.samsung.memoryanalysis.options.MemoryAnalysisOptions;
 import com.samsung.memoryanalysis.referencecounter.heap.ContextOrObjectId;
-import com.samsung.memoryanalysis.traceparser.IIDMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap;
+import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysis;
 
@@ -46,7 +47,7 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
     private final MemoryAnalysisOptions options;
 
     public static final int GLOBAL_OBJECT_ID = 1;
-    private IIDMap iidMap;
+    private SourceMap iidMap;
 
     public ContextProvider(ContextAwareAnalysis<T> s, MemoryAnalysisOptions options) {
         this.options = options;
@@ -55,7 +56,7 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
     }
 
     @Override
-    public void init(Timer timer, IIDMap iidMap) {
+    public void init(Timer timer, SourceMap iidMap) {
         contextStack.push(GLOBAL);
         this.iidMap = iidMap;
         ContextListener c = new ContextListener() {
@@ -78,65 +79,65 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
     }
 
     @Override
-    public void declare(int iid, String name, int objectId) {
+    public void declare(SourceLocId slId, String name, int objectId) {
     	if (objectId == GLOBAL_OBJECT_ID) {
     		// treat as writing null; we don't want global object id
     		// floating around
     		objectId = 0;
     	}
         Context ctx = contextStack.peek();
-        ctx.newVariable(iid, name, objectId);
-        callbacks.declare(iid, name, objectId, ctx);
+        ctx.newVariable(name, objectId);
+        callbacks.declare(slId, name, objectId, ctx);
     }
 
     @Override
-    public void create(int iid, int objectId) {
-        callbacks.create(iid, objectId);
+    public void create(SourceLocId slId, int objectId) {
+        callbacks.create(slId, objectId);
     }
 
     @Override
-    public void createFun(int iid, int objectId, int prototypeId, int functionEnterIID, Set<String> namesReferencedByClosures) {
+    public void createFun(SourceLocId slId, int objectId, int prototypeId, SourceLocId functionEnterIID, Set<String> namesReferencedByClosures) {
         Context curr = contextStack.peek();
         curr.markReferenced(namesReferencedByClosures);
         contexts.put(objectId, new WeakReference<Context>(curr));
-        callbacks.createFun(iid, objectId, prototypeId, functionEnterIID,namesReferencedByClosures, contextStack.peek());
+        callbacks.createFun(slId, objectId, prototypeId, functionEnterIID,namesReferencedByClosures, contextStack.peek());
     }
 
     @Override
-    public void putField(int iid, int baseId, String offset, int objectId) {
+    public void putField(SourceLocId slId, int baseId, String offset, int objectId) {
     	if (baseId == GLOBAL_OBJECT_ID) {
     		// treat as a write to global variable
-    		this.write(iid, offset, objectId);
+    		this.write(slId, offset, objectId);
     	} else {
     		if (objectId == GLOBAL_OBJECT_ID) {
         		// treat as writing null; we don't want global object id
         		// floating around
         		objectId = 0;
     		}
-            callbacks.putField(iid,baseId, offset, objectId);
+            callbacks.putField(slId,baseId, offset, objectId);
     	}
     }
 
     @Override
-    public void write(int iid, String name, int objectId) {
+    public void write(SourceLocId slId, String name, int objectId) {
     	if (objectId == GLOBAL_OBJECT_ID) {
     		// treat as writing null; we don't want global object id
     		// floating around
     		objectId = 0;
     	}
         Context ctx = contextStack.peek();
-        Context res = ctx.writeToVariable(iid,name,objectId);
-        callbacks.write(iid,name,objectId, res);
+        Context res = ctx.writeToVariable(name,objectId);
+        callbacks.write(slId,name,objectId, res);
     }
 
     @Override
-    public void lastUse(int objectId, int iid, int time) {
-        callbacks.lastUse(objectId, iid, time);
+    public void lastUse(int objectId, SourceLocId slId, int time) {
+        callbacks.lastUse(objectId, slId, time);
     }
 
 
     @Override
-	public void functionEnter(int iid, int functionId, int callSiteIID) {
+	public void functionEnter(SourceLocId slId, int functionId, SourceLocId callSiteIID) {
         WeakReference<Context> contextWeakRef = contexts.get(functionId);
         Context context = null;
         if (contextWeakRef == null) {
@@ -152,21 +153,21 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
                 context = GLOBAL;
             }
         }
-        Context ctx = new Context(context, iidMap.get(iid).toString());
+        Context ctx = new Context(context, iidMap.get(slId).toString());
         contextStack.push(ctx);
-        callbacks.functionEnter(iid, functionId, callSiteIID, ctx);
+        callbacks.functionEnter(slId, functionId, callSiteIID, ctx);
     }
 
     @Override
-    public void functionExit(int iid) {
+    public void functionExit(SourceLocId slId) {
         Context ctx = contextStack.pop();
         Set<String> unReferenced = ctx.seal();
-        callbacks.functionExit(iid,ctx, contextStack.peek(), unReferenced);
+        callbacks.functionExit(slId,ctx, contextStack.peek(), unReferenced);
     }
 
     @Override
-    public void topLevelFlush(int iid) {
-       callbacks.topLevelFlush(iid, contextStack.peek());
+    public void topLevelFlush(SourceLocId slId) {
+       callbacks.topLevelFlush(slId, contextStack.peek());
     }
 
     @Override
@@ -178,13 +179,13 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
 
 
     @Override
-    public void updateIID(int objId, int newIID) {
+    public void updateIID(int objId, SourceLocId newIID) {
         callbacks.updateIID(objId, newIID);
     }
 
     @Override
-    public void debug(int iid, int oid) {
-         callbacks.debug(iid, oid, contextStack.peek());
+    public void debug(SourceLocId slId, int oid) {
+         callbacks.debug(slId, oid, contextStack.peek());
     }
 
     @Override
@@ -193,8 +194,8 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
     }
 
     @Override
-    public void createDomNode(int iid, int objectId) {
-        callbacks.createDomNode(iid, objectId);
+    public void createDomNode(SourceLocId slId, int objectId) {
+        callbacks.createDomNode(slId, objectId);
     }
 
     @Override
@@ -208,25 +209,25 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
     }
 
 	@Override
-	public void addToChildSet(int iid, int parent, String name, int child) {
+	public void addToChildSet(SourceLocId slId, int parent, String name, int child) {
 		if (child == GLOBAL_OBJECT_ID) {
 			// we don't care about tracking pointers to global object
 			return;
 		}
 		ContextOrObjectId parentNode = parent == GLOBAL_OBJECT_ID ? ContextOrObjectId.make(GLOBAL) : ContextOrObjectId.make(parent);
 		ContextOrObjectId childNode = ContextOrObjectId.make(child);
-		callbacks.addToChildSet(iid,parentNode,name,childNode);
+		callbacks.addToChildSet(slId,parentNode,name,childNode);
 	}
 
 	@Override
-	public void removeFromChildSet(int iid, int parent, String name, int child) {
+	public void removeFromChildSet(SourceLocId slId, int parent, String name, int child) {
 		if (child == GLOBAL_OBJECT_ID) {
 			// we don't care about tracking pointers to global object
 			return;
 		}
 		ContextOrObjectId parentNode = parent == GLOBAL_OBJECT_ID ? ContextOrObjectId.make(GLOBAL) : ContextOrObjectId.make(parent);
 		ContextOrObjectId childNode = ContextOrObjectId.make(child);
-		callbacks.removeFromChildSet(iid,parentNode,name,childNode);
+		callbacks.removeFromChildSet(slId,parentNode,name,childNode);
 	}
 
 	@Override
@@ -235,21 +236,21 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
 	}
 
 	@Override
-	public void scriptEnter(int iid, int sid, String filename) {
+	public void scriptEnter(SourceLocId slId, String filename) {
         if (options.isModuleScope()) {
             Context moduleContext = new Context(GLOBAL, "module " + filename);
             contextStack.push(moduleContext);
         }
-		callbacks.scriptEnter(iid, sid, filename);
+		callbacks.scriptEnter(slId, filename);
 	}
 
 	@Override
-	public void scriptExit(int iid) {
+	public void scriptExit(SourceLocId slId) {
         if (options.isModuleScope()) {
             contextStack.pop();
 
         }
-		callbacks.scriptExit(iid);
+		callbacks.scriptExit(slId);
 	}
 
 
