@@ -185,9 +185,14 @@ module ___LoggingAnalysis___ {
                             fun.apply(this,arguments);
                         } finally {
                             if (this.readyState === this.DONE) {
+                                // reset script ID temporarily for our modeling code
+                                var funScriptId = fun[J$.Constants.SPECIAL_PROP_SID];
+                                var backupScriptId = J$.sid;
+                                J$.sid = funScriptId;
                                 // null out the global
                                 self.logger.logWrite(funIID,freshGlobal,0);
                                 self.logger.setFlushIID(funIID);
+                                J$.sid = backupScriptId;
                             }
                         }
                     };
@@ -248,11 +253,11 @@ module ___LoggingAnalysis___ {
                     // to model splice, we need to stash away the old length of the array
                     this.spliceOldLen = base.length;
                 } else if (f === setTimeout) {
-                    // keep 'this' pointer ourselves since we need to refer to the real 'this'
-                    // inside the function
                     var fun = args[0];
                     if (typeof fun === 'function') {
                         var funIID = getFunEnterIID(fun);
+                        // keep 'this' pointer ourselves since we need to refer to the real 'this'
+                        // inside the function
                         var self = this;
                         var freshGlobal = "~timer~global~" + (++this.callbackCounter);
                         var wrapper = function () {
@@ -260,9 +265,14 @@ module ___LoggingAnalysis___ {
                             try {
                                 fun.apply(this, arguments);
                             } finally {
+                                // reset script ID temporarily for our modeling code
+                                var funScriptId = fun[J$.Constants.SPECIAL_PROP_SID];
+                                var backupScriptId = J$.sid;
+                                J$.sid = funScriptId;
                                 self.logger.logWrite(funIID, freshGlobal, 0);
                                 self.logger.setFlushIID(funIID);
                                 self.callbackIdToGlobal.delete((<any>wrapper).timeoutId);
+                                J$.sid = backupScriptId;
                             }
                         };
                         (<any>wrapper).globalName = freshGlobal;

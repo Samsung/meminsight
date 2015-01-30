@@ -124,6 +124,11 @@ public class SourceMap {
 	    return new SourceMap();
 	}
 
+	public SourceMap() {
+	    iid2SourceLoc.put(END_OF_PROGRAM_ID, SourceLocation.END_OF_PROGRAM);
+	    iid2SourceLoc.put(INITIAL_DOM_ID, SourceLocation.INITIAL_DOM);
+	    iid2SourceLoc.put(UNKNOWN_ID, SourceLocation.UNKNOWN);
+	}
 	private final Map<SourceLocId, SourceLocation> iid2SourceLoc = HashMapFactory.make();
 
 	private final Map<Integer, String> sid2FileName = HashMapFactory.make();
@@ -135,7 +140,7 @@ public class SourceMap {
 
 	public SourceLocation get(SourceLocId slID) {
 		SourceLocation result = iid2SourceLoc.get(slID);
-		assert result != null;
+		assert result != null : "no source location for " + slID;
 		return result;
 	}
 
