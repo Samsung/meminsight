@@ -136,7 +136,7 @@ function inspectApp(args: Array<string>): void {
     runNodeProg(cliArgs, "inspect of app ");
 }
 
-var directDriver = path.join(__dirname, '../node_modules/jalangi/src/js/commands/direct2.js');
+var directDriver = path.join(__dirname, '../node_modules/jalangi2/src/js/commands/direct.js');
 var loggingAnalysis = path.join(__dirname,'..','bin','LoggingAnalysis.js');
 function runNodeScript(args: Array<string>): void {
     var parser = new argparse.ArgumentParser({
@@ -153,20 +153,22 @@ function runNodeScript(args: Array<string>): void {
     var instScript = parsed.instScript;
     var instScriptArgs = parsed.instScriptArgs;
     // discover the app path, which contains jalangi_sourcemap.json; must be a parent of the instScript directory
-    var appPath: string = null, curDir = path.dirname(instScript);
-    var root = (require('os').platform == "win32") ? process.cwd().split(path.sep)[0] : "/";
-    while (curDir !== root) {
-        if (fs.existsSync(path.join(curDir, 'jalangi_sourcemap.json'))) {
-            appPath = curDir;
-            break;
-        } else {
-            curDir = path.resolve(curDir, '..');
-        }
-    }
-    if (!appPath) {
-        console.error("could not find root directory of instrument app, containing jalangi_sourcemap.json");
-        process.exit(1);
-    }
+    //var appPath: string = null, curDir = path.dirname(instScript);
+    //var root = (require('os').platform == "win32") ? process.cwd().split(path.sep)[0] : "/";
+    //while (curDir !== root) {
+    //    if (fs.existsSync(path.join(curDir, 'jalangi_sourcemap.json'))) {
+    //        appPath = curDir;
+    //        break;
+    //    } else {
+    //        curDir = path.resolve(curDir, '..');
+    //    }
+    //}
+    //if (!appPath) {
+    //    console.error("could not find root directory of instrument app, containing jalangi_sourcemap.json");
+    //    process.exit(1);
+    //}
+    // TODO this is a temporary hack!!!
+    var appPath = path.dirname(instScript);
     console.log("running node.js script " + instScript);
     var loggingAnalysisArgs = [
         directDriver,

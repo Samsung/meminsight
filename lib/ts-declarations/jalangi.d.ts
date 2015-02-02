@@ -97,6 +97,9 @@ interface JalangiAnalysis {
     endExecution?: EndExecutionFunction
 
     endExpression?(iid: number): void
+
+    onReady?(cb: () => void): void
+
 }
 interface AstUtil {
     // TODO improve

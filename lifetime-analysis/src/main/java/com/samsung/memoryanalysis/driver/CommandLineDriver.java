@@ -173,7 +173,7 @@ public class CommandLineDriver {
             refOptions.setAccessPathObjects(watchList);
             ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(),
                     new DummyUnreachabilityAnalysis<Void>(), refOptions);
-            new TraceAnalysisRunner(traceStream, prog, dir).runAnalysisJSON(new ContextProvider<Void>(f, refOptions));
+            new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(f, refOptions));
         }
     }
 }

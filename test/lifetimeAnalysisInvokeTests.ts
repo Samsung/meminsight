@@ -33,11 +33,11 @@ describe('access path unit tests', function() {
     this.timeout(10000);
     it('should handle access path test 1', function (done) {
         // for now, just check that the thing actually runs
-        var pathsPromise = accessPathApi.getAccessPaths([7], 23, "test/testdata/expected/testRefCount28.js.expected");
+        var pathsPromise = accessPathApi.getAccessPaths([7], 23, "lifetime-analysis/test/traces/testRefCount28_inst/mem-trace");
         pathsPromise.then((paths) => {
             assert.equal(
                 JSON.stringify(paths),
-                '{"7":{"accessPaths":[{"path":[{"object":"C(GLOBAL)","property":"jQuery"},{"object":"unknown","property":"prototype"}],"target":"unknown"},{"path":[{"object":"C(unknown)","property":"this"},{"object":"unknown","property":"prototype"}],"target":"unknown"}]}}'
+                '{"7":{"accessPaths":[{"path":[{"object":"C(GLOBAL)","property":"jQuery"},{"object":"test/testdata/testRefCount28.js:17:14:18:2","property":"prototype"}],"target":"test/testdata/testRefCount28.js:17:14:18:2"},{"path":[{"object":"C(test/testdata/testRefCount28.js:24:20:37:2)","property":"this"},{"object":"test/testdata/testRefCount28.js:17:14:18:2","property":"prototype"}],"target":"test/testdata/testRefCount28.js:17:14:18:2"}]}}'
             );
             done();
         }).done();

@@ -43,7 +43,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
     public UnreachabilityTraceWriter(OutputStream out) {
         this.out = new PrintStream(out);
         this.json = new GsonBuilder().create();
-        throw new Error("this class needs to be rewritten");
+//        throw new Error("this class needs to be rewritten");
     }
 
     @Override
