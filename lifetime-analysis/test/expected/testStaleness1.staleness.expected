@@ -3,71 +3,85 @@
     [
       0,
       21,
+      1,
       49
     ],
     [
       0,
       23,
+      1,
       73
     ],
     [
       1,
       27,
+      1,
       601
     ],
     [
       0,
       32,
+      1,
       121
     ],
     [
       0,
       34,
+      1,
       385
     ],
     [
       1,
       41,
+      1,
       681
     ],
     [
       0,
       44,
+      1,
       185
     ],
     [
       0,
       48,
+      1,
       273
     ],
     [
       0,
       52,
+      1,
       345
     ],
     [
       1,
       59,
+      1,
       665
     ],
     [
       1,
       64,
+      1,
       649
     ],
     [
       1,
       66,
+      1,
       633
     ],
     [
       1,
       68,
+      1,
       617
     ],
     [
       1,
       70,
+      1,
       585
     ]
   ],
@@ -81,7 +95,10 @@
         "unreachableSite": "end of program",
         "staleness": 16,
         "lastUseTime": 70,
-        "lastUseSite": 473,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 473
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -103,13 +120,19 @@
         "objectId": 18,
         "creationTime": 24,
         "creationCallStack": [
-          473
+          {
+            "sourceFileId": 1,
+            "iid": 473
+          }
         ],
         "unreachableTime": 70,
         "unreachableSite": "testStaleness1.js:16:1:19:2",
         "staleness": 8,
         "lastUseTime": 62,
-        "lastUseSite": 257,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 257
+        },
         "shallowSize": 2,
         "type": "OBJECT"
       }
@@ -123,7 +146,10 @@
         "unreachableSite": "end of program",
         "staleness": 57,
         "lastUseTime": 29,
-        "lastUseSite": 9,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 9
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -135,7 +161,10 @@
         "unreachableSite": "end of program",
         "staleness": 67,
         "lastUseTime": 19,
-        "lastUseSite": 313,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 313
+        },
         "shallowSize": 4,
         "type": "PROTOTYPE"
       }
@@ -149,7 +178,10 @@
         "unreachableSite": "end of program",
         "staleness": 18,
         "lastUseTime": 68,
-        "lastUseSite": 33,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 33
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -171,14 +203,23 @@
         "objectId": 19,
         "creationTime": 35,
         "creationCallStack": [
-          33,
-          473
+          {
+            "sourceFileId": 1,
+            "iid": 33
+          },
+          {
+            "sourceFileId": 1,
+            "iid": 473
+          }
         ],
         "unreachableTime": 70,
         "unreachableSite": "testStaleness1.js:16:1:19:2",
         "staleness": 32,
         "lastUseTime": 38,
-        "lastUseSite": 369,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 369
+        },
         "shallowSize": 1,
         "type": "OBJECT"
       }
@@ -192,7 +233,10 @@
         "unreachableSite": "end of program",
         "staleness": 20,
         "lastUseTime": 66,
-        "lastUseSite": 105,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 105
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -218,7 +262,10 @@
         "unreachableSite": "end of program",
         "staleness": 22,
         "lastUseTime": 64,
-        "lastUseSite": 169,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 169
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -240,16 +287,31 @@
         "objectId": 20,
         "creationTime": 53,
         "creationCallStack": [
-          169,
-          105,
-          33,
-          473
+          {
+            "sourceFileId": 1,
+            "iid": 169
+          },
+          {
+            "sourceFileId": 1,
+            "iid": 105
+          },
+          {
+            "sourceFileId": 1,
+            "iid": 33
+          },
+          {
+            "sourceFileId": 1,
+            "iid": 473
+          }
         ],
         "unreachableTime": 70,
         "unreachableSite": "testStaleness1.js:16:1:19:2",
         "staleness": 14,
         "lastUseTime": 56,
-        "lastUseSite": 329,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 329
+        },
         "shallowSize": 2,
         "type": "OBJECT"
       }
@@ -263,7 +325,10 @@
         "unreachableSite": "end of program",
         "staleness": 25,
         "lastUseTime": 61,
-        "lastUseSite": 249,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 249
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -289,7 +354,10 @@
         "unreachableSite": "end of program",
         "staleness": 43,
         "lastUseTime": 43,
-        "lastUseSite": 97,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 97
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -301,7 +369,10 @@
         "unreachableSite": "end of program",
         "staleness": 67,
         "lastUseTime": 19,
-        "lastUseSite": 417,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 417
+        },
         "shallowSize": 1,
         "type": "PROTOTYPE"
       }
@@ -315,7 +386,10 @@
         "unreachableSite": "end of program",
         "staleness": 67,
         "lastUseTime": 19,
-        "lastUseSite": 449,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 449
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -327,7 +401,10 @@
         "unreachableSite": "end of program",
         "staleness": 67,
         "lastUseTime": 19,
-        "lastUseSite": 457,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 457
+        },
         "shallowSize": 1,
         "type": "PROTOTYPE"
       }

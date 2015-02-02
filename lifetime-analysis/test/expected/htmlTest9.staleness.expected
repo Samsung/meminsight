@@ -5,41 +5,49 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
     [
       0,
       5,
+      1,
       129
     ],
     [
       1,
       12,
+      1,
       241
     ],
     [
       0,
       161,
+      1,
       73
     ],
     [
       0,
       163,
+      1,
       9
     ],
     [
       1,
       164,
+      1,
       209
     ],
     [
       0,
       169,
+      1,
       9
     ],
     [
       1,
       170,
+      1,
       209
     ],
     [
       1,
       172,
+      1,
       225
     ]
   ],
@@ -53,7 +61,10 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 6,
         "lastUseTime": 170,
-        "lastUseSite": 57,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 57
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -79,7 +90,10 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "code_orig_.js:17:1:24:6",
         "staleness": 1,
         "lastUseTime": 12,
-        "lastUseSite": 161,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 161
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -101,13 +115,19 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "objectId": 6,
         "creationTime": 7,
         "creationCallStack": [
-          161
+          {
+            "sourceFileId": 1,
+            "iid": 161
+          }
         ],
         "unreachableTime": 172,
         "unreachableSite": "code_orig_.js:18:20:22:6",
         "staleness": 11,
         "lastUseTime": 161,
-        "lastUseSite": 73,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 73
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -115,7 +135,10 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "objectId": 7,
         "creationTime": 7,
         "creationCallStack": [
-          161
+          {
+            "sourceFileId": 1,
+            "iid": 161
+          }
         ],
         "unreachableTime": 172,
         "unreachableSite": "code_orig_.js:18:20:22:6",
@@ -147,7 +170,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 4,
         "type": "DOM"
       },
@@ -159,7 +182,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 64,
         "type": "DOM"
       },
@@ -171,7 +194,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -183,7 +206,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -195,7 +218,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -207,7 +230,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -219,7 +242,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -231,7 +254,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -243,7 +266,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -255,7 +278,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -267,7 +290,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -279,7 +302,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -291,7 +314,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -303,7 +326,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -315,7 +338,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -327,7 +350,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -339,7 +362,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -351,7 +374,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -363,7 +386,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -375,7 +398,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -387,7 +410,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -399,7 +422,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -411,7 +434,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -423,7 +446,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -435,7 +458,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -447,7 +470,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -459,7 +482,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -471,7 +494,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -483,7 +506,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -495,7 +518,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -507,7 +530,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -519,7 +542,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -531,7 +554,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -543,7 +566,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -555,7 +578,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -567,7 +590,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -579,7 +602,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -591,7 +614,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -603,7 +626,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -615,7 +638,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -627,7 +650,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -639,7 +662,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -651,7 +674,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -663,7 +686,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -675,7 +698,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -687,7 +710,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -699,7 +722,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -711,7 +734,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -723,7 +746,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -735,7 +758,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -747,7 +770,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -759,7 +782,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -771,7 +794,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -783,7 +806,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -795,7 +818,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -807,7 +830,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -819,7 +842,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -831,7 +854,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -843,7 +866,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -855,7 +878,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -867,7 +890,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 2,
         "type": "DOM"
       },
@@ -879,7 +902,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -891,7 +914,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -903,7 +926,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -915,7 +938,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -927,7 +950,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -939,7 +962,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -951,7 +974,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 4,
         "type": "DOM"
       },
@@ -963,7 +986,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -975,7 +998,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -987,7 +1010,7 @@ code_orig_.js:21:9:21:28 : RC(code_orig_.js:18:20:22:6) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 176,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       }

@@ -5,31 +5,37 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
     [
       0,
       13,
+      1,
       9
     ],
     [
       1,
       14,
+      1,
       201
     ],
     [
       0,
       22,
+      2,
       29
     ],
     [
       1,
       25,
+      2,
       85
     ],
     [
       0,
       28,
+      1,
       9
     ],
     [
       1,
       29,
+      1,
       201
     ]
   ],
@@ -43,7 +49,10 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 238,
         "lastUseTime": 25,
-        "lastUseSite": 113,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 113
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -81,7 +90,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 4,
         "type": "DOM"
       },
@@ -93,7 +102,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 106,
         "type": "DOM"
       },
@@ -105,7 +114,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -117,7 +126,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -129,7 +138,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -141,7 +150,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -153,7 +162,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -165,7 +174,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -177,7 +186,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -189,7 +198,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -201,7 +210,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -213,7 +222,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -225,7 +234,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -237,7 +246,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -249,7 +258,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -261,7 +270,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -273,7 +282,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -285,7 +294,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -297,7 +306,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -309,7 +318,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -321,7 +330,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -333,7 +342,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -345,7 +354,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -357,7 +366,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -369,7 +378,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -381,7 +390,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -393,7 +402,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -405,7 +414,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -417,7 +426,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -429,7 +438,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -441,7 +450,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -453,7 +462,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -465,7 +474,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -477,7 +486,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -489,7 +498,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -501,7 +510,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -513,7 +522,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -525,7 +534,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -537,7 +546,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -549,7 +558,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -561,7 +570,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -573,7 +582,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -585,7 +594,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -597,7 +606,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -609,7 +618,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -621,7 +630,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -633,7 +642,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -645,7 +654,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -657,7 +666,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -669,7 +678,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -681,7 +690,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -693,7 +702,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -705,7 +714,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -717,7 +726,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -729,7 +738,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -741,7 +750,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -753,7 +762,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -765,7 +774,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -777,7 +786,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -789,7 +798,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -801,7 +810,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -813,7 +822,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -825,7 +834,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -837,7 +846,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -849,7 +858,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -861,7 +870,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -873,7 +882,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -885,7 +894,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -897,7 +906,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -909,7 +918,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -921,7 +930,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -933,7 +942,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -945,7 +954,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -957,7 +966,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -969,7 +978,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -981,7 +990,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -993,7 +1002,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1005,7 +1014,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1017,7 +1026,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1029,7 +1038,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1041,7 +1050,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1053,7 +1062,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1065,7 +1074,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1077,7 +1086,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1089,7 +1098,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1101,7 +1110,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1113,7 +1122,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1125,7 +1134,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1137,7 +1146,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1149,7 +1158,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1161,7 +1170,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1173,7 +1182,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1185,7 +1194,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1197,7 +1206,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1209,7 +1218,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1221,7 +1230,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1233,7 +1242,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1245,7 +1254,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1257,7 +1266,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1269,7 +1278,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1281,7 +1290,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1293,7 +1302,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1305,7 +1314,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 2,
         "type": "DOM"
       },
@@ -1317,7 +1326,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1329,7 +1338,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1341,7 +1350,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1353,7 +1362,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1365,7 +1374,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1377,7 +1386,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1389,7 +1398,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 4,
         "type": "DOM"
       },
@@ -1401,7 +1410,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1413,7 +1422,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1425,7 +1434,7 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 263,
-        "lastUseSite": "never used",
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       }
@@ -1439,7 +1448,10 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "unreachableSite": "end of program",
         "staleness": 234,
         "lastUseTime": 29,
-        "lastUseSite": 129,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 129
+        },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
