@@ -103,7 +103,7 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
 		if (domParent2Children.containsKey(objectId)) {
 			// still in the live DOM, so treat this point as its last use time
 			i.lastUseTime = time;
-			i.lastUseSite = ObjectStaleness.REMOVE_FROM_DOM_SITE;
+			i.lastUseSite = SourceMap.REMOVE_FROM_DOM_SITE;
 			domParent2Children.remove(objectId);
 		}
         long staleness = time - (i.lastUseTime == ObjectStaleness.DEFAULT_VAL ? i.creationTime : i.lastUseTime);
@@ -204,7 +204,7 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
 				Integer curNode = worklist.removeFirst();
 				ObjectStaleness objectStaleness = staleness.get(curNode);
 				objectStaleness.lastUseTime = time;
-				objectStaleness.lastUseSite = ObjectStaleness.REMOVE_FROM_DOM_SITE;
+				objectStaleness.lastUseSite = SourceMap.REMOVE_FROM_DOM_SITE;
 				Set<Integer> curChildren = domParent2Children.get(curNode);
 				assert curChildren != null;
 				worklist.addAll(curChildren);

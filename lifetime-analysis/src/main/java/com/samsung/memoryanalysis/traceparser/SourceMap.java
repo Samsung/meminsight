@@ -133,6 +133,12 @@ public class SourceMap {
 
 	private final Map<Integer, String> sid2FileName = HashMapFactory.make();
 
+    /**
+     * site to use to indicate last use of a DOM node
+     * was its removal from the visible DOM
+     */
+    public static final SourceLocId REMOVE_FROM_DOM_SITE = new SourceLocId(DUMMY_SID, -50);
+
 
 	public void addScriptMapping(int sid, String filename) {
 	    sid2FileName.put(sid, filename);

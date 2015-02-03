@@ -85,6 +85,7 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
 
     private final Map<SourceLocId,SiteMetadata> slId2Metadata = HashMapFactory.make();
 
+    @SuppressWarnings("unused")
     private Timer timer;
     @Override
     public void init(Timer timer, SourceMap iidMap) {

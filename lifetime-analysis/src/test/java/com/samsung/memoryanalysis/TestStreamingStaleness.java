@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014 Samsung Electronics Co., Ltd.
+ * Copyright 2014 Samsung Information Systems America, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,28 +29,22 @@ import com.samsung.memoryanalysis.context.ContextProvider;
 import com.samsung.memoryanalysis.options.MemoryAnalysisOptions;
 import com.samsung.memoryanalysis.referencecounter.ReferenceCounter;
 import com.samsung.memoryanalysis.referencecounter.heap.JGraphHeap;
-import com.samsung.memoryanalysis.staleness.Staleness;
-import com.samsung.memoryanalysis.staleness.StalenessAnalysis;
+import com.samsung.memoryanalysis.staleness.StreamingStalenessAnalysis;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
 
 @RunWith(Parameterized.class)
-public class TestStalenessAnalysis extends AbstractTester {
+public class TestStreamingStaleness extends AbstractTester {
 
-    public final static String pref = "testStaleness";
-    public final static String htmlPref = "htmlTest";
-
-    public TestStalenessAnalysis(TestCaseInfo file) {
-        super(file);
-    }
-
-    @Override
-    protected String runAnalysis(File trace) throws Exception {
+	public TestStreamingStaleness(TestCaseInfo file) {
+		super(file);
+	}
+	@Override
+	protected String runAnalysis(File trace) throws Exception {
         StringBuilder r = redirect();
-        ReferenceCounter<Staleness> f = new ReferenceCounter<Staleness>(new JGraphHeap(), new StalenessAnalysis());
+        ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(), new StreamingStalenessAnalysis(System.out));
         // gross.  we want some output even if analysis fails with an assertion
         try {
-            Staleness staleness = new TraceAnalysisRunner(new FileInputStream(trace), null, trace.getParentFile()).runAnalysis(new ContextProvider<Staleness>(f, new MemoryAnalysisOptions()));
-            staleness.toJSON(System.out, true);
+            new TraceAnalysisRunner(new FileInputStream(trace), null, trace.getParentFile()).runAnalysis(new ContextProvider<Void>(f, new MemoryAnalysisOptions()));
             revert();
             return r.toString();
         } catch (AssertionError e) {
@@ -58,7 +52,7 @@ public class TestStalenessAnalysis extends AbstractTester {
             System.out.println(r.toString());
             throw e;
         }
-    }
+	}
 
     @Parameterized.Parameters(name="{0}")
     public static Collection<Object[]> data() throws IOException {
@@ -66,13 +60,13 @@ public class TestStalenessAnalysis extends AbstractTester {
         System.setProperty("rcverbose", "no");
         File dir = new File(TESTDATA);
         List<Object[]> res = new ArrayList<Object[]>();
-        addMatchingJS(dir, res, pref);
-        addMatchingHTML(dir, res, htmlPref);
+        addMatchingJS(dir, res, TestStalenessAnalysis.pref);
+        addMatchingHTML(dir, res, TestStalenessAnalysis.htmlPref);
         return res;
     }
 
 	@Override
 	protected String getExpectedFileName(TestCaseInfo tcInfo) {
-		return tcInfo.name + ".staleness.expected";
+		return tcInfo.name + ".streamstaleness.expected";
 	}
 }

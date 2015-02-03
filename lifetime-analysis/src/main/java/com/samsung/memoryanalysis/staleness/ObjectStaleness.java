@@ -31,13 +31,7 @@ public class ObjectStaleness {
 	 */
 	public static final int DEFAULT_VAL = -20;
 
-	/**
-	 * site to use to indicate last use of a DOM node
-	 * was its removal from the visible DOM
-	 */
-	public static final SourceLocId REMOVE_FROM_DOM_SITE = new SourceLocId(SourceMap.DUMMY_SID, -50);
-
-    public final SourceLocId slID;
+	public final SourceLocId slID;
     public final int objectId;
     public final long creationTime;
     public final List<SourceLocId> creationCallStack;
@@ -100,7 +94,7 @@ public class ObjectStaleness {
         o.put("staleness", staleness == DEFAULT_VAL ? -1 : staleness);
         o.put("lastUseTime", lastUseTime == DEFAULT_VAL ? "never used" : lastUseTime);
         o.put("lastUseSite", lastUseSite == null ? "never used" :
-        	(lastUseSite == REMOVE_FROM_DOM_SITE ? "removed from DOM" : lastUseSite));
+        	(lastUseSite == SourceMap.REMOVE_FROM_DOM_SITE ? "removed from DOM" : lastUseSite));
         o.put("shallowSize", shallowSize);
         o.put("type", this.type.toString());
         return o;
