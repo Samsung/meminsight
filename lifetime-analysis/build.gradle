@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'errorprone'
 apply plugin: 'maven'
 apply plugin: 'application'
 apply plugin: 'eclipse'
@@ -36,6 +37,15 @@ repositories {
     mavenLocal()
 }
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:latest.release'
+    }
+}
+
 test {
 //    testLogging.showStandardStreams = true
     enableAssertions = true
@@ -50,9 +60,6 @@ jacocoTestReport {
 }
 jacocoTestReport.dependsOn.add(test)
 task coverage(dependsOn: jacocoTestReport)
-tasks.withType(JavaCompile) {
-    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
-}
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
