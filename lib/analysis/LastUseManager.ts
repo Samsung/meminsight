@@ -47,19 +47,23 @@ module ___LoggingAnalysis___ {
          */
         private eagerFlush: boolean;
 
-        constructor(logger: Logger, eagerFlush = false) {
-            this.logger = logger;
+        constructor(eagerFlush = false) {
             this.eagerFlush = eagerFlush;
         }
 
-        flushLastUse(cb: () => void) {
+        setLogger(logger: Logger) {
+            this.logger = logger;
+        }
+        flushLastUse() {
             var logger = this.logger;
             this.lastUseTime.forEach((val,idx) => {
                 if (val !== -1) {
                     logger.logLastUse(idx, val, this.lastUseIID[idx]);
                 }
             });
-            logger.end(cb);
+            logger.endLastUse();
+            this.lastUseTime = [];
+            this.lastUseIID = [];
         }
 
         private getSourceId(iid: number): string {

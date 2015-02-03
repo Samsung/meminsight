@@ -50,7 +50,8 @@ module ___LoggingAnalysis___ {
         SCRIPT_EXIT, // fields: iid
         FREE_VARS, // fields: iid, array-of-names or ANY
         SOURCE_MAPPING, // fields: iid, startLine, startColumn, endLine, endColumn
-        UPDATE_CURRENT_SCRIPT // fields: scriptID
+        UPDATE_CURRENT_SCRIPT, // fields: scriptID
+        END_LAST_USE // fields: none
     }
 
     /**

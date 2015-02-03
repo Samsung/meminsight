@@ -119,8 +119,7 @@ function initOutputTarget(): void {
             staleness.write(chunk);
         });
         javaProc.stderr.on("data", (chunk : any) => {
-            console.log("lifetime analysis error!");
-            console.log(chunk.toString())
+            console.error(chunk.toString());
         });
         javaProc.on("exit", () => {
             console.log("done");

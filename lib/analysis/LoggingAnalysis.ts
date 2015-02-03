@@ -83,8 +83,9 @@ module ___LoggingAnalysis___ {
         }
 
         init(initParam: any): void {
-            this.initLogger(initParam);
-            this.lastUse = new LastUseManager(this.logger, initParam["allUses"] !== undefined);
+            this.lastUse = new LastUseManager(initParam["allUses"] !== undefined);
+            this.initLogger(initParam, this.lastUse);
+            this.lastUse.setLogger(this.logger);
             var idManager = createObjIdManager(this.logger, this.lastUse, initParam["useHiddenProp"] !== undefined);
             this.idManager = idManager;
             this.nativeModels = new NativeModels(idManager, this.logger);
@@ -113,7 +114,8 @@ module ___LoggingAnalysis___ {
                 window.addEventListener('keydown', (e) => {
                     // keyboard shortcut is Alt-Shift-T for now
                     if (e.altKey && e.shiftKey && e.keyCode === 84) {
-                        this.lastUse.flushLastUse(() => {
+                        this.lastUse.flushLastUse();
+                        this.logger.end(() => {
                             alert("all flushed\n" + this.nativeModels.getNumDOMNodesModeled() + " DOM node locations from models");
                         });
                         this.logger.stopTracing();
@@ -122,24 +124,24 @@ module ___LoggingAnalysis___ {
             }
         }
 
-        initLogger(initParam: any) {
+        initLogger(initParam: any, lastUse: LastUseManager) {
             var logger:Logger;
             if (isBrowser) {
                 if (initParam["syncAjax"]) {
                     throw new Error("TODO revive support for synchronous AJAX logging");
 //                    logger = new SyncAjaxLogger();
                 } else {
-                    logger = new BinaryWebSocketLogger();
+                    logger = new BinaryWebSocketLogger(lastUse);
                 }
             } else {
                 if (initParam["syncFS"]) {
                     if (initParam["asciiFS"]) {
-                        logger = new AsciiFSLogger();
+                        logger = new AsciiFSLogger(lastUse);
                     } else {
-                        logger = new BinaryFSLogger();
+                        logger = new BinaryFSLogger(lastUse);
                     }
                 } else {
-                    logger = new NodeWebSocketLogger(initParam["appDir"]);
+                    logger = new NodeWebSocketLogger(lastUse, initParam["appDir"]);
                 }
             }
             this.logger = logger;
@@ -487,7 +489,8 @@ module ___LoggingAnalysis___ {
         }
 
         endExecution():any {
-            this.lastUse.flushLastUse(() => { });
+            this.lastUse.flushLastUse();
+            this.logger.end(() => { });
             return {};
         }
 

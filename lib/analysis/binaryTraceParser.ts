@@ -42,7 +42,10 @@ export function parseTrace(filename: string): string {
     while (offset < binTrace.length) {
         result += '[';
         var entryType = binTrace[offset++];
-        result += entryType + ',';
+        result += entryType;
+        if (entryType !== LogEntryType.END_LAST_USE) {
+            result += ',';
+        }
         switch (entryType) {
             case LogEntryType.DECLARE:
                 readInt(); readString(); readInt(true); break;
@@ -108,6 +111,10 @@ export function parseTrace(filename: string): string {
                 readInt(); readInt(); readInt(); readInt(); readInt(true); break;
             case LogEntryType.UPDATE_CURRENT_SCRIPT:
                 readInt(true); break;
+            case LogEntryType.END_LAST_USE:
+                break;
+            default:
+                throw new Error("unknown entry type " + entryType);
         }
         result += ']\n';
     }
@@ -140,7 +147,8 @@ enum LogEntryType {
     SCRIPT_EXIT, // fields: iid
     FREE_VARS, // fields: iid, array-of-names or ANY
     SOURCE_MAPPING, // fields: iid, startLine, startColumn, endLine, endColumn
-    UPDATE_CURRENT_SCRIPT // fields: scriptID
+    UPDATE_CURRENT_SCRIPT, // fields: scriptID
+    END_LAST_USE // fields: none
 }
 
 

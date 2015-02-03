@@ -16,6 +16,7 @@
 ///<reference path='../ts-declarations/node.d.ts' />
 
 ///<reference path='./InstUtils.ts' />
+///<reference path='./LastUseManager.ts' />
 
 /**
  * Created by m.sridharan on 11/6/14.
@@ -29,6 +30,8 @@ module ___LoggingAnalysis___ {
         logCreateFun(iid: number, funEnterIID: number, objId: number): void
         logPutfield(iid: number, baseObjId: number, propName: string, valObjId: number): void
         logWrite(iid: number, name: string, objId: number): void
+        // indicates that a block of last use entries is ending
+        endLastUse(): void
         logLastUse(objId: number, timestamp: number, sourceId: string): void
         logFunctionEnter(iid: number, funObjId: number): void
         logFunctionExit(iid: number): void
@@ -76,6 +79,8 @@ module ___LoggingAnalysis___ {
 
         logLastUse(objId:number, timestamp:number, sourceId: string):void {
         }
+
+        endLastUse(): void {}
 
         logFunctionEnter(iid:number, funObjId:number):void {
         }
@@ -145,6 +150,10 @@ module ___LoggingAnalysis___ {
 
     }
 
+    // how often should we flush last use information?
+    // TODO set up a setInterval() script that also flushes last use, so we flush when the application is idle
+    var LAST_USE_FLUSH_PERIOD = 10000;
+
     /**
      * these are some handy utilities for any implementation of Logger to have.
      * this class doesn't implement the Logger interface since we can't actually
@@ -156,6 +165,12 @@ module ___LoggingAnalysis___ {
          */
         protected time:number = -1;
 
+        lastUse: LastUseManager;
+        /**
+         * the time at which we most recently flushed last-use information
+         * @type {number}
+         */
+        lastUseFlushTime:number = 0;
         /**
          * either the IID of the most recent top-level expression, or -1 if
          * we've already emitted a TOP_LEVEL_FLUSH for that most-recent expression
@@ -169,6 +184,10 @@ module ___LoggingAnalysis___ {
          * @type {number}
          */
         currentScriptId: number = -1;
+
+        constructor(lastUse: LastUseManager) {
+            this.lastUse = lastUse;
+        }
 
         getTime():number {
             return this.time;
@@ -192,12 +211,19 @@ module ___LoggingAnalysis___ {
          * actions before logging an entry
          * @return true if logging should continue, false otherwise
          */
-        protected beforeLog():boolean {
+        protected beforeLog(fromLastUse?: boolean):boolean {
             if (this.tracingStopped) {
                 return false;
             }
             var time = this.time;
-            // check if we should flush
+            // the fromLastUse flag lets us avoid an infinite recursion
+            if (time - this.lastUseFlushTime >= LAST_USE_FLUSH_PERIOD && !fromLastUse) {
+                // time to flush our last use entries
+                this.lastUse.flushLastUse();
+                time = this.time;
+                this.lastUseFlushTime = time;
+            }
+            // check if we should log a top-level flush
             if (this.flushIID !== FlushIIDSpecial.ALREADY_FLUSHED) {
                 this.logTopLevelFlush(this.flushIID);
                 time += 1;
@@ -292,9 +318,16 @@ module ___LoggingAnalysis___ {
         }
 
         logLastUse(objId:number, timestamp:number, sourceId: string):void {
-            if (!this.beforeLog()) return;
+            if (!this.beforeLog(true)) return;
             this.flushIfNeeded(1+2*4+4+this.strLength(sourceId)).writeByte(LogEntryType.LAST_USE).writeInt(objId)
                 .writeInt(timestamp).writeString(sourceId);
+            // this shouldn't have incremented the time since it is metadata
+            // so, subtract 1
+            this.time--;
+        }
+
+        endLastUse(): void {
+            this.flushIfNeeded(1).writeByte(LogEntryType.END_LAST_USE);
         }
 
         logFunctionEnter(iid:number, funObjId:number):void {
@@ -425,8 +458,8 @@ module ___LoggingAnalysis___ {
         private bufMod = require('../lib/analysis/bufferUtil.js');
         bufManager: any;
 
-        constructor() {
-            super();
+        constructor(lastUse: LastUseManager) {
+            super(lastUse);
             this.bufManager = new this.bufMod.BufferManager(NODE_BUF_LENGTH);
         }
 
@@ -466,8 +499,8 @@ module ___LoggingAnalysis___ {
         private fs = require('fs');
         private traceFh:number;
 
-        constructor(traceLoc?: string) {
-            super();
+        constructor(lastUse: LastUseManager, traceLoc?: string) {
+            super(lastUse);
             this.traceFh = this.fs.openSync(traceLoc ? traceLoc : "mem-trace", 'w');
         }
 
@@ -497,8 +530,8 @@ module ___LoggingAnalysis___ {
         private traceFh:number;
         private buffer: String;
 
-        constructor(traceLoc?: string) {
-            super();
+        constructor(lastUse: LastUseManager, traceLoc?: string) {
+            super(lastUse);
             this.traceFh = this.fs.openSync(traceLoc ? traceLoc : "ascii-mem-trace", 'w');
             this.buffer = "";
         }
@@ -559,8 +592,8 @@ module ___LoggingAnalysis___ {
         private connectCB: () => void;
 
         private serverProc: any;
-        constructor(appDir: string) {
-            super();
+        constructor(lastUse: LastUseManager, appDir: string) {
+            super(lastUse);
             if (!appDir) {
                 throw new Error("appDir is undefined");
             }
@@ -592,6 +625,9 @@ module ___LoggingAnalysis___ {
                 if (chunk.toString().indexOf("8080") !== -1) {
                     client.connect('ws://127.0.0.1:8080', 'mem-trace-protocol');
                 }
+            });
+            res.stderr.on('data', (chunk: any) => {
+                console.error(chunk.toString());
             });
             this.serverProc = res;
         }
@@ -659,8 +695,8 @@ module ___LoggingAnalysis___ {
         private cb:() => void;
 
 
-        constructor() {
-            super();
+        constructor(lastUse: LastUseManager) {
+            super(lastUse);
             this.socket = new WebSocket('ws://127.0.0.1:8080', 'mem-trace-protocol');
             this.socket.onopen = () => {
                 this.isOpen = true;
