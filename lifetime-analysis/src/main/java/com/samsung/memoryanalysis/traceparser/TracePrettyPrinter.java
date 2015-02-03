@@ -153,4 +153,9 @@ public class TracePrettyPrinter implements TraceAnalysis<Void> {
         System.out.println(format("scriptExit(slId=%s, time=%d)", slId, timer.currentTime()));
 	}
 
+    @Override
+    public void endLastUse() {
+        System.out.println("endLastUse()");
+    }
+
 }

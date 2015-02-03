@@ -73,4 +73,6 @@ public interface UnreachabilityAwareAnalysis <T> {
 
     public T endExecution(long time);
 
+    public void endLastUse();
+
 }

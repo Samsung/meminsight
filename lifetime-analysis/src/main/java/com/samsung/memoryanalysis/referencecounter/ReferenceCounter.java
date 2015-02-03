@@ -390,4 +390,9 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
 		this.client.scriptExit(slId);
 	}
 
+    @Override
+    public void endLastUse() {
+        this.client.endLastUse();
+    }
+
 }

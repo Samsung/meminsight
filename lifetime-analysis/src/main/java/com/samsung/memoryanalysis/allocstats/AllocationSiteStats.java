@@ -273,4 +273,10 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
         return null;
     }
 
+    @Override
+    public void endLastUse() {
+        // TODO Auto-generated method stub
+
+    }
+
 }

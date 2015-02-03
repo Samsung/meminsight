@@ -91,4 +91,6 @@ public interface TraceAnalysis<T> {
 
 	public void scriptExit(SourceLocId slId);
 
+    public void endLastUse();
+
 }

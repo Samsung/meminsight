@@ -253,5 +253,10 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
 		callbacks.scriptExit(slId);
 	}
 
+    @Override
+    public void endLastUse() {
+        callbacks.endLastUse();
+    }
+
 
 }

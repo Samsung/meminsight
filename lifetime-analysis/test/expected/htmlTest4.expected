@@ -1,46 +1,46 @@
-Id: 2     Alloc: removenode_orig_.js:16:1:19:2            Time: 124        Loc: end of program
-Id: 3     Alloc: removenode_orig_.js:16:1:19:2            Time: 124        Loc: end of program
-Id: 4     Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 5     Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 6     Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 7     Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 8     Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 9     Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 10    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 11    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 12    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 13    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 14    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 15    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 16    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 17    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 18    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 19    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 20    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 21    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 22    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 23    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 24    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 25    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 26    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 27    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 28    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 29    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 30    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 31    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 32    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 33    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 34    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 35    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 36    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 37    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 38    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 39    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 40    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 41    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 42    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 43    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 44    Alloc: initial DOM                              Time: 124        Loc: end of program
+Id: 2     Alloc: removenode_orig_.js:16:1:19:2            Time: 121        Loc: end of program
+Id: 3     Alloc: removenode_orig_.js:16:1:19:2            Time: 121        Loc: end of program
+Id: 4     Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 5     Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 6     Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 7     Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 8     Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 9     Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 10    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 11    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 12    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 13    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 14    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 15    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 16    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 17    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 18    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 19    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 20    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 21    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 22    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 23    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 24    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 25    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 26    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 27    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 28    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 29    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 30    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 31    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 32    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 33    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 34    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 35    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 36    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 37    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 38    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 39    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 40    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 41    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 42    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 43    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 44    Alloc: initial DOM                              Time: 121        Loc: end of program
 Id: 45    Alloc: initial DOM                              Time: 121        Loc: unknown
 Id: 46    Alloc: initial DOM                              Time: 121        Loc: unknown
 Id: 47    Alloc: initial DOM                              Time: 121        Loc: unknown
@@ -48,6 +48,6 @@ Id: 48    Alloc: initial DOM                              Time: 121        Loc: 
 Id: 49    Alloc: initial DOM                              Time: 121        Loc: unknown
 Id: 50    Alloc: initial DOM                              Time: 121        Loc: unknown
 Id: 51    Alloc: initial DOM                              Time: 121        Loc: unknown
-Id: 52    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 53    Alloc: initial DOM                              Time: 124        Loc: end of program
-Id: 54    Alloc: initial DOM                              Time: 124        Loc: end of program
+Id: 52    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 53    Alloc: initial DOM                              Time: 121        Loc: end of program
+Id: 54    Alloc: initial DOM                              Time: 121        Loc: end of program

@@ -39,6 +39,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -324,11 +326,14 @@ public class TraceAnalysisRunner {
                 case UPDATE_CURRENT_SCRIPT:
                     currentScriptId = readInt();
                     break;
+                case END_LAST_USE:
+                    a.endLastUse();
+                    break;
                 case UNREACHABLE:
                     break;
             }
-            // don't tick timer for metadata entries (SOURCE_MAPPING or FREE_VARS or UPDATE_CURRENT_SCRIPT)
-            if (evtType != TraceEntry.SOURCE_MAPPING && evtType != TraceEntry.FREE_VARS && evtType != TraceEntry.UPDATE_CURRENT_SCRIPT) {
+            // don't tick timer for metadata entries
+            if (!METADATA_ENTRIES.contains(evtType.ordinal())) {
                 timer.tick();
             }
             if (this.progress != null)
@@ -416,7 +421,21 @@ public class TraceAnalysisRunner {
         FREE_VARS, // fields: iid, array-of-names or ANY
         SOURCE_MAPPING, // fields: iid, startLine, startColumn, endLine, endColumn
         UPDATE_CURRENT_SCRIPT, // fields: scriptID
+        END_LAST_USE, // fields: none
         UNREACHABLE // fields: sourceId (sid + ':' + iid), object-id, time
     }
+
+    /**
+     * trace entries that are considered "metadata" not corresponding directly
+     * to program events.  such entries do not increment the trace timestamp
+     */
+    public static List<Integer> METADATA_ENTRIES = Collections.unmodifiableList(Arrays.asList(
+            TraceEntry.LAST_USE.ordinal(),
+            TraceEntry.FREE_VARS.ordinal(),
+            TraceEntry.SOURCE_MAPPING.ordinal(),
+            TraceEntry.UPDATE_CURRENT_SCRIPT.ordinal(),
+            TraceEntry.END_LAST_USE.ordinal(),
+            TraceEntry.UNREACHABLE.ordinal()
+    ));
 
 }

@@ -173,4 +173,10 @@ public class UnreachabilityAwareDuplex<T,V> implements UnreachabilityAwareAnalys
         second.removeFromChildSet(slId, parentId, name, childId);
     }
 
+    @Override
+    public void endLastUse() {
+        first.endLastUse();
+        second.endLastUse();
+    }
+
 }

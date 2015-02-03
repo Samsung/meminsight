@@ -173,4 +173,9 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
         trace(TraceAnalysisRunner.TraceEntry.REMOVE_FROM_CHILD_SET.ordinal(), slId, parentId, name, childId);
     }
 
+    @Override
+    public void endLastUse() {
+        trace(TraceAnalysisRunner.TraceEntry.END_LAST_USE.ordinal());
+    }
+
 }

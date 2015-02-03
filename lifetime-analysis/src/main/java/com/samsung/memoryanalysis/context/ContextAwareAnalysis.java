@@ -78,4 +78,5 @@ public interface ContextAwareAnalysis<T> {
 
 	public void scriptExit(SourceLocId slId);
 
+	public void endLastUse();
 }

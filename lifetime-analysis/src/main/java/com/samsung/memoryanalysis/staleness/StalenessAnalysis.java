@@ -266,4 +266,10 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
     public void removeFromChildSet(SourceLocId slId, int parentId, String name, int childId) {
     }
 
+    @Override
+    public void endLastUse() {
+        // TODO handle this case
+
+    }
+
 }

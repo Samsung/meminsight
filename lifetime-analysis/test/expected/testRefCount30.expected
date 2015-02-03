@@ -1,6 +1,6 @@
 testRefCount30.js:22:1:22:13 : RC(testRefCount30.js:21:9:21:18) = 1
-Id: 2     Alloc: testRefCount30.js:16:1:16:24             Time: 23         Loc: end of program
-Id: 3     Alloc: testRefCount30.js:16:1:16:24             Time: 23         Loc: end of program
-Id: 4     Alloc: testRefCount30.js:17:1:19:2              Time: 23         Loc: end of program
-Id: 5     Alloc: testRefCount30.js:17:1:19:2              Time: 23         Loc: end of program
-Id: 6     Alloc: testRefCount30.js:21:9:21:18             Time: 23         Loc: end of program
+Id: 2     Alloc: testRefCount30.js:16:1:16:24             Time: 21         Loc: end of program
+Id: 3     Alloc: testRefCount30.js:16:1:16:24             Time: 21         Loc: end of program
+Id: 4     Alloc: testRefCount30.js:17:1:19:2              Time: 21         Loc: end of program
+Id: 5     Alloc: testRefCount30.js:17:1:19:2              Time: 21         Loc: end of program
+Id: 6     Alloc: testRefCount30.js:21:9:21:18             Time: 21         Loc: end of program

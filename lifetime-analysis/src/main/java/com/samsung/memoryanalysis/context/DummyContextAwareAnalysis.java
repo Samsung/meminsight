@@ -140,4 +140,8 @@ public class DummyContextAwareAnalysis<T> implements ContextAwareAnalysis<T> {
 	public void scriptExit(SourceLocId slId) {
 	}
 
+    @Override
+    public void endLastUse() {
+    }
+
 }

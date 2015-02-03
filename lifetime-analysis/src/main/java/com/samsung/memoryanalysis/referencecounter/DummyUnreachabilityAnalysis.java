@@ -134,4 +134,10 @@ public class DummyUnreachabilityAnalysis<T> implements UnreachabilityAwareAnalys
     public void removeFromChildSet(SourceLocId slId, int parentId, String name, int childId) {
     }
 
+    @Override
+    public void endLastUse() {
+        // TODO Auto-generated method stub
+
+    }
+
 }
