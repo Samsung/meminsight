@@ -17,15 +17,23 @@ package com.samsung.memoryanalysis.staleness;
 
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.Type;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
 import com.ibm.wala.util.collections.HashMapFactory;
 import com.ibm.wala.util.collections.HashSetFactory;
 import com.samsung.memoryanalysis.context.Context;
@@ -44,71 +52,54 @@ import com.samsung.memoryanalysis.traceparser.Timer;
 public class StreamingStalenessAnalysis implements
 		UnreachabilityAwareAnalysis<Void> {
 
-	static final int UNKNOWN = -20, REMOVE_FROM_DOM_SITE = -50;
+	private static final int UNKNOWN_TIME = 0;
+
 	/**
-	 * staleness information for an individual object
-	 * @author m.sridharan
+	 * data on the allocation site and type of an object
 	 *
 	 */
-	class ObjInfo {
+	static class AllocInfo {
 
-		final int objId;
-		final ObjectType type;
-		SourceLocId allocationIID;
-		final long creationTime;
-		List<SourceLocId> creationCallStack;
+	    final ObjectType type;
+	    SourceLocId allocationIID;
+	    final long creationTime;
+	    List<SourceLocId> creationCallStack;
 
-		long mostRecentUseTime = UNKNOWN;
-		SourceLocId mostRecentUseSite = SourceMap.UNKNOWN_ID;
-		long unreachableTime = UNKNOWN;
-		SourceLocId unreachableSite = SourceMap.UNKNOWN_ID;
-
-		/**
-		 * does this record correspond to a "revived" object,
-		 * i.e., an object for which we already flushed a
-		 * (bogus) record due to uninstrumented / native code?
-		 */
-		boolean revived = false;
-
-		public ObjInfo(int objId, ObjectType type, SourceLocId allocationIID,
-				long creationTime, List<SourceLocId> creationCallStack) {
-			this.objId = objId;
-			this.type = type;
-			this.allocationIID = allocationIID;
-			this.creationTime = creationTime;
-			this.creationCallStack = creationCallStack;
-		}
-
-		public String toJSON() {
-			// FORMAT
-			// if not revived,
-			// [objId, false, type, allocationIID, creationTime, creationStack,
-			//   lastUseTime, lastUseSite, unreachableTime, unreachableSite]
-			// if revived,
-            // [objId, true, type, allocationIID, creationTime, creationStack,
-            //   lastUseTime, lastUseSite, unreachableTime, unreachableSite]
-            Object[] entry = new Object[] { objId, revived, type.toString(),
-                    allocationIID, creationTime, creationCallStack,
-                    mostRecentUseTime, mostRecentUseSite, unreachableTime,
-                    unreachableSite };
-			return gson.toJson(entry);
-		}
+        public AllocInfo(ObjectType type, SourceLocId allocationIID,
+                long creationTime, List<SourceLocId> creationCallStack) {
+            super();
+            this.type = type;
+            this.allocationIID = allocationIID;
+            this.creationTime = creationTime;
+            this.creationCallStack = creationCallStack;
+        }
 
 	}
 
-	private final Map<Integer,ObjInfo> live = HashMapFactory.make();
+    /**
+     * data on when an object is last used and becomes unreachable
+     */
+	static class LastUseUnreachableInfo {
+        long mostRecentUseTime;
+        SourceLocId mostRecentUseSite = SourceMap.UNKNOWN_ID;
+        long unreachableTime;
+        SourceLocId unreachableSite = SourceMap.UNKNOWN_ID;
+	}
+
+	private final Map<Integer,AllocInfo> live = HashMapFactory.make();
 
 	/**
 	 * unreachable objects for which we have yet to flush a record
 	 */
-	private final Map<Integer,ObjInfo> unreachable = HashMapFactory.make();
+	private final Map<Integer,AllocInfo> unreachable = HashMapFactory.make();
 
+	private final ArrayList<LastUseUnreachableInfo> lastUseUnreachInfo = new ArrayList<LastUseUnreachableInfo>(10000);
 	private final PrintStream out;
 
     @SuppressWarnings("unused")
 	private SourceMap sourceMap;
 
-    private Gson gson = new Gson();
+    private Gson gson;
 
     private final Deque<SourceLocId> currentCallStack = new ArrayDeque<SourceLocId>();
 
@@ -118,6 +109,7 @@ public class StreamingStalenessAnalysis implements
 
 	public StreamingStalenessAnalysis(OutputStream out) {
 		this.out = new PrintStream(out);
+		gson = new GsonBuilder().registerTypeAdapter(SourceLocId.class, new SourceLocSerializer()).create();
 	}
 
 	@Override
@@ -131,24 +123,22 @@ public class StreamingStalenessAnalysis implements
 	}
 
 	@Override
-	public void create(SourceLocId slId, int objectId, long time, boolean isDom) {
-		if (objectId != ContextProvider.GLOBAL_OBJECT_ID) {
-			this.live.put(
-				objectId,
-				new ObjInfo(
-					objectId,
-					isDom ? ObjectStaleness.ObjectType.DOM : ObjectStaleness.ObjectType.OBJECT,
-					slId, time, callStackAsList()));
-		}
-	}
+    public void create(SourceLocId slId, int objectId, long time, boolean isDom) {
+        if (objectId != ContextProvider.GLOBAL_OBJECT_ID) {
+            this.live.put(objectId, new AllocInfo(
+                    isDom ? ObjectStaleness.ObjectType.DOM
+                            : ObjectStaleness.ObjectType.OBJECT, slId, time,
+                    callStackAsList()));
+        }
+    }
 
 	@Override
 	public void createFun(SourceLocId slId, int objectId, int prototypeId,
 			SourceLocId functionEnterIID, Set<String> namesReferencedByClosures,
 			Context context, long time) {
 		List<SourceLocId> callstack = callStackAsList();
-		this.live.put(objectId, new ObjInfo(objectId, ObjectType.FUNCTION, slId, time, callstack));
-		this.live.put(prototypeId, new ObjInfo(prototypeId, ObjectType.PROTOTYPE, slId, time, callstack));
+		this.live.put(objectId, new AllocInfo(ObjectType.FUNCTION, slId, time, callstack));
+		this.live.put(prototypeId, new AllocInfo(ObjectType.PROTOTYPE, slId, time, callstack));
 	}
 
 	@Override
@@ -164,21 +154,25 @@ public class StreamingStalenessAnalysis implements
 	@Override
 	public void lastUse(int objectId, SourceLocId slId, long time) {
         if (objectId == ContextProvider.GLOBAL_OBJECT_ID) return;
-        ObjInfo objInfo = null;
-        if (live.containsKey(objectId)) {
-        	objInfo = live.get(objectId);
-        } else if (unreachable.containsKey(objectId)) {
-        	objInfo = unreachable.get(objectId);
-        } else {
-        	// revived object!
-        	objInfo = new ObjInfo(objectId, ObjectType.OBJECT, SourceMap.UNKNOWN_ID, UNKNOWN, null);
-        	objInfo.revived = true;
-        	// mark it as live
-        	live.put(objectId, objInfo);
-        }
-        objInfo.mostRecentUseTime = time;
-        objInfo.mostRecentUseSite = slId;
+        LastUseUnreachableInfo info = getLastUseUnreachableInfo(objectId);
+        info.mostRecentUseTime = time;
+        info.mostRecentUseSite = slId;
 	}
+
+    private LastUseUnreachableInfo getLastUseUnreachableInfo(int objectId) {
+        int size = lastUseUnreachInfo.size();
+        if (objectId >= size) {
+            // pad it out with nulls
+            int padding = (objectId+1)-size;
+            lastUseUnreachInfo.addAll(Collections.<LastUseUnreachableInfo>nCopies(padding, null));
+        }
+        LastUseUnreachableInfo info = lastUseUnreachInfo.get(objectId);
+        if (info == null) {
+            info = new LastUseUnreachableInfo();
+            lastUseUnreachInfo.set(objectId, info);
+        }
+        return info;
+    }
 
 	@Override
 	public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteIID,
@@ -199,7 +193,7 @@ public class StreamingStalenessAnalysis implements
 
 	@Override
 	public void updateIID(int objId, SourceLocId newIID) {
-		ObjInfo objInfo = live.get(objId);
+		AllocInfo objInfo = live.get(objId);
 		assert objInfo != null;
 		objInfo.allocationIID = newIID;
 		objInfo.creationCallStack = callStackAsList();
@@ -231,8 +225,7 @@ public class StreamingStalenessAnalysis implements
 			// we also know that the DOM child is live.  if it is not
 			// recorded as such, add a revived record for it
 			if (!live.containsKey(childId)) {
-	            ObjInfo objInfo = new ObjInfo(childId, ObjectType.DOM, SourceMap.UNKNOWN_ID, UNKNOWN, null);
-	            objInfo.revived = true;
+	            AllocInfo objInfo = new AllocInfo(ObjectType.DOM, SourceMap.UNKNOWN_ID, UNKNOWN_TIME, null);
 	            live.put(childId, objInfo);
 			}
 		}
@@ -249,10 +242,9 @@ public class StreamingStalenessAnalysis implements
 			worklist.push(childId);
 			while (!worklist.isEmpty()) {
 				Integer curNode = worklist.removeFirst();
-				ObjInfo objInfo = live.get(curNode);
-				assert objInfo != null;
-				objInfo.mostRecentUseTime = time;
-				objInfo.mostRecentUseSite = SourceMap.REMOVE_FROM_DOM_SITE;
+				LastUseUnreachableInfo info = getLastUseUnreachableInfo(curNode);
+				info.mostRecentUseTime = time;
+				info.mostRecentUseSite = SourceMap.REMOVE_FROM_DOM_SITE;
 				Set<Integer> curChildren = domParent2Children.get(curNode);
 				assert curChildren != null;
 				worklist.addAll(curChildren);
@@ -290,22 +282,21 @@ public class StreamingStalenessAnalysis implements
 	@Override
 	public void unreachableObject(SourceLocId slId, int objectId, long time,
 			int shallowSize) {
-        ObjInfo objInfo = null;
+        LastUseUnreachableInfo lastUseInfo = getLastUseUnreachableInfo(objectId);
+        lastUseInfo.unreachableTime = time;
+        lastUseInfo.unreachableSite = slId;
+        AllocInfo allocInfo = null;
         if (live.containsKey(objectId)) {
-            objInfo = live.get(objectId);
+            allocInfo = live.get(objectId);
             live.remove(objectId);
         } else if (unreachable.containsKey(objectId)) {
             // it's a revived object, but we didn't flush the unreachable record yet
-            objInfo = unreachable.get(objectId);
-            objInfo.revived = true;
+            allocInfo = unreachable.get(objectId);
         } else {
             // this can happen in rare cases, e.g., for the document object
-            objInfo = new ObjInfo(objectId, ObjectType.DOM, SourceMap.UNKNOWN_ID, UNKNOWN, null);
-            objInfo.revived = true;
+            allocInfo = new AllocInfo(ObjectType.DOM, SourceMap.UNKNOWN_ID, UNKNOWN_TIME, null);
         }
-        objInfo.unreachableTime = time;
-        objInfo.unreachableSite = slId;
-        unreachable.put(objectId, objInfo);
+        unreachable.put(objectId, allocInfo);
 	}
 
 	@Override
@@ -320,20 +311,36 @@ public class StreamingStalenessAnalysis implements
 	}
 
 	private void flushUnreachable() {
-	    for (ObjInfo objInfo: unreachable.values()) {
-	        this.writeObjEntry(objInfo);
+	    for (Entry<Integer, AllocInfo> entry: unreachable.entrySet()) {
+	        int objectId = entry.getKey();
+	        this.writeObjEntry(objectId, entry.getValue(), lastUseUnreachInfo.get(objectId));
 	    }
 		unreachable.clear();
 	}
 
-	private void writeObjEntry(ObjInfo objInfo) {
-		out.println(objInfo.toJSON());
+	private static class SourceLocSerializer implements JsonSerializer<SourceLocId> {
+
+        @Override
+        public JsonElement serialize(SourceLocId src, Type typeOfSrc,
+                JsonSerializationContext context) {
+            return new JsonPrimitive(src.toString());
+        }
+
+	}
+	private void writeObjEntry(int objectId, AllocInfo allocInfo, LastUseUnreachableInfo lastUseUnreachInfo) {
+        Object[] entry = new Object[] { objectId, allocInfo.type.toString(),
+                allocInfo.allocationIID, allocInfo.creationTime, allocInfo.creationCallStack,
+                lastUseUnreachInfo.mostRecentUseTime, lastUseUnreachInfo.mostRecentUseSite, lastUseUnreachInfo.unreachableTime,
+                lastUseUnreachInfo.unreachableSite };
+        out.println(gson.toJson(entry));
+
 	}
 
 	@Override
 	public Void endExecution(long time) {
 		assert live.isEmpty();
 		flushUnreachable();
+		// TODO write separate files containing lastUse and unreachable info
 		return null;
 	}
 

@@ -71,6 +71,10 @@ public class SourceMap {
         }
 
         public String toString() {
+            if (this == SourceMap.END_OF_PROGRAM_ID) return "end of program";
+            if (this == SourceMap.UNKNOWN_ID) return "unknown";
+            if (this == INITIAL_DOM_ID) return "initial DOM";
+            if (this == REMOVE_FROM_DOM_SITE) return "removed from DOM";
             return (new StringBuilder()).append(sourceFileId).append(':')
                     .append(iid).toString();
         }
