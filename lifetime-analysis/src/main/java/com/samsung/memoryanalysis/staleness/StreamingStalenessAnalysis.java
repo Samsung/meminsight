@@ -80,30 +80,17 @@ public class StreamingStalenessAnalysis implements
 		}
 
 		public String toJSON() {
-			Object[] entry = null;
 			// FORMAT
 			// if not revived,
 			// [objId, false, type, allocationIID, creationTime, creationStack,
 			//   lastUseTime, lastUseSite, unreachableTime, unreachableSite]
 			// if revived,
-			// [objId, true, lastUseTime, lastUseSite, unreachableTime, unreachableSite]
-			if (revived) {
-				Object[] revivedEntry = {
-						objId,
-						true,
-						mostRecentUseTime,
-						mostRecentUseSite,
-						unreachableTime,
-						unreachableSite
-				};
-				entry = revivedEntry;
-			} else {
-				Object[] normalEntry = {
-						objId, false, type.toString(), allocationIID, creationTime, creationCallStack,
-						mostRecentUseTime, mostRecentUseSite, unreachableTime, unreachableSite
-				};
-				entry = normalEntry;
-			}
+            // [objId, true, type, allocationIID, creationTime, creationStack,
+            //   lastUseTime, lastUseSite, unreachableTime, unreachableSite]
+            Object[] entry = new Object[] { objId, revived, type.toString(),
+                    allocationIID, creationTime, creationCallStack,
+                    mostRecentUseTime, mostRecentUseSite, unreachableTime,
+                    unreachableSite };
 			return gson.toJson(entry);
 		}
 
@@ -303,17 +290,22 @@ public class StreamingStalenessAnalysis implements
 	@Override
 	public void unreachableObject(SourceLocId slId, int objectId, long time,
 			int shallowSize) {
-		ObjInfo objInfo = live.get(objectId);
-		if (objInfo != null) {
-	        live.remove(objectId);
-	        objInfo.unreachableTime = time;
-	        objInfo.unreachableSite = slId;
-	        unreachable.put(objectId, objInfo);
-		} else {
-		    // we have an unreachable record for an object not listed as live.
-		    // this can occur if the object was only live through being in the live
-		    // DOM.
-		}
+        ObjInfo objInfo = null;
+        if (live.containsKey(objectId)) {
+            objInfo = live.get(objectId);
+            live.remove(objectId);
+        } else if (unreachable.containsKey(objectId)) {
+            // it's a revived object, but we didn't flush the unreachable record yet
+            objInfo = unreachable.get(objectId);
+            objInfo.revived = true;
+        } else {
+            // this can happen in rare cases, e.g., for the document object
+            objInfo = new ObjInfo(objectId, ObjectType.DOM, SourceMap.UNKNOWN_ID, UNKNOWN, null);
+            objInfo.revived = true;
+        }
+        objInfo.unreachableTime = time;
+        objInfo.unreachableSite = slId;
+        unreachable.put(objectId, objInfo);
 	}
 
 	@Override

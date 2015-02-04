@@ -23,6 +23,7 @@
 [5,false,"OBJECT",{"sourceFileId":1,"iid":41},10,[{"sourceFileId":1,"iid":433}],-20,{"sourceFileId":0,"iid":-1},40,{"sourceFileId":1,"iid":625}]
 [2,false,"FUNCTION",{"sourceFileId":1,"iid":425},2,[],40,{"sourceFileId":1,"iid":433},41,{"sourceFileId":1,"iid":441}]
 [3,false,"PROTOTYPE",{"sourceFileId":1,"iid":425},2,[],-20,{"sourceFileId":0,"iid":-1},41,{"sourceFileId":1,"iid":441}]
+[4,true,"DOM",{"sourceFileId":0,"iid":-1},-20,null,-20,{"sourceFileId":0,"iid":-1},171,{"sourceFileId":0,"iid":0}]
 [27,false,"DOM",{"sourceFileId":0,"iid":-2},44,[],-20,{"sourceFileId":0,"iid":-1},171,{"sourceFileId":0,"iid":0}]
 [87,false,"DOM",{"sourceFileId":0,"iid":-2},165,[],-20,{"sourceFileId":0,"iid":-1},171,{"sourceFileId":0,"iid":0}]
 [89,false,"DOM",{"sourceFileId":0,"iid":-2},169,[],-20,{"sourceFileId":0,"iid":-1},171,{"sourceFileId":0,"iid":0}]
