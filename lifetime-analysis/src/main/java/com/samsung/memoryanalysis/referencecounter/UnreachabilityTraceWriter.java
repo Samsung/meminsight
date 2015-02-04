@@ -37,6 +37,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
     private final Gson json;
 
 
+    @SuppressWarnings("unused")
     private Timer timer;
     private long counter = 0;
 
@@ -53,7 +54,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
 
     private void trace(Object... args) {
         if (!args[0].equals(TraceAnalysisRunner.TraceEntry.UNREACHABLE.ordinal())) {
-            assert timer.currentTime() == counter;
+//            assert timer.currentTime() == counter;
             counter++;
         }
         out.println(json.toJson(args));
