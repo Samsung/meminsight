@@ -138,11 +138,10 @@ public class CommandLineDriver {
             ReferenceCounter<Void> f = new ReferenceCounter<Void>(
                     new JGraphHeap(), new StreamingStalenessAnalysis(out, lastUseOut, unreachOut), refOptions);
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(f,refOptions));
-            } catch (IOException e) {
+            } finally {
                 if (out != null) out.close();
                 if (lastUseOut != null) lastUseOut.close();
                 if (unreachOut != null) unreachOut.close();
-                throw e;
             }
         } else if (options.has("ref-trace")) {
             BufferedOutputStream out = new BufferedOutputStream(System.out);

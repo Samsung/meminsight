@@ -63,15 +63,9 @@ describe('lifetime analysis invoke unit tests', function() {
                 path.join(outputDir, "testRefCount13_inst", "testRefCount13_jalangi_.js")
             ]);
             runProc.on('close', () => {
-                // make sure we are getting proper call stacks in the staleness.json
-                var staleness = JSON.parse(String(fs.readFileSync(path.join(outputDir,"testRefCount13_inst", 'staleness.json'))));
-                for (var k in staleness.objectInfo) {
-                    if (k.indexOf('20:19:20:38') !== -1) {
-                        var cs = staleness.objectInfo[k][0].creationCallStack;
-                        assert.ok(cs[0].indexOf('testRefCount13.js:25:8:25:11') !== -1);
-                        break;
-                    }
-                }
+                var stalenessTrace = String(fs.readFileSync(path.join(outputDir,"testRefCount13_inst", 'staleness-trace')));
+                var expectedLine = '[9,"OBJECT","/Users/m.sridharan/git-repos/memory-profiler/meminsight/test/testdata/testRefCount13.js:20:19:20:38",15,["/Users/m.sridharan/git-repos/memory-profiler/meminsight/test/testdata/testRefCount13.js:25:8:25:11"],0,"unknown",37,"end of program"]';
+                assert.ok(stalenessTrace.indexOf(expectedLine) !== -1);
                 temp.cleanupSync();
                 done();
             })

@@ -218,8 +218,8 @@ public class TraceAnalysisRunner {
                     break;
                 }
                 case TOP_LEVEL_FLUSH: {
-                    int iid = readInt();//getInt(arr, 1);
-                    a.topLevelFlush(new SourceLocId(currentScriptId, iid));
+                    String[] theSplit = readString().split(":");
+                    a.topLevelFlush(new SourceLocId(Integer.parseInt(theSplit[0]), Integer.parseInt(theSplit[1])));
                     break;
                 }
                 case UPDATE_IID: {
@@ -405,7 +405,7 @@ public class TraceAnalysisRunner {
         LAST_USE, // fields: obj-id, timestamp, sourceId (sid + ':' + iid)
         FUNCTION_ENTER, // fields: iid, function-object-id.  NOTE: only emitted when CALL is not emitted
         FUNCTION_EXIT, // fields: iid
-        TOP_LEVEL_FLUSH, // fields: iid
+        TOP_LEVEL_FLUSH, // fields: sourceId (sid + ':' + iid)
         UPDATE_IID, // fields: obj-id, new-iid
         DEBUG, // fields: call-iid, obj-id
         RETURN, // fields: obj-id
