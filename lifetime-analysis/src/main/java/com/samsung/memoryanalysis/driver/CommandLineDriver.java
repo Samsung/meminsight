@@ -32,16 +32,13 @@ import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 
 import com.ibm.wala.util.collections.HashMapFactory;
-import com.ibm.wala.util.collections.Pair;
 import com.samsung.memoryanalysis.context.ContextProvider;
 import com.samsung.memoryanalysis.options.MemoryAnalysisOptions;
 import com.samsung.memoryanalysis.referencecounter.DummyUnreachabilityAnalysis;
 import com.samsung.memoryanalysis.referencecounter.ReferenceCounter;
-import com.samsung.memoryanalysis.referencecounter.UnreachabilityAwareDuplex;
 import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter;
 import com.samsung.memoryanalysis.referencecounter.heap.JGraphHeap;
-import com.samsung.memoryanalysis.staleness.Staleness;
-import com.samsung.memoryanalysis.staleness.StalenessAnalysis;
+import com.samsung.memoryanalysis.staleness.StreamingStalenessAnalysis;
 import com.samsung.memoryanalysis.traceparser.ProgressMonitor;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
 import com.samsung.memoryanalysis.traceparser.TracePrettyPrinter;
@@ -78,7 +75,7 @@ public class CommandLineDriver {
         final OptionParser parser = new OptionParser();
         parser.accepts("context", "Run only the context analysis");
         parser.accepts("ref", "Run the reference count analysis only");
-        parser.accepts("staleness", "Run the staleness analysis");
+        parser.accepts("staleness", "Run the staleness analysis.  Output is written in three files: staleness-trace, lastuse-trace, and unreachable-trace");
         parser.accepts("ref-trace", "Output the enhanced trace format");
         parser.accepts("pretty-print", "Just parse and pretty print the trace");
         parser.accepts("no-progress", "Don't print progress bar");
@@ -133,23 +130,19 @@ public class CommandLineDriver {
         } else if (options.has("context")) {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(null, refOptions));
         } else if (options.has("staleness")) {
-            if (options.has("enhanced")) {
-                UnreachabilityAwareDuplex<Staleness, Void> analysis;
-                final File pf = new File(dir, "enhanced-trace");
-                final OutputStream stream = new BufferedOutputStream(new FileOutputStream(pf));
-                UnreachabilityTraceWriter aw = new UnreachabilityTraceWriter(stream);
-                analysis = new UnreachabilityAwareDuplex<Staleness,Void>(new StalenessAnalysis(), aw);
-                ReferenceCounter<Pair<Staleness, Void>> f = new ReferenceCounter<Pair<Staleness, Void>>(new JGraphHeap(),
-                        analysis, refOptions);
-                Pair<Staleness, Void> p = new TraceAnalysisRunner(traceStream, prog, dir)
-                        .runAnalysis(new ContextProvider<Pair<Staleness, Void>>(f, refOptions));
-                p.fst.toJSON(System.out, false);
-            } else {
-                ReferenceCounter<Staleness> f = new ReferenceCounter<Staleness>(new JGraphHeap(),
-                        new StalenessAnalysis(), refOptions);
-                Staleness staleness = new TraceAnalysisRunner(traceStream, prog, dir)
-                        .runAnalysis(new ContextProvider<Staleness>(f, refOptions));
-                staleness.toJSON(System.out, false);
+            OutputStream out = null, lastUseOut = null, unreachOut = null;
+            try {
+            out = new BufferedOutputStream(new FileOutputStream(new File(dir, "staleness-trace")));
+            lastUseOut = new BufferedOutputStream(new FileOutputStream(new File(dir, "lastuse-trace")));
+            unreachOut = new BufferedOutputStream(new FileOutputStream(new File(dir, "unreachable-trace")));
+            ReferenceCounter<Void> f = new ReferenceCounter<Void>(
+                    new JGraphHeap(), new StreamingStalenessAnalysis(out, lastUseOut, unreachOut), refOptions);
+            new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(f,refOptions));
+            } catch (IOException e) {
+                if (out != null) out.close();
+                if (lastUseOut != null) lastUseOut.close();
+                if (unreachOut != null) unreachOut.close();
+                throw e;
             }
         } else if (options.has("ref-trace")) {
             BufferedOutputStream out = new BufferedOutputStream(System.out);
