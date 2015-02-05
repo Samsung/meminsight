@@ -61,7 +61,7 @@ module ___LoggingAnalysis___ {
                     didSomething = didSomething || added.length > 0 || removed.length > 0;
                 });
                 if (didSomething) {
-                    this.logger.setFlushIID(FlushIIDSpecial.UNKNOWN);
+                    this.logger.setFlushIID(0,-1);
                 }
             });
 
@@ -74,7 +74,7 @@ module ___LoggingAnalysis___ {
                 // mark document.documentElement as the DOM root
                 this.logger.logDOMRoot(docElementObjId);
                 this.domWalk(document.documentElement, true);
-                this.logger.setFlushIID(FlushIIDSpecial.UNKNOWN);
+                this.logger.setFlushIID(0,-1);
             });
 
         }
@@ -191,7 +191,7 @@ module ___LoggingAnalysis___ {
                                 J$.sid = funScriptId;
                                 // null out the global
                                 self.logger.logWrite(funIID,freshGlobal,0);
-                                self.logger.setFlushIID(funIID);
+                                self.logger.setFlushIID(funScriptId,funIID);
                                 J$.sid = backupScriptId;
                             }
                         }
@@ -270,7 +270,7 @@ module ___LoggingAnalysis___ {
                                 var backupScriptId = J$.sid;
                                 J$.sid = funScriptId;
                                 self.logger.logWrite(funIID, freshGlobal, 0);
-                                self.logger.setFlushIID(funIID);
+                                self.logger.setFlushIID(funScriptId,funIID);
                                 self.callbackIdToGlobal.delete((<any>wrapper).timeoutId);
                                 J$.sid = backupScriptId;
                             }
@@ -430,7 +430,7 @@ module ___LoggingAnalysis___ {
                 var global = this.callbackIdToGlobal.get(timeoutId);
                 if (global) {
                     this.logger.logWrite(iid, global, 0);
-                    this.logger.setFlushIID(iid);
+                    this.logger.setFlushIID(J$.sid, iid);
                     this.callbackIdToGlobal.delete(timeoutId);
                 }
             },
@@ -446,7 +446,7 @@ module ___LoggingAnalysis___ {
                 var global = this.callbackIdToGlobal.get(timeoutId);
                 if (global) {
                     this.logger.logWrite(iid, global, 0);
-                    this.logger.setFlushIID(iid);
+                    this.logger.setFlushIID(J$.sid, iid);
                     this.callbackIdToGlobal.delete(timeoutId);
                 }
             },

@@ -64,7 +64,7 @@ export function parseTrace(filename: string): string {
             case LogEntryType.FUNCTION_EXIT:
                 readInt(true); break;
             case LogEntryType.TOP_LEVEL_FLUSH:
-                readInt(true); break;
+                readString(true); break;
             case LogEntryType.UPDATE_IID:
                 readInt(); readInt(true); break;
             case LogEntryType.DEBUG:
@@ -132,7 +132,7 @@ enum LogEntryType {
     LAST_USE, // fields: obj-id, timestamp, sourceId (sid + ':' + iid)
     FUNCTION_ENTER, // fields: iid, function-object-id.  NOTE: only emitted when CALL is not emitted
     FUNCTION_EXIT, // fields: iid
-    TOP_LEVEL_FLUSH, // fields: iid
+    TOP_LEVEL_FLUSH, // fields: sourceId (sid + ':' + iid)
     UPDATE_IID, // fields: obj-id, new-iid
     DEBUG, // fields: call-iid, obj-id
     RETURN, // fields: obj-id

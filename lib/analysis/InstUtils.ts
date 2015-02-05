@@ -35,7 +35,7 @@ module ___LoggingAnalysis___ {
         LAST_USE, // fields: obj-id, timestamp, sourceId (sid + ':' + iid)
         FUNCTION_ENTER, // fields: iid, function-object-id.  NOTE: only emitted when CALL is not emitted
         FUNCTION_EXIT, // fields: iid
-        TOP_LEVEL_FLUSH, // fields: iid
+        TOP_LEVEL_FLUSH, // fields: sourceId (sid + ':' + iid)
         UPDATE_IID, // fields: obj-id, new-iid
         DEBUG, // fields: call-iid, obj-id
         RETURN, // fields: obj-id
@@ -63,10 +63,9 @@ module ___LoggingAnalysis___ {
         MAX_BUF_SIZE = 64000
     }
 
-    export enum FlushIIDSpecial {
-        ALREADY_FLUSHED = -2,
-        UNKNOWN = -1
-    }
+    // sentinel source locs for top-level flushes
+    export var ALREADY_FLUSHED = "ALREADY_FLUSHED";
+    export var UNKNOWN_FLUSH_LOC = "0:-1";
 
     export var GLOBAL_OBJ = (function () {return this})();
 
@@ -123,7 +122,7 @@ module ___LoggingAnalysis___ {
             result = parseInt(parsed[1]);
             setCachedFunEnterIID(f,result);
         } else {
-            result = FlushIIDSpecial.UNKNOWN;
+            result = -1;
         }
         return result;
     }

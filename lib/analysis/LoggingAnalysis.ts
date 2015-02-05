@@ -233,6 +233,7 @@ module ___LoggingAnalysis___ {
          * @param iidMetadata
          */
         instrumentCode(evalIID: number, newAST: any): Result {
+            console.log("instrumenting eval " + evalIID);
             var na = (<any>J$).memAnalysisUtils;
             // TODO log source mapping???
             var curVarNames:any = null;
@@ -495,8 +496,8 @@ module ___LoggingAnalysis___ {
         }
 
         endExpression(iid: number): void {
-            if (this.logger.getFlushIID() === FlushIIDSpecial.ALREADY_FLUSHED) {
-                this.logger.setFlushIID(iid);
+            if (this.logger.getFlushIID() === ALREADY_FLUSHED) {
+                this.logger.setFlushIID(J$.sid, iid);
                 // at this point, we can empty the map from native objects to iids,
                 // since after a flush we won't be storing them anywhere
                 this.idManager.flushNativeObj2IIDInfo();

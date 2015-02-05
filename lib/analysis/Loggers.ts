@@ -52,8 +52,8 @@ module ___LoggingAnalysis___ {
         logSourceMapping(iid: number, startLine: number, startColumn: number, endLine: number, endColumn: number): void
 
         getTime(): number
-        getFlushIID(): number
-        setFlushIID(iid: number): void
+        getFlushIID(): string
+        setFlushIID(sourceFileId: number, iid: number): void
         stopTracing(): void
         end(cb: () => void): void
     }
@@ -134,11 +134,11 @@ module ___LoggingAnalysis___ {
             return undefined;
         }
 
-        getFlushIID():number {
+        getFlushIID():string {
             return undefined;
         }
 
-        setFlushIID(iid:number):void {
+        setFlushIID(sourceFileId: number, iid:number):void {
         }
 
         stopTracing():void {
@@ -176,7 +176,7 @@ module ___LoggingAnalysis___ {
          * we've already emitted a TOP_LEVEL_FLUSH for that most-recent expression
          * @type {number}
          */
-        flushIID:number = FlushIIDSpecial.ALREADY_FLUSHED;
+        flushIID:string = ALREADY_FLUSHED;
         tracingStopped:boolean = false;
 
         /**
@@ -193,14 +193,14 @@ module ___LoggingAnalysis___ {
             return this.time;
         }
 
-        setFlushIID(iid:number):void {
-            if (this.flushIID !== FlushIIDSpecial.ALREADY_FLUSHED) {
+        setFlushIID(sourceFileId:number,iid:number):void {
+            if (this.flushIID !== ALREADY_FLUSHED) {
                 throw new Error("invalid flush IID value " + this.flushIID);
             }
-            this.flushIID = iid;
+            this.flushIID = sourceFileId + ':' + iid;
         }
 
-        getFlushIID(): number {
+        getFlushIID(): string {
             return this.flushIID;
         }
         stopTracing():void {
@@ -223,12 +223,6 @@ module ___LoggingAnalysis___ {
                 time = this.time;
                 this.lastUseFlushTime = time;
             }
-            // check if we should log a top-level flush
-            if (this.flushIID !== FlushIIDSpecial.ALREADY_FLUSHED) {
-                this.logTopLevelFlush(this.flushIID);
-                time += 1;
-                this.flushIID = FlushIIDSpecial.ALREADY_FLUSHED;
-            }
             // check if we need to update the current script
             var sid = J$.sid;
             if (sid !== this.currentScriptId) {
@@ -236,13 +230,19 @@ module ___LoggingAnalysis___ {
                 this.logUpdateCurrentScript(sid);
                 // metadata, so don't update the time
             }
+            // check if we should log a top-level flush
+            if (this.flushIID !== ALREADY_FLUSHED) {
+                this.logTopLevelFlush(this.flushIID);
+                time += 1;
+                this.flushIID = ALREADY_FLUSHED;
+            }
             // for the entry to be logged
             time += 1;
             this.time = time;
             return true;
         }
 
-        protected logTopLevelFlush(iid: number): void {
+        protected logTopLevelFlush(slId: string): void {
             throw new Error("should be overridden by subclass!");
         }
 
@@ -440,8 +440,8 @@ module ___LoggingAnalysis___ {
             this.flushIfNeeded(5).writeTypeAndIID(LogEntryType.UPDATE_CURRENT_SCRIPT,scriptID);
         }
 
-        protected logTopLevelFlush(iid: number): void {
-            this.flushIfNeeded(5).writeTypeAndIID(LogEntryType.TOP_LEVEL_FLUSH,iid);
+        protected logTopLevelFlush(slId: string): void {
+            this.flushIfNeeded(1+4+this.strLength(slId)).writeByte(LogEntryType.TOP_LEVEL_FLUSH).writeString(slId);
         }
 
         end(cb:() => void): void {
