@@ -71,10 +71,6 @@ public class SourceMap {
         }
 
         public String toString() {
-            if (this == SourceMap.END_OF_PROGRAM_ID) return "end of program";
-            if (this == SourceMap.UNKNOWN_ID) return "unknown";
-            if (this == INITIAL_DOM_ID) return "initial DOM";
-            if (this == REMOVE_FROM_DOM_SITE) return "removed from DOM";
             return (new StringBuilder()).append(sourceFileId).append(':')
                     .append(iid).toString();
         }
@@ -86,6 +82,11 @@ public class SourceMap {
 	public static final SourceLocId END_OF_PROGRAM_ID = new SourceLocId(DUMMY_SID, 0);
 	public static final SourceLocId UNKNOWN_ID = new SourceLocId(DUMMY_SID, -1);
 	public static final SourceLocId INITIAL_DOM_ID = new SourceLocId(DUMMY_SID, -2);
+    /**
+     * site to use to indicate last use of a DOM node
+     * was its removal from the visible DOM
+     */
+    public static final SourceLocId REMOVE_FROM_DOM_SITE = new SourceLocId(DUMMY_SID, -50);
 
 
 	/**
@@ -132,16 +133,12 @@ public class SourceMap {
 	    iid2SourceLoc.put(END_OF_PROGRAM_ID, SourceLocation.END_OF_PROGRAM);
 	    iid2SourceLoc.put(INITIAL_DOM_ID, SourceLocation.INITIAL_DOM);
 	    iid2SourceLoc.put(UNKNOWN_ID, SourceLocation.UNKNOWN);
+        iid2SourceLoc.put(REMOVE_FROM_DOM_SITE, SourceLocation.REMOVE_FROM_DOM);
 	}
 	private final Map<SourceLocId, SourceLocation> iid2SourceLoc = HashMapFactory.make();
 
 	private final Map<Integer, String> sid2FileName = HashMapFactory.make();
 
-    /**
-     * site to use to indicate last use of a DOM node
-     * was its removal from the visible DOM
-     */
-    public static final SourceLocId REMOVE_FROM_DOM_SITE = new SourceLocId(DUMMY_SID, -50);
 
 
 	public void addScriptMapping(int sid, String filename) {

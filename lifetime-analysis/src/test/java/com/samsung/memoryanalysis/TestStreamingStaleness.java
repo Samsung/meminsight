@@ -41,7 +41,9 @@ public class TestStreamingStaleness extends AbstractTester {
 	@Override
 	protected String runAnalysis(File trace) throws Exception {
         StringBuilder r = redirect();
-        ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(), new StreamingStalenessAnalysis(System.out));
+        StreamingStalenessAnalysis client = new StreamingStalenessAnalysis(System.out, System.out, System.out);
+        client.debug = true;
+        ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(), client);
         // gross.  we want some output even if analysis fails with an assertion
         try {
             new TraceAnalysisRunner(new FileInputStream(trace), null, trace.getParentFile()).runAnalysis(new ContextProvider<Void>(f, new MemoryAnalysisOptions()));

@@ -31,6 +31,7 @@ public class SourceLocation {
 	public static final SourceLocation END_OF_PROGRAM = new SourceLocation("end of program");
 	public static final SourceLocation INITIAL_DOM = new SourceLocation("initial DOM");
 	public static final SourceLocation UNKNOWN = new SourceLocation("unknown");
+    public static final SourceLocation REMOVE_FROM_DOM = new SourceLocation("remove from DOM");
 
     public final String file;
     public final long startLine;
