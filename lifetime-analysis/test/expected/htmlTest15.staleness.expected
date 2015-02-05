@@ -50,7 +50,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 4,
         "type": "DOM"
       },
@@ -62,7 +65,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 100,
         "type": "DOM"
       },
@@ -74,7 +80,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -86,7 +95,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -98,7 +110,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -110,7 +125,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -122,7 +140,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -134,7 +155,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -146,7 +170,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -158,7 +185,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -170,7 +200,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -182,7 +215,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -194,7 +230,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -206,7 +245,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -218,7 +260,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -230,7 +275,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -242,7 +290,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -254,7 +305,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -266,7 +320,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -278,7 +335,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -290,7 +350,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -302,7 +365,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -314,7 +380,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -326,7 +395,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -338,7 +410,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -350,7 +425,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -362,7 +440,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -374,7 +455,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -386,7 +470,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -398,7 +485,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -410,7 +500,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -422,7 +515,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -434,7 +530,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -446,7 +545,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -458,7 +560,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -470,7 +575,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -482,7 +590,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -494,7 +605,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -506,7 +620,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -518,7 +635,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -530,7 +650,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -542,7 +665,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -554,7 +680,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -566,7 +695,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -578,7 +710,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -590,7 +725,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -602,7 +740,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -614,7 +755,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -626,7 +770,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -638,7 +785,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -650,7 +800,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -662,7 +815,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -674,7 +830,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -686,7 +845,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -698,7 +860,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -710,7 +875,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -722,7 +890,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -734,7 +905,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -746,7 +920,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -758,7 +935,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -770,7 +950,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -782,7 +965,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -794,7 +980,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -806,7 +995,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -818,7 +1010,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -830,7 +1025,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -842,7 +1040,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -854,7 +1055,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -866,7 +1070,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -878,7 +1085,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -890,7 +1100,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -902,7 +1115,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -914,7 +1130,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -926,7 +1145,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -938,7 +1160,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -950,7 +1175,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -962,7 +1190,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -974,7 +1205,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -986,7 +1220,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -998,7 +1235,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1010,7 +1250,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1022,7 +1265,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1034,7 +1280,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1046,7 +1295,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1058,7 +1310,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1070,7 +1325,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1082,7 +1340,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1094,7 +1355,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1106,7 +1370,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1118,7 +1385,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1130,7 +1400,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1142,7 +1415,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1154,7 +1430,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1166,7 +1445,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1178,7 +1460,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1190,7 +1475,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1202,7 +1490,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 2,
         "type": "DOM"
       },
@@ -1214,7 +1505,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1226,7 +1520,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1238,7 +1535,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1250,7 +1550,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1262,7 +1565,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1274,7 +1580,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1286,7 +1595,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 7,
         "type": "DOM"
       },
@@ -1298,7 +1610,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1310,7 +1625,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 3,
         "type": "DOM"
       },
@@ -1322,7 +1640,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1346,7 +1667,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1358,7 +1682,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -1370,7 +1697,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       }
@@ -1457,7 +1787,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 2,
         "type": "DOM"
       },
@@ -1474,7 +1807,10 @@
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 257,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       }

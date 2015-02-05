@@ -160,7 +160,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 4,
         "type": "DOM"
       },
@@ -172,7 +175,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 46,
         "type": "DOM"
       },
@@ -184,7 +190,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -196,7 +205,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -208,7 +220,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -220,7 +235,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -232,7 +250,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -244,7 +265,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -256,7 +280,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -268,7 +295,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -280,7 +310,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -292,7 +325,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -304,7 +340,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -316,7 +355,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -328,7 +370,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -340,7 +385,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -352,7 +400,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -364,7 +415,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -376,7 +430,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -388,7 +445,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -400,7 +460,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -412,7 +475,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -424,7 +490,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -436,7 +505,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -448,7 +520,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -460,7 +535,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -472,7 +550,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -484,7 +565,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -496,7 +580,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -508,7 +595,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -520,7 +610,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -532,7 +625,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -544,7 +640,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -556,7 +655,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -568,7 +670,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -580,7 +685,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -592,7 +700,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -604,7 +715,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -616,7 +730,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -628,7 +745,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -640,7 +760,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -652,7 +775,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -664,7 +790,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 2,
         "type": "DOM"
       },
@@ -676,7 +805,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -688,7 +820,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -700,7 +835,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -712,7 +850,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -724,7 +865,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -736,7 +880,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -748,7 +895,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 6,
         "type": "DOM"
       },
@@ -760,7 +910,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -772,7 +925,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 8,
         "type": "DOM"
       },
@@ -784,7 +940,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -796,7 +955,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 2,
         "type": "DOM"
       },
@@ -808,7 +970,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -820,7 +985,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -832,7 +1000,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 2,
         "type": "DOM"
       },
@@ -844,7 +1015,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -856,7 +1030,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -868,7 +1045,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 2,
         "type": "DOM"
       },
@@ -880,7 +1060,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -892,7 +1075,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -904,7 +1090,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -916,7 +1105,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -928,7 +1120,10 @@ checknode_orig_.js:21:9:21:23 : RC(initial DOM) = 2
         "unreachableSite": "end of program",
         "staleness": 0,
         "lastUseTime": 159,
-        "lastUseSite": "removed from DOM",
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
         "shallowSize": 1,
         "type": "DOM"
       }

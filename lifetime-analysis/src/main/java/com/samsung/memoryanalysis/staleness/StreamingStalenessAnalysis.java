@@ -250,7 +250,7 @@ public class StreamingStalenessAnalysis implements
             // recorded as such, add a revived record for it
             if (!live.containsKey(childId)) {
                 AllocInfo objInfo = new AllocInfo(ObjectType.DOM,
-                        SourceMap.UNKNOWN_ID, UNKNOWN_TIME, null);
+                        SourceMap.UNKNOWN_ID, UNKNOWN_TIME, Collections.<SourceLocId>emptyList());
                 live.put(childId, objInfo);
             }
         }
@@ -311,6 +311,12 @@ public class StreamingStalenessAnalysis implements
         LastUseUnreachableInfo lastUseInfo = getLastUseUnreachableInfo(objectId);
         lastUseInfo.unreachableTime = time;
         lastUseInfo.unreachableSite = slId;
+        if (domParent2Children.containsKey(objectId)) {
+            // still in the live DOM, so treat this point as its last use time
+            lastUseInfo.mostRecentUseTime = time;
+            lastUseInfo.mostRecentUseSite = slId;
+            domParent2Children.remove(objectId);
+        }
         AllocInfo allocInfo = null;
         if (live.containsKey(objectId)) {
             allocInfo = live.get(objectId);
@@ -322,7 +328,7 @@ public class StreamingStalenessAnalysis implements
         } else {
             // this can happen in rare cases, e.g., for the document object
             allocInfo = new AllocInfo(ObjectType.DOM, SourceMap.UNKNOWN_ID,
-                    UNKNOWN_TIME, null);
+                    UNKNOWN_TIME, Collections.<SourceLocId>emptyList());
         }
         unreachable.put(objectId, allocInfo);
     }
