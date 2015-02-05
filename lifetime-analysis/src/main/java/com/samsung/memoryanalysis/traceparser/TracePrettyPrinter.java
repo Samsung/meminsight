@@ -70,17 +70,17 @@ public class TracePrettyPrinter implements TraceAnalysis<Void> {
 
     @Override
     public void functionEnter(SourceLocId slId, int functionId, SourceLocId callSiteIID) {
-        System.out.println(format("functionEnter(iid = %d, functionId = %d, callSiteIID = %d, time = %d)", slId, functionId, callSiteIID, timer.currentTime()));
+        System.out.println(format("functionEnter(slId=%s, functionId = %d, callSiteIID = %s, time = %d)", slId, functionId, callSiteIID, timer.currentTime()));
     }
 
     @Override
     public void functionExit(SourceLocId slId) {
-        System.out.println(format("functionExit(iid = %d, time = %d)", slId, timer.currentTime()));
+        System.out.println(format("functionExit(slId=%s, time = %d)", slId, timer.currentTime()));
     }
 
     @Override
     public void topLevelFlush(SourceLocId slId) {
-        System.out.printf("topLevelFlush(iid = %d)\n", slId);
+        System.out.printf("topLevelFlush(slId=%s)\n", slId);
     }
 
     @Override
@@ -115,42 +115,42 @@ public class TracePrettyPrinter implements TraceAnalysis<Void> {
 
     @Override
     public void createDomNode(SourceLocId slId, int o) {
-        System.out.printf("createDomNode(iid = %d, objectId = %d\n", slId, o);
+        System.out.printf("createDomNode(slId = %s, objectId = %d)\n", slId, o);
     }
 
     @Override
     public void addDOMChild(int parent, int child) {
-        System.out.printf("addDOMChild(parent = %d, child = %d\n", parent, child);
+        System.out.printf("addDOMChild(parent = %d, child = %d)\n", parent, child);
     }
 
     @Override
     public void removeDOMChild(int parent, int child) {
-        System.out.printf("removeDOMChild(parent = %d, child = %d\n", parent, child);
+        System.out.printf("removeDOMChild(parent = %d, child = %d)\n", parent, child);
     }
 
 	@Override
 	public void addToChildSet(SourceLocId slId, int parent, String name, int child) {
-        System.out.println(format("addToChildSet(slId=%s, parent=%d, name=%s, child=%s, time=%d)", slId, parent, name, child, timer.currentTime()));
+        System.out.println(format("addToChildSet(slId=%s, parent=%d, name=%s, child=%s, time=%d)\n", slId, parent, name, child, timer.currentTime()));
 	}
 
 	@Override
 	public void removeFromChildSet(SourceLocId slId, int parent, String name, int child) {
-        System.out.println(format("removeFromChildSet(slId=%s, parent=%d, name=%s, child=%s, time=%d)", slId, parent, name, child, timer.currentTime()));
+        System.out.println(format("removeFromChildSet(slId=%s, parent=%d, name=%s, child=%s, time=%d)\n", slId, parent, name, child, timer.currentTime()));
 	}
 
 	@Override
 	public void domRoot(int nodeId) {
-        System.out.println(format("domRoot(nodeId=%d, time=%d)", nodeId, timer.currentTime()));
+        System.out.println(format("domRoot(nodeId=%d, time=%d)\n", nodeId, timer.currentTime()));
 	}
 
 	@Override
 	public void scriptEnter(SourceLocId slId, String filename) {
-        System.out.println(format("scriptEnter(slId=%s, filename=%s, time=%d)", slId, filename, timer.currentTime()));
+        System.out.println(format("scriptEnter(slId=%s, filename=%s, time=%d)\n", slId, filename, timer.currentTime()));
 	}
 
 	@Override
 	public void scriptExit(SourceLocId slId) {
-        System.out.println(format("scriptExit(slId=%s, time=%d)", slId, timer.currentTime()));
+        System.out.println(format("scriptExit(slId=%s, time=%d)\n", slId, timer.currentTime()));
 	}
 
     @Override
