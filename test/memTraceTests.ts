@@ -37,7 +37,7 @@ for (var i = 1; i <= numTests; i++) {
     tests.push("testMemTrace" + i + ".js");
 }
 
-var refCountTests = 51;
+var refCountTests = 52;
 for (var i = 1; i <= refCountTests; i++) {
     tests.push("testRefCount" + i + ".js");
 }

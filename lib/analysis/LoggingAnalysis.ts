@@ -43,17 +43,6 @@ module ___LoggingAnalysis___ {
         }
 
 
-        //private handleTopLevel(iid: number): void {
-        //    if (this.logger.getFlushIID() === FlushIIDSpecial.ALREADY_FLUSHED && this.topLevelExprs[iid]) {
-        //        this.logger.setFlushIID(iid);
-        //        // at this point, we can empty the map from native objects to iids,
-        //        // since after a flush we won't be storing them anywhere
-        //        this.idManager.flushNativeObj2IIDInfo();
-        //
-        //    }
-        //}
-
-
         private logger: Logger;
 
         private idManager: ObjIdManager;
@@ -410,8 +399,8 @@ module ___LoggingAnalysis___ {
             }
 
             // functionEnter cannot be top-level
-//            this.handleTopLevel(iid);
         }
+
         getField(iid:number, base:any, offset:any, val:any):any {
             // base may not be an object, e.g., if it's a string
             if (isObject(base)) {
