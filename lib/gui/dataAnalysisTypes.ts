@@ -21,8 +21,9 @@ import tree = require('./tree');
 
 export class ObjectRecord {
     constructor (
-        public site : string,
+        public objectId: number,
         public kind : string,
+        public site : string,
         public creationTime : number,
         public unreachableTime : number,
         public shallowSize : number,

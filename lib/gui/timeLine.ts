@@ -20,73 +20,19 @@
 import types = require('./dataAnalysisTypes');
 import jalangi = require('jalangi2');
 import path = require('path');
+import Q = require('q');
 
 import tree = require('./tree');
+
+var LineByLineReader = require('line-by-line');
 
 enum Thresholds { VeryStale = 200000, NumBars = 500 };
 
 enum FunEvents { Enter = 1, Exit = -1};
 
-// TODO this should be passed as a parameter!
-var inputFile = process.argv[2];
 
-console.log ("Input file is: " + inputFile);
 
-//var buf : NodeBuffer = fs.readFileSync(inputFile);
 
-//var inp : string = buf.toString();
-
-//var objectSet : any = populateObjects(inp);
-
-//var ctl : any = computeCumulativeTimeLine(objectSet);
-
-//var ssd : any = computeSiteSummaryData(filterObjects(mkTimeFilter(ctl.timeAtMaxAlloc), objectSet));
-
-//printSiteSummaryData(ssd);
-
-// TODO figure out what is going on with this old code
-var replayPromise = null;// jalangi.replay(inputFile, refCountAnalysis, {});
-
-var objectSetPromise = replayPromise.then(function (r : any) {
-        return populateObjectsFromJSON(r.result);
-    });
-
-var siteSummaryDataPromiseMaker = function (osP : any) {
-    // assume it is objectSetPromise
-    return osP.then(function (r : any) {
-        var ssd = computeSiteSummaryData(r);
-        return filterSites(hasManyStales, ssd);
-    });
-};
-
-var timeLinePromiseMaker = function (osP : any) {
-    // assume it is objectSetPromise
-    return osP.then(function (r : any) {
-        return computeCumulativeTimeLine(r);
-    });
-};
-
-var objectsAtSiteAtTimePromiseMaker = function (osP : any, time : any, site : any) {
-    // assume it is objectSetPromise
-    return osP.then(function (r: any) {
-        var result : any = [];
-        var objs = filterObjects(mkTimeFilter(time), r);
-        if (objs[site] != undefined) {
-            result = objs[site];
-        }
-        return result;
-    });
-};
-
-/* --- "DRIVERS" ---(pick one) - */
-
-// siteSummaryDataPromiseMaker(objectSetPromise).done(function (r) { printSiteSummaryData(r);});
-
-/*timeLinePromiseMaker(objectSetPromise).done(
-    function (r) {
-        printCumulativeTimeLine(r);
-    }
-);*/
 
 
 /*---------- OBJECTSET ------------ */
@@ -96,31 +42,67 @@ var objectsAtSiteAtTimePromiseMaker = function (osP : any, time : any, site : an
    The site information in the object records for a site contains the site identity (redundantly?)
  */
 
-export function populateObjectsFromJSON(jsonObject : any) : any {
-    var objectSet : any = {};
-    for (var e in jsonObject["objectInfo"]) {
-        //console.log(e);
-        var ks = jsonObject["objectInfo"][e];
-        objectSet[e] = [];
-        for (var k in ks) {
-            var or : types.ObjectRecord = new types.ObjectRecord(
-                e.toString(),
-                ks[k].type,
-                ks[k].creationTime,
-                ks[k].unreachableTime,
-                ks[k].shallowSize,
-                /* ks[k].freeableSize, */
-                ks[k].staleness,
-                ks[k].unreachableTime - ks[k].staleness,
-                /* ks[k].leastChildStaleness, */
-                [],
-                ks[k].creationCallStack
-            )
-            objectSet[e].push(or);
+export function populateObjects(file: string) : Q.Promise<{objSet: {[site:string]: Array<types.ObjectRecord>}; maxTime: number}> {
+    var objectSet : {[site:string]: Array<types.ObjectRecord>} = {}, maxTime = 0;
+    var lr = new LineByLineReader(file);
+    var deferred = Q.defer<{objSet: {[site:string]: Array<types.ObjectRecord>}; maxTime: number}>();
+    lr.on('line', (line:string) => {
+        var data = JSON.parse(line);
+        //[objectId,type,allocSite,allocTime,allocCallStack,lastUseTime,lastUseSite,unreachableTime,unreachableSite]
+        var objectId = parseInt(data[0]),
+            type = data[1],
+            allocSite = data[2],
+            allocTime = parseInt(data[3]),
+            allocCallStack = data[4],
+            lastUseTime = parseInt(data[5]),
+            lastUseSite = data[6],
+            unreachableTime = parseInt(data[7]),
+            unreachableSite = data[8];
+        var staleness = lastUseTime === 0 ? unreachableTime - allocTime : unreachableTime - lastUseTime;
+        if (unreachableTime > maxTime) {
+            maxTime = unreachableTime;
         }
-    }
-
-    return objectSet;
+        var or = new types.ObjectRecord(
+            objectId, type, allocSite, allocTime, unreachableTime, 1, staleness, lastUseTime, [], allocCallStack);
+        var objs = objectSet[allocSite];
+        if (!objs) {
+            objectSet[allocSite] = objs = [];
+        }
+        objs.push(or);
+    });
+    lr.on('error', (err: any) => {
+        deferred.reject(err);
+    });
+    lr.on('end', () => {
+        deferred.resolve({
+            objSet: objectSet,
+            maxTime: maxTime
+        });
+    });
+    return deferred.promise;
+    //for (var e in jsonObject["objectInfo"]) {
+    //    //console.log(e);
+    //    var ks = jsonObject["objectInfo"][e];
+    //    objectSet[e] = [];
+    //    for (var k in ks) {
+    //        var or : types.ObjectRecord = new types.ObjectRecord(
+    //            e.toString(),
+    //            ks[k].type,
+    //            ks[k].creationTime,
+    //            ks[k].unreachableTime,
+    //            ks[k].shallowSize,
+    //            /* ks[k].freeableSize, */
+    //            ks[k].staleness,
+    //            ks[k].unreachableTime - ks[k].staleness,
+    //            /* ks[k].leastChildStaleness, */
+    //            [],
+    //            ks[k].creationCallStack
+    //        )
+    //        objectSet[e].push(or);
+    //    }
+    //}
+    //
+    //return objectSet;
 };
 
 export function populateFunctionTraceFromJSON(jsonObject : any) : any {
@@ -132,10 +114,6 @@ export function populateFunctionTraceFromJSON(jsonObject : any) : any {
         functionTrace.push(fr);
     }
     return functionTrace;
-}
-
-function populateObjects(inp: string) : any {
-    return populateObjectsFromJSON(JSON.parse(inp));
 }
 
 export function filterObjects(filter : any, objectSet : any) : any {
@@ -326,10 +304,9 @@ function printCumulativeTimeLine(timeLineRec : any) : void {
     console.log("TimeAtMaxAlloc: " + timeLineRec["timeAtMaxAlloc"]);
 }
 
-export function computeSampledTimeLine(objectSet: any, functionTrace : any, minTime : number, maxTime : number) : any {
+export function computeSampledTimeLine(objectSet: any, minTime : number, maxTime : number) : any {
     var cumulative = computeCumulativeTimeLine(objectSet);
     //printCumulativeTimeLine(cumulative);
-    var funcCumTimeLine = computeCumulativeFuncTimeLine(functionTrace);
     var timeLine = cumulative["timeLine"];
     var sampledTimeLine : any = [];
     var timeStep = Math.floor((maxTime - minTime) / Thresholds.NumBars);
@@ -345,7 +322,6 @@ export function computeSampledTimeLine(objectSet: any, functionTrace : any, minT
         while ((j >= loLim)) {
             if (timeLine[j] !== undefined  &&  ! found) {
                 sampledTimeLine[i].time = j;
-                sampledTimeLine[i].sd = findSD(funcCumTimeLine,j);
                 sampledTimeLine[i].alloc = timeLine[j].alloc;
                 sampledTimeLine[i].stale = timeLine[j].stale;
                 sampledTimeLine[i].lastalloc = sampledTimeLine[i].alloc;
@@ -354,7 +330,6 @@ export function computeSampledTimeLine(objectSet: any, functionTrace : any, minT
             } else if (timeLine[j] != undefined && found) { /* use the higher bar */
                 if (sampledTimeLine[i].alloc < timeLine[j].alloc) {
                     sampledTimeLine[i].time = j;
-                    sampledTimeLine[i].sd = findSD(funcCumTimeLine,j);
                     sampledTimeLine[i].alloc = timeLine[j].alloc;
                     sampledTimeLine[i].stale = timeLine[j].stale;
                 }
@@ -367,7 +342,6 @@ export function computeSampledTimeLine(objectSet: any, functionTrace : any, minT
             }
             else {
                 sampledTimeLine[i].time = i * timeStep;
-                sampledTimeLine[i].sd = findSD(funcCumTimeLine,j);
                 sampledTimeLine[i].alloc = sampledTimeLine[i - 1].lastalloc;
                 sampledTimeLine[i].stale = sampledTimeLine[i - 1].laststale;
                 sampledTimeLine[i].lastalloc = sampledTimeLine[i].alloc;

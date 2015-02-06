@@ -14,13 +14,11 @@
  * limitations under the License.
  */
 ///<reference path='../ts-declarations/node.d.ts' />
-///<reference path='../ts-declarations/jalangi.d.ts' />
 ///<reference path='../ts-declarations/express.d.ts' />
 
 
 // Author: Simon Jensen
 
-import jalangi = require('jalangi2');
 import path = require('path');
 import express = require('express');
 import types = require('./dataAnalysisTypes');
@@ -41,9 +39,8 @@ var parser = new argparse.ArgumentParser({
 });
 
 parser.addArgument(['-P', '--port'], { help: "Port to serve on" });
-parser.addArgument(['traceFile'], { help: "trace for app" });
-parser.addArgument(['stalenessInfo'], { help: "JSON file containing staleness info" });
-var args = parser.parseArgs();
+parser.addArgument(['lifetimeDir'], { help: "directory containing lifetime analysis output for app" });
+var args: { port: string; lifetimeDir: string } = parser.parseArgs();
 
 
 var instOptions = {
@@ -52,86 +49,35 @@ var instOptions = {
     relative: true
 };
 
-var file = args.traceFile;
-var file2 = args.stalenessInfo;
-var traceDirectory = path.dirname(path.resolve(file));
-var port = args.port === null ? 9000 : parseInt(parser.port);
+var traceDirectory = path.resolve(args.lifetimeDir);
+var stalenessTrace = path.join(traceDirectory, 'staleness-trace');
+var lastUseTrace = path.join(traceDirectory, 'lastuse-trace');
+var unreachableTrace = path.join(traceDirectory, 'unreachable-trace');
+var port = args.port === null ? 9000 : parseInt(args.port);
 var trace : string;
-var sizePromise : any;
-var recordPromise : any = null;
 
-if (file === undefined) {
-    console.log("Must specify trace")
-    process.exit(1)
+if (!fs.existsSync(stalenessTrace)) {
+    console.log("could not find staleness trace at " + stalenessTrace);
+    process.exit(1);
 }
 
-if (file.indexOf(".json") !== -1) {
-    console.log("Must specify trace and then the staleness .json file");
-    process.exit(1)
-}
-
-
-trace = file;
-if (file2.indexOf(".json") !== -1) {
-    console.log("Reading Size and Staleness JSON file " + file2);
-    sizePromise = Q.fcall (
-        function () {
-            var buf : NodeBuffer = fs.readFileSync(file2);
-            var json : JSON = JSON.parse(buf.toString());
-            return { result: json };
-        });
-} else {
-    console.log("Expecting a .json file in the second argument");
-    process.exit(1)
-}
 
 /**
  * parsed representation of site information from JSON file
  */
-var objectSet : any;
-
-/**
- * trace of function calls
- */
-var ft : any;
+var objectSet : {[site:string]: Array<types.ObjectRecord>};
 
 var maxTime : number;
-var origJson : any = undefined;
-sizePromise.then(
-    function (r : any) {
-        console.log("Populating JSON objects");
-        objectSet = timeAnalysis.populateObjectsFromJSON(r.result);
-        console.log("...done");
 
-        console.log("Populating function trace");
-        ft = timeAnalysis.populateFunctionTraceFromJSON(r.result);
-        //timeAnalysis.decorateObjectSet(objectSet, ft);
-        // timeAnalysis.testFuncTimeLine(t);
+console.log("Populating objects from staleness trace");
+var objectSetPromise = timeAnalysis.populateObjects(stalenessTrace);
+objectSetPromise.then((r) => {
+    objectSet = r.objSet;
+    maxTime = r.maxTime;
+    console.log("...done");
+}).done();
 
-        var max = 0;
-        for (var i in ft) { // NOTE: assuming in order
-            //console.log(i + ", " + ft[i].time);
-            max = i;
-        }
-        maxTime = ft[max].time;
-        origJson = r.result
-        console.log("... done");
 
-        return;
-    }
-).done();
-
-function makeSummary() {
-    if (recordPromise !== null) {
-        return recordPromise.then(function (r : any) {
-            return {name: r.traceFile}
-        })
-    } else {
-        return Q.fcall(function () {
-            return {name: file}
-        })
-    }
-}
 
 var app = express();
 // setting this option makes generation of JSON more space-efficient
@@ -213,7 +159,7 @@ app.get("/timeline/:site", (req,res) =>{
         siteos[site] = curObjectSet[site];
     }
 
-    var ts = timeAnalysis.computeSampledTimeLine(siteos, ft, 0, maxTime); /* need to pass in start and end times */
+    var ts = timeAnalysis.computeSampledTimeLine(siteos, 0, maxTime); /* need to pass in start and end times */
     console.log("Sending timeline data for " + 0 + " to " + maxTime);
 
     json = siteos; // remember what object set we used, in case someone asks for size details
@@ -248,17 +194,17 @@ app.get("/callingcontexts/:site", function (req, res) {
 
 app.get("/accesspaths", (req,res) => {
     var site = req.param("site");
-    var time = req.param("time");
+    var time = parseInt(req.param("time"));
     console.log("Asked for access paths for site: " + site + " and time " + time);
-    var objects = origJson["objectInfo"][site];
-    objects  = objects.filter((obj : any) => {
+    var objects = objectSet[site];
+    var relevantObjectIds  = objects.filter((obj) => {
         // for now, we filter out PROTOTYPE objects
         // TODO handle them properly
-        return obj.creationTime <= time && obj.type !== 'PROTOTYPE';
-    }).map((obj : any) => obj.objectId);
+        return obj.creationTime <= time && obj.kind !== 'PROTOTYPE';
+    }).map((obj) => obj.objectId);
     //console.log(objects)
     console.log("Number of objects: " + objects.length);
-    var pathsPromise = accessPathApi.getAccessPaths(objects, parseInt(time), trace);
+    var pathsPromise = accessPathApi.getAccessPaths(relevantObjectIds, time, trace);
     pathsPromise.then((paths) => {
         var b = timeAnalysis.analyzePaths(paths);
         return res.json(b);
@@ -296,13 +242,13 @@ app.get("/allocpage/:site", (req, res) => {
     res.send(ejs.render(getAllocPageTemplate(), { site: decodeURIComponent(req.params.site)}));
 });
 
-app.get("/lastusetree", (req, res) => {
-    var site = req.param("site")
-    var time = parseInt(req.param("time"))
-    sizePromise.then(function (r : any) {
-        res.json(lastUseTree.computeTree(r.result, site, time))
-    })
-});
+//app.get("/lastusetree", (req, res) => {
+//    var site = req.param("site")
+//    var time = parseInt(req.param("time"))
+//    sizePromise.then(function (r : any) {
+//        res.json(lastUseTree.computeTree(r.result, site, time))
+//    })
+//});
 
 app.get("/problemslist", (req, res) => {
     enhOutputPromise.then((output) => {

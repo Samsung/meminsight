@@ -117,21 +117,15 @@ function inspectApp(args: Array<string>): void {
     }
     // in order to inspect, we must have a staleness.json and
     // enhanced-trace file present
-    var stalenessJSONPath = path.join(appPath, 'staleness.json');
-    if (!fs.existsSync(stalenessJSONPath)) {
-        console.error("no staleness.json from previous run present; exiting");
-        process.exit(1);
-    }
-    var enhancedTracePath = path.join(appPath, 'enhanced-trace');
-    if (!fs.existsSync(enhancedTracePath)) {
-        console.error("no enhanced-trace from previous run present; exiting");
+    var stalenessTrace = path.join(appPath, 'staleness-trace');
+    if (!fs.existsSync(stalenessTrace)) {
+        console.error("no staleness trace from previous run present; exiting");
         process.exit(1);
     }
     // OK, we have the files.  run the GUI server
     var cliArgs = [
         path.join(__dirname, '..', 'lib', 'gui', 'guiServer.js'),
-        enhancedTracePath,
-        stalenessJSONPath
+        appPath
     ];
     runNodeProg(cliArgs, "inspect of app ");
 }
