@@ -44,6 +44,7 @@ enum FunEvents { Enter = 1, Exit = -1};
 
 export function populateObjects(file: string) : Q.Promise<{objSet: {[site:string]: Array<types.ObjectRecord>}; maxTime: number}> {
     var objectSet : {[site:string]: Array<types.ObjectRecord>} = {}, maxTime = 0;
+    var recordArr: Array<types.ObjectRecord> = [];
     var lr = new LineByLineReader(file);
     var deferred = Q.defer<{objSet: {[site:string]: Array<types.ObjectRecord>}; maxTime: number}>();
     lr.on('line', (line:string) => {
@@ -58,17 +59,31 @@ export function populateObjects(file: string) : Q.Promise<{objSet: {[site:string
             lastUseSite = data[6],
             unreachableTime = parseInt(data[7]),
             unreachableSite = data[8];
-        var staleness = lastUseTime === 0 ? unreachableTime - allocTime : unreachableTime - lastUseTime;
+        if (recordArr[objectId]) {
+            // this is an update record.  if we have a new lastUseTime, update it.
+            // definitely update the unreachability time
+            var oldRecord = recordArr[objectId];
+            if (lastUseTime !== 0) {
+                oldRecord.lastUseTime = lastUseTime;
+            }
+            oldRecord.unreachableTime = unreachableTime;
+            oldRecord.staleness = oldRecord.lastUseTime === 0 ? unreachableTime - oldRecord.creationTime
+                : unreachableTime - oldRecord.lastUseTime;
+        } else {
+            // first record for this object
+            var staleness = lastUseTime === 0 ? unreachableTime - allocTime : unreachableTime - lastUseTime;
+            var or = new types.ObjectRecord(
+                objectId, type, allocSite, allocTime, unreachableTime, 1, staleness, lastUseTime, [], allocCallStack);
+            recordArr[objectId] = or;
+            var objs = objectSet[allocSite];
+            if (!objs) {
+                objectSet[allocSite] = objs = [];
+            }
+            objs.push(or);
+        }
         if (unreachableTime > maxTime) {
             maxTime = unreachableTime;
         }
-        var or = new types.ObjectRecord(
-            objectId, type, allocSite, allocTime, unreachableTime, 1, staleness, lastUseTime, [], allocCallStack);
-        var objs = objectSet[allocSite];
-        if (!objs) {
-            objectSet[allocSite] = objs = [];
-        }
-        objs.push(or);
     });
     lr.on('error', (err: any) => {
         deferred.reject(err);
@@ -419,7 +434,7 @@ export interface SSDResult {
     totalAllocations: number
     totalStaleness: number
 }
-export function computeSiteSummaryData(objectSet: any): SSDResult {
+export function computeSiteSummaryData(objectSet: {[site:string]: Array<types.ObjectRecord>}): SSDResult {
     var ssd : { [objId: string]: types.SiteSummaryData } = {};
     var totalHeapMoment = 0;
     var totalStaleness = 0;
