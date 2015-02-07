@@ -60,6 +60,10 @@ interface DetailsChartState {
         clickIndex = maxInd;
     }
 
+    // keep this shared between different invocations of detailsChartGenerator.
+    // a very small leak, but fixes some bugs
+    var formatted2FullSiteName: { [fmt: string]: string } = {};
+
     function detailsChartGenerator(pieChart: boolean, domID: string, state: DetailsChartState): (sizeDetails: any) => void {
         return function (sizeDetails: any) {
             var summaryData: any = sizeDetails.summaryData;
@@ -67,7 +71,6 @@ interface DetailsChartState {
             var curId = 0;
             var totalNumObjs = 0;
             var topSiteNames = state.topSiteNames;
-            var formatted2FullSiteName: { [fmt: string]: string } = {};
             var detailsChart = state.chart;
             // allocation site names
             var siteNames: Array<string> = [];
@@ -130,8 +133,10 @@ interface DetailsChartState {
                     columns: pieChart ? topObjCounts : [topObjCounts],
                     type: pieChart ? 'pie' : 'bar',
                     onclick: (pieChart ? ((d: any, i: any) => {
-                        console.log("onclick", d, i);
-                        window.open("/allocpage/" + encodeURIComponent(formatted2FullSiteName[d.id]));
+                        //console.log("onclick", d, i);
+                        if (d.id !== 'other') {
+                            window.open("/allocpage/" + encodeURIComponent(formatted2FullSiteName[d.id]));
+                        }
                     }) : null)
                 };
                 var config = {
