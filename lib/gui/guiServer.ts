@@ -85,8 +85,6 @@ app.set('json spaces', undefined);
 app.configure(function(){
     app.use(express.static(path.join(__dirname, '..', 'newGUI')));
 });
-var curObjectSet : any;
-
 var enhOutputPromise = issueFinder.getEnhancedTraceOutput(path.join(traceDirectory, 'enhanced-trace'));
 
 function extend(dst: any, src: any) {
@@ -129,7 +127,6 @@ function joinAndComputeMetrics(timelineOutput: timeAnalysis.SSDResult, enhOutput
 
 app.get("/summary", (req, res) =>{
     var timeOutput = timeAnalysis.computeSiteSummaryData(objectSet);
-    curObjectSet = objectSet;
     enhOutputPromise.then((enhOutput: any) => {
         var merged = joinAndComputeMetrics(timeOutput, enhOutput);
         var result = res.json(merged);
@@ -138,47 +135,37 @@ app.get("/summary", (req, res) =>{
     });
 });
 
-var json : any;
-
 app.get("/timeline/:site", (req,res) =>{
     var siteos : any = {};
     var site = req.params.site;
     //console.log(req.params.site);
     if (site === "*") { /* all sites */
-        if (!curObjectSet) {
-            curObjectSet = objectSet;
-        }
-        siteos = curObjectSet;
+        siteos = objectSet;
     } else if (site == "DOM") { /* all DOM sites */
-        siteos = timeAnalysis.filterObjects(timeAnalysis.mkDOMFilter(), curObjectSet);
+        siteos = timeAnalysis.filterObjects(timeAnalysis.mkDOMFilter(), objectSet);
     } else { /* specific site */
-        if (!curObjectSet) {
-            curObjectSet = objectSet;
-        }
         site = decodeURIComponent(site);
-        siteos[site] = curObjectSet[site];
+        siteos[site] = objectSet[site];
     }
 
     var ts = timeAnalysis.computeSampledTimeLine(siteos, 0, maxTime); /* need to pass in start and end times */
     console.log("Sending timeline data for " + 0 + " to " + maxTime);
 
-    json = siteos; // remember what object set we used, in case someone asks for size details
-
     return res.json(ts);
-})
+});
 
 app.get("/sizedetails/:time/:staleOnly", (req,res) => {
     console.log("Asked for details at time " + req.params.time + " and stale? " + req.params.staleOnly);
     var time = req.params.time;
     var staleOnly : boolean = req.params.staleOnly === "true";
     if (staleOnly) {
-        var ssd = timeAnalysis.computeSiteSummaryData(timeAnalysis.filterObjects(timeAnalysis.mkStaleFilter(time), json));
+        var ssd = timeAnalysis.computeSiteSummaryData(timeAnalysis.filterObjects(timeAnalysis.mkStaleFilter(time), objectSet));
         return res.json(ssd);
     } else {
-        var ssd = timeAnalysis.computeSiteSummaryData(timeAnalysis.filterObjects(timeAnalysis.mkTimeFilter(time), json));
+        var ssd = timeAnalysis.computeSiteSummaryData(timeAnalysis.filterObjects(timeAnalysis.mkTimeFilter(time), objectSet));
         return res.json(ssd);
     }
-})
+});
 
 app.get("/callingcontexts/:site", function (req, res) {
     var site = req.params.site;
@@ -216,7 +203,8 @@ app.get("/accesspaths", (req,res) => {
 app.get("/srcloc/:site", (req,res) => {
     var iid = decodeURIComponent(req.params.site);
     var filename = iid.split(':')[0];
-    var file = path.join(traceDirectory,filename);
+//    var file = path.join(traceDirectory,filename);
+    var file = filename;
     console.log("Sending source file: " + file);
     fs.readFile(file, (err, data) => {
         if (err) {
