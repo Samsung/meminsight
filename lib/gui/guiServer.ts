@@ -53,8 +53,8 @@ var traceDirectory = path.resolve(args.lifetimeDir);
 var stalenessTrace = path.join(traceDirectory, 'staleness-trace');
 var lastUseTrace = path.join(traceDirectory, 'lastuse-trace');
 var unreachableTrace = path.join(traceDirectory, 'unreachable-trace');
+var memTrace = path.join(traceDirectory, 'mem-trace');
 var port = args.port === null ? 9000 : parseInt(args.port);
-var trace : string;
 
 if (!fs.existsSync(stalenessTrace)) {
     console.log("could not find staleness trace at " + stalenessTrace);
@@ -191,7 +191,7 @@ app.get("/accesspaths", (req,res) => {
     }).map((obj) => obj.objectId);
     //console.log(objects)
     console.log("Number of objects: " + objects.length);
-    var pathsPromise = accessPathApi.getAccessPaths(relevantObjectIds, time, trace);
+    var pathsPromise = accessPathApi.getAccessPaths(relevantObjectIds, time, memTrace);
     pathsPromise.then((paths) => {
         var b = timeAnalysis.analyzePaths(paths);
         return res.json(b);
