@@ -65,9 +65,9 @@ var parser = new argparse.ArgumentParser({
 parser.addArgument(['--proxy'], { help: "run as a proxy server, instrumenting code on-the-fly", action:'storeTrue' });
 parser.addArgument(['--proxyOutput'], { help: "in proxy server mode, directory under which to store instrumented code", defaultValue: '/tmp/proxyOut' });
 parser.addArgument(['--noHTTPServer'], { help: "don't start up a local HTTP server", action: 'storeTrue'});
-parser.addArgument(['--outputFile'], { help: "write generated trace to a file, instead of sending to lifetime analysis"});
+parser.addArgument(['--outputFile'], { help: "name for output file for memory trace (default mem-trace in app directory)" });
 parser.addArgument(['app'], { help: "the app to serve.  in proxy mode, the app should be uninstrumented.", nargs: 1});
-var args = parser.parseArgs();
+var args: { proxy: string; proxyOutput: string; noHTTPServer: string; app: Array<string>; outputFile: string; } = parser.parseArgs();
 
 var app = args.app[0];
 
@@ -93,34 +93,33 @@ function initProxyOutputDir(): void {
 }
 
 /**
- * initializes the output target, either the Java process or a WriteStream for a file
+ * initializes the output target, both a Java process and a WriteStream for a file
  */
 function initOutputTarget(): void {
-    if (args.outputFile) {
-        if (outputStream) {
-            // already initialized
-            return;
+    if (!outputStream) {
+        var outputFileName = args.outputFile;
+        if (!outputFileName) {
+            outputFileName = path.join(outputDir, 'mem-trace');
         }
-        outputStream = fs.createWriteStream(args.outputFile);
-    } else {
-        if (javaProc) {
-            // already initialized
-            return;
-        }
-        console.log("running lifetime analysis");
-        javaProc = lifetimeAnalysis.runLifetimeAnalysis(outputDir);
-        javaProc.stdout.on("data", (chunk : any) => {
-            console.log(chunk.toString());
-        });
-        javaProc.stderr.on("data", (chunk : any) => {
-            console.error(chunk.toString());
-        });
-        javaProc.on("exit", () => {
-            console.log("done");
-            process.exit(0);
-//            showGui();
-        });
+        outputStream = fs.createWriteStream(outputFileName);
     }
+    if (javaProc) {
+        // already initialized
+        return;
+    }
+    console.log("running lifetime analysis");
+    javaProc = lifetimeAnalysis.runLifetimeAnalysis(outputDir);
+    javaProc.stdout.on("data", (chunk : any) => {
+        console.log(chunk.toString());
+    });
+    javaProc.stderr.on("data", (chunk : any) => {
+        console.error(chunk.toString());
+    });
+    javaProc.on("exit", () => {
+        console.log("done");
+        process.exit(0);
+//            showGui();
+    });
 }
 
 var recordServer : http.Server;
@@ -162,22 +161,16 @@ function record() {
                 // node.js will buffer in RAM if data isn't written yet
                 // TODO do our own buffering via the callback?
                 var binaryMsg = message.binaryData;
-                if (args.outputFile) {
-                    outputStream.write(binaryMsg);
-                } else {
-                    javaProc.stdin.write(binaryMsg);
-                }
+                outputStream.write(binaryMsg);
+                javaProc.stdin.write(binaryMsg);
                 connection.sendUTF("done");
             }
         });
         connection.on('close', function(reasonCode: any, description: any) {
             console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected. '+reasonCode+" "+description);
-            if (args.outputFile) {
-                outputStream.end("", function () { console.log("done writing log")});
-            } else {
-                process.stdout.write("completing lifetime analysis...");
-                javaProc.stdin.end();
-            }
+            outputStream.end("", function () { console.log("done writing log")});
+            process.stdout.write("completing lifetime analysis...");
+            javaProc.stdin.end();
         });
     });
 
@@ -319,11 +312,8 @@ function sendMetadata(iidSourceInfo: any, freeVars: any): void {
         totalLength += len;
     });
     var finalBuffer = Buffer.concat(result,totalLength);
-    if (args.outputFile) {
-        outputStream.write(finalBuffer);
-    } else {
-        javaProc.stdin.write(finalBuffer);
-    }
+    outputStream.write(finalBuffer);
+    javaProc.stdin.write(finalBuffer);
 }
 
 function startProxy(): void {
