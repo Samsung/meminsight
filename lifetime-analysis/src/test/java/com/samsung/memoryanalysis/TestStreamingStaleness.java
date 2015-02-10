@@ -15,6 +15,7 @@
  */
 package com.samsung.memoryanalysis;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -41,7 +42,8 @@ public class TestStreamingStaleness extends AbstractTester {
 	@Override
 	protected String runAnalysis(File trace) throws Exception {
         StringBuilder r = redirect();
-        StreamingStalenessAnalysis client = new StreamingStalenessAnalysis(System.out, System.out, System.out);
+        ByteArrayOutputStream lastUse = new ByteArrayOutputStream(), unreach = new ByteArrayOutputStream();
+        StreamingStalenessAnalysis client = new StreamingStalenessAnalysis(System.out, lastUse, unreach);
         client.debug = true;
         ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(), client);
         // gross.  we want some output even if analysis fails with an assertion

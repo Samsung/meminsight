@@ -15,6 +15,8 @@
  */
 package com.samsung.memoryanalysis.staleness;
 
+import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.Type;
@@ -106,8 +108,8 @@ public class StreamingStalenessAnalysis implements
             10000);
     private final PrintStream out;
 
-    private final PrintStream lastUseOut;
-    private final PrintStream unreachOut;
+    private final DataOutputStream lastUseOut;
+    private final DataOutputStream unreachOut;
 
     private SourceMap sourceMap;
 
@@ -122,8 +124,8 @@ public class StreamingStalenessAnalysis implements
     public StreamingStalenessAnalysis(OutputStream out,
             OutputStream lastUseOut, OutputStream unreachOut) {
         this.out = new PrintStream(out);
-        this.lastUseOut = new PrintStream(lastUseOut);
-        this.unreachOut = new PrintStream(unreachOut);
+        this.lastUseOut = new DataOutputStream(lastUseOut);
+        this.unreachOut = new DataOutputStream(unreachOut);
         gson = new GsonBuilder().registerTypeAdapter(SourceLocId.class,
                 new SourceLocSerializer()).create();
     }
@@ -399,13 +401,24 @@ public class StreamingStalenessAnalysis implements
         };
         Collections.sort(lastUseUnreachInfo, lastUseCompare);
         if (debug)
-            lastUseOut.println("last use");
+            out.println("last use");
         for (LastUseUnreachableInfo info : lastUseUnreachInfo) {
             if (info == null || info.mostRecentUseTime == 0)
                 break;
-            Object[] entry = new Object[] { info.objectId,
-                    info.mostRecentUseTime, info.mostRecentUseSite };
-            lastUseOut.println(gson.toJson(entry));
+            if (debug) {
+                Object[] entry = new Object[] { info.objectId,
+                        info.mostRecentUseTime, info.mostRecentUseSite };
+                out.println(gson.toJson(entry));
+            }
+            try {
+                lastUseOut.writeInt(info.objectId);
+                lastUseOut.writeLong(info.mostRecentUseTime);
+                lastUseOut.writeInt(info.mostRecentUseSite.getSourceFileId());
+                lastUseOut.writeInt(info.mostRecentUseSite.getIid());
+            } catch (IOException e) {
+                throw new Error("I/O error", e);
+            }
+
         }
         Comparator<LastUseUnreachableInfo> unreachCompare = new Comparator<StreamingStalenessAnalysis.LastUseUnreachableInfo>() {
 
@@ -427,13 +440,24 @@ public class StreamingStalenessAnalysis implements
         };
         Collections.sort(lastUseUnreachInfo, unreachCompare);
         if (debug)
-            unreachOut.println("unreachable");
+            out.println("unreachable");
         for (LastUseUnreachableInfo info : lastUseUnreachInfo) {
             if (info == null)
                 break;
-            Object[] entry = new Object[] { info.objectId,
-                    info.unreachableTime, info.unreachableSite };
-            unreachOut.println(gson.toJson(entry));
+            if (debug) {
+                Object[] entry = new Object[] { info.objectId,
+                        info.unreachableTime, info.unreachableSite };
+                out.println(gson.toJson(entry));
+            }
+            try {
+                unreachOut.writeInt(info.objectId);
+                unreachOut.writeLong(info.mostRecentUseTime);
+                unreachOut.writeInt(info.mostRecentUseSite.getSourceFileId());
+                unreachOut.writeInt(info.mostRecentUseSite.getIid());
+            } catch (IOException e) {
+                throw new Error("I/O error", e);
+            }
+
         }
         return null;
     }
