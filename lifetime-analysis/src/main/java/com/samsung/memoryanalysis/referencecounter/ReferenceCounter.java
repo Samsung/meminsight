@@ -250,7 +250,7 @@ public class ReferenceCounter<T> implements ContextAwareAnalysis<T> {
     }
 
     @Override
-    public void lastUse(final int objectId, SourceLocId slId, int time) {
+    public void lastUse(final int objectId, SourceLocId slId, long time) {
         client.lastUse(objectId, slId, time);
     }
 

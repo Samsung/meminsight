@@ -60,7 +60,7 @@ public class DummyContextAwareAnalysis<T> implements ContextAwareAnalysis<T> {
     }
 
     @Override
-    public void lastUse(int objectId, SourceLocId slId, int time) {
+    public void lastUse(int objectId, SourceLocId slId, long time) {
 
     }
 

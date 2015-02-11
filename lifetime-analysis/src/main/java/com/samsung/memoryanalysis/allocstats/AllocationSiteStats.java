@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2014 Samsung Electronics Co., Ltd.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.samsung.memoryanalysis.allocstats;
 
 import java.util.ArrayDeque;
@@ -10,19 +25,27 @@ import java.util.Set;
 
 import com.ibm.wala.util.collections.HashMapFactory;
 import com.ibm.wala.util.collections.Pair;
-import com.samsung.memoryanalysis.context.Context;
-import com.samsung.memoryanalysis.referencecounter.UnreachabilityAwareAnalysis;
+import com.samsung.memoryanalysis.traceparser.EnhancedTraceAnalysis;
 import com.samsung.memoryanalysis.traceparser.SourceMap;
 import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
-public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
+public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
 
+    /**
+     * per-object metadata.  we try to be careful to avoid leaking
+     * this metadata, freeing all pointers to it once the corresponding
+     * object becomes unreachable
+     */
     static class ObjMetadata {
 
         List<Pair<SourceLocId,Integer>> creationIndex;
     }
 
+
+    /**
+     * per-allocation-site metadata
+     */
     static class SiteMetadata {
 
         int isIncreasing = -100;
@@ -87,9 +110,12 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
 
     @SuppressWarnings("unused")
     private Timer timer;
+
+    private SourceMap sourceMap;
     @Override
     public void init(Timer timer, SourceMap iidMap) {
         this.timer = timer;
+        this.sourceMap = iidMap;
     }
 
     @Override
@@ -106,16 +132,16 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
         m.creationIndex = executionIndex.getIndex();
     }
     @Override
-    public void create(SourceLocId slId, int objectId, long time, boolean isDom) {
+    public void create(SourceLocId slId, int objectId) {
         createObj(slId, objectId);
     }
 
     @Override
     public void createFun(SourceLocId slId, int objectId, int prototypeId,
             SourceLocId functionEnterIID,
-            Set<String> namesReferencedByClosures, Context context, long time) {
-        // TODO Auto-generated method stub
-
+            Set<String> namesReferencedByClosures) {
+        createObj(slId, objectId);
+        createObj(slId, prototypeId);
     }
 
     @Override
@@ -149,7 +175,7 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
     }
     @Override
     public void functionEnter(SourceLocId slId, int funId,
-            SourceLocId callSiteIID, Context newContext, long time) {
+            SourceLocId callSiteIID) {
         handleFunEnter(callSiteIID);
     }
 
@@ -181,8 +207,7 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
         }
     }
     @Override
-    public void functionExit(SourceLocId slId, Context functionContext,
-            Set<String> unReferenced, long time) {
+    public void functionExit(SourceLocId slId) {
         handleFunExit();
     }
 
@@ -194,8 +219,6 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
 
     @Override
     public void updateIID(int objId, SourceLocId newIID) {
-        // TODO Auto-generated method stub
-
     }
 
     @Override
@@ -211,13 +234,13 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
     }
 
     @Override
-    public void addDOMChild(int parentId, int childId, long time) {
+    public void addDOMChild(int parentId, int childId) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void removeDOMChild(int parentId, int childId, long time) {
+    public void removeDOMChild(int parentId, int childId) {
         // TODO Auto-generated method stub
 
     }
@@ -253,31 +276,34 @@ public class AllocationSiteStats implements UnreachabilityAwareAnalysis<Void> {
     }
 
     @Override
-    public void unreachableObject(SourceLocId slId, int objectId, long time,
-            int shallowSize) {
-        ObjMetadata objMetadata = objId2Metadata.get(objectId);
-        SourceLocId allocId = getAllocId(objMetadata.creationIndex);
-        SiteMetadata siteMetadata = slId2Metadata.get(allocId);
-        siteMetadata.currentStaleCount--;
-        objId2Metadata.remove(objectId);
-    }
-
-    @Override
-    public void unreachableContext(SourceLocId slId, Context ctx, long time) {
-        // TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public Void endExecution(long time) {
-        // TODO Auto-generated method stub
+    public Void endExecution() {
+        // all staleness counts should be zero
+        for (SourceLocId slId: slId2Metadata.keySet()) {
+            SiteMetadata sm = slId2Metadata.get(slId);
+            assert sm.currentStaleCount == 0 : "non-zero stale count for site " + sourceMap.get(slId).toString();
+            if (sm.isIncreasing > 0) {
+                System.out.println("leaking site " + slId);
+            }
+        }
         return null;
     }
 
     @Override
     public void endLastUse() {
-        // TODO Auto-generated method stub
+        assert false: "this should never be called";
+    }
 
+    @Override
+    public void createDomNode(SourceLocId slId, int objectId) {
+        createObj(slId, objectId);
+    }
+
+    @Override
+    public void unreachableObject(SourceLocId slId, int objectId) {
+        // decrease the stale count for the allocation site
+        SiteMetadata siteMetadata = slId2Metadata.get(slId);
+        siteMetadata.currentStaleCount--;
+        assert siteMetadata.currentStaleCount >= 0 : "negative stale count for " + sourceMap.get(slId).toString();
     }
 
 }

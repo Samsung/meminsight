@@ -40,7 +40,7 @@ public interface TraceAnalysis<T> {
 
     public void write(SourceLocId slId, String name, int objectId);
 
-    public void lastUse(int objectId, SourceLocId slId, int time);
+    public void lastUse(int objectId, SourceLocId slId, long time);
 
     public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteId);
 

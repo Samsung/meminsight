@@ -131,7 +131,7 @@ public class ContextProvider <T> implements TraceAnalysis<T> {
     }
 
     @Override
-    public void lastUse(int objectId, SourceLocId slId, int time) {
+    public void lastUse(int objectId, SourceLocId slId, long time) {
         callbacks.lastUse(objectId, slId, time);
     }
 

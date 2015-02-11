@@ -64,7 +64,7 @@ public class TracePrettyPrinter implements TraceAnalysis<Void> {
     }
 
     @Override
-    public void lastUse(int objectId, SourceLocId slId, int time) {
+    public void lastUse(int objectId, SourceLocId slId, long time) {
         System.out.println(format("lastUse(objectId=%d, slId=%s, time=%d)", objectId, slId, time));
     }
 

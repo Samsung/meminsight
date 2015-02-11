@@ -41,7 +41,7 @@ public interface ContextAwareAnalysis<T> {
 
     public void write(SourceLocId slId, String name, int objectId, Context context);
 
-    public void lastUse(int objectId, SourceLocId slId, int time);
+    public void lastUse(int objectId, SourceLocId slId, long time);
 
     public void functionEnter(SourceLocId slId, int funId, SourceLocId callSiteIID, Context newContext);
 

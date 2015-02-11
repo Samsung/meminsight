@@ -332,6 +332,7 @@ public class TraceAnalysisRunner {
                 case UNREACHABLE:
                     break;
             }
+            handleTime(timer.currentTime(), a);
             // don't tick timer for metadata entries
             if (!METADATA_ENTRIES.contains(evtType.ordinal())) {
                 timer.tick();
@@ -348,6 +349,11 @@ public class TraceAnalysisRunner {
         timer.rewindOneTick();
         return a.endExecution();
     }
+
+    protected <T> void handleTime(long currentTime, TraceAnalysis<T> a) {
+        // override in subclasses
+    }
+
     private static class TraceTimer implements Timer {
 
         private long timeInternal = 0;
