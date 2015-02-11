@@ -40,6 +40,7 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
     static class ObjMetadata {
 
         List<Pair<SourceLocId,Integer>> creationIndex;
+        boolean isStale;
     }
 
 
@@ -161,8 +162,14 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
     @Override
     public void lastUse(int objectId, SourceLocId slId, long time) {
         ObjMetadata objMetadata = objId2Metadata.get(objectId);
+        assert objMetadata != null : "never observed creation of object " + objectId;
+        objMetadata.isStale = true;
         SourceLocId allocId = getAllocId(objMetadata.creationIndex);
         SiteMetadata siteMetadata = slId2Metadata.get(allocId);
+        if (siteMetadata == null) {
+            siteMetadata = new SiteMetadata();
+            slId2Metadata.put(allocId, siteMetadata);
+        }
         siteMetadata.currentStaleCount++;
     }
 
@@ -280,9 +287,9 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
         // all staleness counts should be zero
         for (SourceLocId slId: slId2Metadata.keySet()) {
             SiteMetadata sm = slId2Metadata.get(slId);
-            assert sm.currentStaleCount == 0 : "non-zero stale count for site " + sourceMap.get(slId).toString();
+            assert sm.currentStaleCount == 0 : "non-zero stale count " + sm.currentStaleCount + " for site " + slId + " " + sourceMap.get(slId).toString();
             if (sm.isIncreasing > 0) {
-                System.out.println("leaking site " + slId);
+                System.out.println("leaking site " + sourceMap.get(slId).toString());
             }
         }
         return null;
@@ -300,10 +307,15 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
 
     @Override
     public void unreachableObject(SourceLocId slId, int objectId) {
-        // decrease the stale count for the allocation site
-        SiteMetadata siteMetadata = slId2Metadata.get(slId);
-        siteMetadata.currentStaleCount--;
-        assert siteMetadata.currentStaleCount >= 0 : "negative stale count for " + sourceMap.get(slId).toString();
+        ObjMetadata objMetadata = objId2Metadata.get(objectId);
+        if (objMetadata.isStale) {
+            // decrease the stale count for the allocation site
+            SourceLocId allocId = getAllocId(objMetadata.creationIndex);
+            SiteMetadata siteMetadata = slId2Metadata.get(allocId);
+            siteMetadata.currentStaleCount--;
+            assert siteMetadata.currentStaleCount >= 0 : "negative stale count for " + sourceMap.get(slId).toString();
+        }
+        objId2Metadata.remove(objectId);
     }
 
 }

@@ -39,6 +39,12 @@ public class EnhancedTraceAnalysisRunner extends TraceAnalysisRunner {
             this.objectId = objectId;
             this.slId = slId;
         }
+        @Override
+        public String toString() {
+            return "Record [time=" + time + ", objectId=" + objectId
+                    + ", slId=" + slId + "]";
+        }
+
 
 
     }
@@ -58,10 +64,14 @@ public class EnhancedTraceAnalysisRunner extends TraceAnalysisRunner {
             ProgressMonitor progress, File dir) throws FileNotFoundException,
             IOException {
         super(trace, progress, dir);
+        // ignore last use entries from the original trace
+        this.ignoreLastUse = true;
         this.lastUseTrace = new DataInputStream(lastUseTrace);
         nextLastUse = advance(this.lastUseTrace);
+//        System.err.println("lu " + nextLastUse);
         this.unreachableTrace = new DataInputStream(unreachableTrace);
         nextUnreachable = advance(this.unreachableTrace);
+//        System.err.println("ur " + nextUnreachable);
     }
 
     private Record advance(DataInputStream trace) {
@@ -93,10 +103,12 @@ public class EnhancedTraceAnalysisRunner extends TraceAnalysisRunner {
         while (nextLastUse != null && currentTime == nextLastUse.time) {
             eta.lastUse(nextLastUse.objectId, nextLastUse.slId, nextLastUse.time);
             nextLastUse = advance(lastUseTrace);
+//            System.err.println("lu " + nextLastUse);
         }
         while (nextUnreachable != null && currentTime == nextUnreachable.time) {
             eta.unreachableObject(nextUnreachable.slId, nextUnreachable.objectId);
             nextUnreachable = advance(unreachableTrace);
+//            System.err.println("ur " + nextUnreachable);
         }
     }
 

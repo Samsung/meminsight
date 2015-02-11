@@ -451,9 +451,9 @@ public class StreamingStalenessAnalysis implements
             }
             try {
                 unreachOut.writeInt(info.objectId);
-                unreachOut.writeLong(info.mostRecentUseTime);
-                unreachOut.writeInt(info.mostRecentUseSite.getSourceFileId());
-                unreachOut.writeInt(info.mostRecentUseSite.getIid());
+                unreachOut.writeLong(info.unreachableTime);
+                unreachOut.writeInt(info.unreachableSite.getSourceFileId());
+                unreachOut.writeInt(info.unreachableSite.getIid());
             } catch (IOException e) {
                 throw new Error("I/O error", e);
             }

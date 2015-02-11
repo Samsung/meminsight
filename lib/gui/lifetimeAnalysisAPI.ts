@@ -34,7 +34,7 @@ function getInputLines(objIds: Array<number>, timeStamp: number): string {
 }
 
 export function runLifetimeAnalysis(outputDir: string) : cp.ChildProcess {
-    var args = "--no-progress --staleness --enhanced --directory".split(" ");
+    var args = "--no-progress --staleness --directory".split(" ");
     args.push(outputDir);
     process.env["LIFETIME_ANALYSIS_OPTS"] = "-ea -Xmx2G -Dtesting=no -Dverbosecallstack=yes";
     var res = cp.spawn("./lifetime-analysis/build/install/lifetime-analysis/bin/lifetime-analysis", args, {

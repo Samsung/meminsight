@@ -74,6 +74,12 @@ public class TraceAnalysisRunner {
 
     private int traceSize = 0;
 
+    /**
+     * if set to true, ignore the last use entries in the input trace
+     * @see EnhancedTraceAnalysisRunner
+     */
+    protected boolean ignoreLastUse = false;
+
     public TraceAnalysisRunner(InputStream trace, ProgressMonitor progress, File dir) throws FileNotFoundException, IOException {
         this.trace = new DataInputStream(trace);
         fvMap = buildFVMap(dir);
@@ -203,7 +209,7 @@ public class TraceAnalysisRunner {
 //                        assert time == timer.currentTime();
                     String[] theSplit = readString().split(":");
                     SourceLocId slId = new SourceLocId(Integer.parseInt(theSplit[0]), Integer.parseInt(theSplit[1]));
-                    a.lastUse(objId, slId, time);
+                    if (!ignoreLastUse) a.lastUse(objId, slId, time);
                     break;
                 }
                 case FUNCTION_ENTER: {
@@ -327,7 +333,7 @@ public class TraceAnalysisRunner {
                     currentScriptId = readInt();
                     break;
                 case END_LAST_USE:
-                    a.endLastUse();
+                    if (!ignoreLastUse) a.endLastUse();
                     break;
                 case UNREACHABLE:
                     break;

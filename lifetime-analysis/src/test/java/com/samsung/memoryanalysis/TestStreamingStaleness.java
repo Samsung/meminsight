@@ -15,6 +15,7 @@
  */
 package com.samsung.memoryanalysis;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,11 +27,13 @@ import java.util.List;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import com.samsung.memoryanalysis.allocstats.AllocationSiteStats;
 import com.samsung.memoryanalysis.context.ContextProvider;
 import com.samsung.memoryanalysis.options.MemoryAnalysisOptions;
 import com.samsung.memoryanalysis.referencecounter.ReferenceCounter;
 import com.samsung.memoryanalysis.referencecounter.heap.JGraphHeap;
 import com.samsung.memoryanalysis.staleness.StreamingStalenessAnalysis;
+import com.samsung.memoryanalysis.traceparser.EnhancedTraceAnalysisRunner;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
 
 @RunWith(Parameterized.class)
@@ -48,7 +51,13 @@ public class TestStreamingStaleness extends AbstractTester {
         ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(), client);
         // gross.  we want some output even if analysis fails with an assertion
         try {
-            new TraceAnalysisRunner(new FileInputStream(trace), null, trace.getParentFile()).runAnalysis(new ContextProvider<Void>(f, new MemoryAnalysisOptions()));
+            FileInputStream traceInputStream = new FileInputStream(trace);
+            new TraceAnalysisRunner(traceInputStream, null, trace.getParentFile()).runAnalysis(new ContextProvider<Void>(f, new MemoryAnalysisOptions()));
+            traceInputStream.close();
+            traceInputStream = new FileInputStream(trace);
+            ByteArrayInputStream lastUseIn = new ByteArrayInputStream(lastUse.toByteArray());
+            ByteArrayInputStream unreachIn = new ByteArrayInputStream(unreach.toByteArray());
+            new EnhancedTraceAnalysisRunner(traceInputStream, lastUseIn, unreachIn, null, trace.getParentFile()).runAnalysis(new AllocationSiteStats());
             revert();
             return r.toString();
         } catch (AssertionError e) {

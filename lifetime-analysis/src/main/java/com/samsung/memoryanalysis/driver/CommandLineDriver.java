@@ -32,13 +32,14 @@ import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 
 import com.ibm.wala.util.collections.HashMapFactory;
+import com.samsung.memoryanalysis.allocstats.AllocationSiteStats;
 import com.samsung.memoryanalysis.context.ContextProvider;
 import com.samsung.memoryanalysis.options.MemoryAnalysisOptions;
 import com.samsung.memoryanalysis.referencecounter.DummyUnreachabilityAnalysis;
 import com.samsung.memoryanalysis.referencecounter.ReferenceCounter;
-import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter;
 import com.samsung.memoryanalysis.referencecounter.heap.JGraphHeap;
 import com.samsung.memoryanalysis.staleness.StreamingStalenessAnalysis;
+import com.samsung.memoryanalysis.traceparser.EnhancedTraceAnalysisRunner;
 import com.samsung.memoryanalysis.traceparser.ProgressMonitor;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
 import com.samsung.memoryanalysis.traceparser.TracePrettyPrinter;
@@ -76,13 +77,12 @@ public class CommandLineDriver {
         parser.accepts("context", "Run only the context analysis");
         parser.accepts("ref", "Run the reference count analysis only");
         parser.accepts("staleness", "Run the staleness analysis.  Output is written in three files: staleness-trace, lastuse-trace, and unreachable-trace");
-        parser.accepts("ref-trace", "Output the enhanced trace format");
         parser.accepts("pretty-print", "Just parse and pretty print the trace");
         parser.accepts("no-progress", "Don't print progress bar");
         parser.accepts("access-paths",
                 "Reads object ids on stdin and timestamp on stdin, prints access paths on stdout");
-        parser.accepts("enhanced", "If doing staleness, will also generate the enhanced trace in cwd");
         parser.accepts("nodejs", "Model the module scope of nodejs");
+        parser.accepts("site-stats", "Run the analysis that computes statistics for allocation sites");
         OptionSpec<String> traceOpt = parser.accepts("trace", "Trace file to analyze").withRequiredArg()
                 .describedAs("trace file").ofType(String.class);
         OptionSpec<String> dirOpt = parser.accepts("directory", "Directory containing the instrumented source code")
@@ -132,23 +132,34 @@ public class CommandLineDriver {
         } else if (options.has("staleness")) {
             OutputStream out = null, lastUseOut = null, unreachOut = null;
             try {
-            out = new BufferedOutputStream(new FileOutputStream(new File(dir, "staleness-trace")));
-            lastUseOut = new BufferedOutputStream(new FileOutputStream(new File(dir, "lastuse-trace")));
-            unreachOut = new BufferedOutputStream(new FileOutputStream(new File(dir, "unreachable-trace")));
-            ReferenceCounter<Void> f = new ReferenceCounter<Void>(
-                    new JGraphHeap(), new StreamingStalenessAnalysis(out, lastUseOut, unreachOut), refOptions);
-            new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(f,refOptions));
+                out = new BufferedOutputStream(new FileOutputStream(new File(
+                        dir, "staleness-trace")));
+                lastUseOut = new BufferedOutputStream(new FileOutputStream(
+                        new File(dir, "lastuse-trace")));
+                unreachOut = new BufferedOutputStream(new FileOutputStream(
+                        new File(dir, "unreachable-trace")));
+                ReferenceCounter<Void> f = new ReferenceCounter<Void>(
+                        new JGraphHeap(), new StreamingStalenessAnalysis(out,
+                                lastUseOut, unreachOut), refOptions);
+                new TraceAnalysisRunner(traceStream, prog, dir)
+                        .runAnalysis(new ContextProvider<Void>(f, refOptions));
             } finally {
                 if (out != null) out.close();
                 if (lastUseOut != null) lastUseOut.close();
                 if (unreachOut != null) unreachOut.close();
             }
-        } else if (options.has("ref-trace")) {
-            BufferedOutputStream out = new BufferedOutputStream(System.out);
-            ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(),
-                    new UnreachabilityTraceWriter(out), refOptions);
-            new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(f, refOptions));
-            out.close();
+        } else if (options.has("site-stats")) {
+            InputStream lastUseIn = null, unreachIn = null;
+            try {
+                lastUseIn = new BufferedInputStream(new FileInputStream(new File(dir, "lastuse-trace")));
+                unreachIn = new BufferedInputStream(new FileInputStream(new File(dir, "unreachable-trace")));
+                AllocationSiteStats allocStats = new AllocationSiteStats();
+                new EnhancedTraceAnalysisRunner(traceStream, lastUseIn, unreachIn, prog, dir).runAnalysis(allocStats);
+
+            } finally {
+                if (lastUseIn != null) lastUseIn.close();
+                if (unreachIn != null) unreachIn.close();
+            }
         } else if (options.has("pretty-print")) {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new TracePrettyPrinter());
         } else if (options.has("access-paths")) {
