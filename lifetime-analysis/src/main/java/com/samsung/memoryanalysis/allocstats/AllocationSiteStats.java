@@ -288,7 +288,7 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
         for (SourceLocId slId: slId2Metadata.keySet()) {
             SiteMetadata sm = slId2Metadata.get(slId);
             assert sm.currentStaleCount == 0 : "non-zero stale count " + sm.currentStaleCount + " for site " + slId + " " + sourceMap.get(slId).toString();
-            if (sm.isIncreasing > 0) {
+            if (sm.isIncreasing > 1) {
                 System.out.println("leaking site " + sourceMap.get(slId).toString());
             }
         }
