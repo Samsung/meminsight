@@ -179,6 +179,15 @@ public class StreamingStalenessAnalysis implements
         LastUseUnreachableInfo info = getLastUseUnreachableInfo(objectId);
         info.mostRecentUseTime = time;
         info.mostRecentUseSite = slId;
+        if (info.unreachableTime > 0 && info.unreachableTime < time) {
+            // we already set an unreachable time, but now we've observed
+            // another use.  it is possible that we will not see another
+            // unreachability callback (e.g., if the object is just used but
+            // no reference is stored).  So, as a hack, update the unreachable
+            // time and site to the current time and site.
+            info.unreachableTime = time;
+            info.unreachableSite = slId;
+        }
     }
 
     private LastUseUnreachableInfo getLastUseUnreachableInfo(int objectId) {
