@@ -30,11 +30,13 @@ public class EnhancedTraceAnalysisRunner extends TraceAnalysisRunner {
 
     private final DataInputStream unreachableTrace;
 
-    private static class Record {
-        long time;
-        int objectId;
-        SourceLocId slId;
-        public Record(int objectId, long time, SourceLocId slId) {
+    private final DataInputStream updIIDTrace;
+
+    private static class LastUseUnreachableRecord {
+        final long time;
+        final int objectId;
+        final SourceLocId slId;
+        public LastUseUnreachableRecord(int objectId, long time, SourceLocId slId) {
             this.time = time;
             this.objectId = objectId;
             this.slId = slId;
@@ -44,7 +46,16 @@ public class EnhancedTraceAnalysisRunner extends TraceAnalysisRunner {
             return "Record [time=" + time + ", objectId=" + objectId
                     + ", slId=" + slId + "]";
         }
+    }
 
+    private static class UpdIIDRecord {
+        final int objectId;
+        final SourceLocId slId;
+        public UpdIIDRecord(int objectId, SourceLocId slId) {
+            super();
+            this.objectId = objectId;
+            this.slId = slId;
+        }
 
 
     }
@@ -52,34 +63,62 @@ public class EnhancedTraceAnalysisRunner extends TraceAnalysisRunner {
     /**
      * the next last use record, or null if we've completed all last use records
      */
-    private Record nextLastUse;
+    private LastUseUnreachableRecord nextLastUse;
 
     /**
      * the next unreachable record, or null if we've completed all unreachable records
      */
-    private Record nextUnreachable;
+    private LastUseUnreachableRecord nextUnreachable;
+
+    private UpdIIDRecord nextUpdIIDRecord;
 
     public EnhancedTraceAnalysisRunner(InputStream trace,
-            InputStream lastUseTrace, InputStream unreachableTrace,
+            InputStream lastUseTrace, InputStream unreachableTrace, InputStream updIIDTrace,
             ProgressMonitor progress, File dir) throws FileNotFoundException,
             IOException {
         super(trace, progress, dir);
-        // ignore last use entries from the original trace
+        // ignore last use entries and update IID from the original trace
         this.ignoreLastUse = true;
+        this.ignoreUpdIID = true;
         this.lastUseTrace = new DataInputStream(lastUseTrace);
         nextLastUse = advance(this.lastUseTrace);
 //        System.err.println("lu " + nextLastUse);
         this.unreachableTrace = new DataInputStream(unreachableTrace);
         nextUnreachable = advance(this.unreachableTrace);
 //        System.err.println("ur " + nextUnreachable);
+        this.updIIDTrace = new DataInputStream(updIIDTrace);
+        advanceUpdIIDTrace();
     }
 
-    private Record advance(DataInputStream trace) {
+    @Override
+    protected <T> void invokeCreateCallback(TraceAnalysis<T> a,
+            int currentScriptId, int iid, int objId) {
+        if (nextUpdIIDRecord != null && nextUpdIIDRecord.objectId == objId) {
+            // use the updated source location
+            a.create(nextUpdIIDRecord.slId, objId);
+            advanceUpdIIDTrace();
+        } else {
+            super.invokeCreateCallback(a, currentScriptId, iid, objId);
+        }
+    }
+
+    private LastUseUnreachableRecord advance(DataInputStream trace) {
         try {
-            return new Record(trace.readInt(), trace.readLong(), new SourceLocId(trace.readInt(), trace.readInt()));
+            return new LastUseUnreachableRecord(trace.readInt(), trace.readLong(), new SourceLocId(trace.readInt(), trace.readInt()));
         } catch (EOFException e) {
             // we're done; set to null
             return null;
+        } catch (IOException e) {
+            throw new Error("I/O error", e);
+        }
+    }
+
+    private void advanceUpdIIDTrace() {
+        try {
+            nextUpdIIDRecord = new UpdIIDRecord(updIIDTrace.readInt(), new SourceLocId(updIIDTrace.readInt(), updIIDTrace.readInt()));
+        } catch (EOFException e) {
+            // we're done; set to null
+            nextUpdIIDRecord = null;
         } catch (IOException e) {
             throw new Error("I/O error", e);
         }

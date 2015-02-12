@@ -80,6 +80,8 @@ public class TraceAnalysisRunner {
      */
     protected boolean ignoreLastUse = false;
 
+    protected boolean ignoreUpdIID = false;
+
     public TraceAnalysisRunner(InputStream trace, ProgressMonitor progress, File dir) throws FileNotFoundException, IOException {
         this.trace = new DataInputStream(trace);
         fvMap = buildFVMap(dir);
@@ -176,7 +178,7 @@ public class TraceAnalysisRunner {
               case CREATE_OBJ: {
                     int iid = readInt();
                     int objId = readInt();
-                    a.create(new SourceLocId(currentScriptId, iid), objId);
+                    invokeCreateCallback(a, currentScriptId, iid, objId);
                     break;
               }
                 case CREATE_FUN: {
@@ -231,7 +233,7 @@ public class TraceAnalysisRunner {
                 case UPDATE_IID: {
                     int objId = readInt();//getInt(arr, 1);
                     int newIID = readInt();//getInt(arr, 2);
-                    a.updateIID(objId, new SourceLocId(currentScriptId, newIID));
+                    if (!ignoreUpdIID) a.updateIID(objId, new SourceLocId(currentScriptId, newIID));
                     break;
                 }
                 case DEBUG: {
@@ -354,6 +356,11 @@ public class TraceAnalysisRunner {
         // and we want the current time to correspond to the final entry
         timer.rewindOneTick();
         return a.endExecution();
+    }
+
+    protected <T> void invokeCreateCallback(TraceAnalysis<T> a,
+            int currentScriptId, int iid, int objId) {
+        a.create(new SourceLocId(currentScriptId, iid), objId);
     }
 
     protected <T> void handleTime(long currentTime, TraceAnalysis<T> a) {

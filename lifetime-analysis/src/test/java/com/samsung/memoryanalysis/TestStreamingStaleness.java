@@ -45,8 +45,9 @@ public class TestStreamingStaleness extends AbstractTester {
 	@Override
 	protected String runAnalysis(File trace) throws Exception {
         StringBuilder r = redirect();
-        ByteArrayOutputStream lastUse = new ByteArrayOutputStream(), unreach = new ByteArrayOutputStream();
-        StreamingStalenessAnalysis client = new StreamingStalenessAnalysis(System.out, lastUse, unreach);
+        ByteArrayOutputStream lastUse = new ByteArrayOutputStream(), unreach = new ByteArrayOutputStream(),
+                updiid = new ByteArrayOutputStream();
+        StreamingStalenessAnalysis client = new StreamingStalenessAnalysis(System.out, lastUse, unreach, updiid);
         client.debug = true;
         ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(), client);
         // gross.  we want some output even if analysis fails with an assertion
@@ -57,7 +58,8 @@ public class TestStreamingStaleness extends AbstractTester {
             traceInputStream = new FileInputStream(trace);
             ByteArrayInputStream lastUseIn = new ByteArrayInputStream(lastUse.toByteArray());
             ByteArrayInputStream unreachIn = new ByteArrayInputStream(unreach.toByteArray());
-            new EnhancedTraceAnalysisRunner(traceInputStream, lastUseIn, unreachIn, null, trace.getParentFile()).runAnalysis(new AllocationSiteStats());
+            ByteArrayInputStream iidIn = new ByteArrayInputStream(updiid.toByteArray());
+            new EnhancedTraceAnalysisRunner(traceInputStream, lastUseIn, unreachIn, iidIn, null, trace.getParentFile()).runAnalysis(new AllocationSiteStats());
             revert();
             return r.toString();
         } catch (AssertionError e) {

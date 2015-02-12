@@ -107,7 +107,7 @@ function joinAndComputeMetrics(timelineOutput: timeAnalysis.SSDResult, enhOutput
         if (curEnhOutput) {
             extend(curResult, curEnhOutput);
         }
-        // TODO add back abilty to report leaking DOM nodes
+        // TODO add back ability to report leaking DOM nodes
         curResult.leakiness = (curResult.isLeakingDefinitely && curResult.kind !== "DOM") ?
             curResult.aggregateMoment / timelineOutput.totalHeapMoment :
             0;

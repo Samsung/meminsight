@@ -109,7 +109,6 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
 
     private final Map<SourceLocId,SiteMetadata> slId2Metadata = HashMapFactory.make();
 
-    @SuppressWarnings("unused")
     private Timer timer;
 
     private SourceMap sourceMap;
@@ -129,9 +128,12 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
         assert !objId2Metadata.containsKey(objectId);
         ObjMetadata m = new ObjMetadata();
         objId2Metadata.put(objectId, m);
+        // TODO if IID was updated, this source location may not
+        // be in the currently-executing function.  Is this a problem???
         executionIndex.inc(slId);
         m.creationIndex = executionIndex.getIndex();
     }
+
     @Override
     public void create(SourceLocId slId, int objectId) {
         createObj(slId, objectId);
@@ -226,6 +228,8 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
 
     @Override
     public void updateIID(int objId, SourceLocId newIID) {
+        throw new Error("should never be called!");
+
     }
 
     @Override
@@ -312,8 +316,9 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
             // decrease the stale count for the allocation site
             SourceLocId allocId = getAllocId(objMetadata.creationIndex);
             SiteMetadata siteMetadata = slId2Metadata.get(allocId);
+            assert siteMetadata != null : "no metadata for site " + sourceMap.get(allocId).toString() + " for object " + objectId;
             siteMetadata.currentStaleCount--;
-            assert siteMetadata.currentStaleCount >= 0 : "negative stale count for " + sourceMap.get(slId).toString();
+            assert siteMetadata.currentStaleCount >= 0 : "negative stale count for " + sourceMap.get(allocId).toString();
         }
         objId2Metadata.remove(objectId);
     }

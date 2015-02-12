@@ -48,10 +48,17 @@ import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
 /**
- * staleness analysis that streams its output
+ * This analysis serves two functions:
  *
- * @author m.sridharan
+ * (1) It streams records for individual objects, indicating
+ * when each object was allocated, last used, and became unreachable.
+ * Due to issues with uninstrumented code, there may be multiple records
+ * for a single object (if we erroneously conclude that it became unreachable).
  *
+ * (2) The analysis also outputs data that, along with the initial memory trace,
+ * constitutes an "enhanced trace."  This data includes sorted last use and
+ * unreachability information, along with a list of updateIID records that allows
+ * for ignoring such records in a subsequent analysis.
  */
 public class StreamingStalenessAnalysis implements
         UnreachabilityAwareAnalysis<Void> {
@@ -97,6 +104,19 @@ public class StreamingStalenessAnalysis implements
         }
     }
 
+    static class IIDUpdateRecord {
+        final int objectId;
+        final long creationTime;
+        final SourceLocId slId;
+
+        public IIDUpdateRecord(int objectId, long creationTime, SourceLocId slId) {
+            this.objectId = objectId;
+            this.creationTime = creationTime;
+            this.slId = slId;
+        }
+
+    }
+
     private final Map<Integer, AllocInfo> live = HashMapFactory.make();
 
     /**
@@ -106,10 +126,15 @@ public class StreamingStalenessAnalysis implements
 
     private final ArrayList<LastUseUnreachableInfo> lastUseUnreachInfo = new ArrayList<LastUseUnreachableInfo>(
             10000);
-    private final PrintStream out;
+
+    private final ArrayList<IIDUpdateRecord> updateRecords = new ArrayList<StreamingStalenessAnalysis.IIDUpdateRecord>(
+            10000);
+
+    private final PrintStream stalenessOut;
 
     private final DataOutputStream lastUseOut;
     private final DataOutputStream unreachOut;
+    private final DataOutputStream updIIDOut;
 
     private SourceMap sourceMap;
 
@@ -122,10 +147,11 @@ public class StreamingStalenessAnalysis implements
     }
 
     public StreamingStalenessAnalysis(OutputStream out,
-            OutputStream lastUseOut, OutputStream unreachOut) {
-        this.out = new PrintStream(out);
+            OutputStream lastUseOut, OutputStream unreachOut, OutputStream updIIDOut) {
+        this.stalenessOut = new PrintStream(out);
         this.lastUseOut = new DataOutputStream(lastUseOut);
         this.unreachOut = new DataOutputStream(unreachOut);
+        this.updIIDOut = new DataOutputStream(updIIDOut);
         gson = new GsonBuilder().registerTypeAdapter(SourceLocId.class,
                 new SourceLocSerializer()).create();
     }
@@ -229,6 +255,8 @@ public class StreamingStalenessAnalysis implements
         assert objInfo != null;
         objInfo.allocationIID = newIID;
         objInfo.creationCallStack = callStackAsList();
+        IIDUpdateRecord record = new IIDUpdateRecord(objId, objInfo.creationTime, newIID);
+        updateRecords.add(record);
     }
 
     @Override
@@ -383,7 +411,7 @@ public class StreamingStalenessAnalysis implements
                 lastUseUnreachInfo.mostRecentUseSite,
                 lastUseUnreachInfo.unreachableTime,
                 lastUseUnreachInfo.unreachableSite };
-        out.println(gson.toJson(entry));
+        stalenessOut.println(gson.toJson(entry));
 
     }
 
@@ -410,14 +438,14 @@ public class StreamingStalenessAnalysis implements
         };
         Collections.sort(lastUseUnreachInfo, lastUseCompare);
         if (debug)
-            out.println("last use");
+            stalenessOut.println("last use");
         for (LastUseUnreachableInfo info : lastUseUnreachInfo) {
             if (info == null || info.mostRecentUseTime == 0)
                 break;
             if (debug) {
                 Object[] entry = new Object[] { info.objectId,
                         info.mostRecentUseTime, info.mostRecentUseSite };
-                out.println(gson.toJson(entry));
+                stalenessOut.println(gson.toJson(entry));
             }
             try {
                 lastUseOut.writeInt(info.objectId);
@@ -449,14 +477,14 @@ public class StreamingStalenessAnalysis implements
         };
         Collections.sort(lastUseUnreachInfo, unreachCompare);
         if (debug)
-            out.println("unreachable");
+            stalenessOut.println("unreachable");
         for (LastUseUnreachableInfo info : lastUseUnreachInfo) {
             if (info == null)
                 break;
             if (debug) {
                 Object[] entry = new Object[] { info.objectId,
                         info.unreachableTime, info.unreachableSite };
-                out.println(gson.toJson(entry));
+                stalenessOut.println(gson.toJson(entry));
             }
             try {
                 unreachOut.writeInt(info.objectId);
@@ -467,6 +495,25 @@ public class StreamingStalenessAnalysis implements
                 throw new Error("I/O error", e);
             }
 
+        }
+
+        Comparator<IIDUpdateRecord> updRecCmpr = new Comparator<StreamingStalenessAnalysis.IIDUpdateRecord>() {
+
+            @Override
+            public int compare(IIDUpdateRecord o1, IIDUpdateRecord o2) {
+                long diff = o1.creationTime - o2.creationTime;
+                return diff > 0 ? 1 : (diff < 0 ? -1 : 0);
+           }
+        };
+        Collections.sort(updateRecords, updRecCmpr);
+        for (IIDUpdateRecord rec: updateRecords) {
+            try {
+                updIIDOut.writeInt(rec.objectId);
+                updIIDOut.writeInt(rec.slId.getSourceFileId());
+                updIIDOut.writeInt(rec.slId.getIid());
+            } catch (IOException e) {
+                throw new Error("I/O error", e);
+            }
         }
         return null;
     }

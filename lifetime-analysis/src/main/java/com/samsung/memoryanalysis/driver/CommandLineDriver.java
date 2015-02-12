@@ -130,7 +130,7 @@ public class CommandLineDriver {
         } else if (options.has("context")) {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(null, refOptions));
         } else if (options.has("staleness")) {
-            OutputStream out = null, lastUseOut = null, unreachOut = null;
+            OutputStream out = null, lastUseOut = null, unreachOut = null, iidOut = null;
             try {
                 out = new BufferedOutputStream(new FileOutputStream(new File(
                         dir, "staleness-trace")));
@@ -138,27 +138,32 @@ public class CommandLineDriver {
                         new File(dir, "lastuse-trace")));
                 unreachOut = new BufferedOutputStream(new FileOutputStream(
                         new File(dir, "unreachable-trace")));
+                iidOut = new BufferedOutputStream(new FileOutputStream(
+                        new File(dir, "updiid-trace")));
                 ReferenceCounter<Void> f = new ReferenceCounter<Void>(
                         new JGraphHeap(), new StreamingStalenessAnalysis(out,
-                                lastUseOut, unreachOut), refOptions);
+                                lastUseOut, unreachOut, iidOut), refOptions);
                 new TraceAnalysisRunner(traceStream, prog, dir)
                         .runAnalysis(new ContextProvider<Void>(f, refOptions));
             } finally {
                 if (out != null) out.close();
                 if (lastUseOut != null) lastUseOut.close();
                 if (unreachOut != null) unreachOut.close();
+                if (iidOut != null) iidOut.close();
             }
         } else if (options.has("site-stats")) {
-            InputStream lastUseIn = null, unreachIn = null;
+            InputStream lastUseIn = null, unreachIn = null, iidIn = null;
             try {
                 lastUseIn = new BufferedInputStream(new FileInputStream(new File(dir, "lastuse-trace")));
                 unreachIn = new BufferedInputStream(new FileInputStream(new File(dir, "unreachable-trace")));
+                iidIn = new BufferedInputStream(new FileInputStream(new File(dir, "updiid-trace")));
                 AllocationSiteStats allocStats = new AllocationSiteStats();
-                new EnhancedTraceAnalysisRunner(traceStream, lastUseIn, unreachIn, prog, dir).runAnalysis(allocStats);
+                new EnhancedTraceAnalysisRunner(traceStream, lastUseIn, unreachIn, iidIn, prog, dir).runAnalysis(allocStats);
 
             } finally {
                 if (lastUseIn != null) lastUseIn.close();
                 if (unreachIn != null) unreachIn.close();
+                if (iidIn != null) iidIn.close();
             }
         } else if (options.has("pretty-print")) {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new TracePrettyPrinter());
