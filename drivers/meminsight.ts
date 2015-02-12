@@ -22,11 +22,12 @@
 import cp = require('child_process');
 import path = require('path');
 import fs = require('fs');
+import lifetimeAnalysis = require('./../lib/gui/lifetimeAnalysisAPI')
 var argparse = require('argparse');
 
 
 
-function runNodeProg(args: Array<string>, progName: string): void {
+function runNodeProg(args: Array<string>, progName: string, cb?: (code: number) => void): void {
     // always run in harmony mode
     args.unshift('--harmony');
     //console.log("node " + args.join(' '));
@@ -37,13 +38,16 @@ function runNodeProg(args: Array<string>, progName: string): void {
     instProc.stderr.on('data', (data: any) => {
         process.stderr.write(String(data));
     });
-    instProc.on('close', (code: number) => {
-        if (code !== 0) {
-            console.log(progName + " failed");
-        } else {
-            console.log(progName + " complete");
-        }
-    });
+    if (!cb) {
+        cb = (code: number) => {
+            if (code !== 0) {
+                console.log(progName + " failed");
+            } else {
+                console.log(progName + " complete");
+            }
+        };
+    }
+    instProc.on('close', cb);
 
 }
 function instrumentApp(args: Array<string>): void {
@@ -146,32 +150,38 @@ function runNodeScript(args: Array<string>): void {
     var parsed = parser.parseArgs(args);
     var instScript = parsed.instScript;
     var instScriptArgs = parsed.instScriptArgs;
-    // discover the app path, which contains jalangi_sourcemap.json; must be a parent of the instScript directory
-    //var appPath: string = null, curDir = path.dirname(instScript);
-    //var root = (require('os').platform == "win32") ? process.cwd().split(path.sep)[0] : "/";
-    //while (curDir !== root) {
-    //    if (fs.existsSync(path.join(curDir, 'jalangi_sourcemap.json'))) {
-    //        appPath = curDir;
-    //        break;
-    //    } else {
-    //        curDir = path.resolve(curDir, '..');
-    //    }
-    //}
-    //if (!appPath) {
-    //    console.error("could not find root directory of instrument app, containing jalangi_sourcemap.json");
-    //    process.exit(1);
-    //}
-    // TODO this is a temporary hack!!!
+    // dump traces in same directory as the instrumented script
+    // TODO make this configurable
     var appPath = path.dirname(instScript);
+    var curDir = process.cwd();
+    process.chdir(appPath);
     console.log("running node.js script " + instScript);
     var loggingAnalysisArgs = [
         directDriver,
         '--analysis',
         loggingAnalysis,
         '--initParam',
-        'appDir:'+appPath,
+        'syncFS:true',
         instScript].concat(instScriptArgs);
-    runNodeProg(loggingAnalysisArgs, "run of script ");
+    runNodeProg(loggingAnalysisArgs, "run of script ", (code: number) => {
+        if (code !== 0) {
+            console.log("run of script failed");
+            return;
+        }
+        console.log("run of script complete");
+        // run the lifetime analysis
+        var javaProc = lifetimeAnalysis.runLifetimeAnalysisOnTrace(path.join(appPath,'mem-trace'));
+        javaProc.stdout.on("data", (chunk : any) => {
+            console.log(chunk.toString());
+        });
+        javaProc.stderr.on("data", (chunk : any) => {
+            console.error(chunk.toString());
+        });
+        javaProc.on("exit", () => {
+            console.log("done with lifetime analysis");
+        });
+
+    });
 }
 
 var args = process.argv.slice(2);

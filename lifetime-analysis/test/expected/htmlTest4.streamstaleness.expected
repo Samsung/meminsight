@@ -6,7 +6,7 @@
 [47,"DOM","initial DOM",94,[],119,"remove from DOM",121,"unknown"]
 [51,"DOM","initial DOM",102,[],120,"remove from DOM",121,"unknown"]
 [2,"FUNCTION","lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:16:1:19:2",2,[],111,"lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:16:1:19:2",121,"end of program"]
-[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:16:1:19:2",2,[],0,"unknown",121,"end of program"]
+[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:16:1:19:2",2,[],2,"lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:16:1:19:2",121,"end of program"]
 [4,"DOM","initial DOM",7,[],112,"lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:17:15:17:38",121,"end of program"]
 [5,"DOM","initial DOM",9,[],121,"end of program",121,"end of program"]
 [42,"DOM","initial DOM",84,[],121,"end of program",121,"end of program"]
@@ -52,6 +52,7 @@
 [8,"DOM","initial DOM",16,[],121,"end of program",121,"end of program"]
 [7,"DOM","initial DOM",14,[],121,"end of program",121,"end of program"]
 last use
+[3,2,"lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:16:1:19:2"]
 [2,111,"lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:16:1:19:2"]
 [4,112,"lifetime-analysis/test/traces/htmlTest4/removenode_orig_.js:17:15:17:38"]
 [45,118,"remove from DOM"]
@@ -105,6 +106,7 @@ last use
 [53,121,"end of program"]
 [54,121,"end of program"]
 unreachable
+[3,121,"end of program"]
 [2,121,"end of program"]
 [4,121,"end of program"]
 [45,121,"unknown"]
@@ -157,4 +159,3 @@ unreachable
 [52,121,"end of program"]
 [53,121,"end of program"]
 [54,121,"end of program"]
-[3,121,"end of program"]

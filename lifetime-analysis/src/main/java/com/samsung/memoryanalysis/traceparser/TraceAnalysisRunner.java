@@ -340,9 +340,11 @@ public class TraceAnalysisRunner {
                 case UNREACHABLE:
                     break;
             }
-            handleTime(timer.currentTime(), a);
             // don't tick timer for metadata entries
             if (!METADATA_ENTRIES.contains(evtType.ordinal())) {
+                // if it wasn't a metadata entry, it was the event that
+                // actually corresponds to the current time
+                handleTime(timer.currentTime(), a);
                 timer.tick();
             }
             if (this.progress != null)

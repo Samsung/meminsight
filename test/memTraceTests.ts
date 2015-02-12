@@ -42,7 +42,7 @@ for (var i = 1; i <= refCountTests; i++) {
     tests.push("testRefCount" + i + ".js");
 }
 
-var stalenessTests = 1;
+var stalenessTests = 2;
 for (var i = 1; i <= stalenessTests; i++) {
     tests.push("testStaleness" + i + ".js");
 }

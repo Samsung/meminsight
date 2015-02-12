@@ -1,7 +1,7 @@
 [46,"DOM","lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:18:16:18:43",99,["unknown"],103,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:20:5:20:21",105,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2"]
-[47,"DOM","lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:19:16:19:45",102,["unknown"],0,"unknown",105,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2"]
+[47,"DOM","lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:19:16:19:45",102,["unknown"],102,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:19:16:19:45",105,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2"]
 [2,"FUNCTION","lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2",2,[],93,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2",110,"end of program"]
-[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2",2,[],0,"unknown",110,"end of program"]
+[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2",2,[],2,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2",110,"end of program"]
 [4,"DOM","initial DOM",7,[],100,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:19:16:19:39",110,"end of program"]
 [5,"DOM","initial DOM",9,[],110,"end of program",110,"end of program"]
 [30,"DOM","initial DOM",60,[],110,"end of program",110,"end of program"]
@@ -47,6 +47,7 @@
 [8,"DOM","initial DOM",16,[],110,"end of program",110,"end of program"]
 [7,"DOM","initial DOM",14,[],110,"end of program",110,"end of program"]
 last use
+[3,2,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2"]
 [2,93,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:16:1:22:2"]
 [4,100,"lifetime-analysis/test/traces/htmlTest2/addnode_orig_.js:19:16:19:39"]
 [5,110,"end of program"]
@@ -93,6 +94,7 @@ last use
 [46,110,"end of program"]
 [47,110,"end of program"]
 unreachable
+[3,110,"end of program"]
 [2,110,"end of program"]
 [4,110,"end of program"]
 [5,110,"end of program"]
@@ -138,4 +140,3 @@ unreachable
 [45,110,"end of program"]
 [46,110,"end of program"]
 [47,110,"end of program"]
-[3,110,"end of program"]

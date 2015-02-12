@@ -1,8 +1,8 @@
-[43,"DOM","lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:32",91,["unknown"],0,"unknown",93,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:33"]
-[44,"DOM","lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:32",92,["unknown"],0,"unknown",93,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:33"]
+[43,"DOM","lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:32",91,["unknown"],91,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:32",93,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:33"]
+[44,"DOM","lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:32",92,["unknown"],92,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:32",93,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:18:5:18:33"]
 [39,"DOM","initial DOM",78,[],99,"remove from DOM",100,"unknown"]
 [2,"FUNCTION","lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:16:1:19:2",2,[],87,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:16:1:19:2",100,"end of program"]
-[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:16:1:19:2",2,[],0,"unknown",100,"end of program"]
+[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:16:1:19:2",2,[],2,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:16:1:19:2",100,"end of program"]
 [4,"DOM","initial DOM",7,[],88,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:17:15:17:38",100,"end of program"]
 [5,"DOM","initial DOM",9,[],100,"end of program",100,"end of program"]
 [36,"DOM","initial DOM",72,[],100,"end of program",100,"end of program"]
@@ -44,6 +44,7 @@
 [8,"DOM","initial DOM",16,[],100,"end of program",100,"end of program"]
 [7,"DOM","initial DOM",14,[],100,"end of program",100,"end of program"]
 last use
+[3,2,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:16:1:19:2"]
 [2,87,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:16:1:19:2"]
 [4,88,"lifetime-analysis/test/traces/htmlTest3/addnode_orig_.js:17:15:17:38"]
 [39,99,"remove from DOM"]
@@ -87,6 +88,7 @@ last use
 [43,100,"end of program"]
 [44,100,"end of program"]
 unreachable
+[3,100,"end of program"]
 [2,100,"end of program"]
 [4,100,"end of program"]
 [39,100,"unknown"]
@@ -129,4 +131,3 @@ unreachable
 [42,100,"end of program"]
 [43,100,"end of program"]
 [44,100,"end of program"]
-[3,100,"end of program"]

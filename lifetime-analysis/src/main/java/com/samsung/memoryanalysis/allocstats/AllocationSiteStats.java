@@ -109,6 +109,7 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
 
     private final Map<SourceLocId,SiteMetadata> slId2Metadata = HashMapFactory.make();
 
+    @SuppressWarnings("unused")
     private Timer timer;
 
     private SourceMap sourceMap;

@@ -33,18 +33,26 @@ function getInputLines(objIds: Array<number>, timeStamp: number): string {
     return result;
 }
 
-export function runLifetimeAnalysis(outputDir: string) : cp.ChildProcess {
-    var args = "--no-progress --staleness --directory".split(" ");
-    args.push(outputDir);
+function runLifetimeAnalysisWithArgs(args: Array<string>): cp.ChildProcess {
     process.env["LIFETIME_ANALYSIS_OPTS"] = "-ea -Xmx2G -Dtesting=no -Dverbosecallstack=yes";
-    var res = cp.spawn("./lifetime-analysis/build/install/lifetime-analysis/bin/lifetime-analysis", args, {
+    var lifetimeAnalysisScript = path.join(__dirname, "..","..","lifetime-analysis","build","install","lifetime-analysis","bin","lifetime-analysis");
+    var res = cp.spawn(lifetimeAnalysisScript, args, {
         cwd   : process.cwd(),
         env   : process.env,
         stdio : ['pipe', 'pipe', 'pipe']
     });
     return res;
 }
+export function runLifetimeAnalysis(outputDir: string) : cp.ChildProcess {
+    var args = "--no-progress --staleness --directory".split(" ");
+    args.push(outputDir);
+    return runLifetimeAnalysisWithArgs(args);
+}
 
+export function runLifetimeAnalysisOnTrace(traceFile: string) : cp.ChildProcess {
+    var args = ["--no-progress","--staleness","--trace",traceFile];
+    return runLifetimeAnalysisWithArgs(args);
+}
 
 export function getAccessPaths(objIds: Array<number>, timeStamp: number, traceFile: string): Q.Promise<any> {
     var input = getInputLines(objIds, timeStamp);

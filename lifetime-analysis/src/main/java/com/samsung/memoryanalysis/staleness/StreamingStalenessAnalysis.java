@@ -173,7 +173,16 @@ public class StreamingStalenessAnalysis implements
                     isDom ? ObjectStaleness.ObjectType.DOM
                             : ObjectStaleness.ObjectType.OBJECT, slId, time,
                     callStackAsList()));
+            updateMostRecentUse(objectId, time, slId);
+
         }
+    }
+
+    protected LastUseUnreachableInfo updateMostRecentUse(int objectId, long time, SourceLocId slId) {
+        LastUseUnreachableInfo lastUseUnreachableInfo = getLastUseUnreachableInfo(objectId);
+        lastUseUnreachableInfo.mostRecentUseTime = time;
+        lastUseUnreachableInfo.mostRecentUseSite = slId;
+        return lastUseUnreachableInfo;
     }
 
     @Override
@@ -183,8 +192,10 @@ public class StreamingStalenessAnalysis implements
         List<SourceLocId> callstack = callStackAsList();
         this.live.put(objectId, new AllocInfo(ObjectType.FUNCTION, slId, time,
                 callstack));
+        updateMostRecentUse(objectId, time, slId);
         this.live.put(prototypeId, new AllocInfo(ObjectType.PROTOTYPE, slId,
                 time, callstack));
+        updateMostRecentUse(prototypeId, time, slId);
     }
 
     @Override
@@ -202,9 +213,7 @@ public class StreamingStalenessAnalysis implements
     public void lastUse(int objectId, SourceLocId slId, long time) {
         if (objectId == ContextProvider.GLOBAL_OBJECT_ID)
             return;
-        LastUseUnreachableInfo info = getLastUseUnreachableInfo(objectId);
-        info.mostRecentUseTime = time;
-        info.mostRecentUseSite = slId;
+        LastUseUnreachableInfo info = updateMostRecentUse(objectId, time, slId);
         if (info.unreachableTime > 0 && info.unreachableTime < time) {
             // we already set an unreachable time, but now we've observed
             // another use.  it is possible that we will not see another
