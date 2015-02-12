@@ -478,9 +478,15 @@ module ___LoggingAnalysis___ {
             return;
         }
 
+        /**
+         * public flag indicating when logging is complete
+         * @type {boolean}
+         */
+        doneLogging:boolean = false;
+
         endExecution():any {
             this.lastUse.flushLastUse();
-            this.logger.end(() => { });
+            this.logger.end(() => { this.doneLogging = true; });
             return {};
         }
 
