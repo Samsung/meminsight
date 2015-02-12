@@ -170,22 +170,41 @@ export function getTraceForHTMLDir(testDir:string, options:HTMLTraceOptions):Q.P
     var tracePromise = instPromise.then(function (result:jalangi.InstDirResult) {
         var outputDir = path.join(result.outputDir, path.basename(testDir));
         var deferred = <Q.Deferred<MemTraceResult>>Q.defer();
-        var execCmdArgs = [
-            "python",
-            path.join(__dirname, "../../test/python/get_mem_trace_with_selenium.py"),
-            path.join(outputDir, "index.html")
-        ];
-        child_process.exec(execCmdArgs.join(' '), function (error, stdout, stderr) {
-            if (error !== null) {
-                deferred.reject(error);
-            } else {
-                var memTraceResult = {
-                    stdout: stdout.toString(),
-                    stderr: stderr.toString(),
-                    memTraceLoc: path.join(outputDir, "mem-trace")
-                };
-                deferred.resolve(memTraceResult);
+        // start up the server, which will just dump the mem trace
+        var memTraceLoc = path.join(outputDir, 'mem-trace');
+        var serverArgs = ['./lib/server/server.js', '--outputFile', memTraceLoc, outputDir];
+        var serverProc = child_process.spawn('node', serverArgs, {
+            cwd   : process.cwd(),
+            env   : process.env,
+            stdio : ['pipe', 'pipe', 'pipe']
+        });
+        var stdout = "", stderr = "";
+        serverProc.stdout.on('data', (chunk: any) => {
+            stdout += chunk.toString();
+            // TODO fix this hack
+            if (chunk.toString().indexOf("8080") !== -1) {
+                // now fire up the phantomjs process to load the instrumented app
+                child_process.exec(['phantomjs', './vanillajs/phantomjs-runner.js'].join(" "), function (error, stdout, stderr) {
+                    if (error !== null) {
+                        console.log(stdout); console.log(stderr);
+                        deferred.reject(error);
+                    }
+                });
             }
+        });
+        serverProc.stderr.on('data', (chunk: any) => {
+            stderr += chunk.toString();
+        });
+        serverProc.on('exit', () => {
+            var memTraceResult = {
+                stdout: stdout,
+                stderr: stderr,
+                memTraceLoc: memTraceLoc
+            };
+            deferred.resolve(memTraceResult);
+        });
+        serverProc.on('error', (err) => {
+            deferred.reject(err);
         });
         return deferred.promise;
     });
