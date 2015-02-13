@@ -1,7 +1,7 @@
 [23,0]
 [1,-1,1]
 [23,1]
-[19,241,1,"test/testdata/testStaleness2.js"]
+[19,241,1,"test/testdata/testAllocSiteStats1.js"]
 [22,9,17,11,17,13]
 [22,17,17,11,17,13]
 [22,25,17,11,17,13]

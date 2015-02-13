@@ -49,10 +49,20 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
      */
     static class SiteMetadata {
 
+        /**
+         * for detecting leaks
+         */
+
         int isIncreasing = -100;
         int emptyStackCount;
         int currentStaleCount;
         int oldStaleCount;
+
+        /**
+         * do all objects allocated at the site not escape to a caller?
+         * if we observe escapement, we will set this to false
+         */
+        boolean isNonEscaping = true;
     }
 
     static class ExecutionIndex {
@@ -101,6 +111,7 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
         public void doReturn() {
             counterStack.pop();
         }
+
     }
 
     private final ExecutionIndex executionIndex = new ExecutionIndex();
@@ -310,16 +321,39 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
         createObj(slId, objectId);
     }
 
+    private static int indexOfDeviation(List<Pair<SourceLocId, Integer>> creationIndex, List<Pair<SourceLocId, Integer>> otherIndex) {
+        int i = 0;
+        for ( ; i < creationIndex.size(); i++) {
+            Pair<SourceLocId, Integer> curCreateInd = creationIndex.get(i);
+            Pair<SourceLocId, Integer> curOtherInd = otherIndex.get(i);
+            if (!curCreateInd.equals(curOtherInd)) {
+                return i;
+            }
+        }
+        return i;
+    }
+
     @Override
     public void unreachableObject(SourceLocId slId, int objectId) {
         ObjMetadata objMetadata = objId2Metadata.get(objectId);
+        List<Pair<SourceLocId, Integer>> creationIndex = objMetadata.creationIndex;
+        SourceLocId allocId = getAllocId(creationIndex);
+        SiteMetadata siteMetadata = slId2Metadata.get(allocId);
+        assert siteMetadata != null : "no metadata for site " + sourceMap.get(allocId).toString() + " for object " + objectId;
         if (objMetadata.isStale) {
             // decrease the stale count for the allocation site
-            SourceLocId allocId = getAllocId(objMetadata.creationIndex);
-            SiteMetadata siteMetadata = slId2Metadata.get(allocId);
-            assert siteMetadata != null : "no metadata for site " + sourceMap.get(allocId).toString() + " for object " + objectId;
             siteMetadata.currentStaleCount--;
             assert siteMetadata.currentStaleCount >= 0 : "negative stale count for " + sourceMap.get(allocId).toString();
+        }
+        if (siteMetadata.isNonEscaping) {
+            // make sure this object does not escape
+            executionIndex.inc(slId);
+            List<Pair<SourceLocId, Integer>> unreachIndex = executionIndex.getIndex();
+            int devIndex = indexOfDeviation(creationIndex, unreachIndex);
+            if (devIndex < creationIndex.size() - 1) {
+                // escaping
+                siteMetadata.isNonEscaping = false;
+            }
         }
         objId2Metadata.remove(objectId);
     }
