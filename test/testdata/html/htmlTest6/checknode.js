@@ -15,10 +15,13 @@
  */
 function jalangiRC() {}
 
+var __memTestDone = false;
+
 (function () {
     var foo = function() {
         var div = document.getElementById('fizzbuzz');
         jalangiRC(div);
+        __memTestDone = true;
     }
 
     setTimeout(foo,0);

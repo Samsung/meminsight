@@ -13,10 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+var __memTestDone = false;
+
 (function (window) {
     var jQuery = function () {
         var jQuery = function () {
             return new jQuery.fn.init(selector);
         };
     }();
+    __memTestDone = true;
 }(window));

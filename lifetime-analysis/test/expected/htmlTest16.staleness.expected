@@ -1,66 +1,66 @@
-testeval_orig_.js:20:1:20:13 : RC(testeval_orig_.js:18:9:18:11) = 2
-testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
+testeval_orig_.js:21:1:21:13 : RC(testeval_orig_.js:19:9:19:11) = 2
+testeval_orig_.js:25:1:25:13 : RC(testeval_orig_.js:19:9:19:11) = 1
 {
   "functionTrace": [
     [
       0,
-      13,
+      15,
       1,
       9
     ],
     [
       1,
-      14,
+      16,
       1,
-      201
+      241
     ],
     [
       0,
-      22,
+      24,
       2,
       29
     ],
     [
       1,
-      25,
+      27,
       2,
       85
     ],
     [
       0,
-      28,
+      30,
       1,
       9
     ],
     [
       1,
-      29,
+      31,
       1,
-      201
+      241
     ]
   ],
   "objectInfo": {
     "eval:1:5:1:34": [
       {
         "objectId": 5,
-        "creationTime": 17,
+        "creationTime": 19,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 236,
-        "lastUseTime": 25,
+        "lastUseTime": 27,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 113
+          "iid": 129
         },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
       {
         "objectId": 6,
-        "creationTime": 17,
+        "creationTime": 19,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 244,
         "lastUseTime": "never used",
@@ -72,9 +72,9 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
     "initial DOM": [
       {
         "objectId": 7,
-        "creationTime": 32,
+        "creationTime": 34,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 229,
         "lastUseTime": "never used",
@@ -84,12 +84,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 8,
-        "creationTime": 34,
+        "creationTime": 36,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -99,12 +99,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 9,
-        "creationTime": 37,
+        "creationTime": 39,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -114,12 +114,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 10,
-        "creationTime": 39,
+        "creationTime": 41,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -129,12 +129,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 11,
-        "creationTime": 41,
+        "creationTime": 43,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -144,12 +144,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 12,
-        "creationTime": 43,
+        "creationTime": 45,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -159,12 +159,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 13,
-        "creationTime": 45,
+        "creationTime": 47,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -174,12 +174,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 14,
-        "creationTime": 47,
+        "creationTime": 49,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -189,12 +189,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 15,
-        "creationTime": 49,
+        "creationTime": 51,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -204,12 +204,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 16,
-        "creationTime": 51,
+        "creationTime": 53,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -219,12 +219,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 17,
-        "creationTime": 53,
+        "creationTime": 55,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -234,12 +234,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 18,
-        "creationTime": 55,
+        "creationTime": 57,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -249,12 +249,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 19,
-        "creationTime": 57,
+        "creationTime": 59,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -264,12 +264,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 20,
-        "creationTime": 59,
+        "creationTime": 61,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -279,12 +279,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 21,
-        "creationTime": 61,
+        "creationTime": 63,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -294,12 +294,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 22,
-        "creationTime": 63,
+        "creationTime": 65,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -309,12 +309,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 23,
-        "creationTime": 65,
+        "creationTime": 67,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -324,12 +324,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 24,
-        "creationTime": 67,
+        "creationTime": 69,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -339,12 +339,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 25,
-        "creationTime": 69,
+        "creationTime": 71,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -354,12 +354,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 26,
-        "creationTime": 71,
+        "creationTime": 73,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -369,12 +369,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 27,
-        "creationTime": 73,
+        "creationTime": 75,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -384,12 +384,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 28,
-        "creationTime": 75,
+        "creationTime": 77,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -399,12 +399,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 29,
-        "creationTime": 77,
+        "creationTime": 79,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -414,12 +414,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 30,
-        "creationTime": 79,
+        "creationTime": 81,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -429,12 +429,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 31,
-        "creationTime": 81,
+        "creationTime": 83,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -444,12 +444,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 32,
-        "creationTime": 83,
+        "creationTime": 85,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -459,12 +459,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 33,
-        "creationTime": 85,
+        "creationTime": 87,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -474,12 +474,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 34,
-        "creationTime": 87,
+        "creationTime": 89,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -489,12 +489,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 35,
-        "creationTime": 89,
+        "creationTime": 91,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -504,12 +504,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 36,
-        "creationTime": 91,
+        "creationTime": 93,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -519,12 +519,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 37,
-        "creationTime": 93,
+        "creationTime": 95,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -534,12 +534,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 38,
-        "creationTime": 95,
+        "creationTime": 97,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -549,12 +549,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 39,
-        "creationTime": 97,
+        "creationTime": 99,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -564,12 +564,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 40,
-        "creationTime": 99,
+        "creationTime": 101,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -579,12 +579,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 41,
-        "creationTime": 101,
+        "creationTime": 103,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -594,12 +594,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 42,
-        "creationTime": 103,
+        "creationTime": 105,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -609,12 +609,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 43,
-        "creationTime": 105,
+        "creationTime": 107,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -624,12 +624,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 44,
-        "creationTime": 107,
+        "creationTime": 109,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -639,12 +639,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 45,
-        "creationTime": 109,
+        "creationTime": 111,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -654,12 +654,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 46,
-        "creationTime": 111,
+        "creationTime": 113,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -669,12 +669,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 47,
-        "creationTime": 113,
+        "creationTime": 115,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -684,12 +684,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 48,
-        "creationTime": 115,
+        "creationTime": 117,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -699,12 +699,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 49,
-        "creationTime": 117,
+        "creationTime": 119,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -714,12 +714,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 50,
-        "creationTime": 119,
+        "creationTime": 121,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -729,12 +729,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 51,
-        "creationTime": 121,
+        "creationTime": 123,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -744,12 +744,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 52,
-        "creationTime": 123,
+        "creationTime": 125,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -759,12 +759,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 53,
-        "creationTime": 125,
+        "creationTime": 127,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -774,12 +774,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 54,
-        "creationTime": 127,
+        "creationTime": 129,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -789,12 +789,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 55,
-        "creationTime": 129,
+        "creationTime": 131,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -804,12 +804,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 56,
-        "creationTime": 131,
+        "creationTime": 133,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -819,12 +819,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 57,
-        "creationTime": 133,
+        "creationTime": 135,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -834,12 +834,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 58,
-        "creationTime": 135,
+        "creationTime": 137,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -849,12 +849,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 59,
-        "creationTime": 137,
+        "creationTime": 139,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -864,12 +864,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 60,
-        "creationTime": 139,
+        "creationTime": 141,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -879,12 +879,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 61,
-        "creationTime": 141,
+        "creationTime": 143,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -894,12 +894,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 62,
-        "creationTime": 143,
+        "creationTime": 145,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -909,12 +909,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 63,
-        "creationTime": 145,
+        "creationTime": 147,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -924,12 +924,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 64,
-        "creationTime": 147,
+        "creationTime": 149,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -939,12 +939,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 65,
-        "creationTime": 149,
+        "creationTime": 151,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -954,12 +954,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 66,
-        "creationTime": 151,
+        "creationTime": 153,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -969,12 +969,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 67,
-        "creationTime": 153,
+        "creationTime": 155,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -984,12 +984,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 68,
-        "creationTime": 155,
+        "creationTime": 157,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -999,12 +999,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 69,
-        "creationTime": 157,
+        "creationTime": 159,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1014,12 +1014,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 70,
-        "creationTime": 159,
+        "creationTime": 161,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1029,12 +1029,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 71,
-        "creationTime": 161,
+        "creationTime": 163,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1044,12 +1044,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 72,
-        "creationTime": 163,
+        "creationTime": 165,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1059,12 +1059,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 73,
-        "creationTime": 165,
+        "creationTime": 167,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1074,12 +1074,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 74,
-        "creationTime": 167,
+        "creationTime": 169,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1089,12 +1089,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 75,
-        "creationTime": 169,
+        "creationTime": 171,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1104,12 +1104,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 76,
-        "creationTime": 171,
+        "creationTime": 173,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1119,12 +1119,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 77,
-        "creationTime": 173,
+        "creationTime": 175,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1134,12 +1134,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 78,
-        "creationTime": 175,
+        "creationTime": 177,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1149,12 +1149,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 79,
-        "creationTime": 177,
+        "creationTime": 179,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1164,12 +1164,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 80,
-        "creationTime": 179,
+        "creationTime": 181,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1179,12 +1179,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 81,
-        "creationTime": 181,
+        "creationTime": 183,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1194,12 +1194,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 82,
-        "creationTime": 183,
+        "creationTime": 185,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1209,12 +1209,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 83,
-        "creationTime": 185,
+        "creationTime": 187,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1224,12 +1224,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 84,
-        "creationTime": 187,
+        "creationTime": 189,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1239,12 +1239,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 85,
-        "creationTime": 189,
+        "creationTime": 191,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1254,12 +1254,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 86,
-        "creationTime": 191,
+        "creationTime": 193,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1269,12 +1269,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 87,
-        "creationTime": 193,
+        "creationTime": 195,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1284,12 +1284,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 88,
-        "creationTime": 195,
+        "creationTime": 197,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1299,12 +1299,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 89,
-        "creationTime": 197,
+        "creationTime": 199,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1314,12 +1314,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 90,
-        "creationTime": 199,
+        "creationTime": 201,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1329,12 +1329,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 91,
-        "creationTime": 201,
+        "creationTime": 203,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1344,12 +1344,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 92,
-        "creationTime": 203,
+        "creationTime": 205,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1359,12 +1359,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 93,
-        "creationTime": 205,
+        "creationTime": 207,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1374,12 +1374,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 94,
-        "creationTime": 207,
+        "creationTime": 209,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1389,12 +1389,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 95,
-        "creationTime": 209,
+        "creationTime": 211,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1404,12 +1404,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 96,
-        "creationTime": 211,
+        "creationTime": 213,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1419,12 +1419,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 97,
-        "creationTime": 213,
+        "creationTime": 215,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1434,12 +1434,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 98,
-        "creationTime": 215,
+        "creationTime": 217,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1449,12 +1449,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 99,
-        "creationTime": 217,
+        "creationTime": 219,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1464,12 +1464,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 100,
-        "creationTime": 219,
+        "creationTime": 221,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1479,12 +1479,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 101,
-        "creationTime": 221,
+        "creationTime": 223,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1494,12 +1494,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 102,
-        "creationTime": 223,
+        "creationTime": 225,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1509,12 +1509,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 103,
-        "creationTime": 225,
+        "creationTime": 227,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1524,12 +1524,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 104,
-        "creationTime": 227,
+        "creationTime": 229,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1539,12 +1539,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 105,
-        "creationTime": 229,
+        "creationTime": 231,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1554,12 +1554,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 106,
-        "creationTime": 231,
+        "creationTime": 233,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1569,12 +1569,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 107,
-        "creationTime": 233,
+        "creationTime": 235,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1584,12 +1584,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 108,
-        "creationTime": 235,
+        "creationTime": 237,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1599,12 +1599,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 109,
-        "creationTime": 237,
+        "creationTime": 239,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1614,12 +1614,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 110,
-        "creationTime": 239,
+        "creationTime": 241,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1629,12 +1629,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 111,
-        "creationTime": 241,
+        "creationTime": 243,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1644,12 +1644,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 112,
-        "creationTime": 243,
+        "creationTime": 245,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1659,12 +1659,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 113,
-        "creationTime": 245,
+        "creationTime": 247,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1674,12 +1674,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 114,
-        "creationTime": 247,
+        "creationTime": 249,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1689,12 +1689,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 115,
-        "creationTime": 249,
+        "creationTime": 251,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1704,12 +1704,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 116,
-        "creationTime": 251,
+        "creationTime": 253,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1719,12 +1719,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 117,
-        "creationTime": 253,
+        "creationTime": 255,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1734,12 +1734,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 118,
-        "creationTime": 255,
+        "creationTime": 257,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1749,12 +1749,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 119,
-        "creationTime": 257,
+        "creationTime": 259,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1764,12 +1764,12 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
       },
       {
         "objectId": 120,
-        "creationTime": 259,
+        "creationTime": 261,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 261,
+        "lastUseTime": 263,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -1783,13 +1783,13 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "objectId": 2,
         "creationTime": 2,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 232,
-        "lastUseTime": 29,
+        "lastUseTime": 31,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 129
+          "iid": 145
         },
         "shallowSize": 2,
         "type": "FUNCTION"
@@ -1798,21 +1798,21 @@ testeval_orig_.js:24:1:24:13 : RC(testeval_orig_.js:18:9:18:11) = 1
         "objectId": 3,
         "creationTime": 2,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
-        "staleness": 259,
+        "staleness": 261,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "PROTOTYPE"
       }
     ],
-    "testeval_orig_.js:18:9:18:11": [
+    "testeval_orig_.js:19:9:19:11": [
       {
         "objectId": 4,
-        "creationTime": 7,
+        "creationTime": 9,
         "creationCallStack": [],
-        "unreachableTime": 261,
+        "unreachableTime": 263,
         "unreachableSite": "end of program",
         "staleness": 254,
         "lastUseTime": "never used",

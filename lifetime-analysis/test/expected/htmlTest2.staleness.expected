@@ -2,61 +2,61 @@
   "functionTrace": [
     [
       0,
-      93,
+      95,
       1,
-      113
+      145
     ],
     [
       1,
-      105,
+      107,
       1,
-      201
+      241
     ]
   ],
   "objectInfo": {
-    "addnode_orig_.js:16:1:22:2": [
+    "addnode_orig_.js:17:1:24:2": [
       {
         "objectId": 2,
-        "creationTime": 2,
+        "creationTime": 3,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 17,
-        "lastUseTime": 93,
+        "lastUseTime": 95,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 113
+          "iid": 145
         },
         "shallowSize": 2,
         "type": "FUNCTION"
       },
       {
         "objectId": 3,
-        "creationTime": 2,
+        "creationTime": 3,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
-        "staleness": 108,
+        "staleness": 109,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "PROTOTYPE"
       }
     ],
-    "addnode_orig_.js:18:16:18:43": [
+    "addnode_orig_.js:19:16:19:43": [
       {
         "objectId": 46,
-        "creationTime": 99,
+        "creationTime": 101,
         "creationCallStack": [
           {
             "sourceFileId": 0,
             "iid": -1
           }
         ],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -65,20 +65,20 @@
         "type": "DOM"
       }
     ],
-    "addnode_orig_.js:19:16:19:45": [
+    "addnode_orig_.js:20:16:20:45": [
       {
         "objectId": 47,
-        "creationTime": 102,
+        "creationTime": 104,
         "creationCallStack": [
           {
             "sourceFileId": 0,
             "iid": -1
           }
         ],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -90,27 +90,27 @@
     "initial DOM": [
       {
         "objectId": 4,
-        "creationTime": 7,
+        "creationTime": 9,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 10,
-        "lastUseTime": 100,
+        "lastUseTime": 102,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 59
+          "iid": 75
         },
         "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 5,
-        "creationTime": 9,
+        "creationTime": 11,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -120,12 +120,12 @@
       },
       {
         "objectId": 6,
-        "creationTime": 12,
+        "creationTime": 14,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -135,12 +135,12 @@
       },
       {
         "objectId": 7,
-        "creationTime": 14,
+        "creationTime": 16,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -150,12 +150,12 @@
       },
       {
         "objectId": 8,
-        "creationTime": 16,
+        "creationTime": 18,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -165,12 +165,12 @@
       },
       {
         "objectId": 9,
-        "creationTime": 18,
+        "creationTime": 20,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -180,12 +180,12 @@
       },
       {
         "objectId": 10,
-        "creationTime": 20,
+        "creationTime": 22,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -195,12 +195,12 @@
       },
       {
         "objectId": 11,
-        "creationTime": 22,
+        "creationTime": 24,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -210,12 +210,12 @@
       },
       {
         "objectId": 12,
-        "creationTime": 24,
+        "creationTime": 26,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -225,12 +225,12 @@
       },
       {
         "objectId": 13,
-        "creationTime": 26,
+        "creationTime": 28,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -240,12 +240,12 @@
       },
       {
         "objectId": 14,
-        "creationTime": 28,
+        "creationTime": 30,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -255,12 +255,12 @@
       },
       {
         "objectId": 15,
-        "creationTime": 30,
+        "creationTime": 32,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -270,12 +270,12 @@
       },
       {
         "objectId": 16,
-        "creationTime": 32,
+        "creationTime": 34,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -285,12 +285,12 @@
       },
       {
         "objectId": 17,
-        "creationTime": 34,
+        "creationTime": 36,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -300,12 +300,12 @@
       },
       {
         "objectId": 18,
-        "creationTime": 36,
+        "creationTime": 38,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -315,12 +315,12 @@
       },
       {
         "objectId": 19,
-        "creationTime": 38,
+        "creationTime": 40,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -330,12 +330,12 @@
       },
       {
         "objectId": 20,
-        "creationTime": 40,
+        "creationTime": 42,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -345,12 +345,12 @@
       },
       {
         "objectId": 21,
-        "creationTime": 42,
+        "creationTime": 44,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -360,12 +360,12 @@
       },
       {
         "objectId": 22,
-        "creationTime": 44,
+        "creationTime": 46,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -375,12 +375,12 @@
       },
       {
         "objectId": 23,
-        "creationTime": 46,
+        "creationTime": 48,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -390,12 +390,12 @@
       },
       {
         "objectId": 24,
-        "creationTime": 48,
+        "creationTime": 50,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -405,12 +405,12 @@
       },
       {
         "objectId": 25,
-        "creationTime": 50,
+        "creationTime": 52,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -420,12 +420,12 @@
       },
       {
         "objectId": 26,
-        "creationTime": 52,
+        "creationTime": 54,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -435,12 +435,12 @@
       },
       {
         "objectId": 27,
-        "creationTime": 54,
+        "creationTime": 56,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -450,12 +450,12 @@
       },
       {
         "objectId": 28,
-        "creationTime": 56,
+        "creationTime": 58,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -465,12 +465,12 @@
       },
       {
         "objectId": 29,
-        "creationTime": 58,
+        "creationTime": 60,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -480,12 +480,12 @@
       },
       {
         "objectId": 30,
-        "creationTime": 60,
+        "creationTime": 62,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -495,12 +495,12 @@
       },
       {
         "objectId": 31,
-        "creationTime": 62,
+        "creationTime": 64,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -510,12 +510,12 @@
       },
       {
         "objectId": 32,
-        "creationTime": 64,
+        "creationTime": 66,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -525,12 +525,12 @@
       },
       {
         "objectId": 33,
-        "creationTime": 66,
+        "creationTime": 68,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -540,12 +540,12 @@
       },
       {
         "objectId": 34,
-        "creationTime": 68,
+        "creationTime": 70,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -555,12 +555,12 @@
       },
       {
         "objectId": 35,
-        "creationTime": 70,
+        "creationTime": 72,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -570,12 +570,12 @@
       },
       {
         "objectId": 36,
-        "creationTime": 72,
+        "creationTime": 74,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -585,12 +585,12 @@
       },
       {
         "objectId": 37,
-        "creationTime": 74,
+        "creationTime": 76,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -600,12 +600,12 @@
       },
       {
         "objectId": 38,
-        "creationTime": 76,
+        "creationTime": 78,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -615,12 +615,12 @@
       },
       {
         "objectId": 39,
-        "creationTime": 78,
+        "creationTime": 80,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -630,12 +630,12 @@
       },
       {
         "objectId": 40,
-        "creationTime": 80,
+        "creationTime": 82,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -645,12 +645,12 @@
       },
       {
         "objectId": 41,
-        "creationTime": 82,
+        "creationTime": 84,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -660,12 +660,12 @@
       },
       {
         "objectId": 42,
-        "creationTime": 84,
+        "creationTime": 86,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -675,12 +675,12 @@
       },
       {
         "objectId": 43,
-        "creationTime": 86,
+        "creationTime": 88,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -690,12 +690,12 @@
       },
       {
         "objectId": 44,
-        "creationTime": 88,
+        "creationTime": 90,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -705,12 +705,12 @@
       },
       {
         "objectId": 45,
-        "creationTime": 90,
+        "creationTime": 92,
         "creationCallStack": [],
-        "unreachableTime": 110,
+        "unreachableTime": 112,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 110,
+        "lastUseTime": 112,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0

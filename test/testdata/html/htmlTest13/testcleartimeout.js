@@ -13,6 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+var __memTestDone = false;
+
 (function () {
     function baz() {
         return function () {};
@@ -22,4 +25,5 @@
     var t = setTimeout(x,1000);
     x = null;
     clearTimeout(t);
+    __memTestDone = true;
 })();

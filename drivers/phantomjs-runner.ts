@@ -14,26 +14,24 @@
  * limitations under the License.
  */
 
+///<reference path='../lib/ts-declarations/phantomjs.d.ts' />
+///<reference path='../lib/ts-declarations/jalangi.d.ts' />
+
+interface Window {
+    J$: Sandbox;
+    __memTestDone: boolean
+}
 /**
- * Wait until the test condition is true or a timeout occurs. Useful for waiting
- * on a server response or for a ui change (fadeIn, etc.) to occur.
- *
- * @param testFx javascript condition that evaluates to a boolean,
- * it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
- * as a callback function.
- * @param onReady what to do when testFx condition is fulfilled,
- * it can be passed in as a string (e.g.: "1 == 1" or "$('#bar').is(':visible')" or
- * as a callback function.
- * @param timeOutMillis the max amount of time to wait. If not specified, 3 sec is used.
+ * adapted from https://github.com/ariya/phantomjs/blob/master/examples/waitfor.js
  */
-function waitFor(testFx, onReady, timeOutMillis) {
+function waitFor(testFx: () => boolean, onReady: () => void, timeOutMillis?: number) {
     var maxtimeOutMillis = timeOutMillis ? timeOutMillis : 3000, //< Default Max Timout is 3s
         start = new Date().getTime(),
         condition = false,
         interval = setInterval(function() {
             if ( (new Date().getTime() - start < maxtimeOutMillis) && !condition ) {
                 // If not time-out yet and condition not yet fulfilled
-                condition = (typeof(testFx) === "string" ? eval(testFx) : testFx()); //< defensive code
+                condition = testFx(); //< defensive code
             } else {
                 if(!condition) {
                     // If condition still not fulfilled (timeout but condition is 'false')
@@ -43,7 +41,7 @@ function waitFor(testFx, onReady, timeOutMillis) {
                     // Condition fulfilled (timeout and/or condition is 'true')
                     console.log("'waitFor()' finished in " + (new Date().getTime() - start) + "ms.");
                     try {
-                        typeof(onReady) === "string" ? eval(onReady) : onReady(); //< Do what it's supposed to do once the condition is fulfilled
+                        onReady(); //< Do what it's supposed to do once the condition is fulfilled
                         clearInterval(interval); //< Stop this interval
                     } catch (e) {
                         phantom.exit(1);
@@ -57,28 +55,21 @@ var page = require('webpage').create();
 page.onConsoleMessage = function(msg) {
     console.log("console " + msg);
 };
-page.open('http://localhost:8888', function(status) {
+page.open('http://localhost:8888', (status) => {
     console.log("Status: " + status);
-    if (status === "success") {
-        // hack: wait a bit before calling endExecution.  we need
-        // something better here, maybe a flag that must be set in
-        // the tests
-        setTimeout(function () {
-            page.evaluate(function() {
-                window.J$.analysis.endExecution();
-            });
-            waitFor(
-                function () {
-                    return page.evaluate(function () {
-                        return window.J$.analysis.doneLogging;
-                    });
-                },
-                function () {
-                    phantom.exit();
-                }
-            );
-        }, 200);
-    } else {
-        phantom.exit(1);
-    }
+    if (status !== 'success') phantom.exit(1);
+    waitFor(() => {
+        return page.evaluate(() => { return window.__memTestDone; })
+    }, () => {
+        page.evaluate(() => {
+            window.J$.analysis.endExecution();
+        });
+        waitFor(() => {
+                return page.evaluate(() => {
+                    return window.J$.analysis['doneLogging'];
+                });
+            },
+            () => { phantom.exit(); }
+        );
+    })
 });

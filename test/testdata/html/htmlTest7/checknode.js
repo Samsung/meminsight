@@ -15,11 +15,14 @@
  */
 function jalangiRC() {}
 
+var __memTestDone = false;
+
 (function() {
     var div;
 
     var bar = function() {
         jalangiRC(div);
+        __memTestDone = true;
     }
     var foo = function() {
         div = document.getElementById('fizzbuzz');

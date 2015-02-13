@@ -184,7 +184,7 @@ export function getTraceForHTMLDir(testDir:string, options:HTMLTraceOptions):Q.P
             // TODO fix this hack
             if (chunk.toString().indexOf("8080") !== -1) {
                 // now fire up the phantomjs process to load the instrumented app
-                child_process.exec(['phantomjs', './vanillajs/phantomjs-runner.js'].join(" "), function (error, stdout, stderr) {
+                child_process.exec(['phantomjs', './drivers/phantomjs-runner.js'].join(" "), function (error, stdout, stderr) {
                     if (error !== null) {
                         console.log(stdout); console.log(stderr);
                         deferred.reject(error);

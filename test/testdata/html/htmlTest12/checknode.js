@@ -15,12 +15,15 @@
  */
 var div;
 
+var __memTestDone = false;
+
 (function() {
     var bar = function() {
         // do some busy work to increase time
         for (var i = 0; i < 100; i++) {
             var x = { y: {}, z: {} };
         }
+        __memTestDone = true;
     }
 
     var foo = function() {

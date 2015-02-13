@@ -13,6 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+var __memTestDone = false;
+
 (function () {
     var document = window.document, navigator = window.navigator;
     var jQu = function () {
@@ -37,4 +40,5 @@
             function doScrollCheck() {
             }
         }();
+    __memTestDone = true;
 }());
