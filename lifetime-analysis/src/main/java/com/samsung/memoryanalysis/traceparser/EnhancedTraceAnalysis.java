@@ -15,6 +15,8 @@
  */
 package com.samsung.memoryanalysis.traceparser;
 
+import java.util.List;
+
 import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 
 /**
@@ -28,6 +30,6 @@ import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
  */
 public interface EnhancedTraceAnalysis<T> extends TraceAnalysis<T> {
 
-    public void unreachableObject(SourceLocId slId, int objectId);
+    public void unreachableObject(SourceLocId slId, List<Integer> objectIds);
 
 }

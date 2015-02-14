@@ -14,24 +14,43 @@
  * limitations under the License.
  */
 
-var arr = [];
-
-function pushSomeStuff() {
-    for (var i = 0; i < 100; i++) {
-        var obj = {};
-        arr.push(obj);
-    }
+function doAlloc() {
+    // non-escaping
+    var x = { f: 3 };
+    return x.f+4;
 }
 
-var max = 10;
+function read(p) { return p.f; }
 
-var counter = 0;
-
-function f() {
-        if (counter < max) {
-            pushSomeStuff();
-            counter++;
-            setTimeout(f, 0);
-        }
+function doAlloc2() {
+    // also not escaping
+    var x = { f: 3 };
+    return read(x)+4;
 }
-setTimeout(f, 0);
+
+
+var global = null;
+
+function doAlloc3() {
+    // inner object not escaping
+    var x = { f: { g: 7 } };
+    var result = x.f.g;
+    x.f = null;
+    global = x;
+    return result;
+}
+
+function escapeAlloc() {
+    // escaping
+    var x = { f : 3 };
+    return x;
+}
+
+var total = 0;
+
+for (var i = 0; i < 100; i++) {
+    total = total + doAlloc() + doAlloc2() + doAlloc3() + escapeAlloc().f;
+}
+
+console.log(total);
+

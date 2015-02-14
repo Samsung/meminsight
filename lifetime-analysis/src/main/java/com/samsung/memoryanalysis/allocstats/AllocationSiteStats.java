@@ -41,6 +41,13 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
 
         List<Pair<SourceLocId,Integer>> creationIndex;
         boolean isStale;
+
+        /**
+         * object id of parent object with exclusive reference to
+         * this object, if any.  If 0, then uninitialized.  If -1,
+         * then there are multiple references.
+         */
+        int exclusivelyReferencedBy = 0;
     }
 
 
@@ -63,6 +70,13 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
          * if we observe escapement, we will set this to false
          */
         boolean isNonEscaping = true;
+
+        /**
+         * an allocation site that owns this one, i.e., all objects allocated
+         * from this site are exclusively referenced by objects allocated from
+         * the owning site
+         */
+        SourceLocId owningSite = null;
     }
 
     static class ExecutionIndex {
@@ -343,28 +357,30 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
     }
 
     @Override
-    public void unreachableObject(SourceLocId slId, int objectId) {
-        ObjMetadata objMetadata = objId2Metadata.get(objectId);
-        List<Pair<SourceLocId, Integer>> creationIndex = objMetadata.creationIndex;
-        SourceLocId allocId = getAllocId(creationIndex);
-        SiteMetadata siteMetadata = slId2Metadata.get(allocId);
-        assert siteMetadata != null : "no metadata for site " + sourceMap.get(allocId).toString() + " for object " + objectId;
-        if (objMetadata.isStale) {
-            // decrease the stale count for the allocation site
-            siteMetadata.currentStaleCount--;
-            assert siteMetadata.currentStaleCount >= 0 : "negative stale count for " + sourceMap.get(allocId).toString();
-        }
-        if (siteMetadata.isNonEscaping) {
-            // make sure this object does not escape
-            executionIndex.inc(slId);
-            List<Pair<SourceLocId, Integer>> unreachIndex = executionIndex.getIndex();
-            int devIndex = indexOfDeviation(creationIndex, unreachIndex);
-            if (devIndex < creationIndex.size() - 1) {
-                // escaping
-                siteMetadata.isNonEscaping = false;
+    public void unreachableObject(SourceLocId slId, List<Integer> objectIds) {
+        for (int objectId: objectIds) {
+            ObjMetadata objMetadata = objId2Metadata.get(objectId);
+            List<Pair<SourceLocId, Integer>> creationIndex = objMetadata.creationIndex;
+            SourceLocId allocId = getAllocId(creationIndex);
+            SiteMetadata siteMetadata = slId2Metadata.get(allocId);
+            assert siteMetadata != null : "no metadata for site " + sourceMap.get(allocId).toString() + " for object " + objectId;
+            if (objMetadata.isStale) {
+                // decrease the stale count for the allocation site
+                siteMetadata.currentStaleCount--;
+                assert siteMetadata.currentStaleCount >= 0 : "negative stale count for " + sourceMap.get(allocId).toString();
             }
+            if (siteMetadata.isNonEscaping) {
+                // make sure this object does not escape
+                executionIndex.inc(slId);
+                List<Pair<SourceLocId, Integer>> unreachIndex = executionIndex.getIndex();
+                int devIndex = indexOfDeviation(creationIndex, unreachIndex);
+                if (devIndex < creationIndex.size() - 1) {
+                    // escaping
+                    siteMetadata.isNonEscaping = false;
+                }
+            }
+            objId2Metadata.remove(objectId);
         }
-        objId2Metadata.remove(objectId);
     }
 
 }

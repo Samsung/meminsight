@@ -21,6 +21,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 
@@ -144,10 +146,18 @@ public class EnhancedTraceAnalysisRunner extends TraceAnalysisRunner {
             nextLastUse = advance(lastUseTrace);
 //            System.err.println("lu " + nextLastUse);
         }
-        while (nextUnreachable != null && currentTime == nextUnreachable.time) {
-            eta.unreachableObject(nextUnreachable.slId, nextUnreachable.objectId);
-            nextUnreachable = advance(unreachableTrace);
-//            System.err.println("ur " + nextUnreachable);
+        if (nextUnreachable != null && currentTime == nextUnreachable.time) {
+            List<Integer> unreachableObjs = new ArrayList<Integer>();
+            SourceLocId slId = nextUnreachable.slId;
+            while (nextUnreachable != null && currentTime == nextUnreachable.time) {
+                unreachableObjs.add(nextUnreachable.objectId);
+                // note that we have different unreachable locations here
+                // pass this information along if it ever matters
+//                assert slId.equals(nextUnreachable.slId) : slId + ", " + nextUnreachable.slId;
+                nextUnreachable = advance(unreachableTrace);
+//                System.err.println("ur " + nextUnreachable);
+            }
+            eta.unreachableObject(slId, unreachableObjs);
         }
     }
 
