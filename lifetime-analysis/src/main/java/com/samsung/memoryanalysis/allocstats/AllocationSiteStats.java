@@ -124,6 +124,9 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
     private Timer timer;
 
     private SourceMap sourceMap;
+
+    public boolean dumpFullStats = false;
+
     @Override
     public void init(Timer timer, SourceMap iidMap) {
         this.timer = timer;
@@ -303,9 +306,15 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
         // all staleness counts should be zero
         for (SourceLocId slId: slId2Metadata.keySet()) {
             SiteMetadata sm = slId2Metadata.get(slId);
-            assert sm.currentStaleCount == 0 : "non-zero stale count " + sm.currentStaleCount + " for site " + slId + " " + sourceMap.get(slId).toString();
+            String site = sourceMap.get(slId).toString();
+            assert sm.currentStaleCount == 0 : "non-zero stale count " + sm.currentStaleCount + " for site " + slId + " " + site;
             if (sm.isIncreasing > 1) {
-                System.out.println("leaking site " + sourceMap.get(slId).toString());
+                System.out.println("leaking site " + site);
+            }
+            if (dumpFullStats) {
+                if (sm.isNonEscaping) {
+                    System.out.println("no escaping from site " + site);
+                }
             }
         }
         return null;

@@ -221,6 +221,11 @@ public class TraceAnalysisRunner {
                     break;
                 }
                 case FUNCTION_EXIT: {
+                    // HACK: for function exit, we want the effects of this time to be taken into
+                    // account before we actually process a function exit.  E.g., if a client is
+                    // maintaining a call stack in its functionExit() callback, we want events associated
+                    // with the current function to be processed before the call stack is updated
+                    handleTime(timer.currentTime(), a);
                     int iid = readInt();
                     a.functionExit(new SourceLocId(currentScriptId, iid));
                     break;
@@ -344,7 +349,9 @@ public class TraceAnalysisRunner {
             if (!METADATA_ENTRIES.contains(evtType.ordinal())) {
                 // if it wasn't a metadata entry, it was the event that
                 // actually corresponds to the current time
-                handleTime(timer.currentTime(), a);
+                if (!evtType.equals(TraceEntry.FUNCTION_EXIT)) { // FUNCTION_EXIT handled above
+                    handleTime(timer.currentTime(), a);
+                }
                 timer.tick();
             }
             if (this.progress != null)

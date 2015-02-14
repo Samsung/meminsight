@@ -65,7 +65,9 @@ public class TestAllocSiteStats extends AbstractTester {
             ByteArrayInputStream lastUseIn = new ByteArrayInputStream(lastUse.toByteArray());
             ByteArrayInputStream unreachIn = new ByteArrayInputStream(unreach.toByteArray());
             ByteArrayInputStream iidIn = new ByteArrayInputStream(updiid.toByteArray());
-            new EnhancedTraceAnalysisRunner(traceInputStream, lastUseIn, unreachIn, iidIn, null, trace.getParentFile()).runAnalysis(new AllocationSiteStats());
+            AllocationSiteStats a = new AllocationSiteStats();
+            a.dumpFullStats = true;
+            new EnhancedTraceAnalysisRunner(traceInputStream, lastUseIn, unreachIn, iidIn, null, trace.getParentFile()).runAnalysis(a);
             revert();
             return r.toString();
         } catch (AssertionError e) {

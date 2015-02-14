@@ -47,7 +47,7 @@ for (var i = 1; i <= stalenessTests; i++) {
     tests.push("testStaleness" + i + ".js");
 }
 
-var allocSiteStatsTests = 1;
+var allocSiteStatsTests = 2;
 for (var i = 1; i <= allocSiteStatsTests; i++) {
     tests.push("testAllocSiteStats" + i + ".js");
 }
