@@ -411,7 +411,7 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
                     SourceLocId parentSite = getAllocId(objId2Metadata.get(exclRef).creationIndex);
                     if (owningSite == null) {
                         siteMetadata.owningSite = parentSite;
-                    } else if (owningSite != parentSite) {
+                    } else if (!owningSite.equals(parentSite)) {
                         // this represents multiple owning sites
                         siteMetadata.owningSite = SourceMap.UNKNOWN_ID;
                     }
