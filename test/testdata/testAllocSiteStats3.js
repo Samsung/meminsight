@@ -19,6 +19,13 @@ function doAlloc() {
     return x.f.g;
 }
 
+function doAlloc2() {
+    // not inlineable according to our check
+    var x = { f: { g: 4 }};
+    var y = x.f;
+    return x.f.g;
+}
+
 for (var i = 0; i < 100; i++) {
-    console.log(doAlloc());
+    console.log(doAlloc()+doAlloc2());
 }

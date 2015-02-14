@@ -1,3 +1,5 @@
 no escaping from site test/testdata/testAllocSiteStats3.js:18:18:18:26
 site test/testdata/testAllocSiteStats3.js:18:18:18:26 can be inlined into site test/testdata/testAllocSiteStats3.js:18:13:18:27
 no escaping from site test/testdata/testAllocSiteStats3.js:18:13:18:27
+no escaping from site test/testdata/testAllocSiteStats3.js:24:18:24:26
+no escaping from site test/testdata/testAllocSiteStats3.js:24:13:24:27
