@@ -32,6 +32,8 @@ import com.samsung.memoryanalysis.traceparser.Timer;
 
 public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
 
+    private static int EXCL_REF_BOTTOM = 0;
+    private static int EXCL_REF_TOP = -1;
     /**
      * per-object metadata.  we try to be careful to avoid leaking
      * this metadata, freeing all pointers to it once the corresponding
@@ -179,12 +181,27 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
     @Override
     public void putField(SourceLocId slId, int baseId, String offset,
             int objectId) {
-        // TODO Auto-generated method stub
-
+        if (objectId == 0) return;
+        ObjMetadata metadata = objId2Metadata.get(objectId);
+        int exclRef = metadata.exclusivelyReferencedBy;
+        if (exclRef == EXCL_REF_BOTTOM) {
+            ObjMetadata baseMetadata = objId2Metadata.get(baseId);
+            int devIndex = indexOfDeviation(metadata.creationIndex, baseMetadata.creationIndex);
+            if (devIndex == metadata.creationIndex.size() - 1) {
+                // allocated in same function call, so it is a candidate for a parent
+                metadata.exclusivelyReferencedBy = baseId;
+            }
+        } else if (exclRef != baseId) {
+            metadata.exclusivelyReferencedBy = EXCL_REF_TOP;
+        }
     }
 
     @Override
     public void write(SourceLocId slId, String name, int objectId) {
+        if (objectId != 0) {
+            ObjMetadata metadata = objId2Metadata.get(objectId);
+            metadata.exclusivelyReferencedBy = EXCL_REF_TOP;
+        }
     }
 
     private SourceLocId getAllocId(List<Pair<SourceLocId,Integer>> execIndex) {
@@ -329,6 +346,10 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
                 if (sm.isNonEscaping) {
                     System.out.println("no escaping from site " + site);
                 }
+                if (sm.owningSite != null && sm.owningSite != SourceMap.UNKNOWN_ID) {
+                    String owningSite = sourceMap.get(sm.owningSite).toString();
+                    System.out.println("site " + site + " can be inlined into site " + owningSite);
+                }
             }
         }
         return null;
@@ -379,6 +400,25 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
                     siteMetadata.isNonEscaping = false;
                 }
             }
+            int exclRef = objMetadata.exclusivelyReferencedBy;
+            if (exclRef != EXCL_REF_BOTTOM && exclRef != EXCL_REF_TOP) {
+                // see if parent object died at this time too
+                // TODO optimize
+                if (objectIds.contains(exclRef)) {
+                    // we have a winner!
+                    // check if consistent with existing site info
+                    SourceLocId owningSite = siteMetadata.owningSite;
+                    SourceLocId parentSite = getAllocId(objId2Metadata.get(exclRef).creationIndex);
+                    if (owningSite == null) {
+                        siteMetadata.owningSite = parentSite;
+                    } else if (owningSite != parentSite) {
+                        // this represents multiple owning sites
+                        siteMetadata.owningSite = SourceMap.UNKNOWN_ID;
+                    }
+                }
+            }
+        }
+        for (int objectId: objectIds) {
             objId2Metadata.remove(objectId);
         }
     }
