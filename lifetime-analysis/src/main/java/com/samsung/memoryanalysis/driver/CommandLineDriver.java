@@ -25,14 +25,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 import joptsimple.OptionSpec;
 
+import com.google.gson.Gson;
 import com.ibm.wala.util.collections.HashMapFactory;
 import com.samsung.memoryanalysis.allocstats.AllocationSiteStats;
+import com.samsung.memoryanalysis.allocstats.AllocationSiteStats.AllocSiteResult;
 import com.samsung.memoryanalysis.context.ContextProvider;
 import com.samsung.memoryanalysis.options.MemoryAnalysisOptions;
 import com.samsung.memoryanalysis.referencecounter.DummyUnreachabilityAnalysis;
@@ -153,17 +156,22 @@ public class CommandLineDriver {
             }
         } else if (options.has("site-stats")) {
             InputStream lastUseIn = null, unreachIn = null, iidIn = null;
+            PrintWriter memJSOut = null;
             try {
                 lastUseIn = new BufferedInputStream(new FileInputStream(new File(dir, "lastuse-trace")));
                 unreachIn = new BufferedInputStream(new FileInputStream(new File(dir, "unreachable-trace")));
                 iidIn = new BufferedInputStream(new FileInputStream(new File(dir, "updiid-trace")));
                 AllocationSiteStats allocStats = new AllocationSiteStats();
-                new EnhancedTraceAnalysisRunner(traceStream, lastUseIn, unreachIn, iidIn, prog, dir).runAnalysis(allocStats);
-
+                Map<String, AllocSiteResult> results = new EnhancedTraceAnalysisRunner(traceStream, lastUseIn, unreachIn, iidIn, prog, dir).runAnalysis(allocStats);
+                memJSOut = new PrintWriter(new File(dir, "siteStats.json"));
+                Gson gson = new Gson();
+                String json = gson.toJson(results);
+                memJSOut.println(json);
             } finally {
                 if (lastUseIn != null) lastUseIn.close();
                 if (unreachIn != null) unreachIn.close();
                 if (iidIn != null) iidIn.close();
+                if (memJSOut != null) memJSOut.close();
             }
         } else if (options.has("pretty-print")) {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new TracePrettyPrinter());

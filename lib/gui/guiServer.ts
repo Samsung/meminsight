@@ -85,7 +85,23 @@ app.set('json spaces', undefined);
 app.configure(function(){
     app.use(express.static(path.join(__dirname, '..', 'newGUI')));
 });
-var enhOutputPromise = issueFinder.getEnhancedTraceOutput(path.join(traceDirectory, 'enhanced-trace'));
+
+function getAllocSiteOutput(traceDirectory: string): Q.Promise<any> {
+    var cp = accessPathApi.runAllocSiteAnalysisOnTrace(path.join(traceDirectory, 'mem-trace'));
+    var def = Q.defer();
+    cp.stderr.on("data", (chunk : any) => {
+        console.error(chunk.toString());
+    });
+    cp.on('exit', () => {
+        def.resolve(JSON.parse(String(fs.readFileSync(path.join(traceDirectory, 'siteStats.json')))));
+    });
+    cp.on('error', (err) => {
+        def.reject(err);
+    })
+    return def.promise;
+}
+
+var enhOutputPromise = getAllocSiteOutput(traceDirectory);
 
 function extend(dst: any, src: any) {
     Object.keys(src).forEach((prop:string) => {
@@ -95,7 +111,7 @@ function extend(dst: any, src: any) {
 
 function joinAndComputeMetrics(timelineOutput: timeAnalysis.SSDResult, enhOutput: any): any {
     var result: any = [];
-    var objInfo = enhOutput.objectInfo;
+    var objInfo = enhOutput;
     var timelineObjData = timelineOutput.summaryData;
     Object.keys(timelineObjData).forEach((site: string) => {
         var curResult:any = {};
@@ -126,13 +142,14 @@ function joinAndComputeMetrics(timelineOutput: timeAnalysis.SSDResult, enhOutput
 }
 
 app.get("/summary", (req, res) =>{
+    console.log("requested summary");
     var timeOutput = timeAnalysis.computeSiteSummaryData(objectSet);
     enhOutputPromise.then((enhOutput: any) => {
         var merged = joinAndComputeMetrics(timeOutput, enhOutput);
         var result = res.json(merged);
         console.log("Serving summary");
         return result;
-    });
+    }).done();
 });
 
 app.get("/timeline/:site", (req,res) =>{

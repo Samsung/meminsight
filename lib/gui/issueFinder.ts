@@ -78,15 +78,7 @@ function extractIssues(allInfo: Array<SiteInfo>,
 
 }
 
-export function getEnhancedTraceOutput(enhancedTraceFile: string): Q.Promise<any> {
-    var cliArgs = ['node', 'vanillajs/mem.js', enhancedTraceFile];
-    var execPromise = Q.nfcall(cp.exec, cliArgs.join(' '), {maxBuffer: 1024 * 1024});
-    return execPromise.then(() => {
-        console.log("finished processing enhanced trace");
-        var outputFile = path.join(path.dirname(enhancedTraceFile), 'mem_output.json');
-        return JSON.parse(String(fs.readFileSync(outputFile)));
-    })
-}
+
 
 export function computeIssues(enhTraceOutput: any): { [issueType: number]: Array<Issue> } {
     var outputArr = getOutputAsArray(enhTraceOutput);

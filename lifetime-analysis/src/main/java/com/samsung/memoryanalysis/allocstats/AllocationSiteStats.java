@@ -25,12 +25,13 @@ import java.util.Set;
 
 import com.ibm.wala.util.collections.HashMapFactory;
 import com.ibm.wala.util.collections.Pair;
+import com.samsung.memoryanalysis.allocstats.AllocationSiteStats.AllocSiteResult;
 import com.samsung.memoryanalysis.traceparser.EnhancedTraceAnalysis;
 import com.samsung.memoryanalysis.traceparser.SourceMap;
 import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
 import com.samsung.memoryanalysis.traceparser.Timer;
 
-public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
+public class AllocationSiteStats implements EnhancedTraceAnalysis<Map<String,AllocSiteResult>> {
 
     private static int EXCL_REF_BOTTOM = 0;
     private static int EXCL_REF_TOP = -1;
@@ -53,6 +54,21 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
     }
 
 
+    public static class AllocSiteResult {
+        boolean isLeakingDefinitely = false;
+        boolean isNonEscaping = false;
+        String consistentlyPointedBy = null;
+        public AllocSiteResult(boolean isLeakingDefinitely,
+                boolean isNonEscaping, String consistentlyPointedBy) {
+            super();
+            this.isLeakingDefinitely = isLeakingDefinitely;
+            this.isNonEscaping = isNonEscaping;
+            this.consistentlyPointedBy = consistentlyPointedBy;
+        }
+
+
+
+    }
     /**
      * per-allocation-site metadata
      */
@@ -333,26 +349,36 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Void> {
     }
 
     @Override
-    public Void endExecution() {
-        // all staleness counts should be zero
+    public Map<String, AllocSiteResult> endExecution() {
+        Map<String, AllocSiteResult> result = HashMapFactory.make();
         for (SourceLocId slId: slId2Metadata.keySet()) {
             SiteMetadata sm = slId2Metadata.get(slId);
             String site = sourceMap.get(slId).toString();
+            boolean defLeak = false, nonEscaping = false;
+            String pointedBy = null;
             assert sm.currentStaleCount == 0 : "non-zero stale count " + sm.currentStaleCount + " for site " + slId + " " + site;
             if (sm.isIncreasing > 1) {
                 System.out.println("leaking site " + site);
+                defLeak = true;
             }
-            if (dumpFullStats) {
-                if (sm.isNonEscaping) {
+            if (sm.isNonEscaping) {
+                if (dumpFullStats) {
                     System.out.println("no escaping from site " + site);
                 }
-                if (sm.owningSite != null && sm.owningSite != SourceMap.UNKNOWN_ID) {
-                    String owningSite = sourceMap.get(sm.owningSite).toString();
-                    System.out.println("site " + site + " can be inlined into site " + owningSite);
+                nonEscaping = true;
+            }
+            if (sm.owningSite != null && sm.owningSite != SourceMap.UNKNOWN_ID) {
+                pointedBy = sourceMap.get(sm.owningSite).toString();
+                if (dumpFullStats) {
+                    System.out.println("site " + site
+                            + " can be inlined into site " + pointedBy);
                 }
             }
+            if (defLeak || nonEscaping || pointedBy != null) {
+                result.put(site, new AllocSiteResult(defLeak, nonEscaping, pointedBy));
+            }
         }
-        return null;
+        return result;
     }
 
     @Override

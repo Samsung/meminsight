@@ -54,6 +54,11 @@ export function runLifetimeAnalysisOnTrace(traceFile: string) : cp.ChildProcess 
     return runLifetimeAnalysisWithArgs(args);
 }
 
+export function runAllocSiteAnalysisOnTrace(traceFile: string): cp.ChildProcess {
+    var args = ['--no-progress', '--site-stats', '--trace',traceFile];
+    return runLifetimeAnalysisWithArgs(args);
+}
+
 export function getAccessPaths(objIds: Array<number>, timeStamp: number, traceFile: string): Q.Promise<any> {
     var input = getInputLines(objIds, timeStamp);
     console.log("running AP analysis");
