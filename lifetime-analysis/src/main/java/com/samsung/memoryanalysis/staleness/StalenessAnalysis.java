@@ -102,7 +102,7 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
 		if (domParent2Children.containsKey(objectId)) {
 			// was still in the live DOM, so treat this point as its last use time
 			i.lastUseTime = time;
-			i.lastUseSite = ObjectStaleness.DEFAULT_VAL;
+			i.lastUseSite = iid;
 			domParent2Children.remove(objectId);
 			domChild2ParentCount.remove(objectId);
 		}
