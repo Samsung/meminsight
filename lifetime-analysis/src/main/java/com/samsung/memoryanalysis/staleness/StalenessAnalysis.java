@@ -100,10 +100,11 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
         i.unreachableTime = time;
         i.unreachableSite = iid;
 		if (domParent2Children.containsKey(objectId)) {
-			// still in the live DOM, so treat this point as its last use time
+			// was still in the live DOM, so treat this point as its last use time
 			i.lastUseTime = time;
 			i.lastUseSite = ObjectStaleness.DEFAULT_VAL;
 			domParent2Children.remove(objectId);
+			domChild2ParentCount.remove(objectId);
 		}
         long staleness = time - (i.lastUseTime == ObjectStaleness.DEFAULT_VAL ? i.creationTime : i.lastUseTime);
         if (staleness < 0) { // Use last use time/site as better approximation of unreachability.
@@ -174,6 +175,12 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
      */
     private final Map<Integer,Set<Integer>> domParent2Children = HashMapFactory.make();
 
+    /**
+     * with a trace view of the DOM, a node can very temporarily seem to have multiple parents.
+     * use this map to keep track of such cases
+     */
+    private final Map<Integer,Integer> domChild2ParentCount = HashMapFactory.make();
+
 	@Override
 	public void domRoot(int nodeId) {
 		domParent2Children.put(nodeId, HashSetFactory.<Integer>make());
@@ -187,10 +194,17 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
 			if (!domParent2Children.containsKey(childId)) {
 				domParent2Children.put(childId, HashSetFactory.<Integer>make());
 			}
+			incDomParentCount(childId);
 		}
 	}
 
-	@Override
+	private void incDomParentCount(int childId) {
+	    int curCount = domChild2ParentCount.containsKey(childId) ? domChild2ParentCount.get(childId) : 0;
+	    curCount++;
+	    domChild2ParentCount.put(childId,curCount);
+    }
+
+    @Override
 	public void removeDOMChild(int parentId, int childId, long time) {
 		Set<Integer> children = domParent2Children.get(parentId);
 		if (children != null) { // in the tree
@@ -201,17 +215,29 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
 			worklist.push(childId);
 			while (!worklist.isEmpty()) {
 				Integer curNode = worklist.removeFirst();
-				ObjectStaleness objectStaleness = staleness.get(curNode);
-				objectStaleness.lastUseTime = time;
-				objectStaleness.lastUseSite = ObjectStaleness.REMOVE_FROM_DOM_SITE;
-				Set<Integer> curChildren = domParent2Children.get(curNode);
-				assert curChildren != null;
-				worklist.addAll(curChildren);
-				domParent2Children.remove(curNode);
-
+				int parentCount = decDOMParentCount(curNode);
+                if (parentCount == 0) {
+                    ObjectStaleness objectStaleness = staleness.get(curNode);
+                    objectStaleness.lastUseTime = time;
+                    objectStaleness.lastUseSite = ObjectStaleness.REMOVE_FROM_DOM_SITE;
+                    Set<Integer> curChildren = domParent2Children.get(curNode);
+                    assert curChildren != null;
+                    worklist.addAll(curChildren);
+                    domParent2Children.remove(curNode);
+                }
 			}
 		}
 	}
+
+    private int decDOMParentCount(int nodeId) {
+        Integer curCount = domChild2ParentCount.get(nodeId);
+        assert curCount != null : "no parent count for node " + nodeId;
+        int decCount = curCount-1;
+        if (decCount == 0) {
+            domChild2ParentCount.remove(nodeId);
+        }
+        return decCount;
+    }
 
     @Override
     public void putField(int iid, int baseId, String offset, int objectId) {
