@@ -13,12 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+var __memTestDone = false;
+
 function jalangiRC() {}
 (function () {
     var readyFun = function() {
         jalangiRC(readyFun);
         window.removeEventListener('load',readyFun);
         jalangiRC(readyFun);
+        __memTestDone = true;
     };
     window.addEventListener('load', readyFun);
 })();

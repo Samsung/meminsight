@@ -2,45 +2,45 @@
   "functionTrace": [
     [
       0,
-      3,
-      337
+      5,
+      353
     ],
     [
       0,
-      14,
-      273
-    ],
-    [
-      1,
-      38,
-      553
+      16,
+      281
     ],
     [
       1,
       40,
-      569
+      577
+    ],
+    [
+      1,
+      42,
+      593
     ]
   ],
   "objectInfo": {
-    "code_orig_.js:16:2:40:2": [
+    "code_orig_.js:19:2:44:2": [
       {
         "objectId": 2,
-        "creationTime": 2,
+        "creationTime": 4,
         "creationCallStack": [],
-        "unreachableTime": 41,
-        "unreachableSite": "code_orig_.js:16:2:40:4",
+        "unreachableTime": 43,
+        "unreachableSite": "code_orig_.js:19:2:44:4",
         "staleness": 1,
-        "lastUseTime": 40,
-        "lastUseSite": 385,
+        "lastUseTime": 42,
+        "lastUseSite": 401,
         "shallowSize": 2,
         "type": "FUNCTION"
       },
       {
         "objectId": 3,
-        "creationTime": 2,
+        "creationTime": 4,
         "creationCallStack": [],
-        "unreachableTime": 41,
-        "unreachableSite": "code_orig_.js:16:2:40:4",
+        "unreachableTime": 43,
+        "unreachableSite": "code_orig_.js:19:2:44:4",
         "staleness": 39,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -48,14 +48,14 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:17:20:17:35": [
+    "code_orig_.js:20:20:20:35": [
       {
         "objectId": 4,
-        "creationTime": 7,
+        "creationTime": 9,
         "creationCallStack": [
-          385
+          401
         ],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 98,
         "lastUseTime": "never used",
@@ -64,15 +64,15 @@
         "type": "DOM"
       }
     ],
-    "code_orig_.js:17:49:17:65": [
+    "code_orig_.js:20:49:20:65": [
       {
         "objectId": 5,
-        "creationTime": 10,
+        "creationTime": 12,
         "creationCallStack": [
-          385
+          401
         ],
-        "unreachableTime": 40,
-        "unreachableSite": "code_orig_.js:16:2:40:2",
+        "unreachableTime": 42,
+        "unreachableSite": "code_orig_.js:19:2:44:2",
         "staleness": 30,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -80,29 +80,29 @@
         "type": "OBJECT"
       }
     ],
-    "code_orig_.js:18:15:39:10": [
+    "code_orig_.js:21:15:42:10": [
       {
         "objectId": 6,
-        "creationTime": 13,
+        "creationTime": 15,
         "creationCallStack": [
-          385
+          401
         ],
-        "unreachableTime": 39,
-        "unreachableSite": "code_orig_.js:18:15:39:12",
+        "unreachableTime": 41,
+        "unreachableSite": "code_orig_.js:21:15:42:12",
         "staleness": 1,
-        "lastUseTime": 38,
-        "lastUseSite": 321,
+        "lastUseTime": 40,
+        "lastUseSite": 329,
         "shallowSize": 3,
         "type": "FUNCTION"
       },
       {
         "objectId": 7,
-        "creationTime": 13,
+        "creationTime": 15,
         "creationCallStack": [
-          385
+          401
         ],
-        "unreachableTime": 39,
-        "unreachableSite": "code_orig_.js:18:15:39:12",
+        "unreachableTime": 41,
+        "unreachableSite": "code_orig_.js:21:15:42:12",
         "staleness": 26,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -110,31 +110,31 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:19:26:20:14": [
+    "code_orig_.js:22:26:23:14": [
       {
         "objectId": 10,
-        "creationTime": 18,
+        "creationTime": 20,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 4,
-        "lastUseTime": 34,
-        "lastUseSite": 225,
+        "lastUseTime": 36,
+        "lastUseSite": 233,
         "shallowSize": 3,
         "type": "FUNCTION"
       },
       {
         "objectId": 11,
-        "creationTime": 18,
+        "creationTime": 20,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 35,
-        "unreachableSite": "code_orig_.js:21:13:34:14",
+        "unreachableTime": 37,
+        "unreachableSite": "code_orig_.js:24:13:37:14",
         "staleness": 17,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -142,16 +142,16 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:21:32:34:14": [
+    "code_orig_.js:24:32:37:14": [
       {
         "objectId": 24,
-        "creationTime": 27,
+        "creationTime": 29,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 11,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -159,16 +159,16 @@
         "type": "OBJECT"
       }
     ],
-    "code_orig_.js:22:23:23:18": [
+    "code_orig_.js:25:23:26:18": [
       {
         "objectId": 12,
-        "creationTime": 21,
+        "creationTime": 23,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 17,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -177,13 +177,13 @@
       },
       {
         "objectId": 13,
-        "creationTime": 21,
+        "creationTime": 23,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 17,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -191,16 +191,16 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:24:23:25:18": [
+    "code_orig_.js:27:23:28:18": [
       {
         "objectId": 14,
-        "creationTime": 22,
+        "creationTime": 24,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 16,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -209,13 +209,13 @@
       },
       {
         "objectId": 15,
-        "creationTime": 22,
+        "creationTime": 24,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 16,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -223,16 +223,16 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:26:26:27:18": [
+    "code_orig_.js:29:26:30:18": [
       {
         "objectId": 16,
-        "creationTime": 23,
+        "creationTime": 25,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 15,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -241,13 +241,13 @@
       },
       {
         "objectId": 17,
-        "creationTime": 23,
+        "creationTime": 25,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 15,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -255,16 +255,16 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:28:22:29:18": [
+    "code_orig_.js:31:22:32:18": [
       {
         "objectId": 18,
-        "creationTime": 24,
+        "creationTime": 26,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 14,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -273,13 +273,13 @@
       },
       {
         "objectId": 19,
-        "creationTime": 24,
+        "creationTime": 26,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 14,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -287,16 +287,16 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:30:28:31:18": [
+    "code_orig_.js:33:28:34:18": [
       {
         "objectId": 20,
-        "creationTime": 25,
+        "creationTime": 27,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 13,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -305,13 +305,13 @@
       },
       {
         "objectId": 21,
-        "creationTime": 25,
+        "creationTime": 27,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 13,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -319,16 +319,16 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:32:23:33:18": [
+    "code_orig_.js:35:23:36:18": [
       {
         "objectId": 22,
-        "creationTime": 26,
+        "creationTime": 28,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 12,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -337,13 +337,13 @@
       },
       {
         "objectId": 23,
-        "creationTime": 26,
+        "creationTime": 28,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 12,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -351,16 +351,16 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:35:14:36:14": [
+    "code_orig_.js:38:14:39:14": [
       {
         "objectId": 25,
-        "creationTime": 36,
+        "creationTime": 38,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 37,
-        "unreachableSite": "code_orig_.js:35:14:36:14",
+        "unreachableTime": 39,
+        "unreachableSite": "code_orig_.js:38:14:39:14",
         "staleness": 1,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -369,13 +369,13 @@
       },
       {
         "objectId": 26,
-        "creationTime": 36,
+        "creationTime": 38,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 37,
-        "unreachableSite": "code_orig_.js:35:14:36:14",
+        "unreachableTime": 39,
+        "unreachableSite": "code_orig_.js:38:14:39:14",
         "staleness": 1,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -383,16 +383,16 @@
         "type": "PROTOTYPE"
       }
     ],
-    "code_orig_.js:37:13:38:14": [
+    "code_orig_.js:40:13:41:14": [
       {
         "objectId": 8,
-        "creationTime": 16,
+        "creationTime": 18,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 22,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -401,13 +401,13 @@
       },
       {
         "objectId": 9,
-        "creationTime": 16,
+        "creationTime": 18,
         "creationCallStack": [
-          321,
-          385
+          329,
+          401
         ],
-        "unreachableTime": 38,
-        "unreachableSite": "code_orig_.js:18:15:39:10",
+        "unreachableTime": 40,
+        "unreachableSite": "code_orig_.js:21:15:42:10",
         "staleness": 22,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -418,336 +418,336 @@
     "initial DOM": [
       {
         "objectId": 27,
-        "creationTime": 44,
+        "creationTime": 46,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 3,
         "type": "DOM"
       },
       {
         "objectId": 28,
-        "creationTime": 47,
+        "creationTime": 49,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 20,
         "type": "DOM"
       },
       {
         "objectId": 29,
-        "creationTime": 49,
+        "creationTime": 51,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 30,
-        "creationTime": 51,
+        "creationTime": 53,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 31,
-        "creationTime": 53,
+        "creationTime": 55,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 32,
-        "creationTime": 55,
+        "creationTime": 57,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 33,
-        "creationTime": 57,
+        "creationTime": 59,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 34,
-        "creationTime": 59,
+        "creationTime": 61,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 35,
-        "creationTime": 61,
+        "creationTime": 63,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 36,
-        "creationTime": 63,
+        "creationTime": 65,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 37,
-        "creationTime": 65,
+        "creationTime": 67,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 38,
-        "creationTime": 67,
+        "creationTime": 69,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 39,
-        "creationTime": 69,
+        "creationTime": 71,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 40,
-        "creationTime": 71,
+        "creationTime": 73,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 41,
-        "creationTime": 73,
+        "creationTime": 75,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 42,
-        "creationTime": 75,
+        "creationTime": 77,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 43,
-        "creationTime": 77,
+        "creationTime": 79,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 44,
-        "creationTime": 79,
+        "creationTime": 81,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 45,
-        "creationTime": 81,
+        "creationTime": 83,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 46,
-        "creationTime": 83,
+        "creationTime": 85,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 47,
-        "creationTime": 85,
+        "creationTime": 87,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 48,
-        "creationTime": 87,
+        "creationTime": 89,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 49,
-        "creationTime": 89,
+        "creationTime": 91,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 50,
-        "creationTime": 91,
+        "creationTime": 93,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 51,
-        "creationTime": 93,
+        "creationTime": 95,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 52,
-        "creationTime": 95,
+        "creationTime": 97,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 3,
         "type": "DOM"
       },
       {
         "objectId": 53,
-        "creationTime": 97,
+        "creationTime": 99,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"
       },
       {
         "objectId": 54,
-        "creationTime": 99,
+        "creationTime": 101,
         "creationCallStack": [],
-        "unreachableTime": 105,
+        "unreachableTime": 107,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 105,
+        "lastUseTime": 107,
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "DOM"

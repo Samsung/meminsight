@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 function jalangiRC() {}
+var __memTestDone = false;
 
 var x = {};
 var x2 = x;
@@ -22,3 +23,4 @@ var y = null;
 eval("y = function foo() { x2 = null; };");
 y();
 jalangiRC(x);
+__memTestDone = true;

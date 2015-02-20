@@ -20,3 +20,5 @@
     para.appendChild(text);
     div.appendChild(para);
 })();
+
+var __memTestDone = true;

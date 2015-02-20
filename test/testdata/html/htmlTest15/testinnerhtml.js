@@ -13,6 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+var __memTestDone = false;
+
 (function () {
     function baz() {
         var div = document.getElementById('foo');
@@ -20,6 +23,7 @@
         var div2 = document.getElementById('foo2');
         var div3 = document.getElementById('foo3');
         div3.appendChild(div2);
+        __memTestDone = true;
     }
     setTimeout(baz, 0);
 })();

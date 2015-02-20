@@ -13,11 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+var __memTestDone = false;
+
 function foo() {
     var div = document.getElementById('div2');
     div.innerHTML = "";
     div = document.getElementById('fizzbuzz');
     div.innerHTML = "";
+    __memTestDone = true;
 }
 
 setTimeout(foo,0);

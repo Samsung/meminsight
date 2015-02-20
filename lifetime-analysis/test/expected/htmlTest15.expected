@@ -1,41 +1,41 @@
-Id: 2     Alloc: testinnerhtml_orig_.js:16:2:25:2         Time: 9          Loc: testinnerhtml_orig_.js:16:1:25:5
-Id: 3     Alloc: testinnerhtml_orig_.js:16:2:25:2         Time: 9          Loc: testinnerhtml_orig_.js:16:1:25:5
-Id: 4     Alloc: testinnerhtml_orig_.js:17:5:23:6         Time: 98         Loc: testinnerhtml_orig_.js:17:5:23:6
-Id: 5     Alloc: testinnerhtml_orig_.js:17:5:23:6         Time: 98         Loc: testinnerhtml_orig_.js:17:5:23:6
-Id: 6     Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 7     Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 8     Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 9     Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 10    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 11    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 12    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 13    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 14    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 15    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 16    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 17    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 18    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 19    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 20    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 21    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 22    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 23    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 24    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 25    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 26    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 27    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 28    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 29    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 30    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 31    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 32    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 33    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 34    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 35    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 36    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 37    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 38    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 39    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 40    Alloc: initial DOM                              Time: 108        Loc: end of program
-Id: 41    Alloc: testinnerhtml_orig_.js:19:9:19:69        Time: 108        Loc: end of program
-Id: 42    Alloc: testinnerhtml_orig_.js:19:9:19:69        Time: 108        Loc: end of program
+Id: 2     Alloc: testinnerhtml_orig_.js:19:2:29:2         Time: 11         Loc: testinnerhtml_orig_.js:19:1:29:5
+Id: 3     Alloc: testinnerhtml_orig_.js:19:2:29:2         Time: 11         Loc: testinnerhtml_orig_.js:19:1:29:5
+Id: 4     Alloc: testinnerhtml_orig_.js:20:5:27:6         Time: 100        Loc: testinnerhtml_orig_.js:20:5:27:6
+Id: 5     Alloc: testinnerhtml_orig_.js:20:5:27:6         Time: 100        Loc: testinnerhtml_orig_.js:20:5:27:6
+Id: 6     Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 7     Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 8     Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 9     Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 10    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 11    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 12    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 13    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 14    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 15    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 16    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 17    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 18    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 19    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 20    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 21    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 22    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 23    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 24    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 25    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 26    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 27    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 28    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 29    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 30    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 31    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 32    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 33    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 34    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 35    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 36    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 37    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 38    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 39    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 40    Alloc: initial DOM                              Time: 110        Loc: end of program
+Id: 41    Alloc: testinnerhtml_orig_.js:22:9:22:69        Time: 110        Loc: end of program
+Id: 42    Alloc: testinnerhtml_orig_.js:22:9:22:69        Time: 110        Loc: end of program

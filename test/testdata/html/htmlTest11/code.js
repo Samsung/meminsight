@@ -13,6 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+var __memTestDone = false;
+
 (function () {
     var callback;
     var x = function () {
@@ -21,6 +24,9 @@
         xhr.send();
         callback = function() {
             console.log("hello");
+            if (this.readyState === this.DONE) {
+                __memTestDone = true;
+            }
         };
         xhr.onreadystatechange = callback;
     };

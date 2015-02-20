@@ -179,7 +179,7 @@ function record() {
         connection.on('close', function(reasonCode: any, description: any) {
             console.log((new Date()) + ' Peer ' + connection.remoteAddress + ' disconnected. '+reasonCode+" "+description);
             if (args.outputFile) {
-                outputStream.end("", function () { console.log("done writing log")});
+                outputStream.end("", function () { console.log("done writing log"); process.exit(0); });
             } else {
                 process.stdout.write("completing lifetime analysis...");
                 javaProc.stdin.end();

@@ -498,8 +498,14 @@ module ___LoggingAnalysis___ {
             this.logger.logScriptExit(iid);
         }
 
+        /**
+         * public flag indicating when logging is complete
+         * @type {boolean}
+         */
+        doneLogging:boolean = false;
+
         endExecution():any {
-            this.lastUse.flushLastUse(() => { });
+            this.lastUse.flushLastUse(() => { this.doneLogging = true; });
             return {};
         }
 
