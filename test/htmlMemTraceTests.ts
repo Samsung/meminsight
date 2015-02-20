@@ -34,7 +34,7 @@ var outputDir = "lifetime-analysis/test/traces";
 mkdirp.sync(outputDir);
 
 var tests: Array<string> = [];
-var numTests = 17;
+var numTests = 18;
 for (var i = 1; i <= numTests; i++) {
     tests.push("htmlTest" + i);
 }
