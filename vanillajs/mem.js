@@ -28,6 +28,8 @@ if (typeof J$ === 'undefined') {
     var hash = Object.create(null);
     var frame = Object.create(null);
 
+    var printOutput = false;
+
     var frameStack = [frame];
     var evalFrames = [];
     var smemory = {
@@ -119,7 +121,7 @@ if (typeof J$ === 'undefined') {
             for (var iid in info) {
                 // TODO need to refactor the following check
                 if (info.hasOwnProperty(iid) && iid !== 'count') {
-                    console.log(tab + info[iid].count + " object(s) escaped to the function containing line " + stripBeginEnd(iidToLocation(iid))+" and did not escape to its caller");
+                    if (printOutput) console.log(tab + info[iid].count + " object(s) escaped to the function containing line " + stripBeginEnd(iidToLocation(iid))+" and did not escape to its caller");
                     printInfo(info[iid], tab + "    ");
                 }
             }
@@ -456,7 +458,8 @@ if (typeof J$ === 'undefined') {
                         data.consistentlyPointedBy = stripBeginEnd(iidToLocation(odbase[iid].pointedBy));
                     }
 
-                    console.log(data.total + " "+(data.isFrame ? "call frame(s)" : "object(s)/function(s)/array(s)") +
+                    if (printOutput) {
+                        console.log(data.total + " "+(data.isFrame ? "call frame(s)" : "object(s)/function(s)/array(s)") +
                         " got allocated at " + stripBeginEnd(iidToLocation(iid)) + " (iid="+iid+")"+
                         " of which " + data.countEscaping + " object(s) escape to its caller" +
                         (data.isOneAliveAtATime ? "\n    at most one alive object at a time" : "") +
@@ -470,6 +473,7 @@ if (typeof J$ === 'undefined') {
                         "\n    gradient is ("+data.gradient+")" +
 //                        ((info[iid].oneActive && info[iid].accessedByParentOnly && !info[iid].nonEscaping) ? "\n    and is used by its parents only" : "") +
                         (data.consistentlyPointedBy ? "\n    uniquely pointed by objects allocated at " + data.consistentlyPointedBy : ""));
+                    }
                     if (printEscapeTree) printInfo(info[iid], "    ");
                 }
             }
