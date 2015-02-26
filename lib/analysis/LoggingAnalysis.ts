@@ -117,13 +117,22 @@ module ___LoggingAnalysis___ {
                 }
             }
             if (isBrowser) {
+                var endTracing = () => {
+                    this.lastUse.flushLastUse(() => {
+                        alert("trace generation complete\n" /*+ this.nativeModels.getNumDOMNodesModeled() + " DOM node locations from models"*/);
+                    });
+                    this.logger.stopTracing();
+                };
                 window.addEventListener('keydown', (e) => {
                     // keyboard shortcut is Alt-Shift-T for now
                     if (e.altKey && e.shiftKey && e.keyCode === 84) {
-                        this.lastUse.flushLastUse(() => {
-                            alert("all flushed\n" + this.nativeModels.getNumDOMNodesModeled() + " DOM node locations from models");
-                        });
-                        this.logger.stopTracing();
+                        endTracing();
+                    }
+                });
+                // for Tizen apps
+                document.addEventListener('tizenhwkey', (e) => {
+                    if ((<any>e).keyName === 'menu') {
+                        endTracing();
                     }
                 });
             }
