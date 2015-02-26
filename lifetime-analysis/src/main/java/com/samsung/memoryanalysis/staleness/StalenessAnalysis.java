@@ -208,24 +208,29 @@ public class StalenessAnalysis implements UnreachabilityAwareAnalysis<Staleness>
 	public void removeDOMChild(int parentId, int childId, long time) {
 		Set<Integer> children = domParent2Children.get(parentId);
 		if (children != null) { // in the tree
-			assert children.contains(childId);
-			children.remove(childId);
-			// update last use times of nodes reachable from child
-			LinkedList<Integer> worklist = new LinkedList<Integer>();
-			worklist.push(childId);
-			while (!worklist.isEmpty()) {
-				Integer curNode = worklist.removeFirst();
-				int parentCount = decDOMParentCount(curNode);
-                if (parentCount == 0) {
-                    ObjectStaleness objectStaleness = staleness.get(curNode);
-                    objectStaleness.lastUseTime = time;
-                    objectStaleness.lastUseSite = ObjectStaleness.REMOVE_FROM_DOM_SITE;
-                    Set<Integer> curChildren = domParent2Children.get(curNode);
-                    assert curChildren != null;
-                    worklist.addAll(curChildren);
-                    domParent2Children.remove(curNode);
-                }
-			}
+		    // unfortunately, in some cases we are getting mutation observer
+		    // records in the wrong order, so we can't assert the following
+		    // condition.
+			//assert children.contains(childId);
+		    if (children.contains(childId)) {
+	            children.remove(childId);
+	            // update last use times of nodes reachable from child
+	            LinkedList<Integer> worklist = new LinkedList<Integer>();
+	            worklist.push(childId);
+	            while (!worklist.isEmpty()) {
+	                Integer curNode = worklist.removeFirst();
+	                int parentCount = decDOMParentCount(curNode);
+	                if (parentCount == 0) {
+	                    ObjectStaleness objectStaleness = staleness.get(curNode);
+	                    objectStaleness.lastUseTime = time;
+	                    objectStaleness.lastUseSite = ObjectStaleness.REMOVE_FROM_DOM_SITE;
+	                    Set<Integer> curChildren = domParent2Children.get(curNode);
+	                    assert curChildren != null;
+	                    worklist.addAll(curChildren);
+	                    domParent2Children.remove(curNode);
+	                }
+	            }
+		    }
 		}
 	}
 
