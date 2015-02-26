@@ -148,6 +148,8 @@ export interface HTMLTraceOptions {
     verbose?: boolean
     syncAjax?: boolean
     only_include?: string
+    serverIP?: string
+    serverPort?: string
 }
 
 export function instrumentHTMLDir(testDir: string, options: HTMLTraceOptions, selenium?: boolean): Q.Promise<jalangi.InstDirResult> {
@@ -166,15 +168,17 @@ export function instrumentHTMLDir(testDir: string, options: HTMLTraceOptions, se
             rimraf.sync(appDir);
         }
     }
-    if (options.debugFun || options.syncAjax) {
-        instOptions.initParam = [];
-        if (options.debugFun) {
-            instOptions.initParam.push("debugFun:"+options.debugFun);
-        }
-        if (options.syncAjax) {
-            instOptions.initParam.push("syncAjax:" + options.syncAjax);
-        }
+    instOptions.initParam = [];
+    if (options.debugFun) {
+        instOptions.initParam.push("debugFun:"+options.debugFun);
     }
+    if (options.syncAjax) {
+        instOptions.initParam.push("syncAjax:" + options.syncAjax);
+    }
+    var serverIP = options.serverIP ? options.serverIP : "127.0.0.1";
+    var serverPort = options.serverPort ? options.serverPort : "8082";
+    instOptions.initParam.push("serverIP:" + serverIP);
+    instOptions.initParam.push("serverPort:" + serverPort);
     if (options.verbose) {
         instOptions.verbose = true;
     }
@@ -198,6 +202,7 @@ export function instrumentHTMLDir(testDir: string, options: HTMLTraceOptions, se
 
 export function getTraceForHTMLDir(testDir:string, options:HTMLTraceOptions):Q.Promise<MemTraceResult> {
     var instPromise = instrumentHTMLDir(testDir, options, true);
+    var serverPort = options.serverPort ? options.serverPort : "8082";
     // load instrumented code and generate trace
     var tracePromise = instPromise.then(function (result:jalangi.InstDirResult) {
         var outputDir = path.join(result.outputDir, path.basename(testDir));
@@ -214,7 +219,7 @@ export function getTraceForHTMLDir(testDir:string, options:HTMLTraceOptions):Q.P
         serverProc.stdout.on('data', (chunk: any) => {
             stdout += chunk.toString();
             // TODO fix this hack
-            if (chunk.toString().indexOf("8080") !== -1) {
+            if (chunk.toString().indexOf(serverPort) !== -1) {
                 // now fire up the phantomjs process to load the instrumented app
                 child_process.exec(['phantomjs', './drivers/phantomjs-runner.js'].join(" "), function (error, stdout, stderr) {
                     if (error !== null) {

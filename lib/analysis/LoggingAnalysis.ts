@@ -145,7 +145,11 @@ module ___LoggingAnalysis___ {
                     throw new Error("TODO revive support for synchronous AJAX logging");
 //                    logger = new SyncAjaxLogger();
                 } else {
-                    logger = new BinaryWebSocketLogger();
+                    var serverIP = initParam["serverIP"], serverPort = initParam["serverPort"];
+                    if (!serverIP || !serverPort) {
+                        throw new Error("server IP and/or port not specified!");
+                    }
+                    logger = new BinaryWebSocketLogger(serverIP, serverPort);
                 }
             } else {
                 if (initParam["syncFS"]) {
@@ -155,7 +159,11 @@ module ___LoggingAnalysis___ {
                         logger = new BinaryFSLogger();
                     }
                 } else {
-                    logger = new NodeWebSocketLogger(initParam["appDir"]);
+                    var serverIP = initParam["serverIP"], serverPort = initParam["serverPort"];
+                    if (!serverIP || !serverPort) {
+                        throw new Error("server IP and/or port not specified!");
+                    }
+                    logger = new NodeWebSocketLogger(initParam["appDir"], serverIP, serverPort);
                 }
             }
             this.logger = logger;

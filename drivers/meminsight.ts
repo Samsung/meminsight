@@ -55,6 +55,8 @@ function instrumentApp(args: Array<string>): void {
     parser.addArgument(['--outputDir'], { help:"directory in which to place instrumented files and traces.  " +
     "We create a new sub-directory for our output.", defaultValue: "/tmp" });
     parser.addArgument(['--only_include'], { help:"list of path prefixes specifying which sub-directories should be instrumented, separated by path.delimiter"});
+    parser.addArgument(['--serverIP'], { help: "IP address of WebSocket server, default 127.0.0.1", defaultValue: '127.0.0.1'});
+    parser.addArgument(['--serverPort'], { help: "Port of WebSocket server, default 8082", defaultValue: '8082'});
     parser.addArgument(['path'], { help:"directory of app to instrument" });
     var parsed = parser.parseArgs(args);
     var appPath = parsed.path;
@@ -75,6 +77,8 @@ function instrumentApp(args: Array<string>): void {
     if (parsed.only_include) {
         cliArgs.push('--only_include', parsed.only_include);
     }
+    cliArgs.push('--serverIP', parsed.serverIP);
+    cliArgs.push('--serverPort', parsed.serverPort);
     cliArgs.push(appPath);
     runNodeProg(cliArgs, "instrumentation");
 }
@@ -85,6 +89,7 @@ function runApp(args: Array<string>): void {
         addHelp: true,
         description: "run an instrumented web app and collect profiling results"
     });
+    parser.addArgument(['--port'], { help: "port for WebSocket server", defaultValue: 8082});
     parser.addArgument(['path'], { help:"directory of instrumented app" });
     var parsed = parser.parseArgs(args);
     var appPath = parsed.path;
@@ -95,6 +100,7 @@ function runApp(args: Array<string>): void {
     }
     var cliArgs = [
         path.join(__dirname, '..', 'lib', 'server', 'server.js'),
+        '--port', parsed.port,
         appPath
     ];
     runNodeProg(cliArgs, "run of app ");
@@ -144,12 +150,14 @@ function runNodeScript(args: Array<string>): void {
         addHelp: true,
         description: "run an instrumented node.js script and collect profiling results"
     });
+    parser.addArgument(['--serverIP'], { help: "IP address of WebSocket server, default 127.0.0.1", defaultValue: '127.0.0.1'});
+    parser.addArgument(['--serverPort'], { help: "Port of WebSocket server, default 8082", defaultValue: '8082'});
     parser.addArgument(['instScript'], { help: "path of instrumented script to run, relative to appPath"});
     parser.addArgument(['instScriptArgs'], {
         help: "command-line arguments to pass to instrumented script",
         nargs: argparse.Const.REMAINDER
     });
-    var parsed = parser.parseArgs(args);
+    var parsed: { serverIP: string; serverPort: string; instScript: string; instScriptArgs: Array<string> } = parser.parseArgs(args);
     var instScript = parsed.instScript;
     var instScriptArgs = parsed.instScriptArgs;
     // discover the app path, which contains jalangi_sourcemap.json; must be a parent of the instScript directory
@@ -172,8 +180,9 @@ function runNodeScript(args: Array<string>): void {
         directDriver,
         '--analysis',
         loggingAnalysis,
-        '--initParam',
-        'appDir:'+appPath,
+        '--initParam', 'appDir:'+appPath,
+        '--initParam', 'serverIP:' + parsed.serverIP,
+        '--initParam', 'serverPort:' + parsed.serverPort,
         instScript].concat(instScriptArgs);
     runNodeProg(loggingAnalysisArgs, "run of script ");
 }

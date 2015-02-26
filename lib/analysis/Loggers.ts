@@ -537,7 +537,7 @@ module ___LoggingAnalysis___ {
         private connectCB: () => void;
 
         private serverProc: any;
-        constructor(appDir: string) {
+        constructor(appDir: string, serverIP: string, serverPort: string) {
             super();
             if (!appDir) {
                 throw new Error("appDir is undefined");
@@ -567,8 +567,9 @@ module ___LoggingAnalysis___ {
             });
             res.stdout.on('data', (chunk: any) => {
                 // TODO fix this hack
-                if (chunk.toString().indexOf("8080") !== -1) {
-                    client.connect('ws://127.0.0.1:8080', 'mem-trace-protocol');
+                if (chunk.toString().indexOf(serverPort) !== -1) {
+                    var url = 'ws://' + serverIP + ':' + serverPort;
+                    client.connect(url, 'mem-trace-protocol');
                 }
             });
             this.serverProc = res;
@@ -636,10 +637,10 @@ module ___LoggingAnalysis___ {
          */
         private cb:() => void;
 
-
-        constructor() {
+        constructor(serverIP: string, serverPort: string) {
             super();
-            this.socket = new WebSocket('ws://127.0.0.1:8080', 'mem-trace-protocol');
+            var url = 'ws://' + serverIP + ':' + serverPort;
+            this.socket = new WebSocket(url, 'mem-trace-protocol');
             this.socket.onopen = () => {
                 this.isOpen = true;
                 this.socket.send('startup');

@@ -41,6 +41,8 @@ parser.addArgument(['--outputDir'], { help:"directory in which to place instrume
                                            "We create a new sub-directory for our output.", required:true });
 parser.addArgument(['--justGenerate'], { help: "just instrument and generate metadata, but don't produce mem-trace", action: 'storeTrue'});
 parser.addArgument(['--verbose'], { help: "print verbose output", action:'storeTrue'});
+parser.addArgument(['--serverIP'], { help: "IP address of WebSocket server, default 127.0.0.1", defaultValue: '127.0.0.1'});
+parser.addArgument(['--serverPort'], { help: "Port of WebSocket server, default 8082", defaultValue: '8082'});
 parser.addArgument(['inputFile'], { help:"Either a JavaScript file or an HTML app directory with an index.html file" });
 var args = parser.parseArgs();
 var outputDir:string = args.outputDir;
@@ -75,7 +77,9 @@ if (jsFile) {
             debugFun: args.debugFun,
             verbose: args.verbose,
             syncAjax: args.syncAjax,
-            only_include: args.only_include
+            only_include: args.only_include,
+            serverIP: args.serverIP,
+            serverPort: args.serverPort
         }, false);
     } else {
         if (args.syncAjax) {
@@ -84,7 +88,11 @@ if (jsFile) {
         promise = memTracer.getTraceForHTMLDir(inputDirName, {
             outputDir: outputDir,
             debugFun: args.debugFun,
-            verbose: args.verbose
+            verbose: args.verbose,
+            syncAjax: args.syncAjax,
+            only_include: args.only_include,
+            serverIP: args.serverIP,
+            serverPort: args.serverPort
         });
     }
     trueOutputDir = path.join(outputDir, path.basename(inputDirName));

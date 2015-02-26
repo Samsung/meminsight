@@ -69,6 +69,8 @@ parser.addArgument(['--proxy'], { help: "run as a proxy server, instrumenting co
 parser.addArgument(['--proxyOutput'], { help: "in proxy server mode, directory under which to store instrumented code", defaultValue: '/tmp/proxyOut' });
 parser.addArgument(['--noHTTPServer'], { help: "don't start up a local HTTP server", action: 'storeTrue'});
 parser.addArgument(['--outputFile'], { help: "write generated trace to a file, instead of sending to lifetime analysis"});
+parser.addArgument(['--clientMode'], { help: "in client mode, try to connect to the tinyweb server in the target", action: 'storeTrue'});
+parser.addArgument(['--port'], { help: "port on which websocket server should listen", defaultValue: '8082'});
 parser.addArgument(['app'], { help: "the app to serve.  in proxy mode, the app should be uninstrumented.", nargs: 1});
 var args = parser.parseArgs();
 
