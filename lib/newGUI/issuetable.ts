@@ -33,53 +33,58 @@
 
     };
 
+    $("#restable").html('<img src="/images/ajax-loader.gif" style="display: block; margin: 0 auto">');
+
+    console.time("dataFetch");
     $.get("/summary", function (data) {
+        console.timeEnd("dataFetch");
+        console.time("gen data");
         var k = 0;
         var lim = data.length;
 
-        $("#restable").append("<table id=\"Table1\" class=\"table table-bordered table-striped\" cellspacing=\"0\" width=\"100%\"></table>");
+        $("#restable").html("<table id=\"Table1\" class=\"table table-bordered table-striped\" cellspacing=\"0\" width=\"100%\"></table>");
 
-        $("#Table1").append("<thead><tr>" + "<th>" + "Site" + "</th>" +
-            "<th style=\"text-align:right\">" + "Count" + "</th>" +
-            "<th style=\"text-align:right\">" + "Occupancy" + "</th>" +
-            "<th style=\"text-align:right\">" + "Kind" + "</th>" +
-            "<th style=\"text-align:right\">" + "Leak" + "</th>" +
-            "<th style=\"text-align:right\">" + "Staleness" + "</th>" +
-            "<th style=\"text-align:right\">" + "Inline-able" + "</th>" +
-            "<th style=\"text-align:right\">" + "Non-escaping" + "</th>" +
-            "</tr> </thead>");
-        $("#Table1").append("<tbody>");
+        var tableData: Array<Array<string>> = [];
         while (k < lim) {
-            var b = "<a onclick=\"window.open('/allocpage/"+ encodeURIComponent(data[k].site) + "')\">" +
-                    formatSourceLoc(data[k].site) + "</a> ";
-
-            var s1 = "<span id=\"topSite" + k + "span1\">" + data[k].count + "</span>";
-            var s2 = "<span id=\"topSite" + k + "span2\">" + data[k].aggregateMoment + "</span>";
-            var s3 = "<span id=\"topSite" + k + "span3\">" + data[k].kind + "</span>";
-            var s4 = "<span id=\"topSite" + k + "span4\">" +
-                        ((data[k].leakiness.toFixed(2) === "0.00") ? " " : data[k].leakiness.toFixed(2)) + "</span>";
-            var s5 = "<span id=\"topSite" + k + "span5\">" +
-                        ((data[k].relativeStaleness.toFixed(2) === "0.00") ? " " : data[k].relativeStaleness.toFixed(2)) + "</span>";
-            var s6 = "<span id=\"topSite" + k + "span6\">" +
-                        ((data[k].inlineBenefit.toFixed(2) === "0.00") ? " " :
-                            "<a onclick=\"alert('" + formatSourceLoc(data[k].consistentlyPointedBy) + "')\">" +
-                            data[k].inlineBenefit.toFixed(2) + "</a>") + "</span>";
-            var s7 = "<span id=\"topSite" + k + "span7\">" +
-                        ((data[k].stackAllocBenefit.toFixed(2) === "0.00") ? " " : data[k].stackAllocBenefit.toFixed(2)) + "</span>";
-
-            $("#Table1").append("<tr>" + "<td>" + b + // bs +
-                    "</td>" + "<td style=\"text-align:right\">" + s1 + "</td>" +
-                    "<td style=\"text-align:right\">" + s2 + "</td>" +
-                    "<td style=\"text-align:right\">" + s3 + "</td>" +
-                    "<td style=\"text-align:right\">" + s4 + "</td>" +
-                    "<td style=\"text-align:right\">" + s5 + "</td>" +
-                    "<td style=\"text-align:right\">" + s6 + "</td>" +
-                    "<td style=\"text-align:right\">" + s7 + "</td>" +
-                    "</tr>");
+            var curData = data[k];
+            tableData.push([
+                curData.site,
+                curData.count,
+                curData.aggregateMoment,
+                curData.kind,
+                (data[k].leakiness.toFixed(2) === "0.00") ? " " : data[k].leakiness.toFixed(2),
+                (data[k].relativeStaleness.toFixed(2) === "0.00") ? " " : data[k].relativeStaleness.toFixed(2),
+                ((data[k].inlineBenefit.toFixed(2) === "0.00") ? " " :
+                    data[k].inlineBenefit.toFixed(2) + "___" + formatSourceLoc(data[k].consistentlyPointedBy)),
+                (data[k].stackAllocBenefit.toFixed(2) === "0.00") ? " " : data[k].stackAllocBenefit.toFixed(2)
+            ]);
             k++;
         }
-        $('#Table1').append("</tbody>");
-        (<any>$('#Table1')).dataTable();
+        console.timeEnd("gen data");
+        console.time("data table");
+
+        (<any>$('#Table1')).dataTable({
+            "data": tableData,
+            "columns": [
+                { 'title': 'Site', 'render': (siteStr, type, full, meta) => {
+                    return "<a onclick=\"window.open('/allocpage/"+ encodeURIComponent(siteStr) + "')\">" +
+                        formatSourceLoc(siteStr) + "</a>";
+                }},
+                { 'title': 'Count', 'sClass': 'dt-right'},
+                { 'title': 'Occupancy', 'sClass': 'dt-right'},
+                { 'title': 'Kind', 'sClass': 'dt-right'},
+                { 'title': 'Leak', 'sClass': 'dt-right' },
+                { 'title': 'Staleness', 'sClass': 'dt-right'},
+                { 'title': 'Inline-able', 'sClass': 'dt-right', 'render': (inlineStr, type, full, meta) => {
+                    if (inlineStr === " ") return " ";
+                    var split = inlineStr.split("___");
+                    return "<a onclick=\"alert('" + split[1] + "')\">" +
+                    split[0] + "</a>";
+                }},
+                { 'title': 'Non-escaping', 'sClass': 'dt-right'}],
+            "deferRender": true
+        });
+        console.timeEnd("data table");
 
         $("#restable").append("<div> Toggle Column <a class=\"toggle-vis\" data-column=\"4\">Leak</a> - " +
             "<a class=\"toggle-vis\" data-column=\"5\">Staleness</a> - " +

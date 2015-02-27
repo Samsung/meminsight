@@ -76,9 +76,11 @@ if (file2.indexOf(".json") !== -1) {
     console.log("Reading Size and Staleness JSON file " + file2);
     sizePromise = Q.fcall (
         function () {
+            console.time("readJSON");
             var buf : NodeBuffer = fs.readFileSync(file2);
             var json : JSON = JSON.parse(buf.toString());
-            return { result: json };
+            console.timeEnd("readJSON");
+             return { result: json };
         });
 } else {
     console.log("Expecting a .json file in the second argument");
@@ -99,6 +101,7 @@ var maxTime : number;
 var origJson : any = undefined;
 sizePromise.then(
     function (r : any) {
+        console.time("parse");
         console.log("Populating JSON objects");
         objectSet = timeAnalysis.populateObjectsFromJSON(r.result);
         console.log("...done");
@@ -116,7 +119,7 @@ sizePromise.then(
         maxTime = ft[max].time;
         origJson = r.result
         console.log("... done");
-
+        console.timeEnd("parse");
         return;
     }
 ).done();
@@ -182,10 +185,14 @@ function joinAndComputeMetrics(timelineOutput: timeAnalysis.SSDResult, enhOutput
 }
 
 app.get("/summary", (req, res) =>{
+    console.time("site summary data");
     var timeOutput = timeAnalysis.computeSiteSummaryData(objectSet);
+    console.timeEnd("site summary data");
     curObjectSet = objectSet;
     enhOutputPromise.then((enhOutput: any) => {
+        console.time("computing metrics");
         var merged = joinAndComputeMetrics(timeOutput, enhOutput);
+        console.timeEnd("computing metrics");
         var result = res.json(merged);
         console.log("Serving summary");
         return result;
@@ -307,7 +314,7 @@ app.get("/lastusetree", (req, res) => {
 app.get("/problemslist", (req, res) => {
     enhOutputPromise.then((output) => {
         res.json(issueFinder.computeIssues(output));
-    });
+    }).done();
 });
 
 console.log("Serving on port " + port + ". Use Ctrl-C to close")
