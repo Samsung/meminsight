@@ -15,13 +15,22 @@
  */
 package com.samsung.memoryanalysis.referencecounter;
 
-import java.io.OutputStream;
-import java.io.PrintStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.channels.AsynchronousFileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ibm.wala.util.collections.HashSetFactory;
 import com.samsung.memoryanalysis.context.Context;
+import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter.TraceFormatter;
 import com.samsung.memoryanalysis.traceparser.IIDMap;
 import com.samsung.memoryanalysis.traceparser.Timer;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
@@ -30,84 +39,108 @@ import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
  * Creates a trace of the events similar to the input trace, but enriched with
  * unreachable trace events.
  */
-public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Void> {
+public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<TraceFormatter> {
 
     private final TraceFormatter out;
-    private final Gson json;
-
-
     private Timer timer;
     private long counter = 0;
 
-    private class TraceFormatter {
+    public class TraceFormatter {
 
-        private final PrintStream out;
+        private final AsynchronousFileChannel out;
 
-        public TraceFormatter(PrintStream out) {
+        private StringBuilder builder = new StringBuilder();
+
+        private static final int CHAR_LIMIT =  64000;
+
+        private long byteOffset = 0;
+
+        private final ExecutorService ioExecutor;
+
+        public TraceFormatter(Path path) throws IOException {
             super();
-            this.out = out;
+            ioExecutor = Executors.newSingleThreadExecutor();
+            StandardOpenOption[] options = new StandardOpenOption[] { StandardOpenOption.WRITE, StandardOpenOption.CREATE };
+            this.out = AsynchronousFileChannel.open(path, HashSetFactory.make(Arrays.asList(options)), ioExecutor);
+        }
+
+
+        private void flushIfNeeded() {
+            if (builder.length() >= CHAR_LIMIT) {
+                byte[] bytes = builder.toString().getBytes();
+                int curLen = bytes.length;
+                out.write(ByteBuffer.wrap(bytes), byteOffset);
+                byteOffset += curLen;
+                builder.setLength(0);
+            }
         }
 
         public TraceFormatter start(int entryType, int iid) {
             updateCounter(entryType);
-            out.print("[");
-            out.print(entryType);
-            out.print(",");
-            out.print(iid);
-            out.print(",");
+            builder.append("[");
+            builder.append(entryType);
+            builder.append(",");
+            builder.append(iid);
+            builder.append(",");
             return this;
         }
 
         public TraceFormatter start(int entryType) {
             updateCounter(entryType);
-            out.print("[");
-            out.print(entryType);
-            out.print(",");
+            builder.append("[");
+            builder.append(entryType);
+            builder.append(",");
             return this;
         }
 
         public TraceFormatter write(int i) {
-            out.print(i);
-            out.print(",");
+            builder.append(i);
+            builder.append(",");
             return this;
         }
 
         public void writeEnd(int i) {
-            out.print(i);
-            out.print("]\n");
+            builder.append(i);
+            builder.append("]\n");
+            flushIfNeeded();
         }
 
         public void writeEnd(long time) {
-            out.print(time);
-            out.print("]\n");
+            builder.append(time);
+            builder.append("]\n");
+            flushIfNeeded();
         }
 
         public TraceFormatter write(long time) {
-            out.print(time);
-            out.print(",");
+            builder.append(time);
+            builder.append(",");
             return this;
         }
 
         public TraceFormatter write(String str) {
-            out.print(json.toJson(str));
-            out.print(",");
+            builder.append("\"");
+            builder.append(str);
+            builder.append("\",");
             return this;
         }
 
-        public void close() {
+        public void close() throws IOException {
+            out.force(true);
             out.close();
-
+            ioExecutor.shutdown();
         }
 
         public void writeEnd(String str) {
-            out.print(json.toJson(str));
-            out.print("]\n");
+            builder.append("\"");
+            builder.append(str);
+            builder.append("\"]\n");
+            flushIfNeeded();
         }
     }
 
-    public UnreachabilityTraceWriter(OutputStream out) {
-        this.out = new TraceFormatter(new PrintStream(out));
-        this.json = new GsonBuilder().create();
+    public UnreachabilityTraceWriter(Path path) throws IOException {
+        Files.deleteIfExists(path);
+        this.out = new TraceFormatter(path);
     }
 
     @Override
@@ -162,9 +195,8 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Vo
     }
 
     @Override
-    public Void endExecution(long time) {
-        out.close();
-        return null;
+    public TraceFormatter endExecution(long time) {
+        return out;
     }
 
     @Override

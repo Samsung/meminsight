@@ -16,15 +16,14 @@
 package com.samsung.memoryanalysis.driver;
 
 import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 
 import joptsimple.OptionParser;
@@ -38,6 +37,7 @@ import com.samsung.memoryanalysis.referencecounter.DummyUnreachabilityAnalysis;
 import com.samsung.memoryanalysis.referencecounter.ReferenceCounter;
 import com.samsung.memoryanalysis.referencecounter.UnreachabilityAwareDuplex;
 import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter;
+import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter.TraceFormatter;
 import com.samsung.memoryanalysis.referencecounter.heap.JGraphHeap;
 import com.samsung.memoryanalysis.staleness.Staleness;
 import com.samsung.memoryanalysis.staleness.StalenessAnalysis;
@@ -79,7 +79,6 @@ public class CommandLineDriver {
         parser.accepts("context", "Run only the context analysis");
         parser.accepts("ref", "Run the reference count analysis only");
         parser.accepts("staleness", "Run the staleness analysis");
-        parser.accepts("ref-trace", "Output the enhanced trace format");
         parser.accepts("pretty-print", "Just parse and pretty print the trace");
         parser.accepts("no-progress", "Don't print progress bar");
         parser.accepts("access-paths",
@@ -134,16 +133,16 @@ public class CommandLineDriver {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(null, refOptions));
         } else if (options.has("staleness")) {
             if (options.has("enhanced")) {
-                UnreachabilityAwareDuplex<Staleness, Void> analysis;
-                final File pf = new File(dir, "enhanced-trace");
-                final OutputStream stream = new BufferedOutputStream(new FileOutputStream(pf));
-                UnreachabilityTraceWriter aw = new UnreachabilityTraceWriter(stream);
-                analysis = new UnreachabilityAwareDuplex<Staleness,Void>(new StalenessAnalysis(), aw);
-                ReferenceCounter<Pair<Staleness, Void>> f = new ReferenceCounter<Pair<Staleness, Void>>(new JGraphHeap(),
+                UnreachabilityAwareDuplex<Staleness, TraceFormatter> analysis;
+                Path pf = Paths.get(dir.getAbsolutePath(), "enhanced-trace");
+                UnreachabilityTraceWriter aw = new UnreachabilityTraceWriter(pf);
+                analysis = new UnreachabilityAwareDuplex<Staleness,TraceFormatter>(new StalenessAnalysis(), aw);
+                ReferenceCounter<Pair<Staleness, TraceFormatter>> f = new ReferenceCounter<Pair<Staleness, TraceFormatter>>(new JGraphHeap(),
                         analysis, refOptions);
-                Pair<Staleness, Void> p = new TraceAnalysisRunner(traceStream, prog, dir)
-                        .runAnalysis(new ContextProvider<Pair<Staleness, Void>>(f, refOptions));
+                Pair<Staleness, TraceFormatter> p = new TraceAnalysisRunner(traceStream, prog, dir)
+                        .runAnalysis(new ContextProvider<Pair<Staleness, TraceFormatter>>(f, refOptions));
                 p.first.toJSON(System.out, false);
+                p.second.close();
             } else {
                 ReferenceCounter<Staleness> f = new ReferenceCounter<Staleness>(new JGraphHeap(),
                         new StalenessAnalysis(), refOptions);
@@ -151,12 +150,6 @@ public class CommandLineDriver {
                         .runAnalysis(new ContextProvider<Staleness>(f, refOptions));
                 staleness.toJSON(System.out, false);
             }
-        } else if (options.has("ref-trace")) {
-            BufferedOutputStream out = new BufferedOutputStream(System.out);
-            ReferenceCounter<Void> f = new ReferenceCounter<Void>(new JGraphHeap(),
-                    new UnreachabilityTraceWriter(out), refOptions);
-            new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(f, refOptions));
-            out.close();
         } else if (options.has("pretty-print")) {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new TracePrettyPrinter());
         } else if (options.has("access-paths")) {
