@@ -100,7 +100,17 @@ public class SourceLocation {
     	if (this.specialDesc != null) {
     		return this.specialDesc;
     	} else {
-            return String.format("%s:%d:%d:%d:%d", file, startLine, startColumn, endLine, endColumn);
+    	    StringBuilder result = new StringBuilder();
+    	    result.append(file);
+    	    result.append(":");
+    	    result.append(startLine);
+    	    result.append(":");
+    	    result.append(startColumn);
+    	    result.append(":");
+    	    result.append(endLine);
+    	    result.append(":");
+    	    result.append(endColumn);
+    	    return result.toString();
     	}
     }
 

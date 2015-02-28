@@ -36,8 +36,11 @@ public class ContextOrObjectId {
 
     public final Type type;
 
+    private static int nextHash = 0;
+
     final private int id;
     final private Context context;
+    final private int hashCode;
 
     public static ContextOrObjectId make(Context c) {
         WeakReference<ContextOrObjectId> ref = contextMap.get(c);
@@ -62,6 +65,7 @@ public class ContextOrObjectId {
     private ContextOrObjectId(Context c) {
         id = -1;
         this.context = c;
+        this.hashCode = nextHash++;
         type = Type.CONTEXT;
     }
 
@@ -69,6 +73,7 @@ public class ContextOrObjectId {
         this.id = id;
 
         this.context = null;
+        this.hashCode = nextHash++;
         type = Type.ID;
     }
 
@@ -80,6 +85,16 @@ public class ContextOrObjectId {
             case ID: return ""+id;
         }
         return null;
+    }
+
+
+    public boolean equals(Object o) {
+        return this == o;
+    }
+
+    @Override
+    public int hashCode() {
+        return hashCode;
     }
 
     /**

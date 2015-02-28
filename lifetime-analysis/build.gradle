@@ -4,7 +4,7 @@ apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: "jacoco"
 
-sourceCompatibility = '1.6'
+sourceCompatibility = '1.7'
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 
 mainClassName = 'com.samsung.memoryanalysis.driver.CommandLineDriver'
