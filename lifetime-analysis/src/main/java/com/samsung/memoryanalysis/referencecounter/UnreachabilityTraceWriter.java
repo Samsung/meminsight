@@ -16,21 +16,13 @@
 package com.samsung.memoryanalysis.referencecounter;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.channels.AsynchronousFileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardOpenOption;
-import java.util.Arrays;
 import java.util.Set;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.ibm.wala.util.collections.HashSetFactory;
 import com.samsung.memoryanalysis.context.Context;
-import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter.TraceFormatter;
+import com.samsung.memoryanalysis.io.AbstractAsyncTraceWriter;
+import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter.UnreachAsyncWriter;
 import com.samsung.memoryanalysis.traceparser.IIDMap;
 import com.samsung.memoryanalysis.traceparser.Timer;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
@@ -39,43 +31,20 @@ import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
  * Creates a trace of the events similar to the input trace, but enriched with
  * unreachable trace events.
  */
-public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<TraceFormatter> {
+public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<UnreachAsyncWriter> {
 
-    private final TraceFormatter out;
+    private final UnreachAsyncWriter out;
     private Timer timer;
     private long counter = 0;
 
-    public class TraceFormatter {
+    public class UnreachAsyncWriter extends AbstractAsyncTraceWriter {
 
-        private final AsynchronousFileChannel out;
-
-        private StringBuilder builder = new StringBuilder();
-
-        private static final int CHAR_LIMIT =  64000;
-
-        private long byteOffset = 0;
-
-        private final ExecutorService ioExecutor;
-
-        public TraceFormatter(Path path) throws IOException {
-            super();
-            ioExecutor = Executors.newSingleThreadExecutor();
-            StandardOpenOption[] options = new StandardOpenOption[] { StandardOpenOption.WRITE, StandardOpenOption.CREATE };
-            this.out = AsynchronousFileChannel.open(path, HashSetFactory.make(Arrays.asList(options)), ioExecutor);
+        public UnreachAsyncWriter(Path path) throws IOException {
+            super(path);
         }
 
 
-        private void flushIfNeeded() {
-            if (builder.length() >= CHAR_LIMIT) {
-                byte[] bytes = builder.toString().getBytes();
-                int curLen = bytes.length;
-                out.write(ByteBuffer.wrap(bytes), byteOffset);
-                byteOffset += curLen;
-                builder.setLength(0);
-            }
-        }
-
-        public TraceFormatter start(int entryType, int iid) {
+        public UnreachAsyncWriter start(int entryType, int iid) {
             updateCounter(entryType);
             builder.append("[");
             builder.append(entryType);
@@ -85,7 +54,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Tr
             return this;
         }
 
-        public TraceFormatter start(int entryType) {
+        public UnreachAsyncWriter start(int entryType) {
             updateCounter(entryType);
             builder.append("[");
             builder.append(entryType);
@@ -93,7 +62,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Tr
             return this;
         }
 
-        public TraceFormatter write(int i) {
+        public UnreachAsyncWriter write(int i) {
             builder.append(i);
             builder.append(",");
             return this;
@@ -111,23 +80,17 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Tr
             flushIfNeeded();
         }
 
-        public TraceFormatter write(long time) {
+        public UnreachAsyncWriter write(long time) {
             builder.append(time);
             builder.append(",");
             return this;
         }
 
-        public TraceFormatter write(String str) {
+        public UnreachAsyncWriter write(String str) {
             builder.append("\"");
             builder.append(str);
             builder.append("\",");
             return this;
-        }
-
-        public void close() throws IOException {
-            out.force(true);
-            out.close();
-            ioExecutor.shutdown();
         }
 
         public void writeEnd(String str) {
@@ -139,8 +102,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Tr
     }
 
     public UnreachabilityTraceWriter(Path path) throws IOException {
-        Files.deleteIfExists(path);
-        this.out = new TraceFormatter(path);
+        this.out = new UnreachAsyncWriter(path);
     }
 
     @Override
@@ -195,7 +157,7 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Tr
     }
 
     @Override
-    public TraceFormatter endExecution(long time) {
+    public UnreachAsyncWriter endExecution(long time) {
         return out;
     }
 

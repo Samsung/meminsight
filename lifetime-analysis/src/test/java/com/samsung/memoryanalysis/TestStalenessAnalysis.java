@@ -18,6 +18,8 @@ package com.samsung.memoryanalysis;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -25,11 +27,16 @@ import java.util.List;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.samsung.memoryanalysis.context.ContextProvider;
 import com.samsung.memoryanalysis.options.MemoryAnalysisOptions;
 import com.samsung.memoryanalysis.referencecounter.ReferenceCounter;
 import com.samsung.memoryanalysis.referencecounter.heap.JGraphHeap;
 import com.samsung.memoryanalysis.staleness.Staleness;
+import com.samsung.memoryanalysis.staleness.Staleness.StalenessAsyncWriter;
 import com.samsung.memoryanalysis.staleness.StalenessAnalysis;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
 
@@ -50,7 +57,18 @@ public class TestStalenessAnalysis extends AbstractTester {
         // gross.  we want some output even if analysis fails with an assertion
         try {
             Staleness staleness = new TraceAnalysisRunner(new FileInputStream(trace), null, trace.getParentFile()).runAnalysis(new ContextProvider<Staleness>(f, new MemoryAnalysisOptions()));
-            staleness.toJSON(System.out, true);
+            Path tmpFile = Files.createTempFile("staleness", ".json");
+            tmpFile.toFile().deleteOnExit();
+            StalenessAsyncWriter json = staleness.toJSON(tmpFile, true);
+            json.close();
+            String s = new String(Files.readAllBytes(tmpFile));
+            // pretty print for easier comparison in regressions
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(s);
+            String pretty = gson.toJson(je);
+
+            System.out.println(pretty);
             revert();
             return r.toString();
         } catch (AssertionError e) {

@@ -16,16 +16,16 @@
 package com.samsung.memoryanalysis.staleness;
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.ibm.wala.util.collections.HashMapFactory;
+import com.samsung.memoryanalysis.io.AbstractAsyncTraceWriter;
 import com.samsung.memoryanalysis.traceparser.IIDMap;
 import com.samsung.memoryanalysis.traceparser.SourceLocation;
 import com.samsung.memoryanalysis.util.Util;
@@ -51,9 +51,82 @@ public class Staleness {
         return staleness.toString();
     }
 
+    public static class StalenessAsyncWriter extends AbstractAsyncTraceWriter {
+
+        public StalenessAsyncWriter(Path path) throws IOException {
+            super(path);
+        }
+
+        public StalenessAsyncWriter writeRaw(String str) {
+            builder.append(str);
+            return this;
+        }
+        public StalenessAsyncWriter writeQuoted(String str) {
+            builder.append("\"");
+            builder.append(str);
+            builder.append("\"");
+            return this;
+        }
+    }
+
     @SuppressWarnings("rawtypes")
-    public void toJSON(OutputStream out, boolean relative) throws IOException {
-        final Map<String, Object> res = HashMapFactory.make();
+    private void writeList(ArrayList l, StalenessAsyncWriter out) {
+        out.writeRaw("[");
+        for (int i = 0; i < l.size(); i++) {
+            Object val = l.get(i);
+            if (val instanceof Integer) {
+                out.writeRaw(val.toString());
+            } else if (val instanceof String) {
+                out.writeQuoted((String)val);
+            } else {
+                throw new RuntimeException("need to handle " + val.getClass());
+            }
+            if (i < l.size() - 1) {
+                out.writeRaw(",");
+            }
+        }
+        out.writeRaw("]");
+    }
+    @SuppressWarnings("rawtypes")
+    private void writeObjMap(Map map, StalenessAsyncWriter out) {
+        out.writeRaw("{");
+        Set keySet = map.keySet();
+        int i = 0;
+        for (Object key: keySet) {
+            out.writeQuoted((String)key);
+            out.writeRaw(":");
+            Object val = map.get(key);
+            if (val instanceof ArrayList) {
+                ArrayList l = (ArrayList)val;
+                writeList(l, out);
+            } else if (val instanceof String) {
+                out.writeQuoted((String)val);
+            } else if (val instanceof Integer || val instanceof Long) {
+                out.writeRaw(val.toString());
+            } else {
+                throw new RuntimeException("need to handle " + val.getClass());
+            }
+            if (i < keySet.size() - 1) {
+                out.writeRaw(",");
+            }
+            i++;
+        }
+        out.writeRaw("}");
+        out.flushIfNeeded();
+    }
+    @SuppressWarnings("rawtypes")
+    public StalenessAsyncWriter toJSON(Path path, boolean relative) throws IOException {
+        StalenessAsyncWriter out = new StalenessAsyncWriter(path);
+        // write the function trace
+        out.writeRaw("{\"functionTrace\":[");
+        for (int i = 0; i < functionTrace.size(); i++) {
+            out.writeRaw(Arrays.toString(functionTrace.get(i)));
+            if (i < functionTrace.size() - 1) {
+                out.writeRaw(",");
+            }
+            out.flushIfNeeded();
+        }
+        out.writeRaw("],\"objectInfo\": {");
         final Map<String, Map[]> resStale = new TreeMap<String, Map[]>();
         for (Map.Entry<Integer, List<ObjectStaleness>> entry : staleness.entrySet()) {
             Map[] arr = new Map[entry.getValue().size()];
@@ -74,11 +147,26 @@ public class Staleness {
                 resStale.put(key, arr);
             }
         }
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        OutputStreamWriter writer = new OutputStreamWriter(out);
-        res.put("functionTrace", this.functionTrace);
-        res.put("objectInfo", resStale);
-        gson.toJson(res, writer);
-        writer.close();
+        Set<Entry<String, Map[]>> staleEntries = resStale.entrySet();
+        int i = 0;
+        for (Entry<String, Map[]> entry: staleEntries) {
+            out.writeQuoted(entry.getKey());
+            out.writeRaw(": [");
+            Map[] objs = entry.getValue();
+            for (int j = 0; j < objs.length; j++) {
+                Map curMap = objs[j];
+                writeObjMap(curMap,out);
+                if (j < objs.length-1) {
+                    out.writeRaw(",");
+                }
+            }
+            out.writeRaw("]");
+            if (i < staleEntries.size() - 1) {
+                out.writeRaw(",");
+            }
+            i++;
+        }
+        out.writeRaw("}}");
+        return out;
     }
 }

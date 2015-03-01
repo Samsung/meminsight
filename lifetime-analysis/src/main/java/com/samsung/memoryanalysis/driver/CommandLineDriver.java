@@ -37,9 +37,10 @@ import com.samsung.memoryanalysis.referencecounter.DummyUnreachabilityAnalysis;
 import com.samsung.memoryanalysis.referencecounter.ReferenceCounter;
 import com.samsung.memoryanalysis.referencecounter.UnreachabilityAwareDuplex;
 import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter;
-import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter.TraceFormatter;
+import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter.UnreachAsyncWriter;
 import com.samsung.memoryanalysis.referencecounter.heap.JGraphHeap;
 import com.samsung.memoryanalysis.staleness.Staleness;
+import com.samsung.memoryanalysis.staleness.Staleness.StalenessAsyncWriter;
 import com.samsung.memoryanalysis.staleness.StalenessAnalysis;
 import com.samsung.memoryanalysis.traceparser.ProgressMonitor;
 import com.samsung.memoryanalysis.traceparser.TraceAnalysisRunner;
@@ -132,23 +133,26 @@ public class CommandLineDriver {
         } else if (options.has("context")) {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new ContextProvider<Void>(null, refOptions));
         } else if (options.has("staleness")) {
+            Path stalenessFile = Paths.get(dir.getAbsolutePath(), "staleness.json");
             if (options.has("enhanced")) {
-                UnreachabilityAwareDuplex<Staleness, TraceFormatter> analysis;
-                Path pf = Paths.get(dir.getAbsolutePath(), "enhanced-trace");
-                UnreachabilityTraceWriter aw = new UnreachabilityTraceWriter(pf);
-                analysis = new UnreachabilityAwareDuplex<Staleness,TraceFormatter>(new StalenessAnalysis(), aw);
-                ReferenceCounter<Pair<Staleness, TraceFormatter>> f = new ReferenceCounter<Pair<Staleness, TraceFormatter>>(new JGraphHeap(),
+                UnreachabilityAwareDuplex<Staleness, UnreachAsyncWriter> analysis;
+                Path enhanced = Paths.get(dir.getAbsolutePath(), "enhanced-trace");
+                UnreachabilityTraceWriter aw = new UnreachabilityTraceWriter(enhanced);
+                analysis = new UnreachabilityAwareDuplex<Staleness,UnreachAsyncWriter>(new StalenessAnalysis(), aw);
+                ReferenceCounter<Pair<Staleness, UnreachAsyncWriter>> f = new ReferenceCounter<Pair<Staleness, UnreachAsyncWriter>>(new JGraphHeap(),
                         analysis, refOptions);
-                Pair<Staleness, TraceFormatter> p = new TraceAnalysisRunner(traceStream, prog, dir)
-                        .runAnalysis(new ContextProvider<Pair<Staleness, TraceFormatter>>(f, refOptions));
-                p.first.toJSON(System.out, false);
+                Pair<Staleness, UnreachAsyncWriter> p = new TraceAnalysisRunner(traceStream, prog, dir)
+                        .runAnalysis(new ContextProvider<Pair<Staleness, UnreachAsyncWriter>>(f, refOptions));
+                StalenessAsyncWriter json = p.first.toJSON(stalenessFile, false);
+                json.close();
                 p.second.close();
             } else {
                 ReferenceCounter<Staleness> f = new ReferenceCounter<Staleness>(new JGraphHeap(),
                         new StalenessAnalysis(), refOptions);
                 Staleness staleness = new TraceAnalysisRunner(traceStream, prog, dir)
                         .runAnalysis(new ContextProvider<Staleness>(f, refOptions));
-                staleness.toJSON(System.out, false);
+                StalenessAsyncWriter json = staleness.toJSON(stalenessFile, false);
+                json.close();
             }
         } else if (options.has("pretty-print")) {
             new TraceAnalysisRunner(traceStream, prog, dir).runAnalysis(new TracePrettyPrinter());
