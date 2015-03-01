@@ -37,6 +37,10 @@ public class Context {
     private Set<String> referencedNames = HashSetFactory.make();
     private boolean isLive = true;
 
+    private static int nextHash = 0;
+
+    final private int cachedHashCode;
+
     /**
      * get parent, or null if no parent
      */
@@ -47,6 +51,7 @@ public class Context {
     private Context() {
         iidString = "GLOBAL";
         parent = null;
+        this.cachedHashCode = nextHash++;
     }
 
     public boolean isLive() {
@@ -59,6 +64,7 @@ public class Context {
             throw new IllegalArgumentException("Null parent only allowed for global");
         }
         this.parent = parent;
+        this.cachedHashCode = nextHash++;
     }
 
     /**
@@ -151,5 +157,14 @@ public class Context {
             c = c.parent;
         }
         throw new IllegalStateException();
+    }
+
+    public boolean equals(Object o) {
+        return this == o;
+    }
+
+    @Override
+    public int hashCode() {
+        return cachedHashCode;
     }
 }
