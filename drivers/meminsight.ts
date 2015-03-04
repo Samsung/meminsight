@@ -31,7 +31,7 @@ function runNodeProg(args: Array<string>, progName: string): void {
     args.unshift('--harmony');
     //console.log("node " + args.join(' '));
     var instProc = cp.spawn('node', args, {
-        stdio: [0,'pipe','pipe'];
+        stdio: [0,'pipe','pipe']
     });
     instProc.stdout.on('data', (data: any) => {
         process.stdout.write(String(data));
