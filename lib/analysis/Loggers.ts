@@ -637,7 +637,14 @@ module ___LoggingAnalysis___ {
          */
         private cb:() => void;
 
-        constructor(serverIP: string, serverPort: string) {
+        /**
+         *
+         * @param serverIP IP address of websocket server
+         * @param serverPort port of websocket server
+         * @param endTracingCB callback to invoke when a message to end tracing
+         * is received from the websocket server
+         */
+        constructor(serverIP: string, serverPort: string, endTracingCB: () => void) {
             super();
             var url = 'ws://' + serverIP + ':' + serverPort;
             this.socket = new WebSocket(url, 'mem-trace-protocol');
@@ -646,8 +653,13 @@ module ___LoggingAnalysis___ {
                 this.socket.send('startup');
                 this.flushRemoteBuffer();
             };
-            this.socket.onmessage = () => {
-                this.handleAck();
+            this.socket.onmessage = (evt: any) => {
+                var data: string = evt.data;
+                if (data === "endTracing") {
+                    endTracingCB();
+                } else {
+                    this.handleAck();
+                }
             };
         }
 

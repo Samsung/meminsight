@@ -91,7 +91,13 @@ module ___LoggingAnalysis___ {
         }
 
         init(initParam: any): void {
-            this.initLogger(initParam);
+            var endTracingFun = () => {
+                this.lastUse.flushLastUse(() => {
+                    alert("trace generation complete\n" /*+ this.nativeModels.getNumDOMNodesModeled() + " DOM node locations from models"*/);
+                });
+                this.logger.stopTracing();
+            };
+            this.initLogger(initParam, endTracingFun);
             this.lastUse = new LastUseManager(this.logger, initParam["allUses"] !== undefined);
             var idManager = createObjIdManager(this.logger, this.lastUse, initParam["useHiddenProp"] !== undefined);
             this.idManager = idManager;
@@ -116,29 +122,23 @@ module ___LoggingAnalysis___ {
                     origInvokeFunPre.call(this,iid,f,base,args,isConstructor,isMethod);
                 }
             }
-            if (isBrowser) {
-                var endTracing = () => {
-                    this.lastUse.flushLastUse(() => {
-                        alert("trace generation complete\n" /*+ this.nativeModels.getNumDOMNodesModeled() + " DOM node locations from models"*/);
-                    });
-                    this.logger.stopTracing();
-                };
-                window.addEventListener('keydown', (e) => {
-                    // keyboard shortcut is Alt-Shift-T for now
-                    if (e.altKey && e.shiftKey && e.keyCode === 84) {
-                        endTracing();
-                    }
-                });
-                // for Tizen apps
-                document.addEventListener('tizenhwkey', (e) => {
-                    if ((<any>e).keyName === 'menu') {
-                        endTracing();
-                    }
-                });
-            }
+            //if (isBrowser) {
+            //    window.addEventListener('keydown', (e) => {
+            //        // keyboard shortcut is Alt-Shift-T for now
+            //        if (e.altKey && e.shiftKey && e.keyCode === 84) {
+            //            endTracingFun();
+            //        }
+            //    });
+            //    // for Tizen apps
+            //    document.addEventListener('tizenhwkey', (e) => {
+            //        if ((<any>e).keyName === 'menu') {
+            //            endTracingFun();
+            //        }
+            //    });
+            //}
         }
 
-        initLogger(initParam: any) {
+        initLogger(initParam: any, endTracingFun: () => void) {
             var logger:Logger;
             if (isBrowser) {
                 if (initParam["syncAjax"]) {
@@ -149,7 +149,7 @@ module ___LoggingAnalysis___ {
                     if (!serverIP || !serverPort) {
                         throw new Error("server IP and/or port not specified!");
                     }
-                    logger = new BinaryWebSocketLogger(serverIP, serverPort);
+                    logger = new BinaryWebSocketLogger(serverIP, serverPort, endTracingFun);
                 }
             } else {
                 if (initParam["syncFS"]) {

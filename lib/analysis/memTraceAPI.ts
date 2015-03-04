@@ -213,7 +213,7 @@ export function getTraceForHTMLDir(testDir:string, options:HTMLTraceOptions):Q.P
         var serverProc = child_process.spawn('node', serverArgs, {
             cwd   : process.cwd(),
             env   : process.env,
-            stdio : ['pipe', 'pipe', 'pipe']
+            stdio : [0, 'pipe', 'pipe']
         });
         var stdout = "", stderr = "";
         serverProc.stdout.on('data', (chunk: any) => {

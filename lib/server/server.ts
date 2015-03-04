@@ -170,12 +170,23 @@ function record() {
                 var stringMsg = message;
 
                 if (stringMsg === 'startup') {
-                    console.log((new Date()) + ' Connection accepted.');
+                    console.log((new Date()) + ' Connection accepted.  Type \'end\' and press enter to stop trace generation in the app.');
+                    process.stdin.setEncoding('utf8');
+                    process.stdin.on('readable', function() {
+                        var chunk = process.stdin.read();
+                        if (chunk !== null) {
+                            if (String(chunk).indexOf('end') !== -1) {
+                                process.stdout.write("stopping tracing");
+                                connection.send("endTracing");
+                            }
+                        }
+                    });
+
                     initOutputTarget();
                 } else {
                 }
             } else if (flags.binary) {
-                console.log("[SJ] binary message : "+messageCount++);
+//                console.log("[SJ] binary message : "+messageCount++);
                 var binaryMsg = message;
                 if (args.outputFile) {
                     outputStream.write(binaryMsg);
@@ -192,6 +203,7 @@ function record() {
                     console.log("done writing log");
                 });
             } else {
+                console.time("lifetime finish");
                 process.stdout.write("completing lifetime analysis...");
                 javaProc.stdin.end();
             }
@@ -221,7 +233,17 @@ function record() {
             }
 
             var connection = request.accept(PROTOCOL_NAME, request.origin);
-            console.log((new Date()) + ' Connection accepted.');
+            console.log((new Date()) + ' Connection accepted.  Type \'end\' and press enter to stop trace generation in the app.');
+            process.stdin.setEncoding('utf8');
+            process.stdin.on('readable', function() {
+                var chunk = process.stdin.read();
+                if (chunk !== null) {
+                    if (String(chunk).indexOf('end') !== -1) {
+                        process.stdout.write("stopping tracing");
+                        connection.sendUTF("endTracing");
+                    }
+                }
+            });
             connection.on('message', function (message:any) {
                 if (message.type === 'utf8') {
                     var stringMsg = message.utf8Data;
