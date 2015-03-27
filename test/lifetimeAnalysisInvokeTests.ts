@@ -64,7 +64,8 @@ describe('lifetime analysis invoke unit tests', function() {
             ]);
             runProc.on('close', () => {
                 var stalenessTrace = String(fs.readFileSync(path.join(outputDir,"testRefCount13_inst", 'staleness-trace')));
-                var expectedLine = '[9,"OBJECT","/Users/m.sridharan/git-repos/meminsight/test/testdata/testRefCount13.js:20:19:20:38",15,["/Users/m.sridharan/git-repos/meminsight/test/testdata/testRefCount13.js:25:8:25:11"],15,"/Users/m.sridharan/git-repos/meminsight/test/testdata/testRefCount13.js:20:19:20:38",37,"end of program"]';
+                stalenessTrace = stalenessTrace.replace(new RegExp(process.cwd() + path.sep,'g'), "");
+                var expectedLine = '[9,"OBJECT","test/testdata/testRefCount13.js:20:19:20:38",15,["test/testdata/testRefCount13.js:25:8:25:11"],15,"test/testdata/testRefCount13.js:20:19:20:38",37,"end of program"]';
                 assert.ok(stalenessTrace.indexOf(expectedLine) !== -1);
                 temp.cleanupSync();
                 done();
