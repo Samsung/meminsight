@@ -4,6 +4,7 @@ before_install:
   - unzip gradle-2.3-bin.zip
   - export GRADLE_HOME=$PWD/gradle-2.3
   - export PATH=$GRADLE_HOME/bin:$PATH
+  - grunt
 node_js:
    - "0.10"
    - "0.12"
