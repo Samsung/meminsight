@@ -1,0 +1,3 @@
+memTraceTests.js
+lifetimeAnalysisInvokeTests.js
+htmlMemTraceTests.js

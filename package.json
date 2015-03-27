@@ -30,7 +30,7 @@
     "wrench": "1.5.8"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --reporter spec --harmony && cd lifetime-analysis && gradle cleanTest test && cd ..",
+    "test": "(cat test/testSuite.txt | sed 's/^/test\\//' | xargs ./node_modules/.bin/mocha --reporter spec --harmony) && cd lifetime-analysis && gradle cleanTest test && cd ..",
     "build": "grunt typescript"
   },
   "devDependencies": {
