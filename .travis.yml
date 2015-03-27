@@ -1,4 +1,9 @@
 language: node_js
+before_install:
+  - wget https://services.gradle.org/distributions/gradle-2.3-bin.zip
+  - unzip gradle-2.3-bin.zip
+  - export GRADLE_HOME=$PWD/gradle-2.3
+  - export PATH=$GRADLE_HOME/bin:$PATH
 node_js:
    - "0.10"
    - "0.12"
