@@ -7,7 +7,7 @@
     "url" : "https://github.com/Samsung/meminsight.git"
   },
   "dependencies": {
-    "jalangi2": "https://github.com/Samsung/jalangi2/tarball/master",
+    "jalangi2": "0.1.1",
     "acorn": "0.9.0",
     "argparse": "0.1.15",
     "ejs": "1.0.0",
