@@ -5,19 +5,19 @@ checknode_orig_.js:23:9:23:23 : RC(initial DOM) = 2
       0,
       7,
       1,
-      233
+      161
     ],
     [
       1,
       14,
       1,
-      353
+      281
     ],
     [
       0,
       151,
       1,
-      145
+      97
     ],
     [
       0,
@@ -29,13 +29,13 @@ checknode_orig_.js:23:9:23:23 : RC(initial DOM) = 2
       1,
       157,
       1,
-      321
+      249
     ],
     [
       1,
       159,
       1,
-      337
+      265
     ]
   ],
   "objectInfo": {
@@ -50,7 +50,7 @@ checknode_orig_.js:23:9:23:23 : RC(initial DOM) = 2
         "lastUseTime": 157,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 105
+          "iid": 65
         },
         "shallowSize": 2,
         "type": "FUNCTION"
@@ -79,7 +79,7 @@ checknode_orig_.js:23:9:23:23 : RC(initial DOM) = 2
         "lastUseTime": 14,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 265
+          "iid": 193
         },
         "shallowSize": 2,
         "type": "FUNCTION"
@@ -104,7 +104,7 @@ checknode_orig_.js:23:9:23:23 : RC(initial DOM) = 2
         "creationCallStack": [
           {
             "sourceFileId": 1,
-            "iid": 265
+            "iid": 193
           }
         ],
         "unreachableTime": 161,
@@ -113,7 +113,7 @@ checknode_orig_.js:23:9:23:23 : RC(initial DOM) = 2
         "lastUseTime": 151,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 145
+          "iid": 97
         },
         "shallowSize": 3,
         "type": "FUNCTION"
@@ -124,7 +124,7 @@ checknode_orig_.js:23:9:23:23 : RC(initial DOM) = 2
         "creationCallStack": [
           {
             "sourceFileId": 1,
-            "iid": 265
+            "iid": 193
           }
         ],
         "unreachableTime": 161,
@@ -147,7 +147,7 @@ checknode_orig_.js:23:9:23:23 : RC(initial DOM) = 2
         "lastUseTime": 152,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 67
+          "iid": 43
         },
         "shallowSize": 2,
         "type": "DOM"
