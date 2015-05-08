@@ -1,5 +1,5 @@
-[2,"FUNCTION","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:3",5,[],17,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:5",18,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:6"]
-[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:3",5,[],5,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:3",18,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:6"]
+[2,"FUNCTION","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:2:36:2",5,[],17,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:5",18,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:6"]
+[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:2:36:2",5,[],5,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:2:36:2",18,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:6"]
 [6,"FUNCTION","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:29:15:33:6",12,["lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:5"],226,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:29:15:33:6",233,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:29:15:33:6"]
 [7,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:29:15:33:6",12,["lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:5"],12,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:29:15:33:6",233,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:29:15:33:6"]
 [112,"OBJECT","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:24:21:24:37",242,["unknown"],242,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:24:21:24:37",253,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:24:21:24:37"]
@@ -407,7 +407,7 @@
 [4,"FUNCTION","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:21:15:27:6",9,["lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:5"],236,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:21:15:27:6",941,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:21:15:27:6"]
 [5,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:21:15:27:6",9,["lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:5"],9,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:21:15:27:6",941,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:21:15:27:6"]
 last use
-[3,5,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:3"]
+[3,5,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:2:36:2"]
 [5,9,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:21:15:27:6"]
 [7,12,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:29:15:33:6"]
 [2,17,"lifetime-analysis/test/traces/htmlTest12/checknode_orig_.js:20:1:36:5"]

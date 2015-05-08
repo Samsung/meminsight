@@ -1,7 +1,7 @@
 code_orig_.js:22:9:22:28 : RC(code_orig_.js:21:20:26:6) = 2
 code_orig_.js:24:9:24:28 : RC(code_orig_.js:21:20:26:6) = 1
-[4,"FUNCTION","lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:3",6,[],14,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:5",15,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:6"]
-[5,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:3",6,[],6,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:3",15,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:6"]
+[4,"FUNCTION","lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:2:28:2",6,[],14,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:5",15,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:6"]
+[5,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:2:28:2",6,[],6,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:2:28:2",15,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:6"]
 [2,"FUNCTION","lifetime-analysis/test/traces/htmlTest9/code_orig_.js:19:1:19:24",3,[],172,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:24:9:24:28",174,"end of program"]
 [3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest9/code_orig_.js:19:1:19:24",3,[],3,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:19:1:19:24",174,"end of program"]
 [8,"DOM","initial DOM",17,[],17,"initial DOM",174,"end of program"]
@@ -80,7 +80,7 @@ code_orig_.js:24:9:24:28 : RC(code_orig_.js:21:20:26:6) = 1
 [7,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest9/code_orig_.js:21:20:26:6",9,["lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:5"],9,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:21:20:26:6",174,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:21:20:26:6"]
 last use
 [3,3,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:19:1:19:24"]
-[5,6,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:3"]
+[5,6,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:2:28:2"]
 [7,9,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:21:20:26:6"]
 [4,14,"lifetime-analysis/test/traces/htmlTest9/code_orig_.js:20:1:28:5"]
 [8,17,"initial DOM"]

@@ -1,6 +1,6 @@
 checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
-[4,"FUNCTION","lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:3",6,[],19,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:5",20,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:6"]
-[5,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:3",6,[],6,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:3",20,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:6"]
+[4,"FUNCTION","lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:2:34:2",6,[],19,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:5",20,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:6"]
+[5,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:2:34:2",6,[],6,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:2:34:2",20,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:6"]
 [8,"FUNCTION","lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:27:15:31:6",14,["lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:5"],168,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:27:15:31:6",175,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:27:15:31:6"]
 [9,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:27:15:31:6",14,["lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:5"],14,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:27:15:31:6",175,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:27:15:31:6"]
 [2,"FUNCTION","lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:16:1:16:24",2,[],181,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:24:9:24:23",185,"end of program"]
@@ -81,7 +81,7 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
 [69,"DOM","initial DOM",141,[],176,"remove from DOM",184,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:23:15:26:6"]
 last use
 [3,2,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:16:1:16:24"]
-[5,6,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:3"]
+[5,6,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:2:34:2"]
 [7,11,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:23:15:26:6"]
 [9,14,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:27:15:31:6"]
 [4,19,"lifetime-analysis/test/traces/htmlTest7/checknode_orig_.js:20:1:34:5"]

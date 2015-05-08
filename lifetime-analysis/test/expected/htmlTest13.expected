@@ -1,7 +1,7 @@
-Id: 2     Alloc: testcleartimeout_orig_.js:19:1:29:3      Time: 24         Loc: testcleartimeout_orig_.js:19:1:29:6
-Id: 3     Alloc: testcleartimeout_orig_.js:19:1:29:3      Time: 24         Loc: testcleartimeout_orig_.js:19:1:29:6
-Id: 4     Alloc: testcleartimeout_orig_.js:20:5:22:6      Time: 23         Loc: testcleartimeout_orig_.js:19:1:29:3
-Id: 5     Alloc: testcleartimeout_orig_.js:20:5:22:6      Time: 23         Loc: testcleartimeout_orig_.js:19:1:29:3
+Id: 2     Alloc: testcleartimeout_orig_.js:19:2:29:2      Time: 24         Loc: testcleartimeout_orig_.js:19:1:29:6
+Id: 3     Alloc: testcleartimeout_orig_.js:19:2:29:2      Time: 24         Loc: testcleartimeout_orig_.js:19:1:29:6
+Id: 4     Alloc: testcleartimeout_orig_.js:20:5:22:6      Time: 23         Loc: testcleartimeout_orig_.js:19:2:29:2
+Id: 5     Alloc: testcleartimeout_orig_.js:20:5:22:6      Time: 23         Loc: testcleartimeout_orig_.js:19:2:29:2
 Id: 6     Alloc: testcleartimeout_orig_.js:21:16:21:30    Time: 22         Loc: testcleartimeout_orig_.js:27:5:27:20
 Id: 7     Alloc: testcleartimeout_orig_.js:21:16:21:30    Time: 12         Loc: testcleartimeout_orig_.js:21:9:21:31
 Id: 8     Alloc: initial DOM                              Time: 219        Loc: end of program

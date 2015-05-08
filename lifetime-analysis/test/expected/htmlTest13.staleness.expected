@@ -4,25 +4,25 @@
       0,
       5,
       1,
-      177
+      249
     ],
     [
       0,
       10,
       1,
-      65
+      73
     ],
     [
       1,
       14,
       1,
-      289
+      361
     ],
     [
       1,
       23,
       1,
-      305
+      377
     ]
   ],
   "objectInfo": {
@@ -1465,7 +1465,7 @@
         "type": "DOM"
       }
     ],
-    "testcleartimeout_orig_.js:19:1:29:3": [
+    "testcleartimeout_orig_.js:19:2:29:2": [
       {
         "objectId": 2,
         "creationTime": 4,
@@ -1476,7 +1476,7 @@
         "lastUseTime": 23,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 233
+          "iid": 305
         },
         "shallowSize": 2,
         "type": "FUNCTION"
@@ -1501,16 +1501,16 @@
         "creationCallStack": [
           {
             "sourceFileId": 1,
-            "iid": 233
+            "iid": 305
           }
         ],
         "unreachableTime": 23,
-        "unreachableSite": "testcleartimeout_orig_.js:19:1:29:3",
+        "unreachableSite": "testcleartimeout_orig_.js:19:2:29:2",
         "staleness": 9,
         "lastUseTime": 14,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 81
+          "iid": 97
         },
         "shallowSize": 3,
         "type": "FUNCTION"
@@ -1521,11 +1521,11 @@
         "creationCallStack": [
           {
             "sourceFileId": 1,
-            "iid": 233
+            "iid": 305
           }
         ],
         "unreachableTime": 23,
-        "unreachableSite": "testcleartimeout_orig_.js:19:1:29:3",
+        "unreachableSite": "testcleartimeout_orig_.js:19:2:29:2",
         "staleness": 17,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
@@ -1540,11 +1540,11 @@
         "creationCallStack": [
           {
             "sourceFileId": 1,
-            "iid": 81
+            "iid": 97
           },
           {
             "sourceFileId": 1,
-            "iid": 233
+            "iid": 305
           }
         ],
         "unreachableTime": 22,
@@ -1561,11 +1561,11 @@
         "creationCallStack": [
           {
             "sourceFileId": 1,
-            "iid": 81
+            "iid": 97
           },
           {
             "sourceFileId": 1,
-            "iid": 233
+            "iid": 305
           }
         ],
         "unreachableTime": 12,

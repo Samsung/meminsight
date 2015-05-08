@@ -1,5 +1,5 @@
-[2,"FUNCTION","lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:3",4,[],10,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:5",11,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:6"]
-[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:3",4,[],4,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:3",11,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:6"]
+[2,"FUNCTION","lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:2:29:2",4,[],10,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:5",11,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:6"]
+[3,"PROTOTYPE","lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:2:29:2",4,[],4,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:2:29:2",11,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:6"]
 [118,"DOM","lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:22:9:22:69",245,["unknown"],250,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:25:9:25:25",252,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:20:5:27:6"]
 [119,"DOM","lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:22:9:22:69",246,["unknown"],246,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:22:9:22:69",247,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:22:9:22:70"]
 [4,"FUNCTION","lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:20:5:27:6",6,["lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:5"],239,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:20:5:27:6",254,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:20:5:27:6"]
@@ -119,7 +119,7 @@
 [10,"DOM","initial DOM",22,[],259,"end of program",259,"end of program"]
 [9,"DOM","initial DOM",20,[],259,"end of program",259,"end of program"]
 last use
-[3,4,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:3"]
+[3,4,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:2:29:2"]
 [5,6,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:20:5:27:6"]
 [2,10,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:19:1:29:5"]
 [4,239,"lifetime-analysis/test/traces/htmlTest15/testinnerhtml_orig_.js:20:5:27:6"]
