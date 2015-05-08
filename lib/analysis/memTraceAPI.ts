@@ -28,6 +28,8 @@ import Q = require('q');
 import child_process = require('child_process');
 import fs = require('fs');
 
+var rimraf = require('rimraf');
+
 var loggingAnalysis = path.join(__dirname,'..','..','bin','LoggingAnalysis.js');
 require('jalangi2/src/js/instrument/astUtil');
 
@@ -140,6 +142,11 @@ export function instrumentHTMLDir(testDir: string, options: HTMLTraceOptions, se
     };
     if (options.outputDir) {
         instOptions.outputDir = options.outputDir;
+        // blow away existing directory
+        var appDir = path.join(options.outputDir,path.basename(testDir));
+        if (fs.existsSync(appDir)) {
+            rimraf.sync(appDir);
+        }
     }
     if (options.debugFun || options.syncAjax) {
         instOptions.initParam = [];
