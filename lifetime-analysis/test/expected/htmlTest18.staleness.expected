@@ -1,0 +1,615 @@
+{
+  "functionTrace": [
+    [
+      0,
+      16,
+      1,
+      25
+    ],
+    [
+      1,
+      20,
+      1,
+      81
+    ],
+    [
+      0,
+      24,
+      1,
+      25
+    ],
+    [
+      1,
+      28,
+      1,
+      81
+    ],
+    [
+      0,
+      32,
+      1,
+      25
+    ],
+    [
+      1,
+      36,
+      1,
+      81
+    ],
+    [
+      0,
+      40,
+      2,
+      145
+    ],
+    [
+      1,
+      43,
+      2,
+      305
+    ],
+    [
+      0,
+      44,
+      2,
+      145
+    ],
+    [
+      1,
+      47,
+      2,
+      305
+    ],
+    [
+      0,
+      48,
+      2,
+      145
+    ],
+    [
+      1,
+      51,
+      2,
+      305
+    ],
+    [
+      0,
+      52,
+      1,
+      25
+    ],
+    [
+      1,
+      57,
+      1,
+      81
+    ]
+  ],
+  "objectInfo": {
+    "a_orig_.js:16:1:18:2": [
+      {
+        "objectId": 2,
+        "creationTime": 2,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 57,
+        "lastUseTime": 57,
+        "lastUseSite": {
+          "sourceFileId": 2,
+          "iid": 185
+        },
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 3,
+        "creationTime": 2,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 112,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "b_orig_.js:17:9:17:16": [
+      {
+        "objectId": 4,
+        "creationTime": 12,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 75,
+        "lastUseTime": 39,
+        "lastUseSite": {
+          "sourceFileId": 2,
+          "iid": 179
+        },
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ],
+    "b_orig_.js:19:12:19:14": [
+      {
+        "objectId": 5,
+        "creationTime": 15,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 99,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ],
+    "b_orig_.js:19:24:19:26": [
+      {
+        "objectId": 6,
+        "creationTime": 23,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 91,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ],
+    "b_orig_.js:19:36:19:38": [
+      {
+        "objectId": 7,
+        "creationTime": 31,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 83,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ],
+    "b_orig_.js:20:12:20:47": [
+      {
+        "objectId": 10,
+        "creationTime": 53,
+        "creationCallStack": [
+          {
+            "sourceFileId": 2,
+            "iid": 185
+          }
+        ],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 61,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ],
+    "b_orig_.js:20:18:20:46": [
+      {
+        "objectId": 8,
+        "creationTime": 39,
+        "creationCallStack": [],
+        "unreachableTime": 59,
+        "unreachableSite": "b_orig_.js:20:9:20:48",
+        "staleness": 11,
+        "lastUseTime": 48,
+        "lastUseSite": {
+          "sourceFileId": 2,
+          "iid": 145
+        },
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 9,
+        "creationTime": 39,
+        "creationCallStack": [],
+        "unreachableTime": 59,
+        "unreachableSite": "b_orig_.js:20:9:20:48",
+        "staleness": 20,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "initial DOM": [
+      {
+        "objectId": 11,
+        "creationTime": 61,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 53,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 12,
+        "creationTime": 63,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 4,
+        "type": "DOM"
+      },
+      {
+        "objectId": 13,
+        "creationTime": 66,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 16,
+        "type": "DOM"
+      },
+      {
+        "objectId": 14,
+        "creationTime": 68,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 15,
+        "creationTime": 70,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 16,
+        "creationTime": 72,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 17,
+        "creationTime": 74,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 18,
+        "creationTime": 76,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 19,
+        "creationTime": 78,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 20,
+        "creationTime": 80,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 21,
+        "creationTime": 82,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 22,
+        "creationTime": 84,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 23,
+        "creationTime": 86,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 24,
+        "creationTime": 88,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 2,
+        "type": "DOM"
+      },
+      {
+        "objectId": 25,
+        "creationTime": 90,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 26,
+        "creationTime": 92,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 27,
+        "creationTime": 94,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 28,
+        "creationTime": 96,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 29,
+        "creationTime": 98,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 30,
+        "creationTime": 100,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 31,
+        "creationTime": 102,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 6,
+        "type": "DOM"
+      },
+      {
+        "objectId": 32,
+        "creationTime": 104,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 33,
+        "creationTime": 106,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 34,
+        "creationTime": 108,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 35,
+        "creationTime": 110,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      },
+      {
+        "objectId": 36,
+        "creationTime": 112,
+        "creationCallStack": [],
+        "unreachableTime": 114,
+        "unreachableSite": "end of program",
+        "staleness": 0,
+        "lastUseTime": 114,
+        "lastUseSite": {
+          "sourceFileId": 0,
+          "iid": 0
+        },
+        "shallowSize": 1,
+        "type": "DOM"
+      }
+    ]
+  }
+}

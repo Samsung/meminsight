@@ -27,6 +27,9 @@ module ___LoggingAnalysis___ {
 
         logDeclare(iid: number, name: string, objId: number): void
         logCreateObj(iid: number, objId: number): void
+        // for the rare case with native objects when the create obj should have
+        // a different sid than the current sid
+        logCreateObjDiffScript(sid: number, iid: number, objId: number): void
         logCreateFun(iid: number, funEnterIID: number, objId: number): void
         logPutfield(iid: number, baseObjId: number, propName: string, valObjId: number): void
         logWrite(iid: number, name: string, objId: number): void
@@ -66,6 +69,9 @@ module ___LoggingAnalysis___ {
         }
 
         logCreateObj(iid:number, objId:number):void {
+        }
+
+        logCreateObjDiffScript(iid:number, objId:number):void {
         }
 
         logCreateFun(iid:number, funEnterIID:number, objId:number):void {
@@ -297,6 +303,15 @@ module ___LoggingAnalysis___ {
         logCreateObj(iid:number, objId:number):void {
             if (!this.beforeLog()) return;
             this.flushIfNeeded(1+2*4).writeTypeAndIID(LogEntryType.CREATE_OBJ,iid).writeInt(objId);
+        }
+
+        logCreateObjDiffScript(sid: number, iid: number, objId: number): void {
+            if (!this.beforeLog()) return;
+            // write an update script entry for the sid parameter, followed by the create obj entry,
+            // followed by an update script entry back to the current script
+            this.logUpdateCurrentScript(sid);
+            this.flushIfNeeded(1+2*4).writeTypeAndIID(LogEntryType.CREATE_OBJ,iid).writeInt(objId);
+            this.logUpdateCurrentScript(J$.sid);
         }
 
         logCreateFun(iid:number, funEnterIID:number, objId:number):void {

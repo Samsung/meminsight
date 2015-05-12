@@ -60,7 +60,7 @@ module ___LoggingAnalysis___ {
 
         setMetadata(obj: any, metadata: number): void
 
-        setIIDForNativeObj(obj: any, iid: number): void
+        setSourceIdForNativeObj(obj: any, sourceId: string): void
 
         flushNativeObj2IIDInfo(): void
 
@@ -74,22 +74,22 @@ module ___LoggingAnalysis___ {
 
         setMetadata(obj: any, metadata: number): void
 
-        setIIDForNativeObj(obj: any, iid: number): void
+        setIIDForNativeObj(obj: any, sourceId: string): void
         hasIIDForNativeObj(obj: any): boolean
-        getIIDForNativeObj(obj: any): number
+        getIIDForNativeObj(obj: any): string
 
         flushNativeObj2IIDInfo(): void
     }
 
     class WeakMapMetadataManager implements MetadataManager {
         /**
-         * WeakMap to hold the IID at which we first encountered a native object.
+         * WeakMap to hold the source ID at which we first encountered a native object.
          *
          * This is used to associate a correct IID with the native object if we
          * decide to create metadata for it.
          * @type {WeakMap<K, V>}
          */
-        private nativeObj2IID = new WeakMap<any,number>();
+        private nativeObj2IID = new WeakMap<any,string>();
 
 
 
@@ -114,7 +114,7 @@ module ___LoggingAnalysis___ {
             this.obj2Metadata.set(obj,metadata);
         }
 
-        setIIDForNativeObj(obj:any, iid:number):void {
+        setIIDForNativeObj(obj:any, iid:string):void {
             this.nativeObj2IID.set(obj,iid);
         }
 
@@ -122,13 +122,13 @@ module ___LoggingAnalysis___ {
             return this.nativeObj2IID.has(obj);
         }
 
-        getIIDForNativeObj(obj:any):number {
+        getIIDForNativeObj(obj:any):string {
             return this.nativeObj2IID.get(obj);
         }
 
 
         flushNativeObj2IIDInfo():void {
-            this.nativeObj2IID = new WeakMap<any,number>();
+            this.nativeObj2IID = new WeakMap<any,string>();
         }
 
     }
@@ -168,7 +168,7 @@ module ___LoggingAnalysis___ {
             obj[HiddenPropMetadataManager.METADATA_PROP] = metadata;
         }
 
-        setIIDForNativeObj(obj:any, iid:number):void {
+        setIIDForNativeObj(obj:any, iid:string):void {
             objDefineProperty(obj, HiddenPropMetadataManager.NATIVE_IID_PROP, {
                 enumerable: false,
                 writable: true
@@ -180,7 +180,7 @@ module ___LoggingAnalysis___ {
             return HOP(obj, HiddenPropMetadataManager.NATIVE_IID_PROP);
         }
 
-        getIIDForNativeObj(obj:any):number {
+        getIIDForNativeObj(obj:any):string {
             return obj[HiddenPropMetadataManager.NATIVE_IID_PROP];
         }
 
@@ -269,9 +269,19 @@ module ___LoggingAnalysis___ {
 
         createObjId(obj: any, iid: number, isLiteral: boolean): number {
             var meta = this.metaManager;
+            var allocIID: number;
+            var allocScriptId: number;
+            var diffScriptId: boolean;
             if (meta.hasIIDForNativeObj(obj)) {
-                // use the better IID that we stashed away
-                iid = meta.getIIDForNativeObj(obj);
+                var sourceId = meta.getIIDForNativeObj(obj);
+                var colonInd = sourceId.indexOf(':');
+                allocScriptId = parseInt(sourceId.substring(0, colonInd));
+                allocIID = parseInt(sourceId.substring(colonInd+1));
+                diffScriptId = allocScriptId !== J$.sid;
+            } else {
+                allocScriptId = J$.sid;
+                allocIID = iid;
+                diffScriptId = false;
             }
             var helper = (o: any) => {
                 var objId = this.idCounter + 1;
@@ -287,11 +297,15 @@ module ___LoggingAnalysis___ {
                 var proto = obj.prototype;
                 var protoId = helper(proto);
                 var funEnterIID:number = getFunEnterIID(obj);
-                this.logger.logCreateFun(iid, funEnterIID, objId);
+                this.logger.logCreateFun(allocIID, funEnterIID, objId);
             } else if (isBrowser && obj instanceof Node) {
-                this.logger.logCreateDOMNode(iid, objId);
+                this.logger.logCreateDOMNode(allocIID, objId);
             } else {
-                this.logger.logCreateObj(iid, objId);
+                if (diffScriptId) {
+                    this.logger.logCreateObjDiffScript(allocScriptId, allocIID, objId);
+                } else {
+                    this.logger.logCreateObj(allocIID, objId);
+                }
             }
             return objId;
         }
@@ -316,8 +330,8 @@ module ___LoggingAnalysis___ {
             this.metaManager.flushNativeObj2IIDInfo();
         }
 
-        setIIDForNativeObj(obj, iid) {
-            this.metaManager.setIIDForNativeObj(obj,iid);
+        setSourceIdForNativeObj(obj, sourceId) {
+            this.metaManager.setIIDForNativeObj(obj,sourceId);
         }
     }
 

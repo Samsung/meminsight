@@ -272,7 +272,7 @@ module ___LoggingAnalysis___ {
                 } else {
                     // native object.  stash away the iid of the call
                     // in case we decide to create an id for the object later
-                    idManager.setIIDForNativeObj(val,iid);
+                    idManager.setSourceIdForNativeObj(val,this.lastUse.getSourceId(iid));
                 }
             }
             this.nativeModels.modelInvokeFun(iid, f, base, args, val, isConstructor, isMethod);

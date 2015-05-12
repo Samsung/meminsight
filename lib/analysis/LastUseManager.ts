@@ -35,7 +35,7 @@ module ___LoggingAnalysis___ {
          * maps objects to their last use source ID (sid + ':' + iid)
          * @type {Array}
          */
-        private lastUseIID: Array<string> = [];
+        private lastUseSourceID: Array<string> = [];
 
         private logger: Logger;
 
@@ -58,24 +58,25 @@ module ___LoggingAnalysis___ {
             var logger = this.logger;
             this.lastUseTime.forEach((val,idx) => {
                 if (val !== -1) {
-                    logger.logLastUse(idx, val, this.lastUseIID[idx]);
+                    logger.logLastUse(idx, val, this.lastUseSourceID[idx]);
                 }
             });
             logger.endLastUse();
             this.lastUseTime = [];
-            this.lastUseIID = [];
+            this.lastUseSourceID = [];
         }
 
-        private getSourceId(iid: number): string {
+        getSourceId(iid: number): string {
             return J$.sid + ':' + iid;
         }
+
         updateLastUse(objId: number, iid: number, time: number) {
             var sourceId = this.getSourceId(iid);
             if (this.eagerFlush) {
                 this.logger.logLastUse(objId, time, sourceId);
             } else {
                 this.lastUseTime[objId] = time;
-                this.lastUseIID[objId] = sourceId;
+                this.lastUseSourceID[objId] = sourceId;
             }
         }
     }
