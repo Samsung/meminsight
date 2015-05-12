@@ -15,37 +15,37 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
     ],
     [
       0,
-      168,
+      96,
       1,
       177
     ],
     [
       1,
-      173,
+      101,
       1,
       369
     ],
     [
       0,
-      178,
+      106,
       1,
       73
     ],
     [
       0,
-      180,
+      108,
       1,
       9
     ],
     [
       1,
-      181,
+      109,
       1,
       337
     ],
     [
       1,
-      183,
+      111,
       1,
       353
     ]
@@ -56,10 +56,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 2,
         "creationTime": 2,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 4,
-        "lastUseTime": 181,
+        "lastUseTime": 109,
         "lastUseSite": {
           "sourceFileId": 1,
           "iid": 41
@@ -71,9 +71,9 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 3,
         "creationTime": 2,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
-        "staleness": 183,
+        "staleness": 111,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
@@ -119,10 +119,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
             "iid": 281
           }
         ],
-        "unreachableTime": 184,
+        "unreachableTime": 112,
         "unreachableSite": "checknode_orig_.js:23:15:26:6",
         "staleness": 6,
-        "lastUseTime": 178,
+        "lastUseTime": 106,
         "lastUseSite": {
           "sourceFileId": 1,
           "iid": 73
@@ -139,9 +139,9 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
             "iid": 281
           }
         ],
-        "unreachableTime": 184,
+        "unreachableTime": 112,
         "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 173,
+        "staleness": 101,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
@@ -158,10 +158,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
             "iid": 281
           }
         ],
-        "unreachableTime": 175,
+        "unreachableTime": 103,
         "unreachableSite": "checknode_orig_.js:27:15:31:6",
         "staleness": 7,
-        "lastUseTime": 168,
+        "lastUseTime": 96,
         "lastUseSite": {
           "sourceFileId": 1,
           "iid": 177
@@ -178,9 +178,9 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
             "iid": 281
           }
         ],
-        "unreachableTime": 175,
+        "unreachableTime": 103,
         "unreachableSite": "checknode_orig_.js:27:15:31:6",
-        "staleness": 161,
+        "staleness": 89,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
@@ -192,10 +192,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 10,
         "creationTime": 22,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 17,
-        "lastUseTime": 168,
+        "lastUseTime": 96,
         "lastUseSite": {
           "sourceFileId": 1,
           "iid": 115
@@ -207,10 +207,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 11,
         "creationTime": 24,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -222,25 +222,25 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 12,
         "creationTime": 27,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
         },
-        "shallowSize": 52,
+        "shallowSize": 16,
         "type": "DOM"
       },
       {
         "objectId": 13,
         "creationTime": 29,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -252,10 +252,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 14,
         "creationTime": 31,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -267,10 +267,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 15,
         "creationTime": 33,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -282,10 +282,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 16,
         "creationTime": 35,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -297,10 +297,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 17,
         "creationTime": 37,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -312,10 +312,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 18,
         "creationTime": 39,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -327,10 +327,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 19,
         "creationTime": 41,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -342,10 +342,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 20,
         "creationTime": 43,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -357,10 +357,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 21,
         "creationTime": 45,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -372,10 +372,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 22,
         "creationTime": 47,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -387,25 +387,25 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 23,
         "creationTime": 49,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
         },
-        "shallowSize": 1,
+        "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 24,
         "creationTime": 51,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -417,10 +417,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 25,
         "creationTime": 53,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -432,10 +432,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 26,
         "creationTime": 55,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -447,10 +447,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 27,
         "creationTime": 57,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -462,10 +462,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 28,
         "creationTime": 59,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -477,10 +477,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 29,
         "creationTime": 61,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -492,25 +492,25 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 30,
         "creationTime": 63,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
         },
-        "shallowSize": 1,
+        "shallowSize": 5,
         "type": "DOM"
       },
       {
         "objectId": 31,
         "creationTime": 65,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -522,29 +522,23 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 32,
         "creationTime": 67,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 8,
         "type": "DOM"
       },
       {
         "objectId": 33,
         "creationTime": 69,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -552,29 +546,23 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 34,
         "creationTime": 71,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 35,
         "creationTime": 73,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -582,14 +570,11 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 36,
         "creationTime": 75,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -597,29 +582,23 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 37,
         "creationTime": 77,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 38,
         "creationTime": 79,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -627,14 +606,11 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 39,
         "creationTime": 81,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -642,29 +618,23 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 40,
         "creationTime": 83,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
+        "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 41,
         "creationTime": 85,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -672,14 +642,11 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 42,
         "creationTime": 87,
         "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
+        "unreachableTime": 112,
+        "unreachableSite": "checknode_orig_.js:23:15:26:6",
+        "staleness": 8,
+        "lastUseTime": 104,
+        "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"
       },
@@ -687,10 +654,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 43,
         "creationTime": 89,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -702,10 +669,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 44,
         "creationTime": 91,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -717,517 +684,10 @@ checknode_orig_.js:24:9:24:23 : RC(initial DOM) = 1
         "objectId": 45,
         "creationTime": 93,
         "creationCallStack": [],
-        "unreachableTime": 185,
+        "unreachableTime": 113,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 46,
-        "creationTime": 95,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 47,
-        "creationTime": 97,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 48,
-        "creationTime": 99,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 49,
-        "creationTime": 101,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 50,
-        "creationTime": 103,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 51,
-        "creationTime": 105,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 52,
-        "creationTime": 107,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 53,
-        "creationTime": 109,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 54,
-        "creationTime": 111,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 55,
-        "creationTime": 113,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 56,
-        "creationTime": 115,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 57,
-        "creationTime": 117,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 58,
-        "creationTime": 119,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 59,
-        "creationTime": 121,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 2,
-        "type": "DOM"
-      },
-      {
-        "objectId": 60,
-        "creationTime": 123,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 61,
-        "creationTime": 125,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 62,
-        "creationTime": 127,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 63,
-        "creationTime": 129,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 64,
-        "creationTime": 131,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 65,
-        "creationTime": 133,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 66,
-        "creationTime": 135,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 5,
-        "type": "DOM"
-      },
-      {
-        "objectId": 67,
-        "creationTime": 137,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 68,
-        "creationTime": 139,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 8,
-        "type": "DOM"
-      },
-      {
-        "objectId": 69,
-        "creationTime": 141,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 70,
-        "creationTime": 143,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 2,
-        "type": "DOM"
-      },
-      {
-        "objectId": 71,
-        "creationTime": 145,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 72,
-        "creationTime": 147,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 73,
-        "creationTime": 149,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 2,
-        "type": "DOM"
-      },
-      {
-        "objectId": 74,
-        "creationTime": 151,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 75,
-        "creationTime": 153,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 76,
-        "creationTime": 155,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 2,
-        "type": "DOM"
-      },
-      {
-        "objectId": 77,
-        "creationTime": 157,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 78,
-        "creationTime": 159,
-        "creationCallStack": [],
-        "unreachableTime": 184,
-        "unreachableSite": "checknode_orig_.js:23:15:26:6",
-        "staleness": 8,
-        "lastUseTime": 176,
-        "lastUseSite": "removed from DOM",
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 79,
-        "creationTime": 161,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 80,
-        "creationTime": 163,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 81,
-        "creationTime": 165,
-        "creationCallStack": [],
-        "unreachableTime": 185,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 185,
+        "lastUseTime": 113,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0

@@ -26,13 +26,13 @@
     ],
     [
       0,
-      192,
+      72,
       1,
       129
     ],
     [
       1,
-      195,
+      75,
       1,
       337
     ]
@@ -120,10 +120,10 @@
             "iid": 289
           }
         ],
-        "unreachableTime": 195,
+        "unreachableTime": 75,
         "unreachableSite": "code_orig_.js:25:20:30:10",
         "staleness": 2,
-        "lastUseTime": 193,
+        "lastUseTime": 73,
         "lastUseSite": {
           "sourceFileId": 1,
           "iid": 105
@@ -146,10 +146,10 @@
             "iid": 289
           }
         ],
-        "unreachableTime": 196,
+        "unreachableTime": 76,
         "unreachableSite": "code_orig_.js:25:20:30:10",
         "staleness": 4,
-        "lastUseTime": 192,
+        "lastUseTime": 72,
         "lastUseSite": {
           "sourceFileId": 1,
           "iid": 129
@@ -170,9 +170,9 @@
             "iid": 289
           }
         ],
-        "unreachableTime": 196,
+        "unreachableTime": 76,
         "unreachableSite": "code_orig_.js:25:20:30:10",
-        "staleness": 180,
+        "staleness": 60,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
@@ -207,9 +207,9 @@
         "objectId": 10,
         "creationTime": 28,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
-        "staleness": 169,
+        "staleness": 49,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 2,
@@ -219,10 +219,10 @@
         "objectId": 11,
         "creationTime": 30,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -234,25 +234,25 @@
         "objectId": 12,
         "creationTime": 33,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
         },
-        "shallowSize": 76,
+        "shallowSize": 16,
         "type": "DOM"
       },
       {
         "objectId": 13,
         "creationTime": 35,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -264,10 +264,10 @@
         "objectId": 14,
         "creationTime": 37,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -279,10 +279,10 @@
         "objectId": 15,
         "creationTime": 39,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -294,10 +294,10 @@
         "objectId": 16,
         "creationTime": 41,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -309,10 +309,10 @@
         "objectId": 17,
         "creationTime": 43,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -324,10 +324,10 @@
         "objectId": 18,
         "creationTime": 45,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -339,10 +339,10 @@
         "objectId": 19,
         "creationTime": 47,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -354,10 +354,10 @@
         "objectId": 20,
         "creationTime": 49,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -369,10 +369,10 @@
         "objectId": 21,
         "creationTime": 51,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -384,10 +384,10 @@
         "objectId": 22,
         "creationTime": 53,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -399,25 +399,25 @@
         "objectId": 23,
         "creationTime": 55,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
         },
-        "shallowSize": 1,
+        "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 24,
         "creationTime": 57,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -429,10 +429,10 @@
         "objectId": 25,
         "creationTime": 59,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -444,10 +444,10 @@
         "objectId": 26,
         "creationTime": 61,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -459,10 +459,10 @@
         "objectId": 27,
         "creationTime": 63,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -474,10 +474,10 @@
         "objectId": 28,
         "creationTime": 65,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
@@ -489,925 +489,25 @@
         "objectId": 29,
         "creationTime": 67,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
         },
-        "shallowSize": 1,
+        "shallowSize": 2,
         "type": "DOM"
       },
       {
         "objectId": 30,
         "creationTime": 69,
         "creationCallStack": [],
-        "unreachableTime": 197,
+        "unreachableTime": 77,
         "unreachableSite": "end of program",
         "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 31,
-        "creationTime": 71,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 32,
-        "creationTime": 73,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 33,
-        "creationTime": 75,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 34,
-        "creationTime": 77,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 35,
-        "creationTime": 79,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 36,
-        "creationTime": 81,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 37,
-        "creationTime": 83,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 38,
-        "creationTime": 85,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 39,
-        "creationTime": 87,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 40,
-        "creationTime": 89,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 41,
-        "creationTime": 91,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 42,
-        "creationTime": 93,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 43,
-        "creationTime": 95,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 44,
-        "creationTime": 97,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 45,
-        "creationTime": 99,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 46,
-        "creationTime": 101,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 47,
-        "creationTime": 103,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 48,
-        "creationTime": 105,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 49,
-        "creationTime": 107,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 50,
-        "creationTime": 109,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 51,
-        "creationTime": 111,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 52,
-        "creationTime": 113,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 53,
-        "creationTime": 115,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 54,
-        "creationTime": 117,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 55,
-        "creationTime": 119,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 56,
-        "creationTime": 121,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 57,
-        "creationTime": 123,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 58,
-        "creationTime": 125,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 59,
-        "creationTime": 127,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 60,
-        "creationTime": 129,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 61,
-        "creationTime": 131,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 62,
-        "creationTime": 133,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 63,
-        "creationTime": 135,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 64,
-        "creationTime": 137,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 65,
-        "creationTime": 139,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 66,
-        "creationTime": 141,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 67,
-        "creationTime": 143,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 68,
-        "creationTime": 145,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 69,
-        "creationTime": 147,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 70,
-        "creationTime": 149,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 71,
-        "creationTime": 151,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 72,
-        "creationTime": 153,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 73,
-        "creationTime": 155,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 74,
-        "creationTime": 157,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 75,
-        "creationTime": 159,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 76,
-        "creationTime": 161,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 77,
-        "creationTime": 163,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 78,
-        "creationTime": 165,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 79,
-        "creationTime": 167,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 80,
-        "creationTime": 169,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 81,
-        "creationTime": 171,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 82,
-        "creationTime": 173,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 83,
-        "creationTime": 175,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 2,
-        "type": "DOM"
-      },
-      {
-        "objectId": 84,
-        "creationTime": 177,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 85,
-        "creationTime": 179,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 86,
-        "creationTime": 181,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 87,
-        "creationTime": 183,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 88,
-        "creationTime": 185,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 1,
-        "type": "DOM"
-      },
-      {
-        "objectId": 89,
-        "creationTime": 187,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
-        "lastUseSite": {
-          "sourceFileId": 0,
-          "iid": 0
-        },
-        "shallowSize": 2,
-        "type": "DOM"
-      },
-      {
-        "objectId": 90,
-        "creationTime": 189,
-        "creationCallStack": [],
-        "unreachableTime": 197,
-        "unreachableSite": "end of program",
-        "staleness": 0,
-        "lastUseTime": 197,
+        "lastUseTime": 77,
         "lastUseSite": {
           "sourceFileId": 0,
           "iid": 0
