@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.Set;
 
+import com.google.gson.Gson;
 import com.samsung.memoryanalysis.context.Context;
 import com.samsung.memoryanalysis.io.AbstractAsyncTraceWriter;
 import com.samsung.memoryanalysis.referencecounter.UnreachabilityTraceWriter.UnreachAsyncWriter;
@@ -37,6 +38,8 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Un
     private long counter = 0;
 
     public class UnreachAsyncWriter extends AbstractAsyncTraceWriter {
+
+        private final Gson gson = new Gson();
 
         public UnreachAsyncWriter(Path path) throws IOException {
             super(path);
@@ -86,16 +89,14 @@ public class UnreachabilityTraceWriter implements UnreachabilityAwareAnalysis<Un
         }
 
         public UnreachAsyncWriter write(String str) {
-            builder.append("\"");
-            builder.append(str);
-            builder.append("\",");
+            builder.append(gson.toJson(str));
+            builder.append(",");
             return this;
         }
 
         public void writeEnd(String str) {
-            builder.append("\"");
-            builder.append(str);
-            builder.append("\"]\n");
+            builder.append(gson.toJson(str));
+            builder.append("]\n");
             flushIfNeeded();
         }
     }
