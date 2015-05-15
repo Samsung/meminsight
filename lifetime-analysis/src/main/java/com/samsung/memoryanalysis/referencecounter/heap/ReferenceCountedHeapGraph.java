@@ -483,6 +483,12 @@ public abstract class ReferenceCountedHeapGraph {
 
     public void endFlush(SourceLocId slId, Set<Integer> returnValues, Collection<Context> liveContexts) {
         noCycleCollection = true;
+        // in nearly all cases, candidates will have exactly one set,
+        // corresponding to the global scope.  However, in rare cases,
+        // (e.g., when a node program calls process.exit()), the program
+        // can exit in a way that doesn't clean up all the extant call stacks,
+        // in which case there will be multiple candidates sets.  To be safe,
+        // we clear out all candidates here
         while (candidates.size() > 0) {
             Set<ContextOrObjectId> c = candidates.pop();
             flushForContext(slId, returnValues, liveContexts, c);
