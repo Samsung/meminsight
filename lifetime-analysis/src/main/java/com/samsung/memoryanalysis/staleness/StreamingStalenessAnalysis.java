@@ -87,6 +87,13 @@ public class StreamingStalenessAnalysis implements
             this.creationCallStack = creationCallStack;
         }
 
+        @Override
+        public String toString() {
+            return "AllocInfo [type=" + type + ", allocationIID="
+                    + allocationIID + ", creationTime=" + creationTime
+                    + ", creationCallStack=" + creationCallStack + "]";
+        }
+
     }
 
     /**
@@ -426,7 +433,7 @@ public class StreamingStalenessAnalysis implements
 
     @Override
     public Void endExecution(long time) {
-        assert live.isEmpty();
+        assert live.isEmpty() : "remaining live objects at end of execution!\n" + live.toString();
         flushUnreachable();
         Comparator<LastUseUnreachableInfo> lastUseCompare = new Comparator<StreamingStalenessAnalysis.LastUseUnreachableInfo>() {
 

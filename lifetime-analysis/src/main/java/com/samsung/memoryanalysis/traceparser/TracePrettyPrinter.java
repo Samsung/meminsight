@@ -20,6 +20,7 @@ import static java.lang.String.format;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Set;
 
 import com.samsung.memoryanalysis.traceparser.SourceMap.SourceLocId;
@@ -49,6 +50,10 @@ public class TracePrettyPrinter implements TraceAnalysis<Void> {
 
     @Override
     public void createFun(SourceLocId slId, int objectId, int prototypeId, SourceLocId functionEnterIID,Set<String> namesReferencedInClosure) {
+        if (namesReferencedInClosure == null) {
+            // TODO fix the root-cause bug that causes namesReferencedInClosure to be null, related to eval??
+            namesReferencedInClosure = Collections.emptySet();
+        }
         System.out.println(format("create(slId=%s, objectId=%s, prototypeId = %d, functionEnterslId=%s,namesReferencedInClosure = %s, time=%d)",
                 slId, objectId, prototypeId, functionEnterIID, namesReferencedInClosure.toString(), timer.currentTime()));
     }

@@ -352,6 +352,12 @@ public abstract class ReferenceCountedHeapGraph {
 
     public void flush(SourceLocId slId, final Set<Integer> dontFlush, Collection<Context> live) {
         Set<ContextOrObjectId> c = candidates.peek();
+        flushForContext(slId, dontFlush, live, c);
+    }
+
+    private void flushForContext(SourceLocId slId,
+            final Set<Integer> dontFlush, Collection<Context> live,
+            Set<ContextOrObjectId> c) {
         Iterator<ContextOrObjectId> i = c.iterator();
         while (i.hasNext()) {
             ContextOrObjectId e = i.next();
@@ -477,7 +483,10 @@ public abstract class ReferenceCountedHeapGraph {
 
     public void endFlush(SourceLocId slId, Set<Integer> returnValues, Collection<Context> liveContexts) {
         noCycleCollection = true;
-        flush(slId, returnValues, liveContexts);
+        while (candidates.size() > 0) {
+            Set<ContextOrObjectId> c = candidates.pop();
+            flushForContext(slId, returnValues, liveContexts, c);
+        }
         flushCycleQueue(returnValues, FlushType.END_EXECUTION, liveContexts);
         //Remove the "null" element
         removeNode(ContextOrObjectId.make(0));
