@@ -165,8 +165,9 @@ public class TraceAnalysisRunner {
             progress.start(this.traceSize);
         int evtTypeInt = 0;
         TraceEntry evtType;
+        TraceEntry[] traceEntryValues = TraceEntry.values();
         while((evtTypeInt = trace.read()) != -1) {
-            evtType = TraceEntry.values()[evtTypeInt];
+            evtType = traceEntryValues[evtTypeInt];
             switch (evtType) {
               case DECLARE: {
                   int iid = readInt();
