@@ -364,8 +364,13 @@ public class StreamingStalenessAnalysis implements
     public void unreachableObject(SourceLocId slId, int objectId, long time,
             int shallowSize) {
         LastUseUnreachableInfo lastUseInfo = getLastUseUnreachableInfo(objectId);
-        lastUseInfo.unreachableTime = time;
-        lastUseInfo.unreachableSite = slId;
+        // it is possible that the recorded unreachable time will be in the *future*,
+        // due to a combination of heap cycles and native code.  this should only occur
+        // when we updated the unreachable time due to a last use entry
+        if (lastUseInfo.unreachableTime < time) {
+            lastUseInfo.unreachableTime = time;
+            lastUseInfo.unreachableSite = slId;
+        }
         if (domParent2Children.containsKey(objectId)) {
             // still in the live DOM, so treat this point as its last use time
             lastUseInfo.mostRecentUseTime = time;

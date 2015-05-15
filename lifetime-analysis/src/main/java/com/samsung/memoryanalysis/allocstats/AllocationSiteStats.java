@@ -226,7 +226,7 @@ public class AllocationSiteStats implements EnhancedTraceAnalysis<Map<String,All
     @Override
     public void lastUse(int objectId, SourceLocId slId, long time) {
         ObjMetadata objMetadata = objId2Metadata.get(objectId);
-        assert objMetadata != null : "never observed creation of object " + objectId;
+        assert objMetadata != null : "no metadata for object " + objectId;
         objMetadata.isStale = true;
         SourceLocId allocId = getAllocId(objMetadata.creationIndex);
         SiteMetadata siteMetadata = slId2Metadata.get(allocId);
