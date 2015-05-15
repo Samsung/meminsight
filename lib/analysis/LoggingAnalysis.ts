@@ -198,17 +198,30 @@ module ___LoggingAnalysis___ {
             }
         }
 
+        /**
+         * used to track whether we have emitted a call log entry from the caller.
+         * If so, then functionEnter in the callee need not emit the log entry
+         * @type {boolean}
+         */
         private emittedCall = false;
+
+        /**
+         * used to track whether a call is known to be a constructor call.  set at
+         * invokeFunPre, unset in functionEnter
+         * @type {boolean}
+         */
+        private isConstructor = false;
 
         invokeFunPre(iid:number, f:Function, base:any, args:any[], isConstructor:boolean, isMethod: boolean): InvokeFunPreResult {
             if (!this.nativeModels.modelInvokeFunPre(iid, f, base, args, isConstructor, isMethod)) {
                 if (f) {
                     var funEnterIID = lookupCachedFunEnterIID(f);
-                    if (funEnterIID !== undefined) {
+                    if (funEnterIID !== undefined) { // invoking a known, instrumented function
                         var funObjId = this.idManager.findObjId(f);
                         var funSID = f[J$.Constants.SPECIAL_PROP_SID];
                         this.logger.logCall(iid, funObjId, funEnterIID, funSID);
                         this.emittedCall = true;
+                        this.isConstructor = isConstructor;
                     }
                 }
             }
@@ -376,29 +389,34 @@ module ___LoggingAnalysis___ {
                 // caller to update the last use of fun.  so, update it here
                 this.updateLastUse(funId, iid);
             }
-            var metadata = 0;
             // check for unannotated this and flag as such
             if (dis !== GLOBAL_OBJ) {
                 var idManager = this.idManager;
+                var metadata = 0;
                 if (!idManager.hasMetadata(dis)) {
-                    // TODO could optimize to only add value to obj2Metadata once
-                    var id = idManager.findOrCreateUniqueId(dis,iid,false);
-                    metadata = idManager.setUnannotatedThis(id);
-                    idManager.setMetadata(dis,metadata);
-                    this.unannotThisMetadata.push(metadata);
-                } else {
+                    metadata = idManager.findOrCreateUniqueId(dis,iid,false);
+                    if (this.isConstructor) {
+                        // TODO could optimize to only add value to obj2Metadata once
+                        metadata = idManager.setUnannotatedThis(metadata);
+                        idManager.setMetadata(dis,metadata);
+                        this.unannotThisMetadata.push(metadata);
+                    } else {
+                        // we haven't seen the this object, but we are not
+                        // sure this is a constructor call.  so, just create
+                        // an id, but push 0 on the unnannotThisMetadata stack
+                        this.unannotThisMetadata.push(0);
+                    }
+                } else { // already have metadata
                     metadata = idManager.getMetadata(dis);
                     this.unannotThisMetadata.push(0);
                 }
+                this.logger.logDeclare(iid, "this", this.idManager.extractObjId(metadata));
             } else {
+                // global object; don't bother logging the assignment to this
                 this.unannotThisMetadata.push(0);
             }
-            if (metadata !== 0) { // if dis is not the global object
-                // declare the value of 'this' in the trace
-                this.logger.logDeclare(iid, "this", this.idManager.extractObjId(metadata));
-            }
-
-            // functionEnter cannot be top-level
+            // always unset the isConstructor flag
+            this.isConstructor = false;
         }
 
         getField(iid:number, base:any, offset:any, val:any):any {

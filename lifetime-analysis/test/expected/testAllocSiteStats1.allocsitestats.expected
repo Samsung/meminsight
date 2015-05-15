@@ -1,1 +1,2 @@
+no escaping from site test/testdata/testAllocSiteStats1.js:30:1:36:2
 leaking site test/testdata/testAllocSiteStats1.js:21:19:21:21

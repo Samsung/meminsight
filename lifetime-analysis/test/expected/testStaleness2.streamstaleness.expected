@@ -1,0 +1,11 @@
+[4,"OBJECT","test/testdata/testStaleness2.js:16:1:16:18",7,["unknown"],7,"test/testdata/testStaleness2.js:16:1:16:18",9,"test/testdata/testStaleness2.js:16:1:16:18"]
+[2,"FUNCTION","test/testdata/testStaleness2.js:16:1:16:18",2,[],6,"test/testdata/testStaleness2.js:16:1:16:18",9,"end of program"]
+[3,"PROTOTYPE","test/testdata/testStaleness2.js:16:1:16:18",2,[],2,"test/testdata/testStaleness2.js:16:1:16:18",9,"end of program"]
+last use
+[3,2,"test/testdata/testStaleness2.js:16:1:16:18"]
+[2,6,"test/testdata/testStaleness2.js:16:1:16:18"]
+[4,7,"test/testdata/testStaleness2.js:16:1:16:18"]
+unreachable
+[3,9,"end of program"]
+[2,9,"end of program"]
+[4,9,"test/testdata/testStaleness2.js:16:1:16:18"]

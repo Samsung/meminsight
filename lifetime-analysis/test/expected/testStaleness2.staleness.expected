@@ -1,0 +1,64 @@
+{
+  "functionTrace": [
+    [
+      0,
+      6,
+      1,
+      9
+    ],
+    [
+      1,
+      9,
+      1,
+      73
+    ]
+  ],
+  "objectInfo": {
+    "testStaleness2.js:16:1:16:18": [
+      {
+        "objectId": 2,
+        "creationTime": 2,
+        "creationCallStack": [],
+        "unreachableTime": 9,
+        "unreachableSite": "end of program",
+        "staleness": 3,
+        "lastUseTime": 6,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 9
+        },
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 3,
+        "creationTime": 2,
+        "creationCallStack": [],
+        "unreachableTime": 9,
+        "unreachableSite": "end of program",
+        "staleness": 7,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      },
+      {
+        "objectId": 4,
+        "creationTime": 7,
+        "creationCallStack": [
+          {
+            "sourceFileId": 0,
+            "iid": -1
+          }
+        ],
+        "unreachableTime": 9,
+        "unreachableSite": "testStaleness2.js:16:1:16:18",
+        "staleness": 2,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "OBJECT"
+      }
+    ]
+  }
+}
