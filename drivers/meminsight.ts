@@ -184,9 +184,67 @@ function runNodeScript(args: Array<string>): void {
     });
 }
 
+var onTheFlyDriver = path.join(__dirname, '../node_modules/jalangi2/src/js/commands/jalangi.js');
+
+/**
+ * run memory analysis on node script using on-the-fly instrumentation
+ * @param args
+ */
+function instAndRunNodeScript(args: Array<string>): void {
+    var parser = new argparse.ArgumentParser({
+        prog: "meminsight noderun",
+        addHelp: true,
+        description: "instrument a node.js script as it runs and collect profiling results"
+    });
+    parser.addArgument(['script'], { help: "path of script to run, relative to appPath"});
+    parser.addArgument(['scriptArgs'], {
+        help: "command-line arguments to pass to script",
+        nargs: argparse.Const.REMAINDER
+    });
+    var parsed = parser.parseArgs(args);
+    var script = path.resolve(parsed.script);
+    var scriptArgs = parsed.scriptArgs;
+    // dump traces in same directory as the instrumented script
+    // TODO make this configurable
+    var appPath = path.dirname(script);
+    var curDir = process.cwd();
+    process.chdir(appPath);
+    console.log("running node.js script " + script);
+    var loggingAnalysisArgs = [
+        onTheFlyDriver,
+        '--inlineIID',
+        '--analysis',
+        loggingAnalysis,
+        '--initParam',
+        'syncFS:true',
+        '--astHandlerModule',
+        path.join(__dirname, '..', 'lib', 'analysis', 'freeVarsAstHandler.js'),
+        script].concat(scriptArgs);
+    runNodeProg(loggingAnalysisArgs, "run of script ", (code: number) => {
+        if (code !== 0) {
+            console.log("run of script failed");
+            return;
+        }
+        console.log("run of script complete");
+        // run the lifetime analysis
+        var javaProc = lifetimeAnalysis.runLifetimeAnalysisOnTrace(path.join(appPath,'mem-trace'));
+        javaProc.stdout.on("data", (chunk : any) => {
+            console.log(chunk.toString());
+        });
+        javaProc.stderr.on("data", (chunk : any) => {
+            console.error(chunk.toString());
+        });
+        javaProc.on("exit", () => {
+            console.log("done with lifetime analysis");
+        });
+
+    });
+
+}
+
 var args = process.argv.slice(2);
 if (args.length === 0) {
-    console.error("must provide a command: instrument, run, noderun, or inspect");
+    console.error("must provide a command: instrument, run, noderun, nodeinstrun, or inspect");
     process.exit(1);
 }
 switch (args[0]) {
@@ -199,10 +257,13 @@ switch (args[0]) {
     case 'noderun':
         runNodeScript(args.slice(1));
         break;
+    case 'nodeinstrun':
+        instAndRunNodeScript(args.slice(1));
+        break;
     case 'inspect':
         inspectApp(args.slice(1));
         break;
     default:
-        console.error("unknown command: choose one of instrument, run, noderun, or inspect");
+        console.error("unknown command: choose one of instrument, run, noderun, nodeinstrun, or inspect");
         process.exit(1);
 }

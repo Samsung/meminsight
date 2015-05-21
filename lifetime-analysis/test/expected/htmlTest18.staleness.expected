@@ -122,8 +122,8 @@
         "creationCallStack": [],
         "unreachableTime": 114,
         "unreachableSite": "end of program",
-        "staleness": 75,
-        "lastUseTime": 39,
+        "staleness": 77,
+        "lastUseTime": 37,
         "lastUseSite": {
           "sourceFileId": 2,
           "iid": 179

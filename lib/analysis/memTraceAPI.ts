@@ -36,6 +36,7 @@ require('jalangi2/src/js/instrument/astUtil');
 // initializes J$.memAnalysisUtils
 require('./memAnalysisUtils');
 
+import getFreeVars = require('./freeVarsAstHandler');
 declare var J$: any;
 
 export var browserAnalysisFiles = [
@@ -52,30 +53,7 @@ export interface MemTraceResult {
 }
 
 
-function getFreeVars(ast: any): any {
-    var freeVarsTable = {};
-    var na = J$.memAnalysisUtils;
-    var curVarNames:any = null;
-    var freeVarsHandler = (node: any, context: any) => {
-        var fv:any = na.freeVars(node);
-        curVarNames = fv === na.ANY ? "ANY" : Object.keys(fv);
-    };
-    var visitorPost = {
-        'CallExpression': (node: any) => {
-            if (node.callee.object && node.callee.object.name === 'J$' && (node.callee.property.name === 'Fe')) {
-                var iid: any = node.arguments[0].value;
-                freeVarsTable[iid] = curVarNames;
-            }
-            return node;
-        }
-    };
-    var visitorPre = {
-        'FunctionExpression': freeVarsHandler,
-        'FunctionDeclaration': freeVarsHandler
-    };
-    J$.astUtil.transformAst(ast, visitorPost, visitorPre);
-    return freeVarsTable;
-}
+
 
 
 export function instScriptAndGetMetadata(script: string, instOptions: jalangi.InstrumentOptions) {
