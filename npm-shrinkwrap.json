@@ -439,7 +439,7 @@
     "jalangi2": {
       "version": "0.2.2",
       "from": "jalangi2@0.2.2",
-      "resolved": "file:git-repos/jalangi2",
+      "resolved": "https://registry.npmjs.org/jalangi2/-/jalangi2-0.2.2.tgz",
       "dependencies": {
         "acorn": {
           "version": "1.0.3",
