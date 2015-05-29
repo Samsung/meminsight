@@ -57,6 +57,7 @@ function instrumentApp(args: Array<string>): void {
     parser.addArgument(['--outputDir'], { help:"directory in which to place instrumented files and traces.  " +
     "We create a new sub-directory for our output.", defaultValue: "/tmp" });
     parser.addArgument(['--only_include'], { help:"list of path prefixes specifying which sub-directories should be instrumented, separated by path.delimiter"});
+    parser.addArgument(['--main_html'], { help:"the main HTML file to instrument.  if this option is passed, no HTML files other than the main one will be instrumented"});
     parser.addArgument(['--serverIP'], { help: "IP address of WebSocket server, default 127.0.0.1", defaultValue: '127.0.0.1'});
     parser.addArgument(['--serverPort'], { help: "Port of WebSocket server, default 8082", defaultValue: '8082'});
     parser.addArgument(['path'], { help:"directory of app to instrument" });
@@ -79,6 +80,10 @@ function instrumentApp(args: Array<string>): void {
     if (parsed.only_include) {
         cliArgs.push('--only_include', parsed.only_include);
     }
+    if (parsed.main_html) {
+        cliArgs.push('--main_html', parsed.main_html);
+    }
+
     cliArgs.push('--serverIP', parsed.serverIP);
     cliArgs.push('--serverPort', parsed.serverPort);
     cliArgs.push(appPath);

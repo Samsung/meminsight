@@ -36,6 +36,7 @@ var parser = new argparse.ArgumentParser({
 });
 parser.addArgument(['--debugFun'], { help: "function name for debug logging" });
 parser.addArgument(['--only_include'], { help:"list of path prefixes specifying which sub-directories should be instrumented, separated by path.delimiter"});
+parser.addArgument(['--main_html'], { help:"the main HTML file to instrument.  if this option is passed, no HTML files other than the main one will be instrumented"});
 parser.addArgument(['--syncAjax'], { help: "use synchronous AJAX calls for logging", action:'storeTrue' });
 parser.addArgument(['--outputDir'], { help:"directory in which to place instrumented files and traces.  " +
                                            "We create a new sub-directory for our output.", required:true });
@@ -78,6 +79,7 @@ if (jsFile) {
             verbose: args.verbose,
             syncAjax: args.syncAjax,
             only_include: args.only_include,
+            main_html: args.main_html,
             serverIP: args.serverIP,
             serverPort: args.serverPort
         }, false);

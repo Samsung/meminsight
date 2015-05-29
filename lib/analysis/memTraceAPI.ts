@@ -148,6 +148,7 @@ export interface HTMLTraceOptions {
     verbose?: boolean
     syncAjax?: boolean
     only_include?: string
+    main_html?: string
     serverIP?: string
     serverPort?: string
 }
@@ -184,6 +185,9 @@ export function instrumentHTMLDir(testDir: string, options: HTMLTraceOptions, se
     }
     if (options.only_include) {
         instOptions.only_include = options.only_include;
+    }
+    if (options.main_html) {
+        instOptions.main_html = options.main_html;
     }
     if (selenium) {
         instOptions.selenium = true;
