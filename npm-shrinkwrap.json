@@ -491,6 +491,7 @@
     },
     "jalangi": {
       "version": "0.1.0",
+      "resolved": "https://github.com/SRA-SiliconValley/jalangi/tarball/master",
       "dependencies": {
         "acorn": {
           "version": "0.10.0",
@@ -753,7 +754,7 @@
         "rewriting-proxy": {
           "version": "0.4.0",
           "from": "rewriting-proxy@0.4.0",
-          "resolved": "file:git-repos/rewriting-proxy",
+          "resolved": "https://registry.npmjs.org/rewriting-proxy/-/rewriting-proxy-0.4.0.tgz",
           "dependencies": {
             "html5": {
               "version": "1.0.5",
