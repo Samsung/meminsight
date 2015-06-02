@@ -44,13 +44,13 @@ function runLifetimeAnalysisWithArgs(args: Array<string>): cp.ChildProcess {
     return res;
 }
 export function runLifetimeAnalysis(outputDir: string) : cp.ChildProcess {
-    var args = "--no-progress --staleness --directory".split(" ");
+    var args = "--no-progress --staleness --enhanced --directory".split(" ");
     args.push(outputDir);
     return runLifetimeAnalysisWithArgs(args);
 }
 
 export function runLifetimeAnalysisOnTrace(traceFile: string) : cp.ChildProcess {
-    var args = ["--no-progress","--staleness","--trace",traceFile];
+    var args = ["--no-progress","--staleness","--enhanced","--trace",traceFile];
     return runLifetimeAnalysisWithArgs(args);
 }
 
