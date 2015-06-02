@@ -93,7 +93,7 @@ module ___LoggingAnalysis___ {
         init(initParam: any): void {
             var endTracingFun = () => {
                 this.lastUse.flushLastUse(() => {
-                    alert("trace generation complete\n" /*+ this.nativeModels.getNumDOMNodesModeled() + " DOM node locations from models"*/);
+                    alert("trace generation complete\n" + this.nativeModels.getNumDOMNodesModeled() + " DOM node locations from models");
                 });
                 this.logger.stopTracing();
             };
