@@ -219,7 +219,7 @@ function dummyResolvedPromise(): Q.Promise<any> {
     return d.promise;
 }
 
-var analysisConfigNames = ["allUses","allPutfields","best"];
+var analysisConfigNames = ["hiddenProp","allUses","allPutfields","best"];
 
 function runWithDirectAndAnalysis(bench: string, outputDir: string, caseStudy: boolean) {
     var directResults = new fastStats.Stats();
@@ -254,10 +254,10 @@ function runWithDirectAndAnalysis(bench: string, outputDir: string, caseStudy: b
     //asciiFSArgs.push('--initParam', 'asciiFS:true');
     //loggingConfigs.push(asciiFSArgs);
     //
-    //// hidden prop
-    //var hiddenPropArgs = baseLoggingAnalysisArgs.slice(0);
-    //hiddenPropArgs.push('--initParam', 'useHiddenProp:true');
-    //loggingConfigs.push(hiddenPropArgs);
+    // hidden prop
+    var hiddenPropArgs = baseLoggingAnalysisArgs.slice(0);
+    hiddenPropArgs.push('--initParam', 'useHiddenProp:true');
+    loggingConfigs.push(hiddenPropArgs);
 
     // log all uses
     var allUsesArgs = baseLoggingAnalysisArgs.slice(0);
@@ -294,7 +294,7 @@ function runWithDirectAndAnalysis(bench: string, outputDir: string, caseStudy: b
         process.chdir(curDir);
     }
     var directMemUsage = getNodeMemUsage(justDirectArgs);
-    console.log(outputDir);
+//    console.log(outputDir);
     process.chdir(outputDir);
     var analysisMemUsage: Array<MemUsage> = [];
     for (var i = 0; i < numConfigs; i++) {
