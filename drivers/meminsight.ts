@@ -22,11 +22,12 @@
 import cp = require('child_process');
 import path = require('path');
 import fs = require('fs');
+import lifetimeAnalysis = require('./../lib/gui/lifetimeAnalysisAPI')
 var argparse = require('argparse');
 
 
 
-function runNodeProg(args: Array<string>, progName: string): void {
+function runNodeProg(args: Array<string>, progName: string, cb?: (code: number) => void): void {
     // always run in harmony mode
     args.unshift('--harmony');
     //console.log("node " + args.join(' '));
@@ -39,15 +40,18 @@ function runNodeProg(args: Array<string>, progName: string): void {
     instProc.stderr.on('data', (data: any) => {
         process.stderr.write(String(data));
     });
-    instProc.on('close', (code: number) => {
-        if (code !== 0) {
-            console.log(progName + " failed");
-        } else {
-            console.log(progName + " complete");
-        }
-    });
-
+    if (!cb) {
+        cb = (code: number) => {
+            if (code !== 0) {
+                console.log(progName + " failed");
+            } else {
+                console.log(progName + " complete");
+            }
+        };
+    }
+    instProc.on('close', cb);
 }
+
 function instrumentApp(args: Array<string>): void {
     var parser = new argparse.ArgumentParser({
         prog: "meminsight instrument",
@@ -182,16 +186,46 @@ function runNodeScript(args: Array<string>): void {
         console.error("could not find root directory of instrument app, containing jalangi_sourcemap.json");
         process.exit(1);
     }
+    var cwd = process.cwd();
+    process.chdir(appPath);
     console.log("running node.js script " + instScript);
     var loggingAnalysisArgs = [
         directDriver,
         '--analysis',
         loggingAnalysis,
-        '--initParam', 'appDir:'+appPath,
-        '--initParam', 'serverIP:' + parsed.serverIP,
-        '--initParam', 'serverPort:' + parsed.serverPort,
+        '--initParam',
+        'syncFS:true',
         instScript].concat(instScriptArgs);
-    runNodeProg(loggingAnalysisArgs, "run of script ");
+    runNodeProg(loggingAnalysisArgs, "run of script ", (code: number) => {
+        process.chdir(cwd);
+        if (code !== 0) {
+            console.log("run of script failed");
+            return;
+        }
+        console.log("run of script complete");
+        // run the lifetime analysis
+        var javaProc = lifetimeAnalysis.runLifetimeAnalysisOnTrace(path.join(appPath,'mem-trace'));
+        javaProc.stdout.on("data", (chunk : any) => {
+            console.log(chunk.toString());
+        });
+        javaProc.stderr.on("data", (chunk : any) => {
+            console.error(chunk.toString());
+        });
+        javaProc.on("exit", () => {
+            console.log("done with lifetime analysis");
+        });
+
+    });
+    //
+    //var loggingAnalysisArgs = [
+    //    directDriver,
+    //    '--analysis',
+    //    loggingAnalysis,
+    //    '--initParam', 'appDir:'+appPath,
+    //    '--initParam', 'serverIP:' + parsed.serverIP,
+    //    '--initParam', 'serverPort:' + parsed.serverPort,
+    //    instScript].concat(instScriptArgs);
+    //runNodeProg(loggingAnalysisArgs, "run of script ");
 }
 
 var args = process.argv.slice(2);
