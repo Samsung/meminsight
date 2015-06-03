@@ -110,9 +110,28 @@ command.  E.g., to exercise script `main.js` in instrumented app `/tmp/app`, run
 
 `args` are the usual command-line arguments for `main.js`.  At this
 point, we only support node programs that can be exited without
-killing them at the command line.  Once the program exits, the
-lifetime analysis will run, after which trace collection and
-post-processing is complete.
+killing them at the command line.  Once the instrumented program
+exits, the lifetime analysis will run, after which trace collection
+and post-processing is complete.
+
+Inspecting Results
+------------------
+
+To inspect the MemInsight results for an instrumented app in
+`/tmp/app` that has been exercised as described above, run:
+
+    ./bin/meminsight inspect /tmp/app
+
+Then, open `http://localhost:9000` in your browser to view the GUI.
+
+### Table View
+
+![Table View](/doc/screenshots/table-view.png?raw=true "Table View")
+
+### All-Sites Timeline
+
+### Allocation Site View
+
 
 License
 -------
