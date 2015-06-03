@@ -147,6 +147,26 @@ Note that in these results, the peak footprint observed in the All-Sites Timelin
 Overhead and DOM Handling
 -------------------------
 
+Our script for measuring MemInsight overhead on Octane benchmarks is `drivers/benchmarkDriver.js`.  To run it on all Octane benchmarks, run this command:
+
+    node drivers/benchmarkDriver.js --outputDir ~/octane-out ~/octane-node
+
+Note that overhead may vary when running in the VM as compared to running on raw hardware.  Also, for larger benchmarks like TypeScript, the lifetime analysis may run very slowly or run out of memory in the VM, due to the 2GB limit.  For more accurate numbers, we recommend running this script on bare hardware rather than in a VM.
+
+The DOM node measurements in Table 1 were collected in a number of steps:
+
+* The numbers in the "model" column are printed in an alert dialog in the browser, after exercising the app.
+* The numbers in the "init", "unknown", and "det" columns were obtained by simple post-processing on the `staleness.json` file produced by the lifetime analysis using `grep`.  E.g., for "det", we ran the command `grep -o "removed from DOM" staleness.json | wc -l`.
+* The numbers in the "base" column were obtained by subtracting the "model", "init", and "unknown" column values from the total number of DOM nodes.
+
+We did not preserve the exact traces used to generate the numbers in Table 1.  But, we confirmed that when exercising the apps again, the numbers were similar.
+
+Running on Other Apps
+=====================
+
+MemInsight can be run on other applications, following the instructions [in the README](/README.md).  Note that very long executions may cause an out-of-memory error in the `AEC` branch, either in the lifetime analysis or in the GUI code.  We are in the process of improving scalability on the `master` branch.  We welcome reports of any bugs on the [issue tracker](https://github.com/Samsung/meminsight/issues) (to preserve reviewer anonymity, a throwaway GitHub account could be created).
+
+
 
 
 
