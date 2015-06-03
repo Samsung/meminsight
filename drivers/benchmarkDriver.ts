@@ -96,9 +96,9 @@ class CaseStudyBenchInfo {
 }
 
 var cs_benchmarks: {[bench:string]: CaseStudyBenchInfo} = {
-    "escodegen": new CaseStudyBenchInfo("escodegen.js", ["bin/escodegen.js", CS_INPUT]),
-    "esprima": new CaseStudyBenchInfo("esprima.js", ["bin/esparse.js", "--loc", "--range", CS_INPUT]),
-    "eslint": new CaseStudyBenchInfo("lib:bin/eslint.js", ["bin/eslint.js", CS_INPUT])
+    //"escodegen": new CaseStudyBenchInfo("escodegen.js", ["bin/escodegen.js", CS_INPUT]),
+    //"esprima": new CaseStudyBenchInfo("esprima.js", ["bin/esparse.js", "--loc", "--range", CS_INPUT]),
+    //"eslint": new CaseStudyBenchInfo("lib:bin/eslint.js", ["bin/eslint.js", CS_INPUT])
 };
 
 function getCSInputFiles(bench: string) {
