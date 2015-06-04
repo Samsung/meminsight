@@ -14,14 +14,13 @@ the paper XXXTODO
 Installation
 ------------
 
-Our virtual machine is available [here](TODO) (size, md5 TODO).  Here is some
+Our virtual machine is available [here](TODO) (3.1GB, md5 `95faa3c7f7b2dcd57071afd508e02eef`).  Here is some
 information about the machine:
 
-* username / password: vagrant / vagrant (can run sudo commands without a password)
+* username / password: vagrant / vagrant (due to use of [Vagrant](https://www.vagrantup.com).  This user can run sudo commands without a password)
 * RAM: 2048MB
-* Image size: TODO
 
-When booted up, you'll get a terminal.  Directory structure is:
+When booted up, a Terminal will be opened in the `vagrant` home directory.  The directory structure under this home directory is:
 * `meminsight`: the MemInsight tool itself
 * `apps`: Applications used for our case studies (further details below)
 * `octane-node`: Octane benchmarks, used for evaluating the overhead of MemInsight
