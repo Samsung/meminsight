@@ -165,7 +165,7 @@ We did not preserve the exact traces used to generate the numbers in Table 1.  B
 Running on Other Apps
 =====================
 
-MemInsight can be run on other applications, following the instructions [in the README](/README.md).  Note that very long executions may cause an out-of-memory error in the `AEC` branch, either in the lifetime analysis or in the GUI code.  We are in the process of improving scalability on the `master` branch.  We welcome reports of any bugs on the [issue tracker](https://github.com/Samsung/meminsight/issues) (to preserve reviewer anonymity, a throwaway GitHub account could be created).
+MemInsight can easily be run on other applications, following the instructions [in the README](/README.md).  Note that very long executions may cause an out-of-memory error in the `AEC` branch, either in the lifetime analysis or in the GUI code.  We are in the process of improving scalability on the `master` branch.  We welcome reports of any bugs on the [issue tracker](https://github.com/Samsung/meminsight/issues) (to preserve reviewer anonymity, a throwaway GitHub account could be created).
 
 
 
