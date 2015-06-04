@@ -71,7 +71,11 @@ Open the jquery-handler-leak results by running:
 
     ./bin/meminsight inspect ~/apps/instrumented/jquery-handler-leak
 
-This is a small app that we wrote to illustrate a jQuery-related memory leak, described in the first section of the paper.  To exercise the app, we repeated clicking the `Add` button several times followed by clicking `Remove All` several times.  In the GUI, when the issue table is sorted by Leak, the function object allocated at line 4 of `scr_orig_.js` appears at the top; opening the Alocation Site View for this site (by clicking on the link in the Site column) clearly shows increasing stale objects in the Timeline View.  In the fixed version, this leak is eliminated.
+This is a small app that we wrote to illustrate a jQuery-related memory leak, described in the first section of the paper.  To exercise the app, we repeated clicking the `Add` button several times followed by clicking `Remove All` several times.  In the GUI, when the issue table is sorted by Leak, the function object allocated at line 4 of `scr_orig_.js` appears at the top; opening the Alocation Site View for this site (by clicking on the link in the Site column) clearly shows increasing stale objects in the Timeline View.  You can view the results with the leak fixed as follows:
+
+    ./bin/meminsight inspect ~/apps/instrumented/jquery-handler-leak-FIXED
+
+The results show that the leak is eliminated after the fix.
 
 ### shopping list
 
