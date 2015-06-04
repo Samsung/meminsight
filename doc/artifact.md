@@ -8,8 +8,10 @@ reproduce the results described in the Case Studies and Evaluation of
 Implementation sections of the paper.  It can also be used to test out
 MemInsight on other applications.
 
-Note that the artifact is meant to be consistent with this version of
-the paper XXXTODO
+Note that the artifact is meant to be consistent with
+[this version of our paper](https://github.com/Samsung/meminsight/raw/master/doc/meminsight-extended.pdf),
+which includes some minor changes made since the submission.
+
 
 Installation
 ------------
