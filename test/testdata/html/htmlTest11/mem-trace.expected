@@ -53,7 +53,7 @@
 [22,369,19,2,34,2]
 [22,377,1,1,34,6]
 [22,385,1,1,34,6]
-[21,129,["J$","console","undefined","__memTestDone"]]
+[21,129,["J$","console","__memTestDone"]]
 [21,185,["J$","XMLHttpRequest","undefined","callback","console","__memTestDone"]]
 [21,249,["J$","XMLHttpRequest","undefined","console","__memTestDone"]]
 [0,313,"__memTestDone",0]

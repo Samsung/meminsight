@@ -48,7 +48,7 @@
 [22,361,1,1,37,18]
 [22,369,1,1,37,18]
 [21,97,["J$","arr"]]
-[21,209,["J$","counter","max","pushSomeStuff","f","setTimeout","undefined"]]
+[21,209,["J$","counter","max","pushSomeStuff","f","setTimeout"]]
 [0,249,"arr",0]
 [2,257,97,2]
 [0,265,"pushSomeStuff",2]

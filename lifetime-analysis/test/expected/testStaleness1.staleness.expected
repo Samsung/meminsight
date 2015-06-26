@@ -25,62 +25,14 @@
       121
     ],
     [
-      0,
+      1,
       34,
-      1,
-      385
-    ],
-    [
-      1,
-      41,
-      1,
-      681
-    ],
-    [
-      0,
-      44,
-      1,
-      185
-    ],
-    [
-      0,
-      48,
-      1,
-      273
-    ],
-    [
-      0,
-      52,
-      1,
-      345
-    ],
-    [
-      1,
-      59,
-      1,
-      665
-    ],
-    [
-      1,
-      64,
-      1,
-      649
-    ],
-    [
-      1,
-      66,
-      1,
-      633
-    ],
-    [
-      1,
-      68,
       1,
       617
     ],
     [
       1,
-      70,
+      35,
       1,
       585
     ]
@@ -91,14 +43,11 @@
         "objectId": 2,
         "creationTime": 2,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 2,
-        "lastUseTime": 70,
-        "lastUseSite": {
-          "sourceFileId": 1,
-          "iid": 473
-        },
+        "staleness": 34,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -106,9 +55,9 @@
         "objectId": 3,
         "creationTime": 2,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 70,
+        "staleness": 34,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
@@ -125,13 +74,13 @@
             "iid": 473
           }
         ],
-        "unreachableTime": 70,
+        "unreachableTime": 35,
         "unreachableSite": "testStaleness1.js:16:1:19:2",
-        "staleness": 8,
-        "lastUseTime": 62,
+        "staleness": 2,
+        "lastUseTime": 33,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 257
+          "iid": 107
         },
         "shallowSize": 2,
         "type": "OBJECT"
@@ -142,9 +91,9 @@
         "objectId": 4,
         "creationTime": 4,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 43,
+        "staleness": 7,
         "lastUseTime": 29,
         "lastUseSite": {
           "sourceFileId": 1,
@@ -157,9 +106,9 @@
         "objectId": 5,
         "creationTime": 4,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 53,
+        "staleness": 17,
         "lastUseTime": 19,
         "lastUseSite": {
           "sourceFileId": 1,
@@ -174,14 +123,11 @@
         "objectId": 12,
         "creationTime": 12,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 4,
-        "lastUseTime": 68,
-        "lastUseSite": {
-          "sourceFileId": 1,
-          "iid": 33
-        },
+        "staleness": 24,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -189,39 +135,13 @@
         "objectId": 13,
         "creationTime": 12,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 60,
+        "staleness": 24,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "PROTOTYPE"
-      }
-    ],
-    "testStaleness1.js:23:29:23:47": [
-      {
-        "objectId": 19,
-        "creationTime": 35,
-        "creationCallStack": [
-          {
-            "sourceFileId": 1,
-            "iid": 33
-          },
-          {
-            "sourceFileId": 1,
-            "iid": 473
-          }
-        ],
-        "unreachableTime": 70,
-        "unreachableSite": "testStaleness1.js:16:1:19:2",
-        "staleness": 32,
-        "lastUseTime": 38,
-        "lastUseSite": {
-          "sourceFileId": 1,
-          "iid": 369
-        },
-        "shallowSize": 1,
-        "type": "OBJECT"
       }
     ],
     "testStaleness1.js:25:38:27:2": [
@@ -229,14 +149,11 @@
         "objectId": 14,
         "creationTime": 15,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 6,
-        "lastUseTime": 66,
-        "lastUseSite": {
-          "sourceFileId": 1,
-          "iid": 105
-        },
+        "staleness": 21,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -244,9 +161,9 @@
         "objectId": 15,
         "creationTime": 15,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 57,
+        "staleness": 21,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
@@ -258,14 +175,11 @@
         "objectId": 16,
         "creationTime": 18,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 8,
-        "lastUseTime": 64,
-        "lastUseSite": {
-          "sourceFileId": 1,
-          "iid": 169
-        },
+        "staleness": 18,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -273,47 +187,13 @@
         "objectId": 17,
         "creationTime": 18,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 54,
+        "staleness": 18,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
         "type": "PROTOTYPE"
-      }
-    ],
-    "testStaleness1.js:29:23:29:53": [
-      {
-        "objectId": 20,
-        "creationTime": 53,
-        "creationCallStack": [
-          {
-            "sourceFileId": 1,
-            "iid": 169
-          },
-          {
-            "sourceFileId": 1,
-            "iid": 105
-          },
-          {
-            "sourceFileId": 1,
-            "iid": 33
-          },
-          {
-            "sourceFileId": 1,
-            "iid": 473
-          }
-        ],
-        "unreachableTime": 70,
-        "unreachableSite": "testStaleness1.js:16:1:19:2",
-        "staleness": 14,
-        "lastUseTime": 56,
-        "lastUseSite": {
-          "sourceFileId": 1,
-          "iid": 329
-        },
-        "shallowSize": 2,
-        "type": "OBJECT"
       }
     ],
     "testStaleness1.js:31:1:33:2": [
@@ -321,14 +201,11 @@
         "objectId": 6,
         "creationTime": 6,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 11,
-        "lastUseTime": 61,
-        "lastUseSite": {
-          "sourceFileId": 1,
-          "iid": 249
-        },
+        "staleness": 30,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
         "shallowSize": 2,
         "type": "FUNCTION"
       },
@@ -336,9 +213,9 @@
         "objectId": 7,
         "creationTime": 6,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 66,
+        "staleness": 30,
         "lastUseTime": "never used",
         "lastUseSite": "never used",
         "shallowSize": 1,
@@ -350,13 +227,13 @@
         "objectId": 8,
         "creationTime": 8,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 29,
-        "lastUseTime": 43,
+        "staleness": 17,
+        "lastUseTime": 19,
         "lastUseSite": {
           "sourceFileId": 1,
-          "iid": 97
+          "iid": 409
         },
         "shallowSize": 2,
         "type": "FUNCTION"
@@ -365,9 +242,9 @@
         "objectId": 9,
         "creationTime": 8,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 53,
+        "staleness": 17,
         "lastUseTime": 19,
         "lastUseSite": {
           "sourceFileId": 1,
@@ -382,9 +259,9 @@
         "objectId": 10,
         "creationTime": 10,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 53,
+        "staleness": 17,
         "lastUseTime": 19,
         "lastUseSite": {
           "sourceFileId": 1,
@@ -397,9 +274,9 @@
         "objectId": 11,
         "creationTime": 10,
         "creationCallStack": [],
-        "unreachableTime": 72,
+        "unreachableTime": 36,
         "unreachableSite": "end of program",
-        "staleness": 53,
+        "staleness": 17,
         "lastUseTime": 19,
         "lastUseSite": {
           "sourceFileId": 1,

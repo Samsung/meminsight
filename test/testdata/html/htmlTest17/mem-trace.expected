@@ -58,7 +58,7 @@
 [22,401,1,1,40,20]
 [22,409,1,1,40,20]
 [21,105,["J$","div"]]
-[21,257,["J$","counter","document","undefined","arr","foo","setTimeout","__memTestDone"]]
+[21,257,["J$","counter","document","arr","foo","setTimeout","__memTestDone"]]
 [0,321,"__memTestDone",0]
 [0,329,"counter",0]
 [0,337,"arr",0]
