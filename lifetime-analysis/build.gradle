@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin: 'errorprone'
+//apply plugin: 'errorprone'
 apply plugin: 'maven'
 apply plugin: 'application'
 apply plugin: 'eclipse'
@@ -37,9 +37,9 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:latest.release'
-    }
+//    dependencies {
+//        classpath 'net.ltgt.gradle:gradle-errorprone-plugin:latest.release'
+//    }
 }
 
 test {
