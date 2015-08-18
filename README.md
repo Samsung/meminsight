@@ -16,6 +16,8 @@ Prerequisites
 * [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) version 7 or higher
 * [Gradle](https://www.gradle.org/)
 
+We require that `node`, `java`, and `gradle` be on your `PATH`.
+
 Installation
 ------------
 
