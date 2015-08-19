@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 ///<reference path='../lib/ts-declarations/node.d.ts' />
+///<reference path='../lib/ts-declarations/mkdirp.d.ts' />
+
 
 /**
  * Created by m.sridharan on 10/10/14.
@@ -23,8 +25,9 @@ import cp = require('child_process');
 import path = require('path');
 import fs = require('fs');
 import lifetimeAnalysis = require('./../lib/gui/lifetimeAnalysisAPI')
+import mkdirp = require('mkdirp');
 var argparse = require('argparse');
-
+var rimraf = require('rimraf');
 
 
 function runNodeProg(args: Array<string>, progName: string, cb?: (code: number) => void): void {
@@ -242,9 +245,80 @@ function instAndRunNodeScript(args: Array<string>): void {
 
 }
 
+/**
+ * start the relevant servers to proxy and instrument a live web site
+ * @param args
+ */
+function startProxy(args: Array<string>): void {
+    var parser = new argparse.ArgumentParser({
+        prog: "meminsight proxy",
+        addHelp: true,
+        description: "start a proxy server to instrument and trace a live web site"
+    });
+    parser.addArgument(['outputDir'], { help: "Path of directory in which to store instrumented scripts and trace.  Note "
+        + "that all extant files in this directory will be erased"});
+    var parsed: {outputDir:string} = parser.parseArgs(args);
+    var outputDir = parsed.outputDir;
+    if (fs.existsSync(outputDir)) {
+        rimraf.sync(outputDir);
+    }
+    mkdirp.sync(outputDir);
+    var curDir = process.cwd();
+    // change to outputDir, to start mitmdump
+    process.chdir(outputDir);
+    // get the mitmdump proxy started up
+    var memInsightAnalysisScripts = "--analysis " + [
+        path.join(__dirname, '..',"node_modules/escope/node_modules/estraverse/estraverse.js"),
+        path.join(__dirname, '..',"node_modules/escope/escope.js"),
+        path.join(__dirname, '..',"lib/analysis/memAnalysisUtils.js"),
+        path.join(__dirname, '..',"bin/LoggingAnalysis.js")
+    ].join(" --analysis ");
+    var proxyScriptAndArgs = [
+        path.join(__dirname, '..', 'node_modules', 'jalangi2', 'scripts', 'proxy.py'),
+        '--noResultsGUI',
+        '--astHandlerModule',
+        path.join(__dirname, '..', 'lib', 'analysis', 'freeVarsAstHandler.js'),
+        memInsightAnalysisScripts
+    ].join(' ');
+    var mitmdumpargs = [
+        "-p",
+        "8501", // TODO make port configurable
+        "--ignore",
+        "127\\.0\\.0\\.1:8080", // TODO make web server port configurables
+        "--anticache",
+        "-s",
+        proxyScriptAndArgs];
+    console.log(mitmdumpargs.join(' '));
+    var mitmProc = cp.spawn('mitmdump', mitmdumpargs);
+    mitmProc.stdout.on('data', (data: any) => {
+        process.stdout.write(String(data));
+    });
+    mitmProc.stderr.on('data', (data: any) => {
+        process.stderr.write(String(data));
+    });
+
+    // now start up the websocket server
+    var websocketArgs = [
+        path.join(__dirname, '..', 'lib', 'server', 'server.js'),
+        '--noHTTPServer',
+        outputDir
+    ];
+    runNodeProg(websocketArgs, "run of app ", (code: number) => {
+        if (code !== 0) {
+            console.log("run of script failed");
+            return;
+        }
+        console.log("run of script complete");
+        // kill the mitmdump process
+        mitmProc.kill();
+        // change back to original directory
+        process.chdir(curDir);
+    });
+}
+
 var args = process.argv.slice(2);
 if (args.length === 0) {
-    console.error("must provide a command: instrument, run, noderun, nodeinstrun, or inspect");
+    console.error("must provide a command: instrument, run, noderun, nodeinstrun, proxy, or inspect");
     process.exit(1);
 }
 switch (args[0]) {
@@ -260,10 +334,13 @@ switch (args[0]) {
     case 'nodeinstrun':
         instAndRunNodeScript(args.slice(1));
         break;
+    case 'proxy':
+        startProxy(args.slice(1));
+        break;
     case 'inspect':
         inspectApp(args.slice(1));
         break;
     default:
-        console.error("unknown command: choose one of instrument, run, noderun, nodeinstrun, or inspect");
+        console.error("unknown command: choose one of instrument, run, noderun, nodeinstrun, proxy, or inspect");
         process.exit(1);
 }

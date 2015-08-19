@@ -221,7 +221,7 @@ app.get("/srcloc/:site", (req,res) => {
     var iid = decodeURIComponent(req.params.site);
     var filename = iid.split(':')[0];
 //    var file = path.join(traceDirectory,filename);
-    var file = filename;
+    var file = isAbsolute(filename) ? filename : path.join(traceDirectory,filename);
     console.log("Sending source file: " + file);
     fs.readFile(file, (err, data) => {
         if (err) {
@@ -231,6 +231,15 @@ app.get("/srcloc/:site", (req,res) => {
         res.json({ src: String(data) });
     });
 });
+
+/**
+ * check for an absolute path
+ * @param p
+ * @returns {boolean}
+ */
+function isAbsolute(p: string) {
+    return path.resolve(p) === path.normalize(p);
+}
 
 
 function getAllocPageTemplate(): string {
