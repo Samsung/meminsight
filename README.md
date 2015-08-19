@@ -74,7 +74,69 @@ to the `meminsight inspect` command (detailed below).
 
 #### Web apps
 
-Support forthcoming; for now use offline instrumentation.
+We have preliminary support for collecting a trace for a web
+application running on a remote server.  This support relies on the
+support for [mitmproxy](https://mitmproxy.org/) added in Jalangi 2.
+This library allows for proxying both HTTP and HTTPS connections.  To
+get started, you'll need to have Python 2.7 on your machine.  Then,
+you'll need to
+[install mitmproxy](https://mitmproxy.org/doc/install.html).  Our
+support assumes that the `mitmdump` script from that library is in
+your `PATH`.  If you are interested in instrumenting an app that is
+served over HTTPS, please see
+[these instructions](https://mitmproxy.org/doc/certinstall.html) on
+enabling the `mitmproxy` certificate authority.
+
+Once you have the pre-requisites installed, you can start up the
+proxy server process by running the following command from the
+`meminsight` directory:
+
+    ./bin/meminsight proxy path/to/output
+
+Here, `path/to/output` should be the path where you want the
+instrumented scripts and MemInsight trace files to be stored.  Running
+this command causes two servers to be launched:
+
+1. A web proxy server, running on port `8501`
+2. The MemInsight websocket server (for recording the trace), running
+on port `8080`
+
+(We plan on supporting custom port numbers soon.)  Shortly after
+running the command, you should see `Server is listening on port 8080`
+printed to the terminal, indicating that the servers are ready to go.
+
+The next step is to set your system/browser to use the proxy server at
+IP address `127.0.0.1` (localhost), port `8501`.  Updating the proxy
+settings varies by operating system and possibly by browser.  On Mac
+OS X, the following commands will enable the proxy server for your
+WiFi adapter:
+
+    sudo networksetup -setwebproxy Wi-Fi 127.0.0.1 8501 off
+    # for HTTPS
+    sudo networksetup -setsecurewebproxy Wi-Fi 127.0.0.1 8501 off
+
+Once the proxy settings are correct, open the desired URL in your
+browser, and then exercise the app.  To detect issues like leaks, it
+is best to repeatedly perform a set of interactions, such that all
+temporary state should be cleaned up after the interactions.  Note
+that MemInsight does not support navigating between multiple pages in
+a web app; all interactions must occur on a single page.  When you are
+done exercising the application, press `Alt+Shift+T` in the browser
+window.  You will see an alert in the browser window when trace
+generation is complete.  At this point, MemInsight's lifetime analysis
+may still be running.  You'll know the analysis is complete when you
+see the following output in the terminal:
+```
+completing lifetime analysis...done writing log
+done
+run of script complete
+```
+
+At this point, you can disable the proxy server in your settings.  The
+following commands will disable the proxy server on Mac OS X:
+
+    sudo networksetup -setwebproxystate Wi-Fi off
+    sudo networksetup -setsecurewebproxystate Wi-Fi off
 
 ### Offline Instrumentation
 
@@ -112,10 +174,9 @@ this URL in your browser to load the application, and then exercise
 it.  To detect issues like leaks, it is best to repeatedly perform a
 set of interactions, such that all temporary state should be cleaned
 up after the interactions.  When you are done exercising the
-application, type `end` and press return in the terminal where you ran
-the command.  You will see an alert in the browser window when trace
-generation is complete.  In the terminal, you will see output like the
-following: 
+application, press `Alt+Shift+T` in the browser window.  You will see
+an alert in the browser window when trace generation is complete.  In
+the terminal, you will see output like the following:
 
 ```
 $ ./bin/meminsight run /tmp/htmlTest1
