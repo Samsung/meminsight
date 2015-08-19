@@ -219,7 +219,9 @@ To inspect the MemInsight results for an instrumented app in
 
     ./bin/meminsight inspect /tmp/app
 
-Then, open `http://localhost:9000` in your browser to view the GUI.
+(For online instrumentation, pass the path to the original node.js app
+or the output path passed to the `meminsight proxy` command.)  Then,
+open `http://localhost:9000` in your browser to view the GUI.
 
 ### Issue Table View
 
