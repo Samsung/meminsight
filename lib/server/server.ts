@@ -16,7 +16,6 @@
 ///<reference path='../ts-declarations/node.d.ts' />
 ///<reference path='../ts-declarations/jalangi.d.ts' />
 ///<reference path='../ts-declarations/websocket.d.ts' />
-///<reference path='../ts-declarations/rewriting-proxy.d.ts' />
 ///<reference path='../ts-declarations/mkdirp.d.ts' />
 
 /**
@@ -28,7 +27,6 @@ import http = require('http');
 import fs = require('fs');
 import path = require('path');
 import cp = require('child_process');
-import proxy = require('rewriting-proxy');
 import urlparser = require('url');
 import instUtil = require('jalangi2/src/js/instrument/instUtil');
 import memTracer = require('./../analysis/memTraceAPI');
@@ -62,35 +60,14 @@ var parser = new argparse.ArgumentParser({
     addHelp: true,
     description: "Integrated server for memory profiler"
 });
-parser.addArgument(['--proxy'], { help: "run as a proxy server, instrumenting code on-the-fly", action:'storeTrue' });
-parser.addArgument(['--proxyOutput'], { help: "in proxy server mode, directory under which to store instrumented code", defaultValue: '/tmp/proxyOut' });
 parser.addArgument(['--noHTTPServer'], { help: "don't start up a local HTTP server", action: 'storeTrue'});
 parser.addArgument(['--outputFile'], { help: "name for output file for memory trace (default mem-trace in app directory)" });
-parser.addArgument(['app'], { help: "the app to serve.  in proxy mode, the app should be uninstrumented.", nargs: 1});
-var args: { proxy: string; proxyOutput: string; noHTTPServer: string; app: Array<string>; outputFile: string; } = parser.parseArgs();
+parser.addArgument(['app'], { help: "the app to serve.  if --noHTTPServer is passed, directory of the uninstrumented app, or where app code will be stored (if a proxy server is being used)", nargs: 1});
+var args: { noHTTPServer: string; app: Array<string>; outputFile: string; } = parser.parseArgs();
 
 var app = args.app[0];
 
-// default to app directory; we'll change it in proxy server mode
 var outputDir = app;
-
-/**
- * create a fresh directory in which to dump instrumented scripts
- */
-function initProxyOutputDir(): void {
-    outputDir = args.proxyOutput;
-    var scriptDirToTry = "";
-    for (var i = 0; i < 100; i++) {
-        scriptDirToTry = path.join(outputDir, "/site" + i);
-        if (!fs.existsSync(scriptDirToTry)) {
-            break;
-        }
-    }
-    // create the directory, including parents
-    mkdirp.sync(scriptDirToTry);
-    console.log("writing output to " + scriptDirToTry);
-    outputDir = scriptDirToTry;
-}
 
 /**
  * initializes the output target, both a Java process and a WriteStream for a file
@@ -213,10 +190,6 @@ var showGui = function () {
     //Just spawn a subprocess for it.
 };
 
-////////
-// PROXY SERVER CODE
-///////
-
 var jalangiRuntimePrefix = "jalangiRuntime/";
 var memTracerRuntimePrefix = "memTracerRuntime/";
 var memTracerInitCode = "__memTracer__init__.js";
@@ -316,67 +289,6 @@ function sendMetadata(iidSourceInfo: any, freeVars: any): void {
     javaProc.stdin.write(finalBuffer);
 }
 
-function startProxy(): void {
-    initProxyOutputDir();
-    // just get the Java process running so it's ready when we start instrumenting
-    initOutputTarget();
-    var headerURLs = getHeaderURLs();
-    throw new Error("this code needs to be fixed");
-    // blow away source map files if they exist in temp dir
-    //["jalangi_sourcemap.js", "jalangi_sourcemap.json", "jalangi_initialIID.json"].forEach((file) => {
-    //    var thePath = path.join(outputDir,file);
-    //    if (fs.existsSync(thePath)) {
-    //        fs.unlinkSync(thePath);
-    //    }
-    //});
-    var rewriter = (src: string, metadata: proxy.RewriteMetadata) => {
-        var url = metadata.url;
-        console.log("instrumenting " + url);
-        var basename = instUtil.createFilenameForScript(url);
-        var filename = path.join(outputDir, basename);
-        // TODO check for file conflicts and handle appropriately
-        fs.writeFileSync(filename, src);
-
-        var instFileName = basename.replace(new RegExp(".js$"), "_jalangi_.js");
-
-        var options = {
-            inputFileName: basename,
-            outputFile: instFileName,
-            dirIIDFile: outputDir
-        };
-        var instResult = memTracer.instScriptAndGetMetadata(src, options);
-        fs.writeFileSync(path.join(outputDir, instFileName), instResult.instCode);
-        assert(false, "TODO: fix this code!");
-//        sendMetadata(instResult.iidSourceInfo, instResult.freeVars);
-        return instResult.instCode;
-    };
-    var intercept = (url: string): string => {
-        var parsedPath = urlparser.parse(url).path;
-        if (parsedPath.indexOf(memTracerInitCode) !== -1) {
-            return initCode;
-        }
-        var filePath: string = null;
-        if (parsedPath.indexOf(jalangiRuntimePrefix) !== -1) {
-            // serve from Jalangi directory
-            filePath = path.join(jalangiDir, parsedPath.substring(jalangiRuntimePrefix.length+1));
-
-        } else if (parsedPath.indexOf(memTracerRuntimePrefix) !== -1){
-            // serve from parent's parent
-            filePath = path.join(memTracerDir, parsedPath.substring(memTracerRuntimePrefix.length+1));
-        }
-        if (filePath !== null) {
-            console.log("serving " + filePath);
-        }
-        return filePath ? String(fs.readFileSync(filePath)) : null;
-    };
-    var port = 8501;
-    proxy.start({ headerURLs: headerURLs, rewriter: rewriter, intercept: intercept, port: port, noInstRegExp: new RegExp("localhost:9000") });
-    console.log("proxy server running on port " + port);
-}
-
-if (args.proxy) {
-    startProxy();
-}
 if (!args.noHTTPServer) {
     showApp();
 }
