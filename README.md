@@ -33,12 +33,53 @@ To just compile the TypeScript code:
 
     ./node_modules/.bin/grunt typescript
 
+Collecting A Trace
+------------------
 
-Instrumentation
----------------
+The first step in using MemInsight is to collect a trace for the
+application of interest.  Trace collection requires instrumenting the
+application code (via
+[Jalangi 2](https://github.com/Samsung/jalangi2)), and then running
+and exercising the instrumented app, which generates the trace.
+MemInsight supports two instrumentation modes:
 
-The first step in using MemInsight is to instrument the application
-that is to be profiled.  Currently, MemInsight can only instrument web
+* *Online instrumentation*, which instruments the application code
+as it gets loaded for execution.
+* *Offline instrumentation*, in which the relevant code is
+instrumented in an initial phase, separate from running the
+instrumented app.
+
+In general, online instrumentation is preferable, unless you plan to
+do multiple runs of an instrumented app, in which case the offline
+approach will do the instrumentation once-and-for-all.  We describe
+how to use both of these schemes below.
+
+### Online Instrumentation
+
+#### node.js apps
+
+A node.js application can be instrumented and exercised using the
+`meminsight noderun` command.  E.g., to instrumented and exercise
+script `main.js` in app `path/to/app`, run:
+
+    ./bin/meminsight nodeinstrun path/to/app/main.js args
+
+`args` are the usual command-line arguments for `main.js`.  At this
+point, we only support node programs that can be exited without
+killing them at the command line.  Once the instrumented program
+exits, the lifetime analysis will run, after which trace collection
+and post-processing is complete.  Note that the trace files will be
+stored in `path/to/app`, so it is this directory that should be passed
+to the `meminsight inspect` command (detailed below).
+
+#### Web apps
+
+Support forthcoming; for now use offline instrumentation.
+
+### Offline Instrumentation
+
+
+MemInsight can only do offline instrumentation of web
 or node.js applications residing on the local filesystem.  To
 instrument an app in local directory `path/to/app`, run the following
 command from the `meminsight` directory:
@@ -56,13 +97,10 @@ E.g., to only instrument the `src` directory and `main.js` file, run:
 Further help can be obtained by running `./bin/meminsight instrument
 --help`.
 
-Trace Collection
-----------------
-
 After instrumentation, the instrumented app must be run to collect a
 trace.  We assume the instrumented app is in `/tmp/app`.
 
-### Web apps
+#### Web apps
 
 To exercise an instrumented web application, run the following
 command:
@@ -95,7 +133,7 @@ $
 When the program exits, the trace collection and post-processing is
 complete.
 
-### node.js apps
+#### node.js apps
 
 A node.js application can be exercised using the `meminsight noderun`
 command.  E.g., to exercise script `main.js` in instrumented app `/tmp/app`, run:

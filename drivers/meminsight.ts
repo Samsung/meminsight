@@ -192,7 +192,7 @@ var onTheFlyDriver = path.join(__dirname, '../node_modules/jalangi2/src/js/comma
  */
 function instAndRunNodeScript(args: Array<string>): void {
     var parser = new argparse.ArgumentParser({
-        prog: "meminsight noderun",
+        prog: "meminsight nodeinstrun",
         addHelp: true,
         description: "instrument a node.js script as it runs and collect profiling results"
     });
