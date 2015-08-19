@@ -288,14 +288,13 @@ function startProxy(args: Array<string>): void {
         "--anticache",
         "-s",
         proxyScriptAndArgs];
-    console.log(mitmdumpargs.join(' '));
     var mitmProc = cp.spawn('mitmdump', mitmdumpargs);
-    mitmProc.stdout.on('data', (data: any) => {
-        process.stdout.write(String(data));
-    });
-    mitmProc.stderr.on('data', (data: any) => {
-        process.stderr.write(String(data));
-    });
+    //mitmProc.stdout.on('data', (data: any) => {
+    //    process.stdout.write(String(data));
+    //});
+    //mitmProc.stderr.on('data', (data: any) => {
+    //    process.stderr.write(String(data));
+    //});
 
     // now start up the websocket server
     var websocketArgs = [
