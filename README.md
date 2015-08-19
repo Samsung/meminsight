@@ -52,7 +52,9 @@ instrumented app.
 In general, online instrumentation is preferable, unless you plan to
 do multiple runs of an instrumented app, in which case the offline
 approach will do the instrumentation once-and-for-all.  We describe
-how to use both of these schemes below.
+how to use both of these schemes below
+([online](#online-instrumentation) and
+[offline](#offline-instrumentation)). 
 
 ### Online Instrumentation
 
@@ -70,7 +72,7 @@ killing them at the command line.  Once the instrumented program
 exits, the lifetime analysis will run, after which trace collection
 and post-processing is complete.  Note that the trace files will be
 stored in `path/to/app`, so it is this directory that should be passed
-to the `meminsight inspect` command (detailed below).
+to the `meminsight inspect` command (detailed [below](#inspecting-results)).
 
 #### Web apps
 
@@ -137,6 +139,8 @@ following commands will disable the proxy server on Mac OS X:
 
     sudo networksetup -setwebproxystate Wi-Fi off
     sudo networksetup -setsecurewebproxystate Wi-Fi off
+
+Now you can move on to [inspecting the results](#inspecting-results).
 
 ### Offline Instrumentation
 
