@@ -59,7 +59,7 @@ how to use both of these schemes below.
 #### node.js apps
 
 A node.js application can be instrumented and exercised using the
-`meminsight noderun` command.  E.g., to instrumented and exercise
+`meminsight nodeinstrun` command.  E.g., to instrumented and exercise
 script `main.js` in app `path/to/app`, run:
 
     ./bin/meminsight nodeinstrun path/to/app/main.js args
