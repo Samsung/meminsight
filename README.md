@@ -132,6 +132,12 @@ instrumented version of a script when possible.
 * MemInsight does not support navigating between multiple pages in
 a web app; all interactions must occur on a single page.
 
+* JavaScript files are currently named by a hash of their contents,
+  which is not very descriptive.  There is an
+  [open Jalangi bug](https://github.com/Samsung/jalangi2/issues/66) on
+  enabling some better naming.
+
+
 * This configuration of MemInsight has not been tested as well as the
 offline instrumentation scenario.  Further, bugs can be hard to
 reproduce as web sites are changing constantly.  If you find a bug,
