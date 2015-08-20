@@ -120,14 +120,31 @@ WiFi adapter:
 Once the proxy settings are correct, open the desired URL in your
 browser, and then exercise the app.  To detect issues like leaks, it
 is best to repeatedly perform a set of interactions, such that all
-temporary state should be cleaned up after the interactions.  Note
-that MemInsight does not support navigating between multiple pages in
-a web app; all interactions must occur on a single page.  When you are
-done exercising the application, press `Alt+Shift+T` in the browser
-window.  You will see an alert in the browser window when trace
-generation is complete.  At this point, MemInsight's lifetime analysis
-may still be running.  You'll know the analysis is complete when you
-see the following output in the terminal:
+temporary state should be cleaned up after the interactions.  Some
+caveats about instrumenting a live site:
+
+* Loading a script-heavy site for the first time will be slow, due to
+the time required for Jalangi instrumentation and MemInsight
+overhead.  Note that if you want to trace the same site again, use the
+same output directory, and Jalangi will re-use the previous
+instrumented version of a script when possible.
+
+* MemInsight does not support navigating between multiple pages in
+a web app; all interactions must occur on a single page.
+
+* This configuration of MemInsight has not been tested as well as the
+offline instrumentation scenario.  Further, bugs can be hard to
+reproduce as web sites are changing constantly.  If you find a bug,
+please report it on the
+[tracker](https://github.com/Samsung/meminsight/issues) and we will
+take a look.
+
+When you are done exercising the application, press `Alt+Shift+T` in
+the browser window.  You will see an alert in the browser window when
+trace generation is complete.  At this point, MemInsight's lifetime
+analysis may still be running.  You'll know the analysis is complete
+when you see the following output in the terminal:
+
 ```
 completing lifetime analysis...done writing log
 done
