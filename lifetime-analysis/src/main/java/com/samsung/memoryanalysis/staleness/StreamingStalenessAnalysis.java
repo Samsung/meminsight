@@ -187,8 +187,12 @@ public class StreamingStalenessAnalysis implements
 
     protected LastUseUnreachableInfo updateMostRecentUse(int objectId, long time, SourceLocId slId) {
         LastUseUnreachableInfo lastUseUnreachableInfo = getLastUseUnreachableInfo(objectId);
-        lastUseUnreachableInfo.mostRecentUseTime = time;
-        lastUseUnreachableInfo.mostRecentUseSite = slId;
+        // it is possible (e.g., for DOM nodes) that our recorded most-recent use for the object
+        // is already after the time parameter.  In such cases, do not do an update
+        if (lastUseUnreachableInfo.mostRecentUseTime < time) {
+            lastUseUnreachableInfo.mostRecentUseTime = time;
+            lastUseUnreachableInfo.mostRecentUseSite = slId;
+        }
         return lastUseUnreachableInfo;
     }
 
