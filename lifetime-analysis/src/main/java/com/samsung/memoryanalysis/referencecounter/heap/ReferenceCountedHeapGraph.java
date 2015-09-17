@@ -370,7 +370,7 @@ public abstract class ReferenceCountedHeapGraph {
                 continue;
             }
             if (referenceCount(e) == 0)
-                decrementReachable(slId, e);
+                decrementReachable(slId, e, dontFlush);
             else {
                 addToCycleQueue(e, slId);
             }
@@ -380,7 +380,7 @@ public abstract class ReferenceCountedHeapGraph {
         }
     }
 
-    private Set<ContextOrObjectId> decrementReachable(SourceLocId slId, ContextOrObjectId o) {
+    private Set<ContextOrObjectId> decrementReachable(SourceLocId slId, ContextOrObjectId o, Set<Integer> dontFlush) {
         assert referenceCount(o) == 0;
         final Set<ContextOrObjectId> res = HashSetFactory.make();
         final Deque<ContextOrObjectId> stack = new ArrayDeque<ContextOrObjectId>();
@@ -394,8 +394,11 @@ public abstract class ReferenceCountedHeapGraph {
                     continue;
                 }
             }
+            int id = s.getId();
+            if (dontFlush.contains(id)) {
+                continue;
+            }
             if (referenceCount(s) == 0) {
-                int id = s.getId();
                 if (id != -1) {
                     unreachableCallback.apply(new Unreachability(id, slId, timer.currentTime()));
                 }
@@ -471,6 +474,7 @@ public abstract class ReferenceCountedHeapGraph {
     public void functionExit(Set<Integer> returnValues) {
         candidates.pop();
         Set<ContextOrObjectId> s = candidates.peek();
+        // TODO why do we check for size > 0 here??? --MS
         if (candidates.size() > 0) {
             for (Integer i: returnValues) {
                 addObjectIdToCandidates(s, ContextOrObjectId.make(i), i);
@@ -481,6 +485,9 @@ public abstract class ReferenceCountedHeapGraph {
 
     private boolean noCycleCollection = false;
 
+    /**
+     * final flush; invoked at the end of execution
+     */
     public void endFlush(SourceLocId slId, Set<Integer> returnValues, Collection<Context> liveContexts) {
         noCycleCollection = true;
         // in nearly all cases, candidates will have exactly one set,

@@ -1,0 +1,97 @@
+{
+  "functionTrace": [
+    [
+      0,
+      5,
+      1,
+      81
+    ],
+    [
+      1,
+      16,
+      1,
+      193
+    ]
+  ],
+  "objectInfo": {
+    "testStaleness3.js:18:1:23:2": [
+      {
+        "objectId": 2,
+        "creationTime": 2,
+        "creationCallStack": [],
+        "unreachableTime": 21,
+        "unreachableSite": "end of program",
+        "staleness": 3,
+        "lastUseTime": 18,
+        "lastUseSite": {
+          "sourceFileId": 1,
+          "iid": 113
+        },
+        "shallowSize": 2,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 3,
+        "creationTime": 2,
+        "creationCallStack": [],
+        "unreachableTime": 21,
+        "unreachableSite": "end of program",
+        "staleness": 19,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness3.js:20:11:22:4": [
+      {
+        "objectId": 5,
+        "creationTime": 12,
+        "creationCallStack": [
+          {
+            "sourceFileId": 1,
+            "iid": 113
+          }
+        ],
+        "unreachableTime": 16,
+        "unreachableSite": "testStaleness3.js:18:1:23:2",
+        "staleness": 4,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 3,
+        "type": "FUNCTION"
+      },
+      {
+        "objectId": 6,
+        "creationTime": 12,
+        "creationCallStack": [
+          {
+            "sourceFileId": 1,
+            "iid": 113
+          }
+        ],
+        "unreachableTime": 16,
+        "unreachableSite": "testStaleness3.js:18:1:23:2",
+        "staleness": 4,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 1,
+        "type": "PROTOTYPE"
+      }
+    ],
+    "testStaleness3.js:25:9:25:16": [
+      {
+        "objectId": 4,
+        "creationTime": 6,
+        "creationCallStack": [],
+        "unreachableTime": 21,
+        "unreachableSite": "end of program",
+        "staleness": 15,
+        "lastUseTime": "never used",
+        "lastUseSite": "never used",
+        "shallowSize": 2,
+        "type": "OBJECT"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+[5,"FUNCTION","test/testdata/testStaleness3.js:20:11:22:4",12,["test/testdata/testStaleness3.js:25:9:25:16"],12,"test/testdata/testStaleness3.js:20:11:22:4",16,"test/testdata/testStaleness3.js:18:1:23:2"]
+[6,"PROTOTYPE","test/testdata/testStaleness3.js:20:11:22:4",12,["test/testdata/testStaleness3.js:25:9:25:16"],12,"test/testdata/testStaleness3.js:20:11:22:4",16,"test/testdata/testStaleness3.js:18:1:23:2"]
+[2,"FUNCTION","test/testdata/testStaleness3.js:18:1:23:2",2,[],18,"test/testdata/testStaleness3.js:25:9:25:16",21,"end of program"]
+[4,"OBJECT","test/testdata/testStaleness3.js:25:9:25:16",6,[],6,"test/testdata/testStaleness3.js:18:1:23:2",21,"end of program"]
+[3,"PROTOTYPE","test/testdata/testStaleness3.js:18:1:23:2",2,[],2,"test/testdata/testStaleness3.js:18:1:23:2",21,"end of program"]
+last use
+[3,2,"test/testdata/testStaleness3.js:18:1:23:2"]
+[4,6,"test/testdata/testStaleness3.js:18:1:23:2"]
+[5,12,"test/testdata/testStaleness3.js:20:11:22:4"]
+[6,12,"test/testdata/testStaleness3.js:20:11:22:4"]
+[2,18,"test/testdata/testStaleness3.js:25:9:25:16"]
+unreachable
+[5,16,"test/testdata/testStaleness3.js:18:1:23:2"]
+[6,16,"test/testdata/testStaleness3.js:18:1:23:2"]
+[3,21,"end of program"]
+[4,21,"end of program"]
+[2,21,"end of program"]

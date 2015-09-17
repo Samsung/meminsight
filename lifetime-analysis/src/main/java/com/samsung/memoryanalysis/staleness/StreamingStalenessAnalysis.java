@@ -272,7 +272,7 @@ public class StreamingStalenessAnalysis implements
     @Override
     public void updateIID(int objId, SourceLocId newIID) {
         AllocInfo objInfo = live.get(objId);
-        assert objInfo != null;
+        assert objInfo != null : "no object info for " + objId;
         objInfo.allocationIID = newIID;
         objInfo.creationCallStack = callStackAsList();
         IIDUpdateRecord record = new IIDUpdateRecord(objId, objInfo.creationTime, newIID);
