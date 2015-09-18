@@ -40,7 +40,7 @@ module.exports = function(grunt) {
             }
         },
         exec: {
-            build_lifetime: 'cd lifetime-analysis; gradle installApp; cd ..'
+            build_lifetime: 'cd lifetime-analysis; gradle installDist; cd ..'
         }
     });
     grunt.registerTask('default', ['typescript','exec']);

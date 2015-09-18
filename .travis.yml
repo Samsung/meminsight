@@ -1,8 +1,8 @@
 language: node_js
 before_install:
-  - wget https://services.gradle.org/distributions/gradle-2.3-bin.zip
-  - unzip gradle-2.3-bin.zip
-  - export GRADLE_HOME=$PWD/gradle-2.3
+  - wget https://services.gradle.org/distributions/gradle-2.7-bin.zip
+  - unzip gradle-2.7-bin.zip
+  - export GRADLE_HOME=$PWD/gradle-2.7
   - export PATH=$GRADLE_HOME/bin:$PATH
   - mkdir travis-phantomjs
   - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2 -O $PWD/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
