@@ -42,6 +42,18 @@ module ___LoggingAnalysis___ {
                 mutations.forEach((mut: MutationRecord) => {
                     var target = mut.target;
                     var targetId = idManager.findExtantObjId(target);
+                    // to expose the operation of "moving" a DOM node in a nice way,
+                    // we log remove events before add events.  This way, if a node
+                    // is moved in the tree, the trace shows it removed before it is added elsewhere.
+                    // If the trace reflects the add operation first, then logically this
+                    // violates the tree property until the remove is processed.
+                    var removed = mut.removedNodes;
+                    for (i = 0; i < removed.length; i++) {
+                        var removedNode = removed[i];
+                        var removedId = this.findOrCreateIdForDOMNode(removedNode,false);
+                        this.logger.logRemoveDOMChild(targetId, removedId);
+
+                    }
                     var added = mut.addedNodes;
                     for (var i = 0; i < added.length; i++) {
                         var child = added[i];
@@ -50,13 +62,6 @@ module ___LoggingAnalysis___ {
                         if (!this.isObserved(child)) {
                             this.domWalk(child);
                         }
-                    }
-                    var removed = mut.removedNodes;
-                    for (i = 0; i < removed.length; i++) {
-                        var removedNode = removed[i];
-                        var removedId = this.findOrCreateIdForDOMNode(removedNode,false);
-                        this.logger.logRemoveDOMChild(targetId, removedId);
-
                     }
                     didSomething = didSomething || added.length > 0 || removed.length > 0;
                 });

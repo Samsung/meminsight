@@ -437,8 +437,8 @@
         "creationCallStack": [],
         "unreachableTime": 78,
         "unreachableSite": "unknown",
-        "staleness": 1,
-        "lastUseTime": 77,
+        "staleness": 3,
+        "lastUseTime": 75,
         "lastUseSite": "removed from DOM",
         "shallowSize": 1,
         "type": "DOM"

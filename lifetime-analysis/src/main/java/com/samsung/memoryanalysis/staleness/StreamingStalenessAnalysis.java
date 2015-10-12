@@ -296,6 +296,14 @@ public class StreamingStalenessAnalysis implements
     private final Map<Integer, Set<Integer>> domParent2Children = HashMapFactory
             .make();
 
+    /**
+     * sometimes, when a node is moved in the live DOM, we see the addDomChild record
+     * corresponding to its new position before we see the removeDomChild record corresponding
+     * to its removal from the original position.  This set tracks the nodes that
+     * temporarily have multiple parents due to this issue.
+     */
+    private final Set<Integer> domNodesWithTwoParents = HashSetFactory.make();
+
     @Override
     public void addDOMChild(int parentId, int childId, long time) {
         Set<Integer> children = domParent2Children.get(parentId);
@@ -304,6 +312,10 @@ public class StreamingStalenessAnalysis implements
             if (!domParent2Children.containsKey(childId)) {
                 domParent2Children
                         .put(childId, HashSetFactory.<Integer> make());
+            } else {
+                // the node already has a parent
+                assert !domNodesWithTwoParents.contains(childId);
+                domNodesWithTwoParents.add(childId);
             }
             // we also know that the DOM child is live. if it is not
             // recorded as such, add a revived record for it
@@ -326,11 +338,17 @@ public class StreamingStalenessAnalysis implements
             worklist.push(childId);
             while (!worklist.isEmpty()) {
                 Integer curNode = worklist.removeFirst();
+                if (domNodesWithTwoParents.contains(curNode)) {
+                    // this node got added somewhere else in the DOM.
+                    // so, don't proceed with the delete operation here.
+                    domNodesWithTwoParents.remove(curNode);
+                    continue;
+                }
                 LastUseUnreachableInfo info = getLastUseUnreachableInfo(curNode);
                 info.mostRecentUseTime = time;
                 info.mostRecentUseSite = SourceMap.REMOVE_FROM_DOM_SITE;
                 Set<Integer> curChildren = domParent2Children.get(curNode);
-                assert curChildren != null;
+                assert curChildren != null : curNode + " not in the current DOM! parentId " + parentId + " childId " + childId;
                 worklist.addAll(curChildren);
                 domParent2Children.remove(curNode);
             }
