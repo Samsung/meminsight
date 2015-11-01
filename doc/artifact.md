@@ -16,7 +16,7 @@ which includes some minor changes made since the submission.
 Installation
 ------------
 
-Our virtual machine is available [here](https://www.dropbox.com/s/ae4plyvxz1dmvjw/meminsight.ova?dl=0) (3.1GB, md5 `95faa3c7f7b2dcd57071afd508e02eef`).  Here is some
+Our virtual machine is available [here](http://1drv.ms/1KNXRR4) (click the Download link on that page, 3.1GB, md5 `95faa3c7f7b2dcd57071afd508e02eef`).  Here is some
 information about the machine:
 
 * username / password: vagrant / vagrant (due to use of [Vagrant](https://www.vagrantup.com).  This user can run sudo commands without a password)
