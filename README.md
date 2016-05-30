@@ -12,7 +12,7 @@ unnecessary allocation.  For further details, see
 Prerequisites
 -------------
 
-* [node.js](http://nodejs.org) v0.10 or greater
+* [node.js](http://nodejs.org) v4.x (other versions *not* supported)
 * [Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) version 7 or higher
 * [Gradle](https://www.gradle.org/)
 
