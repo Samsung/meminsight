@@ -8,8 +8,7 @@ install:
   - npm install
   - ./node_modules/.bin/grunt
 node_js:
-   - "0.10"
-   - "0.12"
+   - "4"
 sudo: false
 cache:
   directories:
