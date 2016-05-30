@@ -295,7 +295,10 @@ module ___LoggingAnalysis___ {
             if (isLiteral && typeof obj === 'function') {
                 // create ID for prototype as well
                 var proto = obj.prototype;
-                var protoId = helper(proto);
+                // prototype can be undefined for getters / setters
+                if (proto !== undefined) {
+                    helper(proto);
+                }
                 var funEnterIID:number = getFunEnterIID(obj);
                 this.logger.logCreateFun(allocIID, funEnterIID, objId);
             } else if (isBrowser && obj instanceof Node) {

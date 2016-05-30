@@ -4,4 +4,3 @@ Id: 3     Alloc: testRefCount23.js:16:1:16:24             Time: 27         Loc: 
 Id: 4     Alloc: testRefCount23.js:18:9:18:29             Time: 27         Loc: end of program
 Id: 5     Alloc: testRefCount23.js:19:9:19:55             Time: 27         Loc: end of program
 Id: 6     Alloc: testRefCount23.js:19:9:19:55             Time: 27         Loc: end of program
-Id: 7     Alloc: testRefCount23.js:19:9:19:55             Time: 27         Loc: end of program
