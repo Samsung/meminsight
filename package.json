@@ -37,5 +37,6 @@
     "grunt-exec": "^0.4.6",
     "grunt-simple-mocha": "0.4.0",
     "grunt-typescript": "0.6.1"
-  }
+  },
+  "license": "Apache-2.0"
 }
